@@ -86,22 +86,23 @@ public:
     }
 };
 
-class WriteStmt : Statement{
-    std::string str;
+class WriteStmt : public Statement{
+    ExprPtr str;
 public:
     std::string get_name()override{return "Write Statement";}
     // 构造函数：接受多个语句
-    explicit WriteStmt(char* _str)
-        : str(_str) {
+    explicit WriteStmt(ExprPtr expr)
+        : str(std::move(expr)) {
             log("WriteStmt Construt");
         }
 
     // 生成 C 代码
     std::string codeGen() override {
         std::ostringstream out,size_log;
-        size_log << "[Output string  = "<<str<<"]";
+        size_log << "[Output string  = "<<str->get_name()<<"]";
         log(size_log.str());
-        out<<"printf(\"%d\","<< str <<")";
+        
+        out<<"printf(\"%d\","<< str->codeGen() <<");";
         return out.str();
     }
 };

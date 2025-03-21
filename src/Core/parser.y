@@ -298,6 +298,7 @@ statement:
   | repeat_statement {$$=$1;}
   | for_statement {$$=$1;}
   | case_statement {$$=$1;}
+  | write_statement {$$=$1;}
   ;
 
 assignment_statement:
@@ -397,9 +398,9 @@ case_element:
   ;
 
 write_statement:
-  WRITE LPAREN expression RPAREN
+  WRITE LPAREN expression RPAREN SEMICOLON
   {
-    $$=new StmtPtr(std::make_shared<WriteStatement>(*((ExprPtr*)$3)));
+    $$=new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3)));
     delete (ExprPtr*)$3;
   }
   ;
