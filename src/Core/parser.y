@@ -398,10 +398,10 @@ case_element:
   ;
 
 write_statement:
-  WRITE LPAREN expression RPAREN SEMICOLON
+  WRITE LPAREN expression_list RPAREN SEMICOLON
   {
     $$=new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3)));
-    delete (ExprPtr*)$3;
+    delete (ExprVec*)$3;
   }
   ;
 

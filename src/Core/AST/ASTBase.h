@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include<iostream>
+
+
 // AST 节点基类
 class ASTNode {
 public:
@@ -44,7 +46,9 @@ using DeclVec = std::vector<DeclPtr>;
 class ProgramAST : public ASTNode {
     std::string name;  // Pascal 主程序名称
     std::shared_ptr<Statement> body;  // 程序主体
-    std::string environment = "#include <stdio.h> \n";
+    std::string environment = 
+        #include "environment.h"
+    ;
 
 public:
     ProgramAST(const std::string& name, std::shared_ptr<Statement> body)

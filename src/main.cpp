@@ -8,6 +8,8 @@ int main(int argc, char* argv[]) {
 
     // **1️⃣ 读取 Pascal 源代码**
     std::ifstream inputFile("../test.pas",std::ios::binary);
+    std::ofstream outputFile("../res.c");
+
     std::ostringstream oss; 
     oss << inputFile.rdbuf();
     auto pascalCode = oss.str();
@@ -23,7 +25,7 @@ int main(int argc, char* argv[]) {
     auto& root = getAST();
 
     // **4️⃣ 输出转换后的 C 代码**
-    std::cout << "\n\n===Generated C Code===\n" << root.codeGen() << std::endl;
+    outputFile << root.codeGen() << std::endl;
 
     return 0;
 }

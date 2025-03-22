@@ -87,22 +87,23 @@ public:
 };
 
 class WriteStmt : public Statement{
-    ExprPtr str;
+    ExprVec vec;
 public:
     std::string get_name()override{return "Write Statement";}
     // 构造函数：接受多个语句
-    explicit WriteStmt(ExprPtr expr)
-        : str(std::move(expr)) {
+    explicit WriteStmt(ExprVec expr)
+        : vec(std::move(expr)) {
             log("WriteStmt Construt");
         }
 
     // 生成 C 代码
     std::string codeGen() override {
         std::ostringstream out,size_log;
-        size_log << "[Output string  = "<<str->get_name()<<"]";
+        size_log << "[Output expression count  = "<<vec.size()<<"]";
         log(size_log.str());
-        
-        out<<"printf(\"%d\","<< str->codeGen() <<");";
+        for(auto& e : vec){
+            out<<"write("<<e->codeGen()<<");\n";
+        }
         return out.str();
     }
 };
