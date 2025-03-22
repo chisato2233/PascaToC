@@ -3,14 +3,20 @@
 
 // **变量引用表达式**
 class VariableExpr : public Expression {
-    std::string name;
 public:
+    std::string name;
     explicit VariableExpr(const std::string& name) : name(name) {}
     std::string get_name()override{return "Variable Expression [" + name +"]";}
     std::string codeGen() override {
         return name; // 变量名在 C 代码中保持不变
     }
 };
+
+_VisitDecl_(CCodeGenVisitor,VariableExpr){
+    output<<node->name;
+}
+
+
 
 class BinaryExpr : public Expression {
 public:
@@ -27,9 +33,9 @@ public:
         log("BinaryExpr Construct");
     }
 
-    std::string codeGen() override {
+    std::string get_op_str(Op _op){
         std::string opSymbol;
-        switch (op) {
+        switch (_op) {
             case Plus: opSymbol = "+"; break;
             case Minus: opSymbol = "-"; break;
             case Multiply: opSymbol = "*"; break;
@@ -51,14 +57,24 @@ public:
             
             default: opSymbol = "/* unknown_op */"; break;
         }
-
-        return "(" + lhs->codeGen() + " " + opSymbol + " " + rhs->codeGen() + ")";
+        return opSymbol;
     }
 
-private:
+    std::string codeGen() override {
+        return "(" + lhs->codeGen() + " " + get_op_str(op) + " " + rhs->codeGen() + ")";
+    }
+
     Op op;
     std::shared_ptr<Expression> lhs, rhs;
 };
+
+_VisitDecl_(CCodeGenVisitor,BinaryExpr){
+    output<< "(" ;
+    node->lhs->accept(*this); 
+    output<<" " << node->get_op_str(node->op) << " " ;
+    node->rhs->accept(*this); 
+    output <<")";
+}
 
 
 class UnaryExpr : public Expression {
@@ -73,27 +89,39 @@ public:
         : op(op), expr(std::move(expr)) {
         log("UnaryExpr Construct");
     }
-
-    std::string codeGen() override {
-        std::string opSymbol;
-        switch (op) {
+    std::string get_op_str(Op _op){
+         std::string opSymbol;
+        switch (_op) {
             case Not: opSymbol = "!"; break;
             case Neg: opSymbol = "-"; break;
             case Pos: opSymbol = "+"; break;
             default: opSymbol = "/* unknown unary op */"; break;
         }
-        return "(" + opSymbol + expr->codeGen() + ")";
+        return opSymbol;
     }
 
-private:
+    std::string codeGen() override {
+       
+        return "(" + get_op_str(op) + expr->codeGen() + ")";
+    }
+
     Op op;
     std::shared_ptr<Expression> expr;
 };
 
+_VisitDecl_(CCodeGenVisitor,UnaryExpr){
+    output<< "(" ;
+    output<<" " << node->get_op_str(node->op) << " " ;
+    node->expr->accept(*this); 
+    output <<")";
+}
+
+
+
 class NumberExpr : public Expression {
-    int value;
 
 public:
+    int value;
     explicit NumberExpr(int val) : value(val) {
         log("NumberExpr Construct");
     }
@@ -103,10 +131,17 @@ public:
     }
 };
 
+_VisitDecl_(CCodeGenVisitor,NumberExpr){
+    output<<node->value;
+}
+
+
+
+
 class RealExpr : public Expression {
-    double value;
 
 public:
+    double value;
     explicit RealExpr(double val) : value(val) {
         log("RealExpr Construct");
     }
@@ -115,10 +150,17 @@ public:
         return std::to_string(value);
     }
 };
+_VisitDecl_(CCodeGenVisitor,RealExpr){
+    output<<node->value;
+}
+
+
+
+
 class BoolExpr : public Expression {
-    bool value;
 
 public:
+    bool value;
     explicit BoolExpr(bool val) : value(val) {
         log("BoolExpr Construct");
     }
@@ -128,10 +170,16 @@ public:
     }
 };
 
+_VisitDecl_(CCodeGenVisitor,BoolExpr){
+    output<<node->value;
+}
+
+
+
 class StringExpr : public Expression {
-    std::string value;
 
 public:
+    std::string value;
     explicit StringExpr(const char* val) : value(val) {
         log("StringExpr Construct");
     }
@@ -140,12 +188,17 @@ public:
         return "\"" + value + "\"";  // 生成字符串字面量
     }
 };
+_VisitDecl_(CCodeGenVisitor,StringExpr){
+    output<<"\""<<node->value<<"\"";
+}
+
+
 
 class FunctionCall : public Expression {
-    std::string funcName;
-    std::vector<std::shared_ptr<Expression>> args;
 
 public:
+    std::string funcName;
+    std::vector<std::shared_ptr<Expression>> args;
     FunctionCall(const std::string& name, std::vector<std::shared_ptr<Expression>> args)
         : funcName(name), args(std::move(args)) {
         log("FunctionCall Construct: " + funcName);
@@ -165,3 +218,13 @@ public:
         return "FunctionCall to " + funcName;
     }
 };
+_VisitDecl_(CCodeGenVisitor,FunctionCall){
+    output<< node-> funcName << "(";
+    for (size_t i = 0; i < node->args.size(); ++i) {
+        node->args[i]->accept(*this);
+        if (i + 1 < node->args.size()) 
+            output << ", ";
+    }
+    output << ")";
+}
+
