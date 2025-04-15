@@ -9,12 +9,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define YY_USER_ACTION yylloc.last_column += yyleng;
-
-
+#define YY_USER_ACTION \
+    yylloc.first_line = yylloc.last_line; \
+    yylloc.first_column = yylloc.last_column; \
+    for(int i = 0; i < yyleng; i++) { \
+        if(yytext[i] == '\n') { \
+            yylloc.last_line++; \
+            yylloc.last_column = 0; \
+        } else { \
+            yylloc.last_column++; \
+        } \
+    }
 
 extern YYSTYPE yylval;
-
 
 // 输入重定向（支持字符串输入）
 static char* g_input_string = NULL;
@@ -34,6 +41,12 @@ int string_input(char* buf, int max_size) {
 #define YY_INPUT(buf, result, max_size) \
     { result = string_input(buf, max_size); }
 
+// 初始化位置信息
+void init_lexer_location() {
+    yylloc.first_line = yylloc.last_line = 1;
+    yylloc.first_column = yylloc.last_column = 0;
+}
+
 %}
 
 DIGIT       [0-9]
@@ -47,10 +60,19 @@ STRING      \'([^\'\\]|\\.)*\'
 
 %%
 
-{WHITESPACE}    { /* skip */ }
+{WHITESPACE}    { /* 空白字符，不返回token但会影响位置跟踪 */ }
 
-"{"[^}]*"}"     { /* skip comments */ }
-"//".*          { /* skip single-line comments */ }
+"{"[^}]*"}"     { 
+    /* 处理块注释，需要计算其中的换行 */
+    for(int i = 0; i < yyleng; i++) {
+        if(yytext[i] == '\n') {
+            yylloc.last_line++;
+            yylloc.last_column = 0;
+        }
+    }
+}
+
+"//".*          { /* 单行注释，不包含换行 */ }
 
 "program"       { return PROGRAM; }
 "begin"         { return BEGIN_TOKEN; }
@@ -158,6 +180,9 @@ void set_input_string(const char* input) {
     g_input_string = strdup(input);
     g_input_string_len = strlen(g_input_string);
     g_input_string_pos = 0;
+    
+    // 重置位置信息
+    init_lexer_location();
 }
 
 // 清理输入字符串资源
@@ -166,4 +191,15 @@ void clear_input_string() {
     g_input_string = NULL;
     g_input_string_len = 0;
     g_input_string_pos = 0;
+}
+
+// 获取当前位置信息（用于错误报告）
+YYLTYPE get_current_location() {
+    return yylloc;
+}
+
+// 错误报告辅助函数
+void report_error(const char* message) {
+    fprintf(stderr, "错误 (行 %d, 列 %d): %s\n", 
+            yylloc.first_line, yylloc.first_column, message);
 }

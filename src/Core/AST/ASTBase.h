@@ -11,7 +11,6 @@
     }
 
 #define _CRTPHelp_(type) public std::enable_shared_from_this<type>
-
 #define _VisitDecl_(VisitorType,NodeType)                                              \
         template<>                                                                      \
         inline void VisitorType::visitImpl(std::shared_ptr<NodeType> node)
