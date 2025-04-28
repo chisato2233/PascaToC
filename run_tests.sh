@@ -27,7 +27,7 @@ for pas_file in "$TEST_DIR"/*.pas; do
     echo "测试用例：$base"
 
     # 将 pas 文件翻译为 .c 文件，生成的 xxx.c 放在当前目录下
-    pascc -i "$pas_file"
+    ./pascc -i "$pas_file"
     if [ $? -ne 0 ]; then
         echo "  pascc 翻译失败: $pas_file"
         continue
