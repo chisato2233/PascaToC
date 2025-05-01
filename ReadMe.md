@@ -14,6 +14,7 @@
 - docs 文档目录
 - 3rdparty windows上需要的三方库。
 - build cmake构建目录，exe在这里面找，每个人都不一样所以在gitignore中。
+- open_set 里是公开的测试用例，.pas文件是源程序，.in文件是程序的输入（如果需要的话），.out文件是程序执行的结果。脚本run_pas.sh编译并执行每个程序得到了结果。
 
 # 注意
 好像需要改成linux版本才能弄到头哥上，所以需要迁移一下
