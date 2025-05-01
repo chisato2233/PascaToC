@@ -1,8 +1,18 @@
 cmake_minimum_required(VERSION 3.14)
 project(PascalToC CXX)
 
+# 设置使用Clang编译器
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# 添加Clang特定编译选项
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+
+# 启用导出编译命令，帮助IDE提供代码补全
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. 根据平台不同设置 Flex/Bison 可执行文件路径
@@ -70,6 +80,12 @@ if(WIN32)
     include_directories(
         ${CMAKE_SOURCE_DIR}/3rdparty/win_flex_bison
     )
+endif()
+
+# 对于WSL，确保使用系统安装的flex/bison
+if(NOT WIN32)
+    # 确保使用系统安装的flex和bison
+    message(STATUS "Using system Flex and Bison")
 endif()
 
 # ─────────────────────────────────────────────────────────────────────────────
