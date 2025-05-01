@@ -1,6 +1,7 @@
 #pragma once
-#include<memory>
-#include<concepts>
+#include <memory>
+#include <sstream>
+
 
 template<typename Derived>
 class ASTVisitor {
@@ -16,6 +17,6 @@ class CCodeGenVisitor : public ASTVisitor<CCodeGenVisitor>{
     std::ostringstream output;
 
     template<typename NodeType>
-    void visitImpl(std::shared_ptr<NodeType> node){
+    void visitImpl(std::shared_ptr<NodeType>){
     }  
 };
