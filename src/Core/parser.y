@@ -57,6 +57,7 @@ void set_parse_result(std::string* result) {
     ExprVec* expr_list;
     StmtVec* stmt_list;
     DeclVec* decl_list;
+    std::vector<int>* range_list;    /* 新增，用来保存数组各维的大小 */
 }
 
 %token PROGRAM BEGIN_TOKEN END_TOKEN
@@ -100,6 +101,10 @@ void set_parse_result(std::string* result) {
 
 %type <ptr> case_element constant 
 
+%type <int_val> index_range
+%type <range_list> index_range_list
+
+
 %start program
 
 %%
@@ -107,8 +112,8 @@ void set_parse_result(std::string* result) {
 program:
   PROGRAM IDENTIFIER SEMICOLON program_block DOT
   {
-    if(parse_result){(*parse_result)+="sucess\n";}
-    root=std::make_unique<ProgramAST>($2,*((StmtPtr*)$4));
+    if(parse_result){ (*parse_result)+="sucess\n"; }
+    root = std::make_unique<ProgramAST>($2, *((StmtPtr*)$4));
     delete (StmtPtr*)$4;
   }
   ;
@@ -116,7 +121,7 @@ program:
 program_block:
   declarations compound_statement
   {
-    $$=new StmtPtr(std::make_shared<BlockStmt>(*($1),*((StmtPtr*)$2)));
+    $$ = new StmtPtr(std::make_shared<BlockStmt>(*($1), *((StmtPtr*)$2)));
     delete $1;
     delete (StmtPtr*)$2;
   }
@@ -164,29 +169,30 @@ type_declaration:
 var_declarations:
   VAR var_declaration_list
   {
-    $$=$2;
+    $$ = $2;
   }
   ;
 
 var_declaration_list:
   var_declaration
   {
-    $$=new DeclVec();
+    $$ = new DeclVec();
     $$->push_back(*$1);
     delete $1;
   }
   | var_declaration_list var_declaration
   {
-    $$=$1;
+    $$ = $1;
     $$->push_back(*$2);
     delete $2;
   }
   ;
 
+// 生成 VarDeclaration 节点，支持普通变量和数组变量
 var_declaration:
   identifier_list COLON type SEMICOLON
   {
-    $$=new DeclPtr(std::make_shared<VarDeclaration>(*($1),$3));
+    $$ = new DeclPtr(std::make_shared<VarDeclaration>(*($1), $3));
     delete $1;
   }
   ;
@@ -229,16 +235,30 @@ type:
   ;
 
 simple_type:
-  INTEGER {$$=strdup("int");}
-  | REAL_TYPE {$$=strdup("double");}
-  | BOOLEAN {$$=strdup("bool");}
-  | STRING_TYPE {$$=strdup("char*");}
-  | CHAR {$$=strdup("char");}
-  | IDENTIFIER {$$=$1;}
+  INTEGER { $$ = strdup("int"); }
+  | REAL_TYPE { $$ = strdup("double"); }
+  | BOOLEAN { $$ = strdup("bool"); }
+  | STRING_TYPE { $$ = strdup("char*"); }
+  | CHAR { $$ = strdup("char"); }
+  | IDENTIFIER { $$ = $1; }
   ;
 
 array_type:
-  ARRAY LBRACKET range RBRACKET OF type
+  ARRAY LBRACKET index_range_list RBRACKET OF type
+  {
+    /* $3 为 index_range_list ，$6 为 type 产生式返回的字符串（基类型） */
+    std::vector<int>* dims = $3;
+    std::ostringstream oss;
+    oss << $6;
+    // 对每个维度，依次追加 [size]
+    for (int size : *dims) {
+        oss << "[" << size << "]";
+    }
+    std::string typeStr = oss.str();
+    $$ = strdup(typeStr.c_str());
+    free($6);
+    delete dims;
+  }
   ;
 
 record_type:
@@ -258,6 +278,26 @@ range:
   constant DOTDOT constant
   ;
 
+/* 单个下标范围：例如 1..10，则大小为 10 */
+index_range:
+    INTEGER_CONST DOTDOT INTEGER_CONST {
+        $$ = $3 - $1 + 1;
+    }
+    ;
+
+/* 下标范围列表：只有一维 */
+index_range_list:
+    index_range {
+        $$ = new std::vector<int>();
+        $$->push_back($1);
+    }
+  | index_range_list COMMA index_range {
+        $$ = $1;
+        $$->push_back($3);
+    }
+    ;
+
+
 constant:
   INTEGER_CONST
   | REAL_CONST
@@ -269,7 +309,7 @@ constant:
 compound_statement:
   BEGIN_TOKEN statement_list END_TOKEN
   {
-    $$=new StmtPtr(std::make_shared<CompoundStmt>(*(std::vector<std::shared_ptr<Statement>>*)$2));
+    $$ = new StmtPtr(std::make_shared<CompoundStmt>(*(std::vector<std::shared_ptr<Statement>>*)$2));
     delete (std::vector<std::shared_ptr<Statement>>*)$2;
   }
   ;
@@ -277,34 +317,34 @@ compound_statement:
 statement_list:
   statement
   {
-    $$=new std::vector<std::shared_ptr<Statement>>();
+    $$ = new std::vector<std::shared_ptr<Statement>>();
     $$->push_back(*((StmtPtr*)$1));
     delete (StmtPtr*)$1;
   }
   | statement_list statement
   {
-    $$=$1;
+    $$ = $1;
     $$->push_back(*((StmtPtr*)$2));
     delete (StmtPtr*)$2;
   }
   ;
 
 statement:
-  assignment_statement {$$=$1;}
-  | procedure_statement {$$=$1;}
-  | compound_statement {$$=$1;}
-  | if_statement {$$=$1;}
-  | while_statement {$$=$1;}
-  | repeat_statement {$$=$1;}
-  | for_statement {$$=$1;}
-  | case_statement {$$=$1;}
-  | write_statement {$$=$1;}
+  assignment_statement { $$ = $1; }
+  | procedure_statement { $$ = $1; }
+  | compound_statement { $$ = $1; }
+  | if_statement { $$ = $1; }
+  | while_statement { $$ = $1; }
+  | repeat_statement { $$ = $1; }
+  | for_statement { $$ = $1; }
+  | case_statement { $$ = $1; }
+  | write_statement { $$ = $1; }
   ;
 
 assignment_statement:
   IDENTIFIER ASSIGN expression SEMICOLON
   {
-    $$=new StmtPtr(std::make_shared<AssignmentStmt>($1,*((ExprPtr*)$3)));
+    $$ = new StmtPtr(std::make_shared<AssignmentStmt>($1, *((ExprPtr*)$3)));
     delete (ExprPtr*)$3;
   }
   ;
@@ -317,13 +357,13 @@ procedure_statement:
 if_statement:
   IF expression THEN statement
   {
-    $$=new StmtPtr(std::make_shared<IfStmt>(*((ExprPtr*)$2),*((StmtPtr*)$4),nullptr));
+    $$ = new StmtPtr(std::make_shared<IfStmt>(*((ExprPtr*)$2), *((StmtPtr*)$4), nullptr));
     delete (ExprPtr*)$2;
     delete (StmtPtr*)$4;
   }
   | IF expression THEN statement ELSE statement
   {
-    $$=new StmtPtr(std::make_shared<IfStmt>(*((ExprPtr*)$2),*((StmtPtr*)$4),*((StmtPtr*)$6)));
+    $$ = new StmtPtr(std::make_shared<IfStmt>(*((ExprPtr*)$2), *((StmtPtr*)$4), *((StmtPtr*)$6)));
     delete (ExprPtr*)$2;
     delete (StmtPtr*)$4;
     delete (StmtPtr*)$6;
@@ -333,7 +373,7 @@ if_statement:
 while_statement:
   WHILE expression DO statement
   {
-    $$=new StmtPtr(std::make_shared<WhileStmt>(*((ExprPtr*)$2),*((StmtPtr*)$4)));
+    $$ = new StmtPtr(std::make_shared<WhileStmt>(*((ExprPtr*)$2), *((StmtPtr*)$4)));
     delete (ExprPtr*)$2;
     delete (StmtPtr*)$4;
   }
@@ -342,7 +382,7 @@ while_statement:
 repeat_statement:
   REPEAT statement_list UNTIL expression
   {
-    $$=new StmtPtr(std::make_shared<RepeatStmt>(*(std::vector<std::shared_ptr<Statement>>*)$2,*((ExprPtr*)$4)));
+    $$ = new StmtPtr(std::make_shared<RepeatStmt>(*(std::vector<std::shared_ptr<Statement>>*)$2, *((ExprPtr*)$4)));
     delete (std::vector<std::shared_ptr<Statement>>*)$2;
     delete (ExprPtr*)$4;
   }
@@ -351,7 +391,7 @@ repeat_statement:
 for_statement:
   FOR IDENTIFIER ASSIGN expression direction expression DO statement
   {
-    $$=new StmtPtr(std::make_shared<ForStmt>($2,*((ExprPtr*)$4),$5,*((ExprPtr*)$6),*((StmtPtr*)$8)));
+    $$ = new StmtPtr(std::make_shared<ForStmt>($2, *((ExprPtr*)$4), $5, *((ExprPtr*)$6), *((StmtPtr*)$8)));
     free($2);
     delete (ExprPtr*)$4;
     delete (ExprPtr*)$6;
@@ -367,7 +407,7 @@ direction:
 case_statement:
   CASE expression OF case_element_list END_TOKEN
   {
-    $$=new StmtPtr(std::make_shared<CaseStmt>(*((ExprPtr*)$2),*(std::vector<std::shared_ptr<Statement>>*)$4));
+    $$ = new StmtPtr(std::make_shared<CaseStmt>(*((ExprPtr*)$2), *(std::vector<std::shared_ptr<Statement>>*)$4));
     delete (ExprPtr*)$2;
     delete (std::vector<std::shared_ptr<Statement>>*)$4;
   }
@@ -376,13 +416,13 @@ case_statement:
 case_element_list:
   case_element
   {
-    $$=new std::vector<std::shared_ptr<Statement>>();
+    $$ = new std::vector<std::shared_ptr<Statement>>();
     $$->push_back(*((StmtPtr*)$1));
     delete (StmtPtr*)$1;
   }
   | case_element_list SEMICOLON case_element
   {
-    $$=$1;
+    $$ = $1;
     $$->push_back(*((StmtPtr*)$3));
     delete (StmtPtr*)$3;
   }
@@ -391,7 +431,7 @@ case_element_list:
 case_element:
   constant COLON statement
   {
-    $$=new StmtPtr(std::make_shared<CaseElementStmt>(*((ExprPtr*)$1),*((StmtPtr*)$3)));
+    $$ = new StmtPtr(std::make_shared<CaseElementStmt>(*((ExprPtr*)$1), *((StmtPtr*)$3)));
     delete (ExprPtr*)$1;
     delete (StmtPtr*)$3;
   }
@@ -400,7 +440,7 @@ case_element:
 write_statement:
   WRITE LPAREN expression_list RPAREN SEMICOLON
   {
-    $$=new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3)));
+    $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3)));
     delete (ExprVec*)$3;
   }
   ;
@@ -408,17 +448,18 @@ write_statement:
 expression_list:
   expression
   {
-    $$=new ExprVec();
+    $$ = new ExprVec();
     $$->push_back(*$1);
     delete $1;
   }
   | expression_list COMMA expression
   {
-    $$=$1;
+    $$ = $1;
     $$->push_back(*$3);
     delete $3;
   }
   ;
+
 expression:
     simple_expression
   {
@@ -563,7 +604,7 @@ factor:
 function_call:
   IDENTIFIER LPAREN expression_list RPAREN
   {
-    $$=new ExprPtr(std::make_shared<FunctionCall>($1,*(std::vector<std::shared_ptr<Expression>>*)$3));
+    $$ = new ExprPtr(std::make_shared<FunctionCall>($1, *(std::vector<std::shared_ptr<Expression>>*)$3));
     delete (std::vector<std::shared_ptr<Expression>>*)$3;
   }
   ;
@@ -571,12 +612,12 @@ function_call:
 identifier_list:
   IDENTIFIER
   {
-    $$=new std::vector<std::string>();
+    $$ = new std::vector<std::string>();
     $$->push_back($1);
   }
   | identifier_list COMMA IDENTIFIER
   {
-    $$=$1;
+    $$ = $1;
     $$->push_back($3);
   }
   ;
@@ -584,10 +625,10 @@ identifier_list:
 %%
 
 void yyerror(const char*s){
-  std::cerr<<"Syntax Error: "<<s<<std::endl;
+  std::cerr << "Syntax Error: " << s << std::endl;
   if(parse_result){
-    (*parse_result)+="error: ";
-    (*parse_result)+=s;
-    (*parse_result)+="\n";
+    (*parse_result) += "error: ";
+    (*parse_result) += s;
+    (*parse_result) += "\n";
   }
 }
