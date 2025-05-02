@@ -1,0 +1,4 @@
+CompileFlags:
+  Add: ["-Wno-unused-includes"]
+Diagnostics:
+  Suppress: ["unused-includes"]

@@ -1,0 +1,36 @@
+[2025-05-01 19:24:26.347] [pascc] [info] 日志系统初始化完成
+[2025-05-01 19:24:26.347] [pascc] [info] + Program: main
+[2025-05-01 19:24:26.347] [pascc] [info]   Body:
+[2025-05-01 19:24:26.347] [pascc] [info]   + Block
+[2025-05-01 19:24:26.347] [pascc] [info]     Declarations:
+[2025-05-01 19:24:26.347] [pascc] [info]       + Variable Declaration: int
+[2025-05-01 19:24:26.347] [pascc] [info]         - a
+[2025-05-01 19:24:26.347] [pascc] [info]         - b
+[2025-05-01 19:24:26.347] [pascc] [info]         - c
+[2025-05-01 19:24:26.347] [pascc] [info]         - d
+[2025-05-01 19:24:26.347] [pascc] [info]     Body:
+[2025-05-01 19:24:26.347] [pascc] [info]       + Compound Statement
+[2025-05-01 19:24:26.347] [pascc] [info]         + Assignment: a =
+[2025-05-01 19:24:26.347] [pascc] [info]           + Number: 10
+[2025-05-01 19:24:26.347] [pascc] [info]         + Assignment: b =
+[2025-05-01 19:24:26.347] [pascc] [info]           + Number: 4
+[2025-05-01 19:24:26.347] [pascc] [info]         + Assignment: c =
+[2025-05-01 19:24:26.347] [pascc] [info]           + Number: 2
+[2025-05-01 19:24:26.347] [pascc] [info]         + Assignment: d =
+[2025-05-01 19:24:26.347] [pascc] [info]           + Number: 2
+[2025-05-01 19:24:26.347] [pascc] [info]         + Write Statement
+[2025-05-01 19:24:26.347] [pascc] [info]           + Binary Op: *
+[2025-05-01 19:24:26.347] [pascc] [info]             Left:
+[2025-05-01 19:24:26.347] [pascc] [info]               + Binary Op: +
+[2025-05-01 19:24:26.347] [pascc] [info]                 Left:
+[2025-05-01 19:24:26.347] [pascc] [info]                   + Variable: c
+[2025-05-01 19:24:26.347] [pascc] [info]                 Right:
+[2025-05-01 19:24:26.347] [pascc] [info]                   + Variable: a
+[2025-05-01 19:24:26.347] [pascc] [info]             Right:
+[2025-05-01 19:24:26.347] [pascc] [info]               + Binary Op: -
+[2025-05-01 19:24:26.347] [pascc] [info]                 Left:
+[2025-05-01 19:24:26.347] [pascc] [info]                   + Variable: b
+[2025-05-01 19:24:26.347] [pascc] [info]                 Right:
+[2025-05-01 19:24:26.347] [pascc] [info]                   + Variable: d
+[2025-05-01 19:24:26.347] [pascc] [info] Block Statement
+[2025-05-01 19:24:26.347] [pascc] [error] 错误: Called accept on base ASTNode

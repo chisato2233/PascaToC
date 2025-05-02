@@ -1,0 +1,16 @@
+[2025-05-02 18:16:51.395] [pascc] [info] 日志系统初始化完成
+[2025-05-02 18:16:51.395] [pascc] [info] + Program: main
+[2025-05-02 18:16:51.395] [pascc] [info]   Body:
+[2025-05-02 18:16:51.395] [pascc] [info]   + Block
+[2025-05-02 18:16:51.395] [pascc] [info]     Declarations:
+[2025-05-02 18:16:51.395] [pascc] [info]       + Variable Declaration: int
+[2025-05-02 18:16:51.395] [pascc] [info]         - a
+[2025-05-02 18:16:51.395] [pascc] [info]     Body:
+[2025-05-02 18:16:51.395] [pascc] [info]       + Compound Statement
+[2025-05-02 18:16:51.395] [pascc] [info]         + Assignment: a =
+[2025-05-02 18:16:51.395] [pascc] [info]           + Number: 60
+[2025-05-02 18:16:51.395] [pascc] [info]         + Write Statement
+[2025-05-02 18:16:51.395] [pascc] [info]           + Unary Op: !
+[2025-05-02 18:16:51.395] [pascc] [info]             Operand:
+[2025-05-02 18:16:51.395] [pascc] [info]               + Variable: a
+[2025-05-02 18:16:51.395] [pascc] [info] 转换完成: '28_unary_op.pas' -> '28_unary_op.c'

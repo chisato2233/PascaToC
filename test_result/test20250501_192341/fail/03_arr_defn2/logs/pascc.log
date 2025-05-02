@@ -1,0 +1,12 @@
+[2025-05-01 19:23:41.214] [pascc] [info] 日志系统初始化完成
+[2025-05-01 19:23:41.214] [pascc] [info] + Program: main
+[2025-05-01 19:23:41.214] [pascc] [info]   Body:
+[2025-05-01 19:23:41.214] [pascc] [info]   + Block
+[2025-05-01 19:23:41.214] [pascc] [info]     Declarations:
+[2025-05-01 19:23:41.214] [pascc] [info]       + Variable Declaration: int[10][10]
+[2025-05-01 19:23:41.214] [pascc] [info]         - a
+[2025-05-01 19:23:41.214] [pascc] [info]     Body:
+[2025-05-01 19:23:41.214] [pascc] [info]       + Compound Statement
+[2025-05-01 19:23:41.214] [pascc] [info]         + Write Statement
+[2025-05-01 19:23:41.214] [pascc] [info]           + Number: 0
+[2025-05-01 19:23:41.214] [pascc] [error] 错误: Called accept on base ASTNode
