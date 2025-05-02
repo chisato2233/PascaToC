@@ -1,6 +1,8 @@
 #include "Core/PascalParse.h"
 #include <cstring>
 #include "parser.tab.h"  // C 模式下是 parser.h 不是 parser.hpp
+#include "AST/visitor.h"
+#include <sstream>
 
 // 声明在 lexer.l 和 parser.y 中定义的函数
 extern void set_input_string(const char* input);
@@ -10,6 +12,7 @@ extern void set_parse_result(std::string* result);
 extern int yyparse();
 extern int yydebug;
 extern std::unique_ptr<ASTNode> root;
+
 
 PascalParser::PascalParser() {
 }
@@ -34,3 +37,4 @@ bool PascalParser::parse(const std::string& input) {
 std::string PascalParser::getResult() const {
     return result;
 }
+

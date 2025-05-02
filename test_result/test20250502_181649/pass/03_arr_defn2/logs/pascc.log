@@ -1,0 +1,12 @@
+[2025-05-02 18:16:49.672] [pascc] [info] 日志系统初始化完成
+[2025-05-02 18:16:49.672] [pascc] [info] + Program: main
+[2025-05-02 18:16:49.672] [pascc] [info]   Body:
+[2025-05-02 18:16:49.672] [pascc] [info]   + Block
+[2025-05-02 18:16:49.672] [pascc] [info]     Declarations:
+[2025-05-02 18:16:49.672] [pascc] [info]       + Variable Declaration: int[10][10]
+[2025-05-02 18:16:49.672] [pascc] [info]         - a
+[2025-05-02 18:16:49.672] [pascc] [info]     Body:
+[2025-05-02 18:16:49.672] [pascc] [info]       + Compound Statement
+[2025-05-02 18:16:49.672] [pascc] [info]         + Write Statement
+[2025-05-02 18:16:49.672] [pascc] [info]           + Number: 0
+[2025-05-02 18:16:49.672] [pascc] [info] 转换完成: '03_arr_defn2.pas' -> '03_arr_defn2.c'

@@ -27,7 +27,7 @@ using ExprPtr = std::shared_ptr<Expression>;
 using StmtPtr = std::shared_ptr<Statement>;
 using DeclPtr = std::shared_ptr<Declaration>;
 
-std::unique_ptr<ASTNode> root;
+std::shared_ptr<ASTNode> root;
 static std::string* parse_result = nullptr;
 
 extern int yylex();
@@ -35,13 +35,16 @@ extern int yylineno;
 extern char* yytext;
 void yyerror(const char *s);
 
-ASTNode& getAST() {
-    return *root;
+std::shared_ptr<ASTNode> getAST() {
+    return root;
 }
 
 void set_parse_result(std::string* result) {
     parse_result = result;
 }
+
+// 跟踪当前处理的声明列表
+DeclVec* current_declarations = nullptr;
 %}
 
 
@@ -113,7 +116,7 @@ program:
   PROGRAM IDENTIFIER SEMICOLON program_block DOT
   {
     if(parse_result){ (*parse_result)+="sucess\n"; }
-    root = std::make_unique<ProgramAST>($2, *((StmtPtr*)$4));
+    root = std::make_shared<ProgramAST>($2, *((StmtPtr*)$4));
     delete (StmtPtr*)$4;
   }
   ;
@@ -128,9 +131,21 @@ program_block:
   ;
 
 declarations:
-  const_declarations
-  | type_declarations
+  {
+    // 创建一个新的声明向量并设为当前
+    $$ = new DeclVec();
+    current_declarations = $$;
+  }
+  | const_declarations
+  {
+    // const_declarations已经更新了current_declarations
+    $$ = current_declarations;
+    current_declarations = nullptr;
+  }
   | var_declarations
+  {
+    $$ = $1;
+  }
   | procedure_declarations
   | function_declarations
   | declarations const_declarations
@@ -142,6 +157,9 @@ declarations:
 
 const_declarations:
   CONST const_declaration_list
+  {
+    // 不需要额外动作
+  }
   ;
 
 const_declaration_list:
@@ -151,6 +169,18 @@ const_declaration_list:
 
 const_declaration:
   IDENTIFIER EQUAL constant SEMICOLON
+  {
+    // 简单地创建常量声明节点
+    DeclPtr declPtr = std::make_shared<ConstDeclaration>($1, *((ExprPtr*)$3));
+    
+    // 如果在declarations上下文中，将其添加到当前声明列表
+    // 这段需要在parser.y的开头声明一个全局变量来跟踪当前声明列表
+    if (current_declarations != nullptr) {
+        current_declarations->push_back(declPtr);
+    }
+    
+    delete (ExprPtr*)$3;
+  }
   ;
 
 type_declarations:
@@ -300,10 +330,25 @@ index_range_list:
 
 constant:
   INTEGER_CONST
+  {
+    $$ = new ExprPtr(std::make_shared<NumberExpr>($1));
+  }
   | REAL_CONST
+  {
+    $$ = new ExprPtr(std::make_shared<RealExpr>($1));
+  }
   | STRING_CONST
+  {
+    $$ = new ExprPtr(std::make_shared<StringExpr>($1));
+  }
   | BOOL_CONST
+  {
+    $$ = new ExprPtr(std::make_shared<BoolExpr>($1));
+  }
   | IDENTIFIER
+  {
+    $$ = new ExprPtr(std::make_shared<VariableExpr>($1));
+  }
   ;
 
 compound_statement:

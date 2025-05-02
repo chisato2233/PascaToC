@@ -110,52 +110,60 @@ inline SymbolTable GlobalSymbolTable;
 
 // 变量声明节点（支持普通变量和数组变量）
 // 如果 typeName 含有 '[' 则认为是数组类型，例如 "int[10]"
-class VarDeclaration : public Declaration, _CRTPHelp_(VarDeclaration) {
+class VarDeclaration : public ASTAcceptImpl<VarDeclaration,Declaration> {
 public:
-    _GenerateAccept_()
     std::vector<std::string> varNames;
     std::string typeName; // 可能为 "int" 或形如 "int[10]"
     
     VarDeclaration(std::vector<std::string> names, std::string type)
         : varNames(std::move(names)), typeName(std::move(type)) {
-        log("VarDeclaration Construct");
     }
     
-    std::string codeGen() override {
-        std::ostringstream out;
-        // 如果 typeName 中含有 '[' 则认为是数组，需将数组维度放在变量名后面
-        size_t pos = typeName.find('[');
-        if (pos != std::string::npos) {
-            std::string baseType = typeName.substr(0, pos);
-            std::string arraySuffix = typeName.substr(pos); // 包含 [ 和 ]
-            for (const auto& name : varNames) {
-                GlobalSymbolTable.addSymbol(std::make_shared<VariableInfo>(name, typeName));
-                out << baseType << " " << name << arraySuffix << ";\n";
-            }
-        } else {
-            // 普通变量声明
-            for (const auto& name : varNames) {
-                GlobalSymbolTable.addSymbol(std::make_shared<VariableInfo>(name, typeName));
-                out << typeName << " " << name << ";\n";
-            }
+    void printAST(int indent = 0) const override {
+        std::string padding = getIndent(indent);
+        spdlog::info("{}+ Variable Declaration: {}", padding, typeName);
+        for (const auto& name : varNames) {
+            spdlog::info("{}  - {}", padding, name);
         }
-        return out.str();
     }
 };
 
 _VisitDecl_(CCodeGenVisitor, VarDeclaration) {
-    size_t pos = node->typeName.find('[');
+    size_t pos = node.typeName.find('[');
     if (pos != std::string::npos) {
-        std::string baseType = node->typeName.substr(0, pos);
-        std::string arraySuffix = node->typeName.substr(pos);
-        for (const auto &name : node->varNames) {
-            GlobalSymbolTable.addSymbol(std::make_shared<VariableInfo>(name, node->typeName));
+        std::string baseType = node.typeName.substr(0, pos);
+        std::string arraySuffix = node.typeName.substr(pos);
+        for (const auto &name : node.varNames) {
+            GlobalSymbolTable.addSymbol(std::make_shared<VariableInfo>(name, node.typeName));
             output << baseType << " " << name << arraySuffix << ";\n";
         }
     } else {
-        for (const auto &name : node->varNames) {
-            GlobalSymbolTable.addSymbol(std::make_shared<VariableInfo>(name, node->typeName));
-            output << node->typeName << " " << name << ";\n";
+        for (const auto &name : node.varNames) {
+            GlobalSymbolTable.addSymbol(std::make_shared<VariableInfo>(name, node.typeName));
+            output << node.typeName << " " << name << ";\n";
         }
     }
+}
+
+// 常量声明节点
+class ConstDeclaration : public ASTAcceptImpl<ConstDeclaration,Declaration> {
+public:
+    std::string constName;
+    ExprPtr constValue;  // 直接存储表达式，而不是字符串值
+    
+    ConstDeclaration(const std::string& name, ExprPtr value)
+        : constName(name), constValue(std::move(value)) {
+    }
+    
+    void printAST(int indent = 0) const override {
+        std::string padding = getIndent(indent);
+        spdlog::info("{}+ Constant Declaration: {}", padding, constName);
+        constValue->printAST(indent + 1);
+    }
+};
+
+_VisitDecl_(CCodeGenVisitor, ConstDeclaration) {
+    output << "#define " << node.constName << " ";
+    node.constValue->accept(*this);
+    output << "\n";
 }

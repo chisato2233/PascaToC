@@ -6,7 +6,7 @@
 #include <memory>
 #include "AST.h"
 
-ASTNode& getAST();
+extern std::shared_ptr<ASTNode> getAST();
 class PascalParser {
 public:
     // 构造函数

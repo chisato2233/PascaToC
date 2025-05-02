@@ -9,10 +9,13 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 添加Clang特定编译选项
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused-includes")
 
 # 启用导出编译命令，帮助IDE提供代码补全
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# 查找spdlog库
+find_package(spdlog REQUIRED)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. 根据平台不同设置 Flex/Bison 可执行文件路径
@@ -89,9 +92,9 @@ if(NOT WIN32)
 endif()
 
 # ─────────────────────────────────────────────────────────────────────────────
-# 5. 定义最终可执行文件 compiler，并将 Bison/Flex 输出添加进去
+# 5. 定义最终可执行文件 pascc，并将 Bison/Flex 输出添加进去
 # ─────────────────────────────────────────────────────────────────────────────
-add_executable(compiler
+add_executable(pascc
     ${CMAKE_SOURCE_DIR}/src/main.cpp
     ${CMAKE_SOURCE_DIR}/src/Core/PascalParse.cpp
 
@@ -99,6 +102,9 @@ add_executable(compiler
     ${BISON_Parser_OUTPUTS}
     ${FLEX_Lexer_OUTPUTS}
 )
+
+# 链接spdlog库到pascc可执行文件
+target_link_libraries(pascc PRIVATE spdlog::spdlog)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 6. 设置依赖顺序: 先生成 Parser / Lexer，再编译 compiler
