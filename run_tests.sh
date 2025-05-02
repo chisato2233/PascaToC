@@ -7,7 +7,7 @@ passed=0
 
 # 创建结果目录，使用当前时间戳
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-RESULT_DIR="test_result/test${TIMESTAMP}"
+RESULT_DIR="result/test${TIMESTAMP}"
 PASS_DIR="$RESULT_DIR/pass"
 FAIL_DIR="$RESULT_DIR/fail"
 mkdir -p "$RESULT_DIR" "$PASS_DIR" "$FAIL_DIR"
