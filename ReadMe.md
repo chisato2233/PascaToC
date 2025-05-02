@@ -15,7 +15,7 @@
 - 3rdparty windows上需要的三方库。
 - build cmake构建目录，exe在这里面找，每个人都不一样所以在gitignore中。
 - open_set 里是公开的测试用例，.pas文件是源程序，.in文件是程序的输入（如果需要的话），.out文件是程序执行的结果。脚本run_pas.sh编译并执行每个程序得到了结果。
-
+- last_test_result 这里放最终的测试结果
 # 注意
 好像需要改成linux版本才能弄到头哥上，所以需要迁移一下
 FLex + Bison进行词法分析和语法分析
@@ -23,57 +23,24 @@ FLex + Bison进行词法分析和语法分析
 # 快速开始
 确保安装过（并且在环境变量里）：
   - Cmake
-  - VS （Windows）
-  - g++（Linux）
+  - clang（Linux）
+  - spdlog
 
 导航到CmakeLists.txt目录下：
 ```
 mkdir build
 cd build
 cmake ..
+
+
 ```
 
 # 示例
-在 test.pas中输入
+在项目根目录运行：
 ```
-program main;
-var
-  a,b: integer;
-begin
-  a := 3;
-end.
-
+sudo chmod +x ./run_tests.sh
+./run_tests.sh
 ```
-输出
-```
-===Pascal Code===
-program main;
-var
-  a,b: integer;
-begin
-  a := 3;
-end.
-===============
 
-[Declaration]>>> VarDeclaration Construct
-[Expression]>>> NumberExpr Construct
-[Assignment Statement]>>> AssignmentStmt Construct
-[Compound Statement]>>> CompoundStmt Construt
-[Block Statement]>>> BlockStmt Construct
-[Defult AST Node]>>> ProgramAST Construct
-
-
-===Generated C Code===
-[Defult AST Node]>>> [name = main] [body name = Block Statement]
-[Block Statement]>>> [declaration count = 1] [body name = Compound Statement]       
-[Compound Statement]>>> [Statement Count = 1]
-[Compound Statement]>>> [0] Assignment Statement
-#include <stdio.h>
-int main()
-{
-int a;
-int b;
-a = 3;
-}
-
-```
+结果会保存在 /result/中
+./last_test_result保存了最新的测试结果

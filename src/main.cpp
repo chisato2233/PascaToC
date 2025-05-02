@@ -15,7 +15,7 @@ void printUsage() {
 
 void initLogger() {
     // 设置日志格式
-    spdlog::set_pattern("[%Y-%m-%d %H:%M:%S.%e] [%^%l%$] [%s:%#] %v");
+    spdlog::set_pattern("[%^%l%$] [%s:%#] %v");
     
     // 设置日志级别
     spdlog::set_level(spdlog::level::debug);
