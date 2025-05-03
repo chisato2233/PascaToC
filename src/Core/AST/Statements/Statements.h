@@ -414,27 +414,16 @@ _VisitDecl_(CCodeGenVisitor, ProgramAST) {
         std::vector<DeclPtr> globalDeclarations;
         std::vector<DeclPtr> localDeclarations;
         
-        // 分离全局声明和局部声明
         for (const auto& decl : blockStmt->declarations) {
-            if (std::dynamic_pointer_cast<FunctionDeclaration>(decl) || 
-                std::dynamic_pointer_cast<ProcedureDeclaration>(decl)) {
-                globalDeclarations.push_back(decl);
-            } else {
-                localDeclarations.push_back(decl);
-            }
-        }
-        blockStmt->declarations = std::move(localDeclarations);
-        
-        // 生成全局函数和过程声明
-        for (const auto& decl : globalDeclarations) {
             decl->accept(*this);
             output << "\n"; 
         }
         
         // 生成main函数，包含局部变量声明
-        output << "int main() \n";
+        output << "int main() {\n";
         // 生成函数体代码
-        blockStmt->accept(*this);
+        blockStmt->body->accept(*this);
+        output << "}\n";
     } else {
         // 如果body不是BlockStmt，则直接生成
         output << "int main() \n";
@@ -447,3 +436,5 @@ _VisitDecl_(CCodeGenVisitor, ProgramAST) {
 #include "ProcedureCallStmt.h"
 
 #include "ReadStmt.h"
+#include "ArrayAssignmentStmt.h"
+#include "EmptyStmt.h"

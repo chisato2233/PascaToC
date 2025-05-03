@@ -38,7 +38,8 @@ bool PascalParser::parse(const std::string& input) {
         spdlog::debug("语法分析成功");
         return true;
     } else {
-        spdlog::error("语法分析失败");
+        auto last_token = get_token_stream().back();
+        spdlog::error("语法分析失败: 在{}行{}列", last_token.line, last_token.column);
         return false;
     }
 }

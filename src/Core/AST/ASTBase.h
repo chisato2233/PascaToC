@@ -202,6 +202,7 @@ public:
         Integer,
         Real,
         Boolean,
+        Char,
         String,
         Unknown
     };
@@ -212,6 +213,7 @@ public:
             case ExprType::Integer: return "int";
             case ExprType::Real: return "double";
             case ExprType::Boolean: return "int"; // C中通常用int表示布尔值
+            case ExprType::Char: return "char";
             case ExprType::String: return "char*"; // 字符串特殊处理
             default: return "void";
         }

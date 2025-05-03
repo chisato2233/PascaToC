@@ -178,8 +178,7 @@ declarations:
   }
   | procedure_declarations
   {
-    // 修复：为procedure_declarations添加正确的类型
-    $$ = new DeclVec(); // 返回空的声明列表
+    $$ = $1;
   }
   | function_declarations
   {
@@ -208,8 +207,15 @@ declarations:
   }
   | declarations procedure_declarations
   {
-    // 修复：添加类型匹配
     $$ = $1;
+    // 确保两个列表都存在
+    if ($1 && $2) {
+      // 将过程声明列表中的内容合并到$1中
+      for (const auto& procDecl : *$2) {
+        $$->push_back(procDecl);
+      }
+      spdlog::debug("合并过程声明后，声明列表包含{}个项目", $$->size());
+    }
   }
   | declarations function_declarations
   {
@@ -313,12 +319,13 @@ var_declaration:
 procedure_declarations:
   procedure_declaration SEMICOLON
   {
-    // 与函数声明类似，确保current_declarations有效
+    // 返回current_declarations，而不是只检查它
     if (current_declarations == nullptr) {
-      spdlog::error("从procedure_declaration返回后current_declarations为空");
+      spdlog::error("从procedure_declaration返回后current_declarations为空，创建新的");
       current_declarations = new DeclVec();
     }
-    spdlog::debug("过程声明处理完成，当前声明列表包含{}个项目", current_declarations->size());
+    $$ = current_declarations; // 添加这行，返回声明列表
+    spdlog::debug("过程声明处理完成，当前声明列表包含{}个项目", $$->size());
   }
   ;
 
@@ -480,7 +487,7 @@ type:
 simple_type:
   INTEGER { $$ = strdup("int"); }
   | REAL_TYPE { $$ = strdup("double"); }
-  | BOOLEAN { $$ = strdup("bool"); }
+  | BOOLEAN { $$ = strdup("int"); }
   | STRING_TYPE { $$ = strdup("char*"); }
   | CHAR { $$ = strdup("char"); }
   | IDENTIFIER { $$ = $1; }
@@ -615,6 +622,11 @@ statement:
   | case_statement { $$ = $1; }
   | write_statement { $$ = $1; }
   | read_statement { $$ = $1; }
+  | /* 空语句 */ 
+  {
+    // 创建一个空语句节点
+    $$ = new StmtPtr(std::make_shared<EmptyStmt>());
+  }
   ;
 
 assignment_statement:
@@ -628,6 +640,24 @@ assignment_statement:
     }
     free($1);
     delete (ExprPtr*)$3;
+  }
+  | IDENTIFIER LBRACKET expression RBRACKET ASSIGN expression
+  {
+    // 数组元素赋值
+    auto arrayAccess = std::make_shared<ArrayAccessExpr>($1, *((ExprPtr*)$3));
+    $$ = new StmtPtr(std::make_shared<ArrayAssignmentStmt>(arrayAccess, *((ExprPtr*)$6)));
+    free($1);
+    delete (ExprPtr*)$3;
+    delete (ExprPtr*)$6;
+  }
+  | IDENTIFIER LBRACKET expression_list RBRACKET ASSIGN expression
+  {
+    // 多维数组元素赋值
+    auto arrayAccess = std::make_shared<ArrayAccessExpr>($1, *$3);
+    $$ = new StmtPtr(std::make_shared<ArrayAssignmentStmt>(arrayAccess, *((ExprPtr*)$6)));
+    free($1);
+    delete $3;
+    delete (ExprPtr*)$6;
   }
 
 procedure_statement:
@@ -818,11 +848,20 @@ simple_expression:
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
+  | PLUS term %prec NEG
+  {
+    $$ = $2; // 处理+term的情况
+  }
   | simple_expression MINUS term
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Minus, *((ExprPtr*)$1), *((ExprPtr*)$3)));
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
+  }
+  | MINUS term %prec NEG
+  {
+    $$ = new ExprPtr(std::make_shared<UnaryExpr>(UnaryExpr::Neg, *((ExprPtr*)$2)));
+    delete (ExprPtr*)$2;
   }
   | simple_expression OR term
   {
@@ -878,10 +917,18 @@ factor:
   {
     $$ = new ExprPtr(std::make_shared<NumberExpr>(-$2));
   }
+  | PLUS INTEGER_CONST %prec NEG
+  {
+    $$ = new ExprPtr(std::make_shared<NumberExpr>($2));
+  }
   | MINUS factor %prec NEG
   {
     $$ = new ExprPtr(std::make_shared<UnaryExpr>(UnaryExpr::Neg, *((ExprPtr*)$2)));
     delete (ExprPtr*)$2;
+  }
+  | PLUS factor %prec NEG
+  {
+    $$ = $2; // 正号(+)不改变表达式的值
   }
   | REAL_CONST
   {
@@ -911,6 +958,19 @@ factor:
   | function_call
   {
     $$ = $1;
+  }
+  | IDENTIFIER LBRACKET expression RBRACKET
+  {
+    $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>($1, *((ExprPtr*)$3)));
+    free($1);
+    delete (ExprPtr*)$3;
+  }
+  | IDENTIFIER LBRACKET expression_list RBRACKET
+  {
+    // 支持多维数组访问
+    $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>($1, *$3));
+    free($1);
+    delete $3;
   }
 ;
 
