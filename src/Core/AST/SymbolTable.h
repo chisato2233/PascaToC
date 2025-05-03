@@ -93,17 +93,37 @@ inline static SymbolTable GlobalSymbolTable;
 // 变量符号信息
 class VariableInfo : public SymbolInfo {
 public:
-    VariableInfo(std::string name, std::string type)
-        : SymbolInfo(SymbolType::Variable, std::move(name), std::move(type)) {}
+    bool isReference = false; // 新增：标记变量是否为引用
+
+    VariableInfo(std::string name, std::string type, bool isRef = false)
+        : SymbolInfo(SymbolType::Variable, std::move(name), std::move(type)), 
+          isReference(isRef) {}
 };
 
+
+// 修改：参数定义，增加isRef字段表示参数是否为引用
+class ParameterInfo : public SymbolInfo {
+public:
+    bool isRef;
+    
+    ParameterInfo(std::string n, std::string t, bool ref = false) 
+        : SymbolInfo(SymbolType::Variable, std::move(n), std::move(t)),
+          isRef(ref) {}
+};
+    
 // 函数符号信息
 class FunctionInfo : public SymbolInfo {
 public:
-    std::vector<std::pair<std::string, std::string>> parameters; // 参数名和类型
+
+    std::vector<ParameterInfo> parameters; // 修改为新的参数结构
     
     FunctionInfo(std::string name, std::string returnType)
         : SymbolInfo(SymbolType::Function, std::move(name), std::move(returnType)) {}
+    
+    // 添加参数的便捷方法
+    void addParameter(const std::string& name, const std::string& type, bool isRef = false) {
+        parameters.emplace_back(name, type, isRef);
+    }
 };
 
 // 常量符号信息

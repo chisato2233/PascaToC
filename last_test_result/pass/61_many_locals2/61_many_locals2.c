@@ -3,6 +3,7 @@
 #include <string.h>
 
 void write_int(int x)        { printf("%d", x); }
+void write_longlong(long long x)        { printf("%lld", x); }
 void write_float(float x)    { printf("%f", x); }
 
 void write_char(char x)      { putchar(x); }
@@ -35,6 +36,7 @@ void write_double(double x) {
 
 #define write(x) _Generic((x), \
     int: write_int, \
+    long long: write_longlong, \
     float: write_float, \
     double: write_double, \
     char: write_char, \
@@ -47,6 +49,7 @@ void write_double(double x) {
 
 // 为不同类型实现read函数
 void read_int(int* x)        { scanf("%d", x); }
+void read_longlong(long long* x)        { scanf("%lld", x); }
 void read_float(float* x)    { scanf("%f", x); }
 void read_double(double* x)  { scanf("%lf", x); }
 void read_char(char* x)      { 
@@ -68,81 +71,94 @@ void read_cstr(char* s, int max_len) {
 // 注意：由于read需要传递指针，使用方式与write不同
 #define read(x) _Generic((x), \
     int*: read_int, \
+    long long*: read_longlong, \
     float*: read_float, \
     double*: read_double, \
-    char*: read_char \
+    char*: read_char, \
+    const char*: read_cstr \
 )(x)
 
 // 字符串需要特殊处理，因为需要指定最大长度
 #define read_string(str, max_len) read_cstr(str, max_len)
+// 确保模运算结果为正数
 
-int main() 
-{
-int n;
-int ret;
-int b;
-int a0;
-int a1;
-int a2;
-int a3;
-int a4;
-int a5;
-int a6;
-int a7;
-int a8;
-int a9;
-int a10;
-int a11;
-int a12;
-int a13;
-int a14;
-int a15;
-int a16;
-int a17;
-int a18;
-int a19;
-int a20;
-int a21;
-int a22;
-int a23;
-int a24;
-int a25;
-int a26;
-int a27;
-int a28;
-int a29;
+// 确保模运算结果为正数
+int mod(int a, int m) {
+  int result = a % m;
+  return result >= 0 ? result : result + m;
+}
+
+long long n;
+long long ret;
+
+long long b;
+
+long long a0;
+long long a1;
+long long a2;
+long long a3;
+long long a4;
+long long a5;
+long long a6;
+long long a7;
+long long a8;
+long long a9;
+
+long long a10;
+long long a11;
+long long a12;
+long long a13;
+long long a14;
+long long a15;
+long long a16;
+long long a17;
+long long a18;
+long long a19;
+
+long long a20;
+long long a21;
+long long a22;
+long long a23;
+long long a24;
+long long a25;
+long long a26;
+long long a27;
+long long a28;
+long long a29;
+
+int main() {
 b = 5;
 ret = 0;
 a0 = 0;
-a1 = (a0 + 1);
-a2 = (a1 + 1);
-a3 = (a2 + 1);
-a4 = (a3 + 1);
-a5 = (a4 + 1);
-a6 = (a5 + 1);
-a7 = (a6 + 1);
-a8 = (a7 + 1);
-a9 = (a8 + 1);
-a10 = (a9 + 1);
-a11 = (a10 + 1);
-a12 = (a11 + 1);
-a13 = (a12 + 1);
-a14 = (a13 + 1);
-a15 = (a14 + 1);
-a16 = (a15 + 1);
-a17 = (a16 + 1);
-a18 = (a17 + 1);
-a19 = (a18 + 1);
-a20 = (a19 + 1);
-a21 = (a20 + 1);
-a22 = (a21 + 1);
-a23 = (a22 + 1);
-a24 = (a23 + 1);
-a25 = (a24 + 1);
-a26 = (a25 + 1);
-a27 = (a26 + 1);
-a28 = (a27 + 1);
-a29 = (a28 + 1);
+a1 = a0 + 1;
+a2 = a1 + 1;
+a3 = a2 + 1;
+a4 = a3 + 1;
+a5 = a4 + 1;
+a6 = a5 + 1;
+a7 = a6 + 1;
+a8 = a7 + 1;
+a9 = a8 + 1;
+a10 = a9 + 1;
+a11 = a10 + 1;
+a12 = a11 + 1;
+a13 = a12 + 1;
+a14 = a13 + 1;
+a15 = a14 + 1;
+a16 = a15 + 1;
+a17 = a16 + 1;
+a18 = a17 + 1;
+a19 = a18 + 1;
+a20 = a19 + 1;
+a21 = a20 + 1;
+a22 = a21 + 1;
+a23 = a22 + 1;
+a24 = a23 + 1;
+a25 = a24 + 1;
+a26 = a25 + 1;
+a27 = a26 + 1;
+a28 = a27 + 1;
+a29 = a28 + 1;
 write(a0);
 
 write(a1);

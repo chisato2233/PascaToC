@@ -3,6 +3,7 @@
 #include <string.h>
 
 void write_int(int x)        { printf("%d", x); }
+void write_longlong(long long x)        { printf("%lld", x); }
 void write_float(float x)    { printf("%f", x); }
 
 void write_char(char x)      { putchar(x); }
@@ -35,6 +36,7 @@ void write_double(double x) {
 
 #define write(x) _Generic((x), \
     int: write_int, \
+    long long: write_longlong, \
     float: write_float, \
     double: write_double, \
     char: write_char, \
@@ -47,6 +49,7 @@ void write_double(double x) {
 
 // 为不同类型实现read函数
 void read_int(int* x)        { scanf("%d", x); }
+void read_longlong(long long* x)        { scanf("%lld", x); }
 void read_float(float* x)    { scanf("%f", x); }
 void read_double(double* x)  { scanf("%lf", x); }
 void read_char(char* x)      { 
@@ -68,68 +71,80 @@ void read_cstr(char* s, int max_len) {
 // 注意：由于read需要传递指针，使用方式与write不同
 #define read(x) _Generic((x), \
     int*: read_int, \
+    long long*: read_longlong, \
     float*: read_float, \
     double*: read_double, \
-    char*: read_char \
+    char*: read_char, \
+    const char*: read_cstr \
 )(x)
 
 // 字符串需要特殊处理，因为需要指定最大长度
 #define read_string(str, max_len) read_cstr(str, max_len)
+// 确保模运算结果为正数
 
-int testParam8(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7) {
-return (((((((a0 + a1) + a2) + a3) + a4) + a5) + a6) + a7);
+// 确保模运算结果为正数
+int mod(int a, int m) {
+  int result = a % m;
+  return result >= 0 ? result : result + m;
 }
 
-int testParam16(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15) {
-return (((((((((((((((a0 + a1) + a2) - a3) - a4) - a5) - a6) - a7) + a8) + a9) + a10) + a11) + a12) + a13) + a14) + a15);
+long long a0;
+long long a1;
+long long a2;
+long long a3;
+long long a4;
+long long a5;
+long long a6;
+long long a7;
+long long a8;
+long long a9;
+
+long long a10;
+long long a11;
+long long a12;
+long long a13;
+long long a14;
+long long a15;
+long long a16;
+long long a17;
+long long a18;
+long long a19;
+
+long long a20;
+long long a21;
+long long a22;
+long long a23;
+long long a24;
+long long a25;
+long long a26;
+long long a27;
+long long a28;
+long long a29;
+
+long long a30;
+long long a31;
+long long a32;
+long long a33;
+long long a34;
+long long a35;
+long long a36;
+long long a37;
+long long a38;
+long long a39;
+
+long long testParam8(long long a0, long long a1, long long a2, long long a3, long long a4, long long a5, long long a6, long long a7) {
+return a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7;
 }
 
-int testParam32(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14, int a15, int a16, int a17, int a18, int a19, int a20, int a21, int a22, int a23, int a24, int a25, int a26, int a27, int a28, int a29, int a30, int a31) {
-return (((((((((((((((((((((((((((((((a0 + a1) + a2) + a3) + a4) + a5) + a6) + a7) + a8) + a9) + a10) + a11) + a12) + a13) + a14) + a15) + a16) + a17) - a18) - a19) - a20) - a21) - a22) + a23) + a24) + a25) + a26) + a27) + a28) + a29) + a30) + a31);
+long long testParam16(long long a0, long long a1, long long a2, long long a3, long long a4, long long a5, long long a6, long long a7, long long a8, long long a9, long long a10, long long a11, long long a12, long long a13, long long a14, long long a15) {
+return a0 + a1 + a2 - a3 - a4 - a5 - a6 - a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15;
 }
 
-int main() 
-{
-int a0;
-int a1;
-int a2;
-int a3;
-int a4;
-int a5;
-int a6;
-int a7;
-int a8;
-int a9;
-int a10;
-int a11;
-int a12;
-int a13;
-int a14;
-int a15;
-int a16;
-int a17;
-int a18;
-int a19;
-int a20;
-int a21;
-int a22;
-int a23;
-int a24;
-int a25;
-int a26;
-int a27;
-int a28;
-int a29;
-int a30;
-int a31;
-int a32;
-int a33;
-int a34;
-int a35;
-int a36;
-int a37;
-int a38;
-int a39;
+long long testParam32(long long a0, long long a1, long long a2, long long a3, long long a4, long long a5, long long a6, long long a7, long long a8, long long a9, long long a10, long long a11, long long a12, long long a13, long long a14, long long a15, long long a16, long long a17, long long a18, long long a19, long long a20, long long a21, long long a22, long long a23, long long a24, long long a25, long long a26, long long a27, long long a28, long long a29, long long a30, long long a31) {
+return a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 - a18 - a19 - a20 - a21 - a22 + a23 + a24 + a25 + a26 + a27 + a28 + a29 + a30 + a31;
+}
+
+int main() {
 a0 = 0;
 a1 = 1;
 a2 = 2;

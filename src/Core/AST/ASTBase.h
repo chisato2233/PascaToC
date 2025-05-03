@@ -210,7 +210,7 @@ public:
     virtual ExprType getType() const { return ExprType::Unknown; }
     virtual std::string getCType() const { 
         switch(getType()) {
-            case ExprType::Integer: return "int";
+            case ExprType::Integer: return "long long";
             case ExprType::Real: return "double";
             case ExprType::Boolean: return "int"; // C中通常用int表示布尔值
             case ExprType::Char: return "char";

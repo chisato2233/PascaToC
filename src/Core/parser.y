@@ -94,8 +94,8 @@ std::string current_function_name = "";
 %type <int_val> direction
 
 %type <stmt_ptr> program_block compound_statement  statement
-%type <stmt_ptr> assignment_statement procedure_statement if_statement while_statement
-%type <stmt_ptr> repeat_statement for_statement case_statement write_statement read_statement
+%type <stmt_ptr> assignment_statement if_statement while_statement
+%type <stmt_ptr> repeat_statement for_statement case_statement write_statement read_statement procedure_statement
 %type <stmt_list> statement_list
 %type <stmt_list> case_element_list
 
@@ -112,6 +112,8 @@ std::string current_function_name = "";
 
 %type <int_val> index_range
 %type <range_list> index_range_list
+
+%type <expr_ptr> array_expression
 
 %precedence NEG
 
@@ -426,13 +428,15 @@ formal_parameters:
   {
     // 创建一个新的参数列表
     current_parameters = new std::vector<ParameterInfo>();
-    spdlog::debug("创建空的参数列表");
+  }
+  | LPAREN RPAREN  // 添加这个规则处理空括号
+  {
+    // 创建一个新的空参数列表
+    current_parameters = new std::vector<ParameterInfo>();
   }
   | LPAREN parameter_list RPAREN
   {
     // parameter_list已经填充了current_parameters
-    spdlog::debug("参数列表处理完成，包含{}个参数", 
-                 (current_parameters ? current_parameters->size() : 0));
   }
   ;
 
@@ -485,7 +489,7 @@ type:
   ;
 
 simple_type:
-  INTEGER { $$ = strdup("int"); }
+  INTEGER { $$ = strdup("long long"); }
   | REAL_TYPE { $$ = strdup("double"); }
   | BOOLEAN { $$ = strdup("int"); }
   | STRING_TYPE { $$ = strdup("char*"); }
@@ -641,45 +645,21 @@ assignment_statement:
     free($1);
     delete (ExprPtr*)$3;
   }
-  | IDENTIFIER LBRACKET expression RBRACKET ASSIGN expression
+  | array_expression ASSIGN expression
   {
-    // 数组元素赋值
-    auto arrayAccess = std::make_shared<ArrayAccessExpr>($1, *((ExprPtr*)$3));
-    $$ = new StmtPtr(std::make_shared<ArrayAssignmentStmt>(arrayAccess, *((ExprPtr*)$6)));
-    free($1);
+    // 数组赋值
+    auto arrayAccess = std::dynamic_pointer_cast<ArrayAccessExpr>(*((ExprPtr*)$1));
+    if (arrayAccess) {
+      $$ = new StmtPtr(std::make_shared<ArrayAssignmentStmt>(arrayAccess, *((ExprPtr*)$3)));
+    } else {
+      // 创建错误语句或抛出异常
+      spdlog::error("无法将表达式转换为数组访问表达式");
+      $$ = new StmtPtr(std::make_shared<EmptyStmt>());
+    }
+    delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
-    delete (ExprPtr*)$6;
-  }
-  | IDENTIFIER LBRACKET expression_list RBRACKET ASSIGN expression
-  {
-    // 多维数组元素赋值
-    auto arrayAccess = std::make_shared<ArrayAccessExpr>($1, *$3);
-    $$ = new StmtPtr(std::make_shared<ArrayAssignmentStmt>(arrayAccess, *((ExprPtr*)$6)));
-    free($1);
-    delete $3;
-    delete (ExprPtr*)$6;
   }
 
-procedure_statement:
-  IDENTIFIER
-  {
-    // 创建一个空的过程调用语句（无参数）
-    $$ = new StmtPtr(std::make_shared<ProcedureCallStmt>($1, ExprVec()));
-    free($1);
-  }
-  | IDENTIFIER LPAREN expression_list RPAREN
-  {
-    // 创建带参数的过程调用语句
-    $$ = new StmtPtr(std::make_shared<ProcedureCallStmt>($1, *$3));
-    free($1);
-    delete $3;
-  }
-  | IDENTIFIER LPAREN RPAREN  // 添加处理空参数列表的情况
-  {
-    $$ = new StmtPtr(std::make_shared<ProcedureCallStmt>($1, ExprVec()));
-    free($1);
-  }
-  ;
 
 if_statement:
   IF expression THEN statement
@@ -959,18 +939,9 @@ factor:
   {
     $$ = $1;
   }
-  | IDENTIFIER LBRACKET expression RBRACKET
+  | array_expression
   {
-    $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>($1, *((ExprPtr*)$3)));
-    free($1);
-    delete (ExprPtr*)$3;
-  }
-  | IDENTIFIER LBRACKET expression_list RBRACKET
-  {
-    // 支持多维数组访问
-    $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>($1, *$3));
-    free($1);
-    delete $3;
+    $$ = $1;
   }
 ;
 
@@ -997,6 +968,55 @@ identifier_list:
   {
     $$ = $1;
     $$->push_back($3);
+  }
+  ;
+
+procedure_statement:
+  IDENTIFIER
+  {
+    $$ = new StmtPtr(std::make_shared<FunctionCallStmt>($1, ExprVec()));
+    free($1);
+  }
+  | IDENTIFIER LPAREN expression_list RPAREN
+  {
+    $$ = new StmtPtr(std::make_shared<FunctionCallStmt>($1, *$3));
+    free($1);
+    delete $3;
+  }
+  | IDENTIFIER LPAREN RPAREN
+  {
+    $$ = new StmtPtr(std::make_shared<FunctionCallStmt>($1, ExprVec()));
+    free($1);
+  }
+  ;
+
+array_expression:
+  IDENTIFIER LBRACKET expression RBRACKET
+  {
+    $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>($1, *((ExprPtr*)$3)));
+    free($1);
+    delete (ExprPtr*)$3;
+  }
+  | IDENTIFIER LBRACKET expression_list RBRACKET
+  {
+    // 支持多维数组访问
+    $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>($1, *$3));
+    free($1);
+    delete $3;
+  }
+  | array_expression LBRACKET expression RBRACKET
+  {
+    // 支持嵌套数组访问，例如a[i][j]
+    auto prevAccess = std::dynamic_pointer_cast<ArrayAccessExpr>(*((ExprPtr*)$1));
+    if (prevAccess) {
+      // 创建新的嵌套访问
+      $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>(*((ExprPtr*)$1), *((ExprPtr*)$3)));
+    } else {
+      spdlog::error("嵌套数组访问的基础不是数组");
+      $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>("error", *((ExprPtr*)$3)));
+    }
+    delete (ExprPtr*)$1;
+    delete (ExprPtr*)$3;
   }
   ;
 
