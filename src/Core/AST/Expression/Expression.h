@@ -103,6 +103,47 @@ public:
         return opSymbol;
     }
 
+    // 添加获取操作符优先级的辅助函数
+    static int getOperatorPriority(BinaryExpr::Op op) {
+        switch (op) {
+            // 乘法、除法和模运算优先级最高
+            case BinaryExpr::Multiply:
+            case BinaryExpr::Divide:
+            case BinaryExpr::Div:
+            case BinaryExpr::Mod:
+                return 5;
+                
+            // 加法和减法优先级次之
+            case BinaryExpr::Plus:
+            case BinaryExpr::Minus:
+                return 4;
+                
+            // 比较运算符
+            case BinaryExpr::Less:
+            case BinaryExpr::LessEqual:
+            case BinaryExpr::Greater:
+            case BinaryExpr::GreaterEqual:
+                return 3;
+                
+            // 相等性运算符
+            case BinaryExpr::Equal:
+            case BinaryExpr::NotEqual:
+                return 2;
+                
+            // 逻辑AND
+            case BinaryExpr::And:
+                return 1;
+                
+            // 逻辑OR优先级最低
+            case BinaryExpr::Or:
+                return 0;
+                
+            default:
+                return 0;
+        }
+    }
+
+
 
 
     Op op;
@@ -127,23 +168,68 @@ public:
 };
 
 _VisitDecl_(CCodeGenVisitor, BinaryExpr) {
-    output << "(";
+    // 获取当前表达式和子表达式的优先级
+    int currentPriority = BinaryExpr::getOperatorPriority(node.op);
+    
+    // 是否需要括号的标志
+    bool needParentheses = false;
     
     // 如果是除法且两个操作数都是整数，则需要强制转换
-    if (node.op == BinaryExpr::Divide && 
-        node.lhs->getType() == Expression::ExprType::Integer && 
-        node.rhs->getType() == Expression::ExprType::Integer) {
-        output << "(double)";
-        node.lhs->accept(*this);
-        output << " " << node.get_op_str(node.op) << " ";
-        node.rhs->accept(*this);
+    bool needCast = (node.op == BinaryExpr::Divide && 
+                    node.lhs->getType() == Expression::ExprType::Integer && 
+                    node.rhs->getType() == Expression::ExprType::Integer);
+    
+    if (needParentheses) {
+        output << "(";
+    }
+    
+    // 左操作数
+    if (auto lhsBinary = std::dynamic_pointer_cast<BinaryExpr>(node.lhs)) {
+        int lhsPriority = BinaryExpr::getOperatorPriority(lhsBinary->op);
+        // 只有当左操作数优先级低于当前操作符时才加括号
+        if (lhsPriority < currentPriority) {
+            output << "(";
+            node.lhs->accept(*this);
+            output << ")";
+        } else {
+            node.lhs->accept(*this);
+        }
     } else {
+        if (needCast) {
+            output << "(double)";
+        }
         node.lhs->accept(*this);
-        output << " " << node.get_op_str(node.op) << " ";
+    }
+    
+    // 操作符
+    output << " " << node.get_op_str(node.op) << " ";
+    
+    // 右操作数
+    if (auto rhsBinary = std::dynamic_pointer_cast<BinaryExpr>(node.rhs)) {
+        int rhsPriority = BinaryExpr::getOperatorPriority(rhsBinary->op);
+        // 只有当右操作数优先级低于或等于当前操作符时才加括号
+        // (对于非交换操作符如减法和除法，右操作数即使优先级相同也需要括号)
+        bool needRightParen = rhsPriority < currentPriority || 
+                             (rhsPriority == currentPriority && 
+                              (node.op == BinaryExpr::Minus || 
+                               node.op == BinaryExpr::Divide || 
+                               node.op == BinaryExpr::Div || 
+                               node.op == BinaryExpr::Mod));
+        
+        if (needRightParen) {
+            output << "(";
+            node.rhs->accept(*this);
+            output << ")";
+        } else {
+            node.rhs->accept(*this);
+        }
+    } else {
         node.rhs->accept(*this);
     }
     
-    output << ")";
+    if (needParentheses) {
+        output << ")";
+    }
 }
 
 
@@ -193,13 +279,27 @@ public:
     }
 };
 
-_VisitDecl_(CCodeGenVisitor,UnaryExpr){
-    output<< "(" ;
-    output<<" " << node.get_op_str(node.op) << " " ;
-    node.expr->accept(*this); 
-    output <<")";
-}
-
+_VisitDecl_(CCodeGenVisitor, UnaryExpr) {
+    // 判断是否需要括号
+    bool needParentheses = false;
+    
+    // 如果子表达式是二元表达式，通常需要加括号
+    if (std::dynamic_pointer_cast<BinaryExpr>(node.expr)) {
+        needParentheses = true;
+    }
+    
+    output << node.get_op_str(node.op) <<' ';
+    
+    if (needParentheses) {
+        output << "(";
+    }
+    
+    node.expr->accept(*this);
+    
+    if (needParentheses) {
+        output << ")";
+    }
+} 
 
 
 class NumberExpr : public ASTAcceptImpl<NumberExpr,Expression> {
@@ -301,3 +401,5 @@ _VisitDecl_(CCodeGenVisitor,StringExpr){
 }
 
 #include "FunctionCall.h"
+#include "ArrayAccessExpr.h"
+
