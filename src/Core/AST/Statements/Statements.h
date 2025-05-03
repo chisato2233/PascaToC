@@ -4,6 +4,7 @@
 #include<vector>
 #include<sstream>
 #include"ASTBase.h"
+#include"Declaration/FunctionDeclaration.h"
 
 
 // **赋值语句**
@@ -24,9 +25,15 @@ public:
 };
 
 _VisitDecl_(CCodeGenVisitor,AssignmentStmt){
-    output<< node.variable << " = "; 
-    node.expr->accept(*this);
-    output << ";";
+    if(node.variable == current_function_name){
+        output<<"return ";
+        node.expr->accept(*this);
+        output << ";";
+    }else{
+        output<< node.variable << " = "; 
+        node.expr->accept(*this);
+        output << ";";
+    }
 }
 
 
@@ -358,4 +365,63 @@ _VisitDecl_(CCodeGenVisitor,CaseStmt){
         branch->accept(*this);
     }
     output<<"}\n";
+}
+
+class ReturnStmt : public ASTAcceptImpl<ReturnStmt, Statement> {
+public:
+    ExprPtr value;
+    
+    explicit ReturnStmt(ExprPtr val) : value(std::move(val)) {}
+    
+    void printAST(int indent = 0) const override {
+        std::string padding = getIndent(indent);
+        spdlog::info("{}+ Return Statement", padding);
+        value->printAST(indent + 1);
+    }
+};
+
+_VisitDecl_(CCodeGenVisitor, ReturnStmt) {
+    output << "return ";
+    node.value->accept(*this);
+    output << ";\n";
+}
+
+
+
+
+_VisitDecl_(CCodeGenVisitor, ProgramAST) {
+    output << node.environment;
+    
+    // 提取函数和过程声明到全局作用域
+    if (auto blockStmt = std::dynamic_pointer_cast<BlockStmt>(node.body)) {
+        std::vector<DeclPtr> globalDeclarations;
+        std::vector<DeclPtr> localDeclarations;
+        
+        // 分离全局声明和局部声明
+        for (const auto& decl : blockStmt->declarations) {
+            if (std::dynamic_pointer_cast<FunctionDeclaration>(decl) || 
+                std::dynamic_pointer_cast<ProcedureDeclaration>(decl)) {
+                globalDeclarations.push_back(decl);
+            } else {
+                localDeclarations.push_back(decl);
+            }
+        }
+        blockStmt->declarations = std::move(localDeclarations);
+        
+        // 生成全局函数和过程声明
+        for (const auto& decl : globalDeclarations) {
+            decl->accept(*this);
+            output << "\n"; 
+        }
+        
+        // 生成main函数，包含局部变量声明
+        output << "int main() \n";
+        // 生成函数体代码
+        blockStmt->accept(*this);
+    } else {
+        // 如果body不是BlockStmt，则直接生成
+        output << "int main() \n";
+        node.body->accept(*this);
+        output << "\n";
+    }
 }

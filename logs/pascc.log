@@ -1,47 +1,103 @@
 [info] [:] 日志系统初始化完成
 [info] [:] 使用默认输入文件: './test.pas'
 [debug] [:] 读取 Pascal 源代码
-[debug] [:] 开始词法分析，输入长度: 62 字节
+[debug] [:] 开始词法分析，输入长度: 175 字节
 [debug] [:] 开始解析Pascal源代码...
 [debug] [:] Token: program, 类型: 258, 位置: 1:0
 [debug] [:] Token: main, 类型: 320, 位置: 1:8
 [debug] [:] Token: ;, 类型: 311, 位置: 1:12
-[debug] [:] Token: const, 类型: 276, 位置: 2:0
+[debug] [:] Token: var, 类型: 261, 位置: 2:0
 [debug] [:] Token: a, 类型: 320, 位置: 3:2
-[debug] [:] Token: =, 类型: 297, 位置: 3:4
-[debug] [:] Token: 10, 类型: 316, 位置: 3:6
-[debug] [:] Token: ;, 类型: 311, 位置: 3:8
-[debug] [:] current_declarations为空，创建新的
-[debug] [:] 添加常量 a 到声明列表
+[debug] [:] Token: :, 类型: 312, 位置: 3:3
+[debug] [:] Token: integer, 类型: 287, 位置: 3:5
+[debug] [:] Token: ;, 类型: 311, 位置: 3:12
 [debug] [:] Token: b, 类型: 320, 位置: 4:2
-[debug] [:] Token: =, 类型: 297, 位置: 4:4
-[debug] [:] Token: 5, 类型: 316, 位置: 4:6
-[debug] [:] Token: ;, 类型: 311, 位置: 4:7
-[debug] [:] 添加常量 b 到声明列表
-[debug] [:] Token: begin, 类型: 259, 位置: 5:0
-[debug] [:] const声明区块处理完成，当前有2个声明
-[debug] [:] 从const声明获取声明列表 (地址: 0x55f88b57bea0)，包含2个项目
-[debug] [:] Token: write, 类型: 286, 位置: 6:2
-[debug] [:] Token: (, 类型: 307, 位置: 6:7
-[debug] [:] Token: b, 类型: 320, 位置: 6:8
-[debug] [:] Token: ), 类型: 308, 位置: 6:9
-[debug] [:] Token: ;, 类型: 311, 位置: 6:10
-[debug] [:] Token: end, 类型: 260, 位置: 7:0
-[debug] [:] Token: ., 类型: 314, 位置: 7:3
-[info] [:] 词法分析完成，共识别 20 个token
+[debug] [:] Token: :, 类型: 312, 位置: 4:3
+[debug] [:] Token: integer, 类型: 287, 位置: 4:5
+[debug] [:] Token: ;, 类型: 311, 位置: 4:12
+[debug] [:] Token: function, 类型: 263, 位置: 6:0
+[debug] [:] Token: func, 类型: 320, 位置: 6:9
+[debug] [:] Token: (, 类型: 307, 位置: 6:13
+[debug] [:] Token: p, 类型: 320, 位置: 6:14
+[debug] [:] Token: :, 类型: 312, 位置: 6:15
+[debug] [:] Token: integer, 类型: 287, 位置: 6:17
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: p 类型: int
+[debug] [:] Token: ), 类型: 308, 位置: 6:24
+[debug] [:] 参数列表处理完成，包含1个参数
+[debug] [:] Token: :, 类型: 312, 位置: 6:25
+[debug] [:] Token: integer, 类型: 287, 位置: 6:27
+[debug] [:] Token: ;, 类型: 311, 位置: 6:34
+[debug] [:] Token: begin, 类型: 259, 位置: 7:0
+[debug] [:] 创建新的空声明列表 (地址: 0x55934332f340)
+[debug] [:] Token: p, 类型: 320, 位置: 8:2
+[debug] [:] Token: :=, 类型: 292, 位置: 8:4
+[debug] [:] Token: p, 类型: 320, 位置: 8:7
+[debug] [:] Token: -, 类型: 294, 位置: 8:9
+[debug] [:] Token: 1, 类型: 316, 位置: 8:11
+[debug] [:] Token: ;, 类型: 311, 位置: 8:12
+[debug] [:] Token: func, 类型: 320, 位置: 9:2
+[debug] [:] Token: :=, 类型: 292, 位置: 9:7
+[debug] [:] Token: p, 类型: 320, 位置: 9:10
+[debug] [:] Token: ;, 类型: 311, 位置: 9:11
+[debug] [:] Token: end, 类型: 260, 位置: 10:0
+[debug] [:] 创建新的声明列表用于函数func
+[debug] [:] 添加函数func到声明列表
+[debug] [:] Token: ;, 类型: 311, 位置: 10:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含3个项目
+[debug] [:] Token: begin, 类型: 259, 位置: 12:0
+[debug] [:] Token: a, 类型: 320, 位置: 13:2
+[debug] [:] Token: :=, 类型: 292, 位置: 13:4
+[debug] [:] Token: 10, 类型: 316, 位置: 13:7
+[debug] [:] Token: ;, 类型: 311, 位置: 13:9
+[debug] [:] Token: b, 类型: 320, 位置: 14:2
+[debug] [:] Token: :=, 类型: 292, 位置: 14:4
+[debug] [:] Token: func, 类型: 320, 位置: 14:7
+[debug] [:] Token: (, 类型: 307, 位置: 14:11
+[debug] [:] Token: a, 类型: 320, 位置: 14:12
+[debug] [:] Token: ), 类型: 308, 位置: 14:13
+[debug] [:] Token: ;, 类型: 311, 位置: 14:14
+[debug] [:] Token: write, 类型: 286, 位置: 16:2
+[debug] [:] Token: (, 类型: 307, 位置: 16:7
+[debug] [:] Token: b, 类型: 320, 位置: 16:8
+[debug] [:] Token: ), 类型: 308, 位置: 16:9
+[debug] [:] Token: ;, 类型: 311, 位置: 16:10
+[debug] [:] Token: end, 类型: 260, 位置: 17:0
+[debug] [:] Token: ., 类型: 314, 位置: 17:3
+[info] [:] 词法分析完成，共识别 54 个token
 [debug] [:] 语法分析成功
 [info] [:] + Program: main
 [info] [:]   Body:
 [info] [:]   + Block
 [info] [:]     Declarations:
-[info] [:]       + Constant Declaration: a
-[info] [:]         + Number: 10
-[info] [:]       + Constant Declaration: b
-[info] [:]         + Number: 5
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a
+[info] [:]       + Variable Declaration: int
+[info] [:]         - b
+[info] [:]       + Function Declaration: func -> int
+[info] [:]         Parameters:
+[info] [:]           - p: int
+[info] [:]         Body:
+[info] [:]           + Block
+[info] [:]             Body:
+[info] [:]               + Compound Statement
+[info] [:]                 + Assignment: p =
+[info] [:]                   + Binary Op: -
+[info] [:]                     Left:
+[info] [:]                       + Variable: p
+[info] [:]                     Right:
+[info] [:]                       + Number: 1
+[info] [:]                 + Assignment: func =
+[info] [:]                   + Variable: p
 [info] [:]     Body:
 [info] [:]       + Compound Statement
+[info] [:]         + Assignment: a =
+[info] [:]           + Number: 10
+[info] [:]         + Assignment: b =
+[info] [:]           + Function Call: func
+[info] [:]             Arguments:
+[info] [:]               + Variable: a
 [info] [:]         + Write Statement
 [info] [:]           + Variable: b
-[debug] [:] 常量 a 已添加到符号表，类型: int
-[debug] [:] 常量 b 已添加到符号表，类型: int
 [info] [:] 转换完成: './test.pas' -> './res.c'

@@ -287,16 +287,3 @@ public:
         }
     }
 };
-
-/**
- * @brief 为ProgramAST节点定义C代码生成访问方法
- * @param node 被访问的ProgramAST节点
- * 
- * 生成程序的主函数和整体结构
- */
-_VisitDecl_(CCodeGenVisitor, ProgramAST) {
-    output << node.environment;
-    output << "int main() \n";
-    node.body->accept(*this);
-    output << "\n";
-};
