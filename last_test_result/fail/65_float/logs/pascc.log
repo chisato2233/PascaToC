@@ -1,3 +1,362 @@
-[2025-05-02 18:16:52.515] [pascc] [info] 日志系统初始化完成
-[2025-05-02 18:16:52.515] [pascc] [error] 解析失败: error: syntax error, unexpected MINUS
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 1200 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: const, 类型: 276, 位置: 2:0
+[debug] [:] Token: RADIUS, 类型: 321, 位置: 3:0
+[debug] [:] Token: =, 类型: 298, 位置: 3:7
+[debug] [:] Token: 5.5, 类型: 319, 位置: 3:9
+[debug] [:] Token: ;, 类型: 312, 位置: 3:12
+[debug] [:] 添加常量 RADIUS 到声明列表
+[debug] [:] Token: PI, 类型: 321, 位置: 3:14
+[debug] [:] Token: =, 类型: 298, 位置: 3:17
+[debug] [:] Token: 03.141595653589793, 类型: 319, 位置: 3:19
+[debug] [:] Token: ;, 类型: 312, 位置: 3:37
+[debug] [:] 添加常量 PI 到声明列表
+[debug] [:] Token: EPS, 类型: 321, 位置: 3:39
+[debug] [:] Token: =, 类型: 298, 位置: 3:43
+[debug] [:] Token: 0.000001, 类型: 319, 位置: 3:45
+[debug] [:] Token: ;, 类型: 312, 位置: 3:53
+[debug] [:] 添加常量 EPS 到声明列表
+[debug] [:] Token: EVAL1, 类型: 321, 位置: 4:0
+[debug] [:] Token: =, 类型: 298, 位置: 4:6
+[debug] [:] Token: 95.033188, 类型: 319, 位置: 4:8
+[debug] [:] Token: ;, 类型: 312, 位置: 4:17
+[debug] [:] 添加常量 EVAL1 到声明列表
+[debug] [:] Token: CONV1, 类型: 321, 位置: 5:0
+[debug] [:] Token: =, 类型: 298, 位置: 5:6
+[debug] [:] Token: 233, 类型: 317, 位置: 5:8
+[debug] [:] Token: ;, 类型: 312, 位置: 5:11
+[debug] [:] 添加常量 CONV1 到声明列表
+[debug] [:] Token: MAX, 类型: 321, 位置: 6:0
+[debug] [:] Token: =, 类型: 298, 位置: 6:4
+[debug] [:] Token: 1000000000, 类型: 317, 位置: 6:6
+[debug] [:] Token: ;, 类型: 312, 位置: 6:16
+[debug] [:] 添加常量 MAX 到声明列表
+[debug] [:] Token: TWO, 类型: 321, 位置: 7:0
+[debug] [:] Token: =, 类型: 298, 位置: 7:4
+[debug] [:] Token: 2.9, 类型: 319, 位置: 7:6
+[debug] [:] Token: ;, 类型: 312, 位置: 7:9
+[debug] [:] 添加常量 TWO 到声明列表
+[debug] [:] Token: THREE, 类型: 321, 位置: 7:11
+[debug] [:] Token: =, 类型: 298, 位置: 7:17
+[debug] [:] Token: 3, 类型: 317, 位置: 7:19
+[debug] [:] Token: ;, 类型: 312, 位置: 7:20
+[debug] [:] 添加常量 THREE 到声明列表
+[debug] [:] Token: FIVE, 类型: 321, 位置: 7:22
+[debug] [:] Token: =, 类型: 298, 位置: 7:27
+[debug] [:] Token: 5, 类型: 317, 位置: 7:29
+[debug] [:] Token: ;, 类型: 312, 位置: 7:30
+[debug] [:] 添加常量 FIVE 到声明列表
+[debug] [:] Token: e, 类型: 321, 位置: 8:0
+[debug] [:] Token: =, 类型: 298, 位置: 8:2
+[debug] [:] Token: 'e, 类型: 320, 位置: 8:4
+[debug] [:] Token: ;, 类型: 312, 位置: 8:7
+[debug] [:] 添加常量 e 到声明列表
+[debug] [:] Token: o, 类型: 321, 位置: 8:9
+[debug] [:] Token: =, 类型: 298, 位置: 8:11
+[debug] [:] Token: 'o, 类型: 320, 位置: 8:13
+[debug] [:] Token: ;, 类型: 312, 位置: 8:16
+[debug] [:] 添加常量 o 到声明列表
+[debug] [:] Token: var, 类型: 261, 位置: 10:0
+[debug] [:] const声明区块处理完成，当前有11个声明
+[debug] [:] 从const声明获取声明列表 (地址: 0x557c74ef5310)，包含11个项目
+[debug] [:] Token: p, 类型: 321, 位置: 10:4
+[debug] [:] Token: :, 类型: 313, 位置: 10:5
+[debug] [:] Token: integer, 类型: 288, 位置: 10:6
+[debug] [:] Token: ;, 类型: 312, 位置: 10:13
+[debug] [:] Token: arr, 类型: 321, 位置: 11:0
+[debug] [:] Token: :, 类型: 313, 位置: 11:3
+[debug] [:] Token: array, 类型: 278, 位置: 11:5
+[debug] [:] Token: [, 类型: 310, 位置: 11:10
+[debug] [:] Token: 0, 类型: 317, 位置: 11:11
+[debug] [:] Token: .., 类型: 316, 位置: 11:12
+[debug] [:] Token: 9, 类型: 317, 位置: 11:14
+[debug] [:] Token: ], 类型: 311, 位置: 11:15
+[debug] [:] Token: of, 类型: 275, 位置: 11:17
+[debug] [:] Token: real, 类型: 289, 位置: 11:20
+[debug] [:] Token: ;, 类型: 312, 位置: 11:24
+[debug] [:] Token: input, 类型: 321, 位置: 12:0
+[debug] [:] Token: ,, 类型: 314, 位置: 12:5
+[debug] [:] Token: area, 类型: 321, 位置: 12:7
+[debug] [:] Token: ,, 类型: 314, 位置: 12:11
+[debug] [:] Token: area_trunc, 类型: 321, 位置: 12:13
+[debug] [:] Token: :, 类型: 313, 位置: 12:23
+[debug] [:] Token: real, 类型: 289, 位置: 12:25
+[debug] [:] Token: ;, 类型: 312, 位置: 12:29
+[debug] [:] Token: function, 类型: 263, 位置: 14:0
+[debug] [:] Token: float_abs, 类型: 321, 位置: 14:9
+[debug] [:] Token: (, 类型: 308, 位置: 14:18
+[debug] [:] Token: x, 类型: 321, 位置: 14:19
+[debug] [:] Token: :, 类型: 313, 位置: 14:20
+[debug] [:] Token: real, 类型: 289, 位置: 14:22
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: x 类型: double
+[debug] [:] Token: ), 类型: 309, 位置: 14:26
+[debug] [:] 参数列表处理完成，包含1个参数
+[debug] [:] Token: :, 类型: 313, 位置: 14:27
+[debug] [:] Token: real, 类型: 289, 位置: 14:28
+[debug] [:] Token: ;, 类型: 312, 位置: 14:32
+[debug] [:] Token: begin, 类型: 259, 位置: 15:0
+[debug] [:] 创建新的空声明列表 (地址: 0x557c74ef5c90)
+[debug] [:] Token: if, 类型: 264, 位置: 16:2
+[debug] [:] Token: x, 类型: 321, 位置: 16:5
+[debug] [:] Token: <, 类型: 300, 位置: 16:7
+[debug] [:] Token: 0, 类型: 317, 位置: 16:9
+[debug] [:] Token: then, 类型: 265, 位置: 16:11
+[debug] [:] Token: float_abs, 类型: 321, 位置: 17:4
+[debug] [:] Token: :=, 类型: 293, 位置: 17:14
+[debug] [:] Token: -, 类型: 295, 位置: 17:17
+[debug] [:] Token: x, 类型: 321, 位置: 17:18
+[debug] [:] Token: else, 类型: 266, 位置: 18:2
+[debug] [:] Token: float_abs, 类型: 321, 位置: 19:4
+[debug] [:] Token: :=, 类型: 293, 位置: 19:14
+[debug] [:] Token: x, 类型: 321, 位置: 19:17
+[debug] [:] Token: ;, 类型: 312, 位置: 19:18
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: end, 类型: 260, 位置: 20:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数float_abs
+[debug] [:] 添加函数float_abs到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 20:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含15个项目
+[debug] [:] Token: function, 类型: 263, 位置: 22:0
+[debug] [:] Token: circle_area, 类型: 321, 位置: 22:9
+[debug] [:] Token: (, 类型: 308, 位置: 22:20
+[debug] [:] Token: radius, 类型: 321, 位置: 22:21
+[debug] [:] Token: :, 类型: 313, 位置: 22:27
+[debug] [:] Token: integer, 类型: 288, 位置: 22:29
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: radius 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 22:36
+[debug] [:] 参数列表处理完成，包含1个参数
+[debug] [:] Token: :, 类型: 313, 位置: 22:37
+[debug] [:] Token: real, 类型: 289, 位置: 22:38
+[debug] [:] Token: ;, 类型: 312, 位置: 22:42
+[debug] [:] Token: begin, 类型: 259, 位置: 23:0
+[debug] [:] 创建新的空声明列表 (地址: 0x557c74ef5330)
+[debug] [:] Token: circle_area, 类型: 321, 位置: 24:2
+[debug] [:] Token: :=, 类型: 293, 位置: 24:14
+[debug] [:] Token: PI, 类型: 321, 位置: 24:17
+[debug] [:] Token: *, 类型: 296, 位置: 24:20
+[debug] [:] Token: radius, 类型: 321, 位置: 24:22
+[debug] [:] Token: *, 类型: 296, 位置: 24:29
+[debug] [:] Token: radius, 类型: 321, 位置: 24:30
+[debug] [:] Token: +, 类型: 294, 位置: 24:37
+[debug] [:] Token: (, 类型: 308, 位置: 24:39
+[debug] [:] Token: radius, 类型: 321, 位置: 24:40
+[debug] [:] Token: *, 类型: 296, 位置: 24:47
+[debug] [:] Token: radius, 类型: 321, 位置: 24:49
+[debug] [:] Token: ), 类型: 309, 位置: 24:55
+[debug] [:] Token: *, 类型: 296, 位置: 24:57
+[debug] [:] Token: PI, 类型: 321, 位置: 24:59
+[debug] [:] Token: /, 类型: 297, 位置: 24:62
+[debug] [:] Token: 2, 类型: 317, 位置: 24:64
+[debug] [:] Token: ;, 类型: 312, 位置: 24:65
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: end, 类型: 260, 位置: 25:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数circle_area
+[debug] [:] 添加函数circle_area到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 25:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含16个项目
+[debug] [:] Token: function, 类型: 263, 位置: 27:0
+[debug] [:] Token: float_eq, 类型: 321, 位置: 27:9
+[debug] [:] Token: (, 类型: 308, 位置: 27:17
+[debug] [:] Token: a, 类型: 321, 位置: 27:18
+[debug] [:] Token: ,, 类型: 314, 位置: 27:19
+[debug] [:] Token: b, 类型: 321, 位置: 27:20
+[debug] [:] Token: :, 类型: 313, 位置: 27:21
+[debug] [:] Token: real, 类型: 289, 位置: 27:23
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: a 类型: double
+[debug] [:] 添加普通参数: b 类型: double
+[debug] [:] Token: ), 类型: 309, 位置: 27:27
+[debug] [:] 参数列表处理完成，包含2个参数
+[debug] [:] Token: :, 类型: 313, 位置: 27:28
+[debug] [:] Token: integer, 类型: 288, 位置: 27:29
+[debug] [:] Token: ;, 类型: 312, 位置: 27:36
+[debug] [:] Token: begin, 类型: 259, 位置: 28:0
+[debug] [:] 创建新的空声明列表 (地址: 0x557c74ef6420)
+[debug] [:] Token: if, 类型: 264, 位置: 29:2
+[debug] [:] Token: float_abs, 类型: 321, 位置: 29:5
+[debug] [:] Token: (, 类型: 308, 位置: 29:14
+[debug] [:] Token: a, 类型: 321, 位置: 29:15
+[debug] [:] Token: -, 类型: 295, 位置: 29:17
+[debug] [:] Token: b, 类型: 321, 位置: 29:19
+[debug] [:] Token: ), 类型: 309, 位置: 29:20
+[debug] [:] Token: <, 类型: 300, 位置: 29:22
+[debug] [:] Token: EPS, 类型: 321, 位置: 29:24
+[debug] [:] Token: then, 类型: 265, 位置: 29:28
+[debug] [:] Token: float_eq, 类型: 321, 位置: 30:4
+[debug] [:] Token: :=, 类型: 293, 位置: 30:13
+[debug] [:] Token: 1, 类型: 317, 位置: 30:16
+[debug] [:] Token: else, 类型: 266, 位置: 31:2
+[debug] [:] Token: float_eq, 类型: 321, 位置: 32:4
+[debug] [:] Token: :=, 类型: 293, 位置: 32:13
+[debug] [:] Token: 0, 类型: 317, 位置: 32:16
+[debug] [:] Token: end, 类型: 260, 位置: 33:0
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数float_eq
+[debug] [:] 添加函数float_eq到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 33:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含17个项目
+[debug] [:] Token: procedure, 类型: 262, 位置: 35:0
+[debug] [:] Token: error, 类型: 321, 位置: 35:10
+[debug] [:] Token: ;, 类型: 312, 位置: 35:15
+[debug] [:] 创建空的参数列表
+[debug] [:] Token: begin, 类型: 259, 位置: 36:0
+[debug] [:] 创建新的空声明列表 (地址: 0x557c74ef66c0)
+[debug] [:] Token: write, 类型: 286, 位置: 37:2
+[debug] [:] Token: (, 类型: 308, 位置: 37:7
+[debug] [:] Token: e, 类型: 321, 位置: 37:8
+[debug] [:] Token: ), 类型: 309, 位置: 37:9
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: ;, 类型: 312, 位置: 37:10
+[debug] [:] Token: end, 类型: 260, 位置: 38:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于过程error
+[debug] [:] 添加过程error到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 38:3
+[debug] [:] 过程声明处理完成，当前声明列表包含1个项目
+[debug] [:] Token: procedure, 类型: 262, 位置: 40:0
+[debug] [:] Token: ok, 类型: 321, 位置: 40:10
+[debug] [:] Token: ;, 类型: 312, 位置: 40:12
+[debug] [:] 创建空的参数列表
+[debug] [:] Token: begin, 类型: 259, 位置: 41:0
+[debug] [:] 创建新的空声明列表 (地址: 0x557c74ef66c0)
+[debug] [:] Token: write, 类型: 286, 位置: 42:2
+[debug] [:] Token: (, 类型: 308, 位置: 42:7
+[debug] [:] Token: o, 类型: 321, 位置: 42:8
+[debug] [:] Token: ), 类型: 309, 位置: 42:9
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: ;, 类型: 312, 位置: 42:10
+[debug] [:] Token: end, 类型: 260, 位置: 43:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于过程ok
+[debug] [:] 添加过程ok到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 43:3
+[debug] [:] 过程声明处理完成，当前声明列表包含1个项目
+[debug] [:] Token: procedure, 类型: 262, 位置: 45:0
+[debug] [:] Token: assert, 类型: 321, 位置: 45:10
+[debug] [:] Token: (, 类型: 308, 位置: 45:16
+[debug] [:] Token: cond, 类型: 321, 位置: 45:17
+[debug] [:] Token: :, 类型: 313, 位置: 45:21
+[debug] [:] Token: integer, 类型: 288, 位置: 45:23
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: cond 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 45:30
+[debug] [:] 参数列表处理完成，包含1个参数
+[debug] [:] Token: ;, 类型: 312, 位置: 45:31
+[debug] [:] Token: begin, 类型: 259, 位置: 46:0
+[debug] [:] 创建新的空声明列表 (地址: 0x557c74efe9d0)
+[debug] [:] Token: if, 类型: 264, 位置: 47:2
+[debug] [:] Token: cond, 类型: 321, 位置: 47:5
+[debug] [:] Token: =, 类型: 298, 位置: 47:10
+[debug] [:] Token: 0, 类型: 317, 位置: 47:12
+[debug] [:] Token: then, 类型: 265, 位置: 47:14
+[debug] [:] Token: error, 类型: 321, 位置: 48:4
+[debug] [:] Token: else, 类型: 266, 位置: 49:2
+[debug] [:] Token: ok, 类型: 321, 位置: 50:4
+[debug] [:] Token: ;, 类型: 312, 位置: 50:6
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: end, 类型: 260, 位置: 51:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于过程assert
+[debug] [:] 添加过程assert到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 51:3
+[debug] [:] 过程声明处理完成，当前声明列表包含1个项目
+[debug] [:] Token: begin, 类型: 259, 位置: 53:0
+[debug] [:] Token: assert, 类型: 321, 位置: 54:2
+[debug] [:] Token: (, 类型: 308, 位置: 54:8
+[debug] [:] Token: float_eq, 类型: 321, 位置: 54:9
+[debug] [:] Token: (, 类型: 308, 位置: 54:17
+[debug] [:] Token: circle_area, 类型: 321, 位置: 54:18
+[debug] [:] Token: (, 类型: 308, 位置: 54:29
+[debug] [:] Token: 5, 类型: 317, 位置: 54:30
+[debug] [:] Token: ), 类型: 309, 位置: 54:31
+[debug] [:] Token: ,, 类型: 314, 位置: 54:32
+[debug] [:] Token: circle_area, 类型: 321, 位置: 54:34
+[debug] [:] Token: (, 类型: 308, 位置: 54:45
+[debug] [:] Token: FIVE, 类型: 321, 位置: 54:46
+[debug] [:] Token: ), 类型: 309, 位置: 54:50
+[debug] [:] Token: ), 类型: 309, 位置: 54:51
+[debug] [:] Token: ), 类型: 309, 位置: 54:52
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: ;, 类型: 312, 位置: 54:53
+[debug] [:] Token: if, 类型: 264, 位置: 55:2
+[debug] [:] Token: 1.5, 类型: 319, 位置: 55:5
+[debug] [:] Token: <>, 类型: 299, 位置: 55:9
+[debug] [:] Token: 0.0, 类型: 319, 位置: 55:12
+[debug] [:] Token: then, 类型: 265, 位置: 55:16
+[debug] [:] Token: ok, 类型: 321, 位置: 56:4
+[debug] [:] Token: ;, 类型: 312, 位置: 56:6
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: if, 类型: 264, 位置: 57:2
+[debug] [:] Token: (, 类型: 308, 位置: 57:5
+[debug] [:] Token: not, 类型: 284, 位置: 57:6
+[debug] [:] Token: (, 类型: 308, 位置: 57:10
+[debug] [:] Token: 3.3, 类型: 319, 位置: 57:11
+[debug] [:] Token: =, 类型: 298, 位置: 57:15
+[debug] [:] Token: 0.0, 类型: 319, 位置: 57:17
+[debug] [:] Token: ), 类型: 309, 位置: 57:20
+[debug] [:] Token: ), 类型: 309, 位置: 57:21
+[debug] [:] Token: then, 类型: 265, 位置: 57:23
+[debug] [:] Token: ok, 类型: 321, 位置: 58:4
+[debug] [:] Token: ;, 类型: 312, 位置: 58:6
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: if, 类型: 264, 位置: 59:2
+[debug] [:] Token: (, 类型: 308, 位置: 59:5
+[debug] [:] Token: 0.0, 类型: 319, 位置: 59:6
+[debug] [:] Token: <>, 类型: 299, 位置: 59:10
+[debug] [:] Token: 0.0, 类型: 319, 位置: 59:13
+[debug] [:] Token: ), 类型: 309, 位置: 59:16
+[debug] [:] Token: and, 类型: 282, 位置: 59:18
+[debug] [:] Token: (, 类型: 308, 位置: 59:22
+[debug] [:] Token: 3, 类型: 317, 位置: 59:23
+[debug] [:] Token: <>, 类型: 299, 位置: 59:25
+[debug] [:] Token: 0.0, 类型: 319, 位置: 59:28
+[debug] [:] Token: ), 类型: 309, 位置: 59:31
+[debug] [:] Token: then, 类型: 265, 位置: 59:33
+[debug] [:] Token: error, 类型: 321, 位置: 60:4
+[debug] [:] Token: ;, 类型: 312, 位置: 60:9
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: if, 类型: 264, 位置: 61:2
+[debug] [:] Token: (, 类型: 308, 位置: 61:5
+[debug] [:] Token: 0, 类型: 317, 位置: 61:6
+[debug] [:] Token: <>, 类型: 299, 位置: 61:8
+[debug] [:] Token: 0.0, 类型: 319, 位置: 61:11
+[debug] [:] Token: ), 类型: 309, 位置: 61:14
+[debug] [:] Token: or, 类型: 283, 位置: 61:16
+[debug] [:] Token: (, 类型: 308, 位置: 61:19
+[debug] [:] Token: 0.3, 类型: 319, 位置: 61:20
+[debug] [:] Token: <>, 类型: 299, 位置: 61:24
+[debug] [:] Token: 0.0, 类型: 319, 位置: 61:27
+[debug] [:] Token: ), 类型: 309, 位置: 61:30
+[debug] [:] Token: then, 类型: 265, 位置: 61:32
+[debug] [:] Token: ok, 类型: 321, 位置: 62:4
+[debug] [:] Token: ;, 类型: 312, 位置: 62:6
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: p, 类型: 321, 位置: 64:2
+[debug] [:] Token: :=, 类型: 293, 位置: 64:4
+[debug] [:] Token: 0, 类型: 317, 位置: 64:7
+[debug] [:] Token: ;, 类型: 312, 位置: 64:8
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: arr, 类型: 321, 位置: 65:2
+[debug] [:] Token: [, 类型: 310, 位置: 65:5
+[debug] [:] 向语句列表添加新语句
+[error] [:] 语法分析失败
+[error] [:] 解析失败: error: syntax error, unexpected LBRACKET, expecting END_TOKEN or SEMICOLON
 

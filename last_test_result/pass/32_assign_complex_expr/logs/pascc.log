@@ -1,0 +1,223 @@
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 236 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: var, 类型: 261, 位置: 2:0
+[debug] [:] Token: a, 类型: 321, 位置: 2:4
+[debug] [:] Token: ,, 类型: 314, 位置: 2:5
+[debug] [:] Token: b, 类型: 321, 位置: 2:7
+[debug] [:] Token: ,, 类型: 314, 位置: 2:8
+[debug] [:] Token: c, 类型: 321, 位置: 2:10
+[debug] [:] Token: ,, 类型: 314, 位置: 2:11
+[debug] [:] Token: d, 类型: 321, 位置: 2:13
+[debug] [:] Token: ,, 类型: 314, 位置: 2:14
+[debug] [:] Token: e, 类型: 321, 位置: 2:16
+[debug] [:] Token: :, 类型: 313, 位置: 2:17
+[debug] [:] Token: integer, 类型: 288, 位置: 2:19
+[debug] [:] Token: ;, 类型: 312, 位置: 2:26
+[debug] [:] Token: begin, 类型: 259, 位置: 3:0
+[debug] [:] Token: a, 类型: 321, 位置: 4:2
+[debug] [:] Token: :=, 类型: 293, 位置: 4:4
+[debug] [:] Token: 5, 类型: 317, 位置: 4:7
+[debug] [:] Token: ;, 类型: 312, 位置: 4:8
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: b, 类型: 321, 位置: 5:2
+[debug] [:] Token: :=, 类型: 293, 位置: 5:4
+[debug] [:] Token: 5, 类型: 317, 位置: 5:7
+[debug] [:] Token: ;, 类型: 312, 位置: 5:8
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: c, 类型: 321, 位置: 6:2
+[debug] [:] Token: :=, 类型: 293, 位置: 6:4
+[debug] [:] Token: 1, 类型: 317, 位置: 6:7
+[debug] [:] Token: ;, 类型: 312, 位置: 6:8
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d, 类型: 321, 位置: 7:2
+[debug] [:] Token: :=, 类型: 293, 位置: 7:4
+[debug] [:] Token: -, 类型: 295, 位置: 7:7
+[debug] [:] Token: 2, 类型: 317, 位置: 7:8
+[debug] [:] Token: ;, 类型: 312, 位置: 7:9
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e, 类型: 321, 位置: 8:2
+[debug] [:] Token: :=, 类型: 293, 位置: 8:4
+[debug] [:] Token: (, 类型: 308, 位置: 8:7
+[debug] [:] Token: d, 类型: 321, 位置: 8:8
+[debug] [:] Token: *, 类型: 296, 位置: 8:10
+[debug] [:] Token: 1, 类型: 317, 位置: 8:12
+[debug] [:] Token: div, 类型: 280, 位置: 8:14
+[debug] [:] Token: 2, 类型: 317, 位置: 8:18
+[debug] [:] Token: ), 类型: 309, 位置: 8:19
+[debug] [:] Token: +, 类型: 294, 位置: 8:21
+[debug] [:] Token: (, 类型: 308, 位置: 8:23
+[debug] [:] Token: a, 类型: 321, 位置: 8:24
+[debug] [:] Token: -, 类型: 295, 位置: 8:26
+[debug] [:] Token: b, 类型: 321, 位置: 8:28
+[debug] [:] Token: ), 类型: 309, 位置: 8:29
+[debug] [:] Token: -, 类型: 295, 位置: 8:31
+[debug] [:] Token: -, 类型: 295, 位置: 8:33
+[debug] [:] Token: (, 类型: 308, 位置: 8:34
+[debug] [:] Token: c, 类型: 321, 位置: 8:35
+[debug] [:] Token: +, 类型: 294, 位置: 8:37
+[debug] [:] Token: 3, 类型: 317, 位置: 8:39
+[debug] [:] Token: ), 类型: 309, 位置: 8:40
+[debug] [:] Token: mod, 类型: 281, 位置: 8:42
+[debug] [:] Token: 2, 类型: 317, 位置: 8:46
+[debug] [:] Token: ;, 类型: 312, 位置: 8:47
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: write, 类型: 286, 位置: 9:2
+[debug] [:] Token: (, 类型: 308, 位置: 9:7
+[debug] [:] Token: e, 类型: 321, 位置: 9:8
+[debug] [:] Token: ), 类型: 309, 位置: 9:9
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 9:10
+[debug] [:] Token: e, 类型: 321, 位置: 10:2
+[debug] [:] Token: :=, 类型: 293, 位置: 10:4
+[debug] [:] Token: (, 类型: 308, 位置: 10:7
+[debug] [:] Token: (, 类型: 308, 位置: 10:8
+[debug] [:] Token: d, 类型: 321, 位置: 10:9
+[debug] [:] Token: mod, 类型: 281, 位置: 10:11
+[debug] [:] Token: 2, 类型: 317, 位置: 10:15
+[debug] [:] Token: +, 类型: 294, 位置: 10:17
+[debug] [:] Token: 67, 类型: 317, 位置: 10:19
+[debug] [:] Token: ), 类型: 309, 位置: 10:21
+[debug] [:] Token: +, 类型: 294, 位置: 10:23
+[debug] [:] Token: -, 类型: 295, 位置: 10:25
+[debug] [:] Token: (, 类型: 308, 位置: 10:26
+[debug] [:] Token: a, 类型: 321, 位置: 10:27
+[debug] [:] Token: -, 类型: 295, 位置: 10:29
+[debug] [:] Token: b, 类型: 321, 位置: 10:31
+[debug] [:] Token: ), 类型: 309, 位置: 10:32
+[debug] [:] Token: -, 类型: 295, 位置: 10:34
+[debug] [:] Token: -, 类型: 295, 位置: 10:36
+[debug] [:] Token: (, 类型: 308, 位置: 10:37
+[debug] [:] Token: (, 类型: 308, 位置: 10:38
+[debug] [:] Token: c, 类型: 321, 位置: 10:39
+[debug] [:] Token: +, 类型: 294, 位置: 10:41
+[debug] [:] Token: 2, 类型: 317, 位置: 10:43
+[debug] [:] Token: ), 类型: 309, 位置: 10:44
+[debug] [:] Token: mod, 类型: 281, 位置: 10:46
+[debug] [:] Token: 2, 类型: 317, 位置: 10:50
+[debug] [:] Token: ), 类型: 309, 位置: 10:51
+[debug] [:] Token: ), 类型: 309, 位置: 10:52
+[debug] [:] Token: ;, 类型: 312, 位置: 10:53
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e, 类型: 321, 位置: 11:2
+[debug] [:] Token: :=, 类型: 293, 位置: 11:4
+[debug] [:] Token: e, 类型: 321, 位置: 11:7
+[debug] [:] Token: +, 类型: 294, 位置: 11:9
+[debug] [:] Token: 3, 类型: 317, 位置: 11:11
+[debug] [:] Token: ;, 类型: 312, 位置: 11:12
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: write, 类型: 286, 位置: 12:2
+[debug] [:] Token: (, 类型: 308, 位置: 12:7
+[debug] [:] Token: e, 类型: 321, 位置: 12:8
+[debug] [:] Token: ), 类型: 309, 位置: 12:9
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 12:10
+[debug] [:] Token: end, 类型: 260, 位置: 13:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] Token: ., 类型: 315, 位置: 13:3
+[info] [:] 词法分析完成，共识别 107 个token
+[debug] [:] 语法分析成功
+[info] [:] + Program: main
+[info] [:]   Body:
+[info] [:]   + Block
+[info] [:]     Declarations:
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a
+[info] [:]         - b
+[info] [:]         - c
+[info] [:]         - d
+[info] [:]         - e
+[info] [:]     Body:
+[info] [:]       + Compound Statement
+[info] [:]         + Assignment: a =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: b =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: c =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: d =
+[info] [:]           + Unary Op: -
+[info] [:]             Operand:
+[info] [:]               + Number: 2
+[info] [:]         + Assignment: e =
+[info] [:]           + Binary Op: -
+[info] [:]             Left:
+[info] [:]               + Binary Op: +
+[info] [:]                 Left:
+[info] [:]                   + Binary Op: /
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: *
+[info] [:]                         Left:
+[info] [:]                           + Variable: d
+[info] [:]                         Right:
+[info] [:]                           + Number: 1
+[info] [:]                     Right:
+[info] [:]                       + Number: 2
+[info] [:]                 Right:
+[info] [:]                   + Binary Op: -
+[info] [:]                     Left:
+[info] [:]                       + Variable: a
+[info] [:]                     Right:
+[info] [:]                       + Variable: b
+[info] [:]             Right:
+[info] [:]               + Binary Op: %
+[info] [:]                 Left:
+[info] [:]                   + Unary Op: -
+[info] [:]                     Operand:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Variable: c
+[info] [:]                         Right:
+[info] [:]                           + Number: 3
+[info] [:]                 Right:
+[info] [:]                   + Number: 2
+[info] [:]         + Write Statement
+[info] [:]           + Variable: e
+[info] [:]         + Assignment: e =
+[info] [:]           + Binary Op: -
+[info] [:]             Left:
+[info] [:]               + Binary Op: +
+[info] [:]                 Left:
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: %
+[info] [:]                         Left:
+[info] [:]                           + Variable: d
+[info] [:]                         Right:
+[info] [:]                           + Number: 2
+[info] [:]                     Right:
+[info] [:]                       + Number: 67
+[info] [:]                 Right:
+[info] [:]                   + Unary Op: -
+[info] [:]                     Operand:
+[info] [:]                       + Binary Op: -
+[info] [:]                         Left:
+[info] [:]                           + Variable: a
+[info] [:]                         Right:
+[info] [:]                           + Variable: b
+[info] [:]             Right:
+[info] [:]               + Unary Op: -
+[info] [:]                 Operand:
+[info] [:]                   + Binary Op: %
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Variable: c
+[info] [:]                         Right:
+[info] [:]                           + Number: 2
+[info] [:]                     Right:
+[info] [:]                       + Number: 2
+[info] [:]         + Assignment: e =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: e
+[info] [:]             Right:
+[info] [:]               + Number: 3
+[info] [:]         + Write Statement
+[info] [:]           + Variable: e
+[info] [:] 转换完成: '32_assign_complex_expr.pas' -> '32_assign_complex_expr.c'

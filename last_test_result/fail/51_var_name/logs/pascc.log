@@ -1,0 +1,99 @@
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 1287 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: const, 类型: 276, 位置: 2:0
+[debug] [:] Token: u5X8l2s8I2w6D3f2a8C6d7l0H9b6q7K4p8Z6y8O5z2G5s6V8n1d7v8C3g9S9H4k8l8F9x1Q1k2p9Y1w9G5S2h2L6a0X5n5W5e, 类型: 321, 位置: 2:6
+[debug] [:] Token: =, 类型: 298, 位置: 2:104
+[debug] [:] Token: 'a, 类型: 320, 位置: 2:106
+[debug] [:] Token: ;, 类型: 312, 位置: 2:109
+[debug] [:] 添加常量 u5X8l2s8I2w6D3f2a8C6d7l0H9b6q7K4p8Z6y8O5z2G5s6V8n1d7v8C3g9S9H4k8l8F9x1Q1k2p9Y1w9G5S2h2L6a0X5n5W5e 到声明列表
+[debug] [:] Token: var, 类型: 261, 位置: 3:0
+[debug] [:] const声明区块处理完成，当前有1个声明
+[debug] [:] 从const声明获取声明列表 (地址: 0x55ae8f798520)，包含1个项目
+[debug] [:] Token: U01t9EaA7ZoJ5E8dZfRbP7iKfrW9bLXtxnMDh1QsZnB3S4v0wNvKxvFea8m7uNTjA2U6l5kPzFe8q2CfP0XNq6Pv2r6sX1vG7i2V0KcJ8I0v4Z0r8pY8gE3s5g8b9M5, 类型: 321, 位置: 4:0
+[debug] [:] Token: :, 类型: 313, 位置: 4:127
+[debug] [:] Token: integer, 类型: 288, 位置: 4:129
+[debug] [:] Token: ;, 类型: 312, 位置: 4:136
+[debug] [:] Token: l7J9H5Q3iD7yL0O3bT8oF6uJ2eZ4rN6wV0zA7nU8Y4fM1E2W3uK4R8sZ6c1qX8pG8m4a6S9f2N7xX4m7R3D7m9R3I5n1J2, 类型: 321, 位置: 5:0
+[debug] [:] Token: :, 类型: 313, 位置: 5:94
+[debug] [:] Token: real, 类型: 289, 位置: 5:96
+[debug] [:] Token: ;, 类型: 312, 位置: 5:100
+[debug] [:] Token: T2e5I2v7T2o9P9n9h7Q1s7b8g7S6k0x7Z7Y1W4Q0f5G2q7j6c2N7S9t8i5e7z5b9H4x7e6q1W1J1T7k6u7i4K2l4v8o7M6j7, 类型: 321, 位置: 6:0
+[debug] [:] Token: :, 类型: 313, 位置: 6:96
+[debug] [:] Token: boolean, 类型: 290, 位置: 6:98
+[debug] [:] Token: ;, 类型: 312, 位置: 6:105
+[debug] [:] Token: begin, 类型: 259, 位置: 8:0
+[debug] [:] Token: U01t9EaA7ZoJ5E8dZfRbP7iKfrW9bLXtxnMDh1QsZnB3S4v0wNvKxvFea8m7uNTjA2U6l5kPzFe8q2CfP0XNq6Pv2r6sX1vG7i2V0KcJ8I0v4Z0r8pY8gE3s5g8b9M5, 类型: 321, 位置: 9:2
+[debug] [:] Token: :=, 类型: 293, 位置: 9:130
+[debug] [:] Token: 0, 类型: 317, 位置: 9:133
+[debug] [:] Token: ;, 类型: 312, 位置: 9:134
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: l7J9H5Q3iD7yL0O3bT8oF6uJ2eZ4rN6wV0zA7nU8Y4fM1E2W3uK4R8sZ6c1qX8pG8m4a6S9f2N7xX4m7R3D7m9R3I5n1J2, 类型: 321, 位置: 10:2
+[debug] [:] Token: :=, 类型: 293, 位置: 10:97
+[debug] [:] Token: 0.0, 类型: 319, 位置: 10:100
+[debug] [:] Token: ;, 类型: 312, 位置: 10:103
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: T2e5I2v7T2o9P9n9h7Q1s7b8g7S6k0x7Z7Y1W4Q0f5G2q7j6c2N7S9t8i5e7z5b9H4x7e6q1W1J1T7k6u7i4K2l4v8o7M6j7, 类型: 321, 位置: 11:2
+[debug] [:] Token: :=, 类型: 293, 位置: 11:99
+[debug] [:] Token: false, 类型: 318, 位置: 11:102
+[debug] [:] Token: ;, 类型: 312, 位置: 11:107
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: if, 类型: 264, 位置: 12:2
+[debug] [:] Token: T2e5I2v7T2o9P9n9h7Q1s7b8g7S6k0x7Z7Y1W4Q0f5G2q7j6c2N7S9t8i5e7z5b9H4x7e6q1W1J1T7k6u7i4K2l4v8o7M6j7, 类型: 321, 位置: 12:5
+[debug] [:] Token: =, 类型: 298, 位置: 12:102
+[debug] [:] Token: false, 类型: 318, 位置: 12:104
+[debug] [:] Token: then, 类型: 265, 位置: 12:110
+[debug] [:] Token: write, 类型: 286, 位置: 13:4
+[debug] [:] Token: (, 类型: 308, 位置: 13:9
+[debug] [:] Token: U01t9EaA7ZoJ5E8dZfRbP7iKfrW9bLXtxnMDh1QsZnB3S4v0wNvKxvFea8m7uNTjA2U6l5kPzFe8q2CfP0XNq6Pv2r6sX1vG7i2V0KcJ8I0v4Z0r8pY8gE3s5g8b9M5, 类型: 321, 位置: 13:10
+[debug] [:] Token: ,, 类型: 314, 位置: 13:137
+[debug] [:] Token: l7J9H5Q3iD7yL0O3bT8oF6uJ2eZ4rN6wV0zA7nU8Y4fM1E2W3uK4R8sZ6c1qX8pG8m4a6S9f2N7xX4m7R3D7m9R3I5n1J2, 类型: 321, 位置: 13:139
+[debug] [:] Token: ,, 类型: 314, 位置: 13:233
+[debug] [:] Token: u5X8l2s8I2w6D3f2a8C6d7l0H9b6q7K4p8Z6y8O5z2G5s6V8n1d7v8C3g9S9H4k8l8F9x1Q1k2p9Y1w9G5S2h2L6a0X5n5W5e, 类型: 321, 位置: 13:235
+[debug] [:] Token: ), 类型: 309, 位置: 13:332
+[debug] [:] Token: ;, 类型: 312, 位置: 13:333
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: end, 类型: 260, 位置: 14:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] Token: ., 类型: 315, 位置: 14:3
+[info] [:] 词法分析完成，共识别 50 个token
+[debug] [:] 语法分析成功
+[info] [:] + Program: main
+[info] [:]   Body:
+[info] [:]   + Block
+[info] [:]     Declarations:
+[info] [:]       + Constant Declaration: u5X8l2s8I2w6D3f2a8C6d7l0H9b6q7K4p8Z6y8O5z2G5s6V8n1d7v8C3g9S9H4k8l8F9x1Q1k2p9Y1w9G5S2h2L6a0X5n5W5e
+[info] [:]         + String: "a"
+[info] [:]       + Variable Declaration: int
+[info] [:]         - U01t9EaA7ZoJ5E8dZfRbP7iKfrW9bLXtxnMDh1QsZnB3S4v0wNvKxvFea8m7uNTjA2U6l5kPzFe8q2CfP0XNq6Pv2r6sX1vG7i2V0KcJ8I0v4Z0r8pY8gE3s5g8b9M5
+[info] [:]       + Variable Declaration: double
+[info] [:]         - l7J9H5Q3iD7yL0O3bT8oF6uJ2eZ4rN6wV0zA7nU8Y4fM1E2W3uK4R8sZ6c1qX8pG8m4a6S9f2N7xX4m7R3D7m9R3I5n1J2
+[info] [:]       + Variable Declaration: bool
+[info] [:]         - T2e5I2v7T2o9P9n9h7Q1s7b8g7S6k0x7Z7Y1W4Q0f5G2q7j6c2N7S9t8i5e7z5b9H4x7e6q1W1J1T7k6u7i4K2l4v8o7M6j7
+[info] [:]     Body:
+[info] [:]       + Compound Statement
+[info] [:]         + Assignment: U01t9EaA7ZoJ5E8dZfRbP7iKfrW9bLXtxnMDh1QsZnB3S4v0wNvKxvFea8m7uNTjA2U6l5kPzFe8q2CfP0XNq6Pv2r6sX1vG7i2V0KcJ8I0v4Z0r8pY8gE3s5g8b9M5 =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: l7J9H5Q3iD7yL0O3bT8oF6uJ2eZ4rN6wV0zA7nU8Y4fM1E2W3uK4R8sZ6c1qX8pG8m4a6S9f2N7xX4m7R3D7m9R3I5n1J2 =
+[info] [:]           + Real: 0
+[info] [:]         + Assignment: T2e5I2v7T2o9P9n9h7Q1s7b8g7S6k0x7Z7Y1W4Q0f5G2q7j6c2N7S9t8i5e7z5b9H4x7e6q1W1J1T7k6u7i4K2l4v8o7M6j7 =
+[info] [:]           + Boolean: false
+[info] [:]         + If Statement
+[info] [:]           Condition:
+[info] [:]             + Binary Op: ==
+[info] [:]               Left:
+[info] [:]                 + Variable: T2e5I2v7T2o9P9n9h7Q1s7b8g7S6k0x7Z7Y1W4Q0f5G2q7j6c2N7S9t8i5e7z5b9H4x7e6q1W1J1T7k6u7i4K2l4v8o7M6j7
+[info] [:]               Right:
+[info] [:]                 + Boolean: false
+[info] [:]           Then:
+[info] [:]             + Write Statement
+[info] [:]               + Variable: U01t9EaA7ZoJ5E8dZfRbP7iKfrW9bLXtxnMDh1QsZnB3S4v0wNvKxvFea8m7uNTjA2U6l5kPzFe8q2CfP0XNq6Pv2r6sX1vG7i2V0KcJ8I0v4Z0r8pY8gE3s5g8b9M5
+[info] [:]               + Variable: l7J9H5Q3iD7yL0O3bT8oF6uJ2eZ4rN6wV0zA7nU8Y4fM1E2W3uK4R8sZ6c1qX8pG8m4a6S9f2N7xX4m7R3D7m9R3I5n1J2
+[info] [:]               + Variable: u5X8l2s8I2w6D3f2a8C6d7l0H9b6q7K4p8Z6y8O5z2G5s6V8n1d7v8C3g9S9H4k8l8F9x1Q1k2p9Y1w9G5S2h2L6a0X5n5W5e
+[debug] [:] 常量 u5X8l2s8I2w6D3f2a8C6d7l0H9b6q7K4p8Z6y8O5z2G5s6V8n1d7v8C3g9S9H4k8l8F9x1Q1k2p9Y1w9G5S2h2L6a0X5n5W5e 已添加到符号表，类型: char*
+[info] [:] 转换完成: '51_var_name.pas' -> '51_var_name.c'

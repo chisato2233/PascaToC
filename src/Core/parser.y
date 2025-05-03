@@ -80,7 +80,7 @@ std::string current_function_name = "";
 %token DIV MOD
 %token AND OR NOT
 %token NIL
-%token WRITE
+%token WRITE READ
 %token INTEGER REAL_TYPE BOOLEAN STRING_TYPE CHAR
 %token ASSIGN PLUS MINUS MULTIPLY DIVIDE
 %token EQUAL NOT_EQUAL LESS LESS_EQUAL GREATER GREATER_EQUAL
@@ -95,7 +95,7 @@ std::string current_function_name = "";
 
 %type <stmt_ptr> program_block compound_statement  statement
 %type <stmt_ptr> assignment_statement procedure_statement if_statement while_statement
-%type <stmt_ptr> repeat_statement for_statement case_statement write_statement
+%type <stmt_ptr> repeat_statement for_statement case_statement write_statement read_statement
 %type <stmt_list> statement_list
 %type <stmt_list> case_element_list
 
@@ -113,8 +113,12 @@ std::string current_function_name = "";
 %type <int_val> index_range
 %type <range_list> index_range_list
 
+%precedence NEG
 
 %start program
+
+%nonassoc THEN_PREC
+%nonassoc ELSE
 
 %%
 
@@ -567,23 +571,36 @@ constant:
 compound_statement:
   BEGIN_TOKEN statement_list END_TOKEN
   {
+    spdlog::debug("处理完整个复合语句");
     $$ = new StmtPtr(std::make_shared<CompoundStmt>(*(std::vector<std::shared_ptr<Statement>>*)$2));
     delete (std::vector<std::shared_ptr<Statement>>*)$2;
   }
   ;
 
 statement_list:
-  statement
+  /* 空语句列表 */
   {
+    spdlog::debug("创建空语句列表");
+    $$ = new std::vector<std::shared_ptr<Statement>>();
+  }
+  | statement
+  {
+    spdlog::debug("添加第一条语句到语句列表");
     $$ = new std::vector<std::shared_ptr<Statement>>();
     $$->push_back(*((StmtPtr*)$1));
     delete (StmtPtr*)$1;
   }
-  | statement_list statement
+  | statement_list SEMICOLON
   {
+    spdlog::debug("处理语句列表后的分号");
     $$ = $1;
-    $$->push_back(*((StmtPtr*)$2));
-    delete (StmtPtr*)$2;
+  }
+  | statement_list SEMICOLON statement
+  {
+    spdlog::debug("向语句列表添加新语句");
+    $$ = $1;
+    $$->push_back(*((StmtPtr*)$3));
+    delete (StmtPtr*)$3;
   }
   ;
 
@@ -597,38 +614,40 @@ statement:
   | for_statement { $$ = $1; }
   | case_statement { $$ = $1; }
   | write_statement { $$ = $1; }
+  | read_statement { $$ = $1; }
   ;
 
 assignment_statement:
-  IDENTIFIER ASSIGN expression SEMICOLON
+  IDENTIFIER ASSIGN expression
   {
-    // 在assignment_statement中使用
+    // 处理没有分号的情况
     if ($1 == current_function_name) {
-      // 这是函数返回值赋值
       $$ = new StmtPtr(std::make_shared<ReturnStmt>(*((ExprPtr*)$3)));
     } else {
-      // 普通赋值
       $$ = new StmtPtr(std::make_shared<AssignmentStmt>($1, *((ExprPtr*)$3)));
     }
-    
     free($1);
     delete (ExprPtr*)$3;
   }
-  ;
 
 procedure_statement:
   IDENTIFIER
   {
-    // 修复：创建一个空的过程调用语句
-    // $$ = new StmtPtr(std::make_shared<ProcedureCallStmt>($1, ExprVec()));
-    // free($1);
+    // 创建一个空的过程调用语句（无参数）
+    $$ = new StmtPtr(std::make_shared<ProcedureCallStmt>($1, ExprVec()));
+    free($1);
   }
   | IDENTIFIER LPAREN expression_list RPAREN
   {
-    // 修复：创建带参数的过程调用语句
-    // $$ = new StmtPtr(std::make_shared<ProcedureCallStmt>($1, *$3));
-    // free($1);
-    // delete $3;
+    // 创建带参数的过程调用语句
+    $$ = new StmtPtr(std::make_shared<ProcedureCallStmt>($1, *$3));
+    free($1);
+    delete $3;
+  }
+  | IDENTIFIER LPAREN RPAREN  // 添加处理空参数列表的情况
+  {
+    $$ = new StmtPtr(std::make_shared<ProcedureCallStmt>($1, ExprVec()));
+    free($1);
   }
   ;
 
@@ -716,13 +735,20 @@ case_element:
   ;
 
 write_statement:
-  WRITE LPAREN expression_list RPAREN SEMICOLON
+  WRITE LPAREN expression_list RPAREN
   {
     $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3)));
     delete (ExprVec*)$3;
   }
   ;
 
+read_statement:
+  READ LPAREN expression_list RPAREN
+  {
+    $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<ReadStmt>(*$3)));
+    delete (ExprVec*)$3;
+  }
+  ;
 expression_list:
   expression
   {
@@ -848,6 +874,15 @@ factor:
   {
     $$ = new ExprPtr(std::make_shared<NumberExpr>($1));
   }
+  | MINUS INTEGER_CONST %prec NEG
+  {
+    $$ = new ExprPtr(std::make_shared<NumberExpr>(-$2));
+  }
+  | MINUS factor %prec NEG
+  {
+    $$ = new ExprPtr(std::make_shared<UnaryExpr>(UnaryExpr::Neg, *((ExprPtr*)$2)));
+    delete (ExprPtr*)$2;
+  }
   | REAL_CONST
   {
     $$ = new ExprPtr(std::make_shared<RealExpr>($1));
@@ -884,6 +919,11 @@ function_call:
   {
     $$ = new ExprPtr(std::make_shared<FunctionCall>($1, *(std::vector<std::shared_ptr<Expression>>*)$3));
     delete (std::vector<std::shared_ptr<Expression>>*)$3;
+  }
+  | IDENTIFIER LPAREN RPAREN  // 添加处理空参数列表的情况
+  {
+    $$ = new ExprPtr(std::make_shared<FunctionCall>($1, ExprVec()));
+    free($1);
   }
   ;
 

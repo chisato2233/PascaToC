@@ -21,6 +21,7 @@ public:
         if (symbol->type == "int") return ExprType::Integer;
         if (symbol->type == "double" || symbol->type == "float") return ExprType::Real;
         if (symbol->type == "char") return ExprType::String;
+        if (symbol->type == "bool") return ExprType::Boolean;
         // 其他类型处理...
         
         return ExprType::Unknown;
@@ -28,7 +29,22 @@ public:
 };
 
 _VisitDecl_(CCodeGenVisitor,VariableExpr){
-    output<<node.name;
+    // 查找符号表
+    auto symbol = GlobalSymbolTable.lookupSymbol(node.name);
+    
+    if (symbol && symbol->symbolType == SymbolType::Function) {
+        // 如果是函数，并且不是在赋值语句的左侧
+        if (!isLeftSideOfAssignment) {
+            // 生成函数调用
+            output << node.name << "()";
+        } else {
+            // 在赋值语句左侧，直接输出名称
+            output << node.name;
+        }
+    } else {
+        // 普通变量
+        output << node.name;
+    }
 }
 
 
@@ -112,9 +128,21 @@ public:
 
 _VisitDecl_(CCodeGenVisitor, BinaryExpr) {
     output << "(";
-    node.lhs->accept(*this);
-    output << " " << node.get_op_str(node.op) << " ";
-    node.rhs->accept(*this);
+    
+    // 如果是除法且两个操作数都是整数，则需要强制转换
+    if (node.op == BinaryExpr::Divide && 
+        node.lhs->getType() == Expression::ExprType::Integer && 
+        node.rhs->getType() == Expression::ExprType::Integer) {
+        output << "(double)";
+        node.lhs->accept(*this);
+        output << " " << node.get_op_str(node.op) << " ";
+        node.rhs->accept(*this);
+    } else {
+        node.lhs->accept(*this);
+        output << " " << node.get_op_str(node.op) << " ";
+        node.rhs->accept(*this);
+    }
+    
     output << ")";
 }
 
@@ -145,7 +173,7 @@ public:
     std::string get_op_str(Op _op) const {
          std::string opSymbol;
         switch (_op) {
-            case Not: opSymbol = "!"; break;
+            case Not: opSymbol = "~"; break;
             case Neg: opSymbol = "-"; break;
             case Pos: opSymbol = "+"; break;
             default: opSymbol = "/* unknown unary op */"; break;
@@ -272,54 +300,4 @@ _VisitDecl_(CCodeGenVisitor,StringExpr){
     output<<"\""<<node.value<<"\"";
 }
 
-
-
-class FunctionCall : public ASTAcceptImpl<FunctionCall,Expression> {
-
-public:
-    std::string funcName;
-    std::vector<std::shared_ptr<Expression>> args;
-    FunctionCall(const std::string& name, std::vector<std::shared_ptr<Expression>> args)
-        : funcName(name), args(std::move(args)) {
-    }
-
-    std::string get_name() const noexcept override {
-        return "Function Call [" + funcName + "]";
-    }
-    
-    void printAST(int indent = 0) const override {
-        std::string padding = getIndent(indent);
-        spdlog::info("{}+ Function Call: {}", padding, funcName);
-        if (!args.empty()) {
-            spdlog::info("{}  Arguments:", padding);
-            for (const auto& arg : args) {
-                arg->printAST(indent + 2);
-            }
-        }
-    }
-
-    ExprType getType() const override {
-        // auto symbol = GlobalSymbolTable.lookupSymbol(funcName);
-        // if (!symbol || symbol->symbolType != SymbolType::Function) {
-        //     return ExprType::Unknown;
-        // }
-        
-        // auto funcInfo = std::dynamic_pointer_cast<FunctionInfo>(symbol);
-        // if (!funcInfo) return ExprType::Unknown;
-        
-        // if (funcInfo->type == "int") return ExprType::Integer;
-        // if (funcInfo->type == "double") return ExprType::Real;
-        // if (funcInfo->type == "char") return ExprType::String;
-        return ExprType::Unknown;
-    }
-};
-_VisitDecl_(CCodeGenVisitor,FunctionCall){
-    output<< node.funcName << "(";
-    for (size_t i = 0; i < node.args.size(); ++i) {
-        node.args[i]->accept(*this);
-        if (i + 1 < node.args.size()) 
-            output << ", ";
-    }
-    output << ")";
-}
-
+#include "FunctionCall.h"

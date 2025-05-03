@@ -132,6 +132,7 @@ STRING      \'([^\'\\]|\\.)*\'
 "not"           { record_token(NOT, yytext); return NOT; }
 "nil"           { record_token(NIL, yytext); return NIL; }
 "write"         { record_token(WRITE, yytext); return WRITE; }
+"read"          { record_token(READ, yytext); return READ; }
 
 "integer"       { record_token(INTEGER, yytext); return INTEGER; }
 "real"          { record_token(REAL_TYPE, yytext); return REAL_TYPE; }

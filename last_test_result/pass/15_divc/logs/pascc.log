@@ -1,0 +1,46 @@
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 72 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 2:0
+[debug] [:] Token: main, 类型: 321, 位置: 2:8
+[debug] [:] Token: ;, 类型: 312, 位置: 2:12
+[debug] [:] Token: const, 类型: 276, 位置: 3:0
+[debug] [:] Token: a, 类型: 321, 位置: 4:2
+[debug] [:] Token: =, 类型: 298, 位置: 4:4
+[debug] [:] Token: 10, 类型: 317, 位置: 4:6
+[debug] [:] Token: ;, 类型: 312, 位置: 4:8
+[debug] [:] 添加常量 a 到声明列表
+[debug] [:] Token: begin, 类型: 259, 位置: 5:0
+[debug] [:] const声明区块处理完成，当前有1个声明
+[debug] [:] 从const声明获取声明列表 (地址: 0x556eb2f63eb0)，包含1个项目
+[debug] [:] Token: write, 类型: 286, 位置: 6:2
+[debug] [:] Token: (, 类型: 308, 位置: 6:7
+[debug] [:] Token: a, 类型: 321, 位置: 6:8
+[debug] [:] Token: div, 类型: 280, 位置: 6:10
+[debug] [:] Token: 5, 类型: 317, 位置: 6:14
+[debug] [:] Token: ), 类型: 309, 位置: 6:15
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: ;, 类型: 312, 位置: 6:16
+[debug] [:] Token: end, 类型: 260, 位置: 7:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] Token: ., 类型: 315, 位置: 7:3
+[info] [:] 词法分析完成，共识别 18 个token
+[debug] [:] 语法分析成功
+[info] [:] + Program: main
+[info] [:]   Body:
+[info] [:]   + Block
+[info] [:]     Declarations:
+[info] [:]       + Constant Declaration: a
+[info] [:]         + Number: 10
+[info] [:]     Body:
+[info] [:]       + Compound Statement
+[info] [:]         + Write Statement
+[info] [:]           + Binary Op: /
+[info] [:]             Left:
+[info] [:]               + Variable: a
+[info] [:]             Right:
+[info] [:]               + Number: 5
+[debug] [:] 常量 a 已添加到符号表，类型: int
+[info] [:] 转换完成: '15_divc.pas' -> '15_divc.c'

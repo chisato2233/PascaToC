@@ -1,13 +1,37 @@
 
-
 #include <stdio.h> 
+#include <string.h>
 
 void write_int(int x)        { printf("%d", x); }
 void write_float(float x)    { printf("%f", x); }
-void write_double(double x)  { printf("%lf", x); }
+
 void write_char(char x)      { putchar(x); }
 void write_cstr(const char* s) { printf("%s", s); }
 
+void write_double(double x) { 
+    // 使用E科学计数法，但自行处理指数部分
+    char buffer[64];
+    sprintf(buffer, " %.16E", x);
+    
+    // 查找"E+"或"E-"的位置
+    char* e_pos = strstr(buffer, "E+");
+    if (!e_pos) e_pos = strstr(buffer, "E-");
+    
+    if (e_pos) {
+        // 找到最后两位指数
+        char* exp_start = e_pos + 2; // 跳过"E+"或"E-"
+        int exp_len = strlen(exp_start);
+        
+        // 如果指数只有两位，添加前导0
+        if (exp_len == 2) {
+            // 右移一位
+            memmove(exp_start + 1, exp_start, 3); // 包括null终止符
+            exp_start[0] = '0'; // 添加前导0
+        }
+    }
+    
+    printf("%s", buffer);
+}
 
 #define write(x) _Generic((x), \
     int: write_int, \
@@ -20,6 +44,151 @@ void write_cstr(const char* s) { printf("%s", s); }
 
 
 #define writeln(x) do { write(x); putchar('\n'); } while(0)
+
+// 为不同类型实现read函数
+void read_int(int* x)        { scanf("%d", x); }
+void read_float(float* x)    { scanf("%f", x); }
+void read_double(double* x)  { scanf("%lf", x); }
+void read_char(char* x)      { 
+    // 跳过前导空白字符并读取一个字符
+    scanf(" %c", x); 
+}
+void read_cstr(char* s, int max_len) { 
+    // 读取一行字符串，避免缓冲区溢出
+    fgets(s, max_len, stdin);
+    
+    // 移除末尾的换行符（如果有）
+    int len = strlen(s);
+    if (len > 0 && s[len-1] == '\n') {
+        s[len-1] = '\0';
+    }
+}
+
+// 使用_Generic简化read函数调用
+// 注意：由于read需要传递指针，使用方式与write不同
+#define read(x) _Generic((x), \
+    int*: read_int, \
+    float*: read_float, \
+    double*: read_double, \
+    char*: read_char \
+)(x)
+
+// 字符串需要特殊处理，因为需要指定最大长度
+#define read_string(str, max_len) read_cstr(str, max_len)
+
+int func(int a, int b) {
+int i;
+int c1;
+int c2;
+int c3;
+int c4;
+int d1;
+int d2;
+int d3;
+int d4;
+int e1;
+int e2;
+int e3;
+int e4;
+int f1;
+int f2;
+int f3;
+int f4;
+int g1;
+int g2;
+int g3;
+int g4;
+int h1;
+int h2;
+int h3;
+int h4;
+int i1;
+int i2;
+int i3;
+int i4;
+int j1;
+int j2;
+int j3;
+int j4;
+int k1;
+int k2;
+int k3;
+int k4;
+c1 = 1;
+c2 = 2;
+c3 = 3;
+c4 = 4;
+d1 = ((1 + c1) + a1);
+d2 = ((2 + c2) + a2);
+d3 = ((3 + c3) + a3);
+d4 = ((4 + c4) + a4);
+e1 = ((1 + d1) + a5);
+e2 = ((2 + d2) + a6);
+e3 = ((3 + d3) + a7);
+e4 = ((4 + d4) + a8);
+f1 = ((1 + e1) + a9);
+f2 = ((2 + e2) + a10);
+f3 = ((3 + e3) + a11);
+f4 = ((4 + e4) + a12);
+g1 = ((1 + f1) + a13);
+g2 = ((2 + f2) + a14);
+g3 = ((3 + f3) + a15);
+g4 = ((4 + f4) + a16);
+h1 = ((1 + g1) + a17);
+h2 = ((2 + g2) + a18);
+h3 = ((3 + g3) + a19);
+h4 = ((4 + g4) + a20);
+i1 = ((1 + h1) + a21);
+i2 = ((2 + h2) + a22);
+i3 = ((3 + h3) + a23);
+i4 = ((4 + h4) + a24);
+j1 = ((1 + i1) + a25);
+j2 = ((2 + i2) + a26);
+j3 = ((3 + i3) + a27);
+j4 = ((4 + i4) + a28);
+k1 = ((1 + j1) + a29);
+k2 = ((2 + j2) + a30);
+k3 = ((3 + j3) + a31);
+k4 = ((4 + j4) + a32);
+i = ((a - b) + 10);
+k1 = ((1 + j1) + a29);
+k2 = ((2 + j2) + a30);
+k3 = ((3 + j3) + a31);
+k4 = ((4 + j4) + a32);
+j1 = ((1 + i1) + a25);
+j2 = ((2 + i2) + a26);
+j3 = ((3 + i3) + a27);
+j4 = ((4 + i4) + a28);
+i1 = ((1 + h1) + a21);
+i2 = ((2 + h2) + a22);
+i3 = ((3 + h3) + a23);
+i4 = ((4 + h4) + a24);
+h1 = ((1 + g1) + a17);
+h2 = ((2 + g2) + a18);
+h3 = ((3 + g3) + a19);
+h4 = ((4 + g4) + a20);
+g1 = ((1 + f1) + a13);
+g2 = ((2 + f2) + a14);
+g3 = ((3 + f3) + a15);
+g4 = ((4 + f4) + a16);
+f1 = ((1 + e1) + a9);
+f2 = ((2 + e2) + a10);
+f3 = ((3 + e3) + a11);
+f4 = ((4 + e4) + a12);
+e1 = ((1 + d1) + a5);
+e2 = ((2 + d2) + a6);
+e3 = ((3 + d3) + a7);
+e4 = ((4 + d4) + a8);
+d1 = ((1 + c1) + a1);
+d2 = ((2 + c2) + a2);
+d3 = ((3 + c3) + a3);
+d4 = ((4 + c4) + a4);
+d1 = ((1 + c1) + a1);
+d2 = ((2 + c2) + a2);
+d3 = ((3 + c3) + a3);
+d4 = ((4 + c4) + a4);
+return ((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((i + c1) + c2) + c3) + c4) - d1) - d2) - d3) - d4) + e1) + e2) + e3) + e4) - f1) - f2) - f3) - f4) + g1) + g2) + g3) + g4) - h1) - h2) - h3) - h4) + i1) + i2) + i3) + i4) - j1) - j2) - j3) - j4) + k1) + k2) + k3) + k4) + a1) - a2) + a3) - a4) + a5) - a6) + a7) - a8) + a9) - a10) + a11) - a12) + a13) - a14) + a15) - a16) + a17) - a18) + a19) - a20) + a21) - a22) + a23) - a24) + a25) - a26) + a27) - a28) + a29) - a30) + a31) - a32);
+}
 
 int main() 
 {
@@ -97,5 +266,4 @@ a = func(a, b);
 write(a);
 
 }
-
 

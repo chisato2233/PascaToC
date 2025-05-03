@@ -1,292 +1,797 @@
-[2025-05-02 18:16:52.227] [pascc] [info] 日志系统初始化完成
-[2025-05-02 18:16:52.227] [pascc] [info] + Program: main
-[2025-05-02 18:16:52.227] [pascc] [info]   Body:
-[2025-05-02 18:16:52.227] [pascc] [info]   + Block
-[2025-05-02 18:16:52.227] [pascc] [info]     Declarations:
-[2025-05-02 18:16:52.227] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.227] [pascc] [info]         - n
-[2025-05-02 18:16:52.227] [pascc] [info]         - ret
-[2025-05-02 18:16:52.227] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.227] [pascc] [info]         - b
-[2025-05-02 18:16:52.227] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.227] [pascc] [info]         - a0
-[2025-05-02 18:16:52.227] [pascc] [info]         - a1
-[2025-05-02 18:16:52.227] [pascc] [info]         - a2
-[2025-05-02 18:16:52.227] [pascc] [info]         - a3
-[2025-05-02 18:16:52.227] [pascc] [info]         - a4
-[2025-05-02 18:16:52.227] [pascc] [info]         - a5
-[2025-05-02 18:16:52.227] [pascc] [info]         - a6
-[2025-05-02 18:16:52.227] [pascc] [info]         - a7
-[2025-05-02 18:16:52.227] [pascc] [info]         - a8
-[2025-05-02 18:16:52.227] [pascc] [info]         - a9
-[2025-05-02 18:16:52.227] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.227] [pascc] [info]         - a10
-[2025-05-02 18:16:52.227] [pascc] [info]         - a11
-[2025-05-02 18:16:52.227] [pascc] [info]         - a12
-[2025-05-02 18:16:52.227] [pascc] [info]         - a13
-[2025-05-02 18:16:52.227] [pascc] [info]         - a14
-[2025-05-02 18:16:52.227] [pascc] [info]         - a15
-[2025-05-02 18:16:52.227] [pascc] [info]         - a16
-[2025-05-02 18:16:52.227] [pascc] [info]         - a17
-[2025-05-02 18:16:52.227] [pascc] [info]         - a18
-[2025-05-02 18:16:52.227] [pascc] [info]         - a19
-[2025-05-02 18:16:52.227] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.227] [pascc] [info]         - a20
-[2025-05-02 18:16:52.227] [pascc] [info]         - a21
-[2025-05-02 18:16:52.227] [pascc] [info]         - a22
-[2025-05-02 18:16:52.227] [pascc] [info]         - a23
-[2025-05-02 18:16:52.227] [pascc] [info]         - a24
-[2025-05-02 18:16:52.227] [pascc] [info]         - a25
-[2025-05-02 18:16:52.227] [pascc] [info]         - a26
-[2025-05-02 18:16:52.227] [pascc] [info]         - a27
-[2025-05-02 18:16:52.227] [pascc] [info]         - a28
-[2025-05-02 18:16:52.227] [pascc] [info]         - a29
-[2025-05-02 18:16:52.227] [pascc] [info]     Body:
-[2025-05-02 18:16:52.227] [pascc] [info]       + Compound Statement
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: b =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Number: 5
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: ret =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Number: 0
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a0 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Number: 0
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a1 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a0
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a2 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a1
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a3 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a2
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a4 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a3
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a5 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a4
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a6 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a5
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a7 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a6
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a8 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a7
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a9 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a8
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a10 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a9
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a11 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a10
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a12 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a11
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a13 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a12
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a14 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a13
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a15 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a14
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a16 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a15
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a17 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a16
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a18 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a17
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a19 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a18
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a20 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a19
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a21 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a20
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a22 =
-[2025-05-02 18:16:52.227] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.227] [pascc] [info]             Left:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Variable: a21
-[2025-05-02 18:16:52.227] [pascc] [info]             Right:
-[2025-05-02 18:16:52.227] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.227] [pascc] [info]         + Assignment: a23 =
-[2025-05-02 18:16:52.228] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.228] [pascc] [info]             Left:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Variable: a22
-[2025-05-02 18:16:52.228] [pascc] [info]             Right:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.228] [pascc] [info]         + Assignment: a24 =
-[2025-05-02 18:16:52.228] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.228] [pascc] [info]             Left:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Variable: a23
-[2025-05-02 18:16:52.228] [pascc] [info]             Right:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.228] [pascc] [info]         + Assignment: a25 =
-[2025-05-02 18:16:52.228] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.228] [pascc] [info]             Left:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Variable: a24
-[2025-05-02 18:16:52.228] [pascc] [info]             Right:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.228] [pascc] [info]         + Assignment: a26 =
-[2025-05-02 18:16:52.228] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.228] [pascc] [info]             Left:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Variable: a25
-[2025-05-02 18:16:52.228] [pascc] [info]             Right:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.228] [pascc] [info]         + Assignment: a27 =
-[2025-05-02 18:16:52.228] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.228] [pascc] [info]             Left:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Variable: a26
-[2025-05-02 18:16:52.228] [pascc] [info]             Right:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.228] [pascc] [info]         + Assignment: a28 =
-[2025-05-02 18:16:52.228] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.228] [pascc] [info]             Left:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Variable: a27
-[2025-05-02 18:16:52.228] [pascc] [info]             Right:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.228] [pascc] [info]         + Assignment: a29 =
-[2025-05-02 18:16:52.228] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.228] [pascc] [info]             Left:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Variable: a28
-[2025-05-02 18:16:52.228] [pascc] [info]             Right:
-[2025-05-02 18:16:52.228] [pascc] [info]               + Number: 1
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a0
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a1
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a2
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a3
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a4
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a5
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a6
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a7
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a8
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a9
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a10
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a11
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a12
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a13
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a14
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a15
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a16
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a17
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a18
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a19
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a20
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a21
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a22
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a23
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a24
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a25
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a26
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a27
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a28
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a29
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: b
-[2025-05-02 18:16:52.228] [pascc] [info]         + Assignment: ret =
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: a25
-[2025-05-02 18:16:52.228] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.228] [pascc] [info]           + Variable: ret
-[2025-05-02 18:16:52.228] [pascc] [info] 转换完成: '61_many_locals2.pas' -> '61_many_locals2.c'
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 1177 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: var, 类型: 261, 位置: 2:0
+[debug] [:] Token: n, 类型: 321, 位置: 2:4
+[debug] [:] Token: ,, 类型: 314, 位置: 2:5
+[debug] [:] Token: ret, 类型: 321, 位置: 2:6
+[debug] [:] Token: :, 类型: 313, 位置: 2:9
+[debug] [:] Token: integer, 类型: 288, 位置: 2:10
+[debug] [:] Token: ;, 类型: 312, 位置: 2:17
+[debug] [:] Token: b, 类型: 321, 位置: 3:0
+[debug] [:] Token: :, 类型: 313, 位置: 3:1
+[debug] [:] Token: integer, 类型: 288, 位置: 3:2
+[debug] [:] Token: ;, 类型: 312, 位置: 3:9
+[debug] [:] Token: a0, 类型: 321, 位置: 4:0
+[debug] [:] Token: ,, 类型: 314, 位置: 4:2
+[debug] [:] Token: a1, 类型: 321, 位置: 4:3
+[debug] [:] Token: ,, 类型: 314, 位置: 4:5
+[debug] [:] Token: a2, 类型: 321, 位置: 4:6
+[debug] [:] Token: ,, 类型: 314, 位置: 4:8
+[debug] [:] Token: a3, 类型: 321, 位置: 4:9
+[debug] [:] Token: ,, 类型: 314, 位置: 4:11
+[debug] [:] Token: a4, 类型: 321, 位置: 4:12
+[debug] [:] Token: ,, 类型: 314, 位置: 4:14
+[debug] [:] Token: a5, 类型: 321, 位置: 4:15
+[debug] [:] Token: ,, 类型: 314, 位置: 4:17
+[debug] [:] Token: a6, 类型: 321, 位置: 4:18
+[debug] [:] Token: ,, 类型: 314, 位置: 4:20
+[debug] [:] Token: a7, 类型: 321, 位置: 4:21
+[debug] [:] Token: ,, 类型: 314, 位置: 4:23
+[debug] [:] Token: a8, 类型: 321, 位置: 4:24
+[debug] [:] Token: ,, 类型: 314, 位置: 4:26
+[debug] [:] Token: a9, 类型: 321, 位置: 4:27
+[debug] [:] Token: :, 类型: 313, 位置: 4:29
+[debug] [:] Token: integer, 类型: 288, 位置: 4:30
+[debug] [:] Token: ;, 类型: 312, 位置: 4:37
+[debug] [:] Token: a10, 类型: 321, 位置: 5:0
+[debug] [:] Token: ,, 类型: 314, 位置: 5:3
+[debug] [:] Token: a11, 类型: 321, 位置: 5:4
+[debug] [:] Token: ,, 类型: 314, 位置: 5:7
+[debug] [:] Token: a12, 类型: 321, 位置: 5:8
+[debug] [:] Token: ,, 类型: 314, 位置: 5:11
+[debug] [:] Token: a13, 类型: 321, 位置: 5:12
+[debug] [:] Token: ,, 类型: 314, 位置: 5:15
+[debug] [:] Token: a14, 类型: 321, 位置: 5:16
+[debug] [:] Token: ,, 类型: 314, 位置: 5:19
+[debug] [:] Token: a15, 类型: 321, 位置: 5:20
+[debug] [:] Token: ,, 类型: 314, 位置: 5:23
+[debug] [:] Token: a16, 类型: 321, 位置: 5:24
+[debug] [:] Token: ,, 类型: 314, 位置: 5:27
+[debug] [:] Token: a17, 类型: 321, 位置: 5:28
+[debug] [:] Token: ,, 类型: 314, 位置: 5:31
+[debug] [:] Token: a18, 类型: 321, 位置: 5:32
+[debug] [:] Token: ,, 类型: 314, 位置: 5:35
+[debug] [:] Token: a19, 类型: 321, 位置: 5:36
+[debug] [:] Token: :, 类型: 313, 位置: 5:39
+[debug] [:] Token: integer, 类型: 288, 位置: 5:40
+[debug] [:] Token: ;, 类型: 312, 位置: 5:47
+[debug] [:] Token: a20, 类型: 321, 位置: 6:0
+[debug] [:] Token: ,, 类型: 314, 位置: 6:3
+[debug] [:] Token: a21, 类型: 321, 位置: 6:4
+[debug] [:] Token: ,, 类型: 314, 位置: 6:7
+[debug] [:] Token: a22, 类型: 321, 位置: 6:8
+[debug] [:] Token: ,, 类型: 314, 位置: 6:11
+[debug] [:] Token: a23, 类型: 321, 位置: 6:12
+[debug] [:] Token: ,, 类型: 314, 位置: 6:15
+[debug] [:] Token: a24, 类型: 321, 位置: 6:16
+[debug] [:] Token: ,, 类型: 314, 位置: 6:19
+[debug] [:] Token: a25, 类型: 321, 位置: 6:20
+[debug] [:] Token: ,, 类型: 314, 位置: 6:23
+[debug] [:] Token: a26, 类型: 321, 位置: 6:24
+[debug] [:] Token: ,, 类型: 314, 位置: 6:27
+[debug] [:] Token: a27, 类型: 321, 位置: 6:28
+[debug] [:] Token: ,, 类型: 314, 位置: 6:31
+[debug] [:] Token: a28, 类型: 321, 位置: 6:32
+[debug] [:] Token: ,, 类型: 314, 位置: 6:35
+[debug] [:] Token: a29, 类型: 321, 位置: 6:36
+[debug] [:] Token: :, 类型: 313, 位置: 6:39
+[debug] [:] Token: integer, 类型: 288, 位置: 6:40
+[debug] [:] Token: ;, 类型: 312, 位置: 6:47
+[debug] [:] Token: begin, 类型: 259, 位置: 7:0
+[debug] [:] Token: b, 类型: 321, 位置: 8:2
+[debug] [:] Token: :=, 类型: 293, 位置: 8:4
+[debug] [:] Token: 5, 类型: 317, 位置: 8:7
+[debug] [:] Token: ;, 类型: 312, 位置: 8:8
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: ret, 类型: 321, 位置: 9:2
+[debug] [:] Token: :=, 类型: 293, 位置: 9:6
+[debug] [:] Token: 0, 类型: 317, 位置: 9:9
+[debug] [:] Token: ;, 类型: 312, 位置: 9:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a0, 类型: 321, 位置: 10:2
+[debug] [:] Token: :=, 类型: 293, 位置: 10:5
+[debug] [:] Token: 0, 类型: 317, 位置: 10:8
+[debug] [:] Token: ;, 类型: 312, 位置: 10:9
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a1, 类型: 321, 位置: 11:2
+[debug] [:] Token: :=, 类型: 293, 位置: 11:5
+[debug] [:] Token: a0, 类型: 321, 位置: 11:8
+[debug] [:] Token: +, 类型: 294, 位置: 11:11
+[debug] [:] Token: 1, 类型: 317, 位置: 11:13
+[debug] [:] Token: ;, 类型: 312, 位置: 11:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a2, 类型: 321, 位置: 12:2
+[debug] [:] Token: :=, 类型: 293, 位置: 12:5
+[debug] [:] Token: a1, 类型: 321, 位置: 12:8
+[debug] [:] Token: +, 类型: 294, 位置: 12:11
+[debug] [:] Token: 1, 类型: 317, 位置: 12:13
+[debug] [:] Token: ;, 类型: 312, 位置: 12:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a3, 类型: 321, 位置: 13:2
+[debug] [:] Token: :=, 类型: 293, 位置: 13:5
+[debug] [:] Token: a2, 类型: 321, 位置: 13:8
+[debug] [:] Token: +, 类型: 294, 位置: 13:11
+[debug] [:] Token: 1, 类型: 317, 位置: 13:13
+[debug] [:] Token: ;, 类型: 312, 位置: 13:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a4, 类型: 321, 位置: 14:2
+[debug] [:] Token: :=, 类型: 293, 位置: 14:5
+[debug] [:] Token: a3, 类型: 321, 位置: 14:8
+[debug] [:] Token: +, 类型: 294, 位置: 14:11
+[debug] [:] Token: 1, 类型: 317, 位置: 14:13
+[debug] [:] Token: ;, 类型: 312, 位置: 14:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a5, 类型: 321, 位置: 15:2
+[debug] [:] Token: :=, 类型: 293, 位置: 15:5
+[debug] [:] Token: a4, 类型: 321, 位置: 15:8
+[debug] [:] Token: +, 类型: 294, 位置: 15:11
+[debug] [:] Token: 1, 类型: 317, 位置: 15:13
+[debug] [:] Token: ;, 类型: 312, 位置: 15:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a6, 类型: 321, 位置: 16:2
+[debug] [:] Token: :=, 类型: 293, 位置: 16:5
+[debug] [:] Token: a5, 类型: 321, 位置: 16:8
+[debug] [:] Token: +, 类型: 294, 位置: 16:11
+[debug] [:] Token: 1, 类型: 317, 位置: 16:13
+[debug] [:] Token: ;, 类型: 312, 位置: 16:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a7, 类型: 321, 位置: 17:2
+[debug] [:] Token: :=, 类型: 293, 位置: 17:5
+[debug] [:] Token: a6, 类型: 321, 位置: 17:8
+[debug] [:] Token: +, 类型: 294, 位置: 17:11
+[debug] [:] Token: 1, 类型: 317, 位置: 17:13
+[debug] [:] Token: ;, 类型: 312, 位置: 17:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a8, 类型: 321, 位置: 18:2
+[debug] [:] Token: :=, 类型: 293, 位置: 18:5
+[debug] [:] Token: a7, 类型: 321, 位置: 18:8
+[debug] [:] Token: +, 类型: 294, 位置: 18:11
+[debug] [:] Token: 1, 类型: 317, 位置: 18:13
+[debug] [:] Token: ;, 类型: 312, 位置: 18:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a9, 类型: 321, 位置: 19:2
+[debug] [:] Token: :=, 类型: 293, 位置: 19:5
+[debug] [:] Token: a8, 类型: 321, 位置: 19:8
+[debug] [:] Token: +, 类型: 294, 位置: 19:11
+[debug] [:] Token: 1, 类型: 317, 位置: 19:13
+[debug] [:] Token: ;, 类型: 312, 位置: 19:14
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a10, 类型: 321, 位置: 20:2
+[debug] [:] Token: :=, 类型: 293, 位置: 20:6
+[debug] [:] Token: a9, 类型: 321, 位置: 20:9
+[debug] [:] Token: +, 类型: 294, 位置: 20:12
+[debug] [:] Token: 1, 类型: 317, 位置: 20:14
+[debug] [:] Token: ;, 类型: 312, 位置: 20:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a11, 类型: 321, 位置: 21:2
+[debug] [:] Token: :=, 类型: 293, 位置: 21:6
+[debug] [:] Token: a10, 类型: 321, 位置: 21:9
+[debug] [:] Token: +, 类型: 294, 位置: 21:13
+[debug] [:] Token: 1, 类型: 317, 位置: 21:15
+[debug] [:] Token: ;, 类型: 312, 位置: 21:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a12, 类型: 321, 位置: 22:2
+[debug] [:] Token: :=, 类型: 293, 位置: 22:6
+[debug] [:] Token: a11, 类型: 321, 位置: 22:9
+[debug] [:] Token: +, 类型: 294, 位置: 22:13
+[debug] [:] Token: 1, 类型: 317, 位置: 22:15
+[debug] [:] Token: ;, 类型: 312, 位置: 22:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a13, 类型: 321, 位置: 23:2
+[debug] [:] Token: :=, 类型: 293, 位置: 23:6
+[debug] [:] Token: a12, 类型: 321, 位置: 23:9
+[debug] [:] Token: +, 类型: 294, 位置: 23:13
+[debug] [:] Token: 1, 类型: 317, 位置: 23:15
+[debug] [:] Token: ;, 类型: 312, 位置: 23:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a14, 类型: 321, 位置: 24:2
+[debug] [:] Token: :=, 类型: 293, 位置: 24:6
+[debug] [:] Token: a13, 类型: 321, 位置: 24:9
+[debug] [:] Token: +, 类型: 294, 位置: 24:13
+[debug] [:] Token: 1, 类型: 317, 位置: 24:15
+[debug] [:] Token: ;, 类型: 312, 位置: 24:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a15, 类型: 321, 位置: 25:2
+[debug] [:] Token: :=, 类型: 293, 位置: 25:6
+[debug] [:] Token: a14, 类型: 321, 位置: 25:9
+[debug] [:] Token: +, 类型: 294, 位置: 25:13
+[debug] [:] Token: 1, 类型: 317, 位置: 25:15
+[debug] [:] Token: ;, 类型: 312, 位置: 25:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a16, 类型: 321, 位置: 26:2
+[debug] [:] Token: :=, 类型: 293, 位置: 26:6
+[debug] [:] Token: a15, 类型: 321, 位置: 26:9
+[debug] [:] Token: +, 类型: 294, 位置: 26:13
+[debug] [:] Token: 1, 类型: 317, 位置: 26:15
+[debug] [:] Token: ;, 类型: 312, 位置: 26:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a17, 类型: 321, 位置: 27:2
+[debug] [:] Token: :=, 类型: 293, 位置: 27:6
+[debug] [:] Token: a16, 类型: 321, 位置: 27:9
+[debug] [:] Token: +, 类型: 294, 位置: 27:13
+[debug] [:] Token: 1, 类型: 317, 位置: 27:15
+[debug] [:] Token: ;, 类型: 312, 位置: 27:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a18, 类型: 321, 位置: 28:2
+[debug] [:] Token: :=, 类型: 293, 位置: 28:6
+[debug] [:] Token: a17, 类型: 321, 位置: 28:9
+[debug] [:] Token: +, 类型: 294, 位置: 28:13
+[debug] [:] Token: 1, 类型: 317, 位置: 28:15
+[debug] [:] Token: ;, 类型: 312, 位置: 28:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a19, 类型: 321, 位置: 29:2
+[debug] [:] Token: :=, 类型: 293, 位置: 29:6
+[debug] [:] Token: a18, 类型: 321, 位置: 29:9
+[debug] [:] Token: +, 类型: 294, 位置: 29:13
+[debug] [:] Token: 1, 类型: 317, 位置: 29:15
+[debug] [:] Token: ;, 类型: 312, 位置: 29:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a20, 类型: 321, 位置: 30:2
+[debug] [:] Token: :=, 类型: 293, 位置: 30:6
+[debug] [:] Token: a19, 类型: 321, 位置: 30:9
+[debug] [:] Token: +, 类型: 294, 位置: 30:13
+[debug] [:] Token: 1, 类型: 317, 位置: 30:15
+[debug] [:] Token: ;, 类型: 312, 位置: 30:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a21, 类型: 321, 位置: 31:2
+[debug] [:] Token: :=, 类型: 293, 位置: 31:6
+[debug] [:] Token: a20, 类型: 321, 位置: 31:9
+[debug] [:] Token: +, 类型: 294, 位置: 31:13
+[debug] [:] Token: 1, 类型: 317, 位置: 31:15
+[debug] [:] Token: ;, 类型: 312, 位置: 31:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a22, 类型: 321, 位置: 32:2
+[debug] [:] Token: :=, 类型: 293, 位置: 32:6
+[debug] [:] Token: a21, 类型: 321, 位置: 32:9
+[debug] [:] Token: +, 类型: 294, 位置: 32:13
+[debug] [:] Token: 1, 类型: 317, 位置: 32:15
+[debug] [:] Token: ;, 类型: 312, 位置: 32:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a23, 类型: 321, 位置: 33:2
+[debug] [:] Token: :=, 类型: 293, 位置: 33:6
+[debug] [:] Token: a22, 类型: 321, 位置: 33:9
+[debug] [:] Token: +, 类型: 294, 位置: 33:13
+[debug] [:] Token: 1, 类型: 317, 位置: 33:15
+[debug] [:] Token: ;, 类型: 312, 位置: 33:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a24, 类型: 321, 位置: 34:2
+[debug] [:] Token: :=, 类型: 293, 位置: 34:6
+[debug] [:] Token: a23, 类型: 321, 位置: 34:9
+[debug] [:] Token: +, 类型: 294, 位置: 34:13
+[debug] [:] Token: 1, 类型: 317, 位置: 34:15
+[debug] [:] Token: ;, 类型: 312, 位置: 34:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a25, 类型: 321, 位置: 35:2
+[debug] [:] Token: :=, 类型: 293, 位置: 35:6
+[debug] [:] Token: a24, 类型: 321, 位置: 35:9
+[debug] [:] Token: +, 类型: 294, 位置: 35:13
+[debug] [:] Token: 1, 类型: 317, 位置: 35:15
+[debug] [:] Token: ;, 类型: 312, 位置: 35:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a26, 类型: 321, 位置: 36:2
+[debug] [:] Token: :=, 类型: 293, 位置: 36:6
+[debug] [:] Token: a25, 类型: 321, 位置: 36:9
+[debug] [:] Token: +, 类型: 294, 位置: 36:13
+[debug] [:] Token: 1, 类型: 317, 位置: 36:15
+[debug] [:] Token: ;, 类型: 312, 位置: 36:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a27, 类型: 321, 位置: 37:2
+[debug] [:] Token: :=, 类型: 293, 位置: 37:6
+[debug] [:] Token: a26, 类型: 321, 位置: 37:9
+[debug] [:] Token: +, 类型: 294, 位置: 37:13
+[debug] [:] Token: 1, 类型: 317, 位置: 37:15
+[debug] [:] Token: ;, 类型: 312, 位置: 37:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a28, 类型: 321, 位置: 38:2
+[debug] [:] Token: :=, 类型: 293, 位置: 38:6
+[debug] [:] Token: a27, 类型: 321, 位置: 38:9
+[debug] [:] Token: +, 类型: 294, 位置: 38:13
+[debug] [:] Token: 1, 类型: 317, 位置: 38:15
+[debug] [:] Token: ;, 类型: 312, 位置: 38:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a29, 类型: 321, 位置: 39:2
+[debug] [:] Token: :=, 类型: 293, 位置: 39:6
+[debug] [:] Token: a28, 类型: 321, 位置: 39:9
+[debug] [:] Token: +, 类型: 294, 位置: 39:13
+[debug] [:] Token: 1, 类型: 317, 位置: 39:15
+[debug] [:] Token: ;, 类型: 312, 位置: 39:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: write, 类型: 286, 位置: 40:2
+[debug] [:] Token: (, 类型: 308, 位置: 40:7
+[debug] [:] Token: a0, 类型: 321, 位置: 40:8
+[debug] [:] Token: ), 类型: 309, 位置: 40:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 40:11
+[debug] [:] Token: write, 类型: 286, 位置: 41:2
+[debug] [:] Token: (, 类型: 308, 位置: 41:7
+[debug] [:] Token: a1, 类型: 321, 位置: 41:8
+[debug] [:] Token: ), 类型: 309, 位置: 41:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 41:11
+[debug] [:] Token: write, 类型: 286, 位置: 42:2
+[debug] [:] Token: (, 类型: 308, 位置: 42:7
+[debug] [:] Token: a2, 类型: 321, 位置: 42:8
+[debug] [:] Token: ), 类型: 309, 位置: 42:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 42:11
+[debug] [:] Token: write, 类型: 286, 位置: 43:2
+[debug] [:] Token: (, 类型: 308, 位置: 43:7
+[debug] [:] Token: a3, 类型: 321, 位置: 43:8
+[debug] [:] Token: ), 类型: 309, 位置: 43:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 43:11
+[debug] [:] Token: write, 类型: 286, 位置: 44:2
+[debug] [:] Token: (, 类型: 308, 位置: 44:7
+[debug] [:] Token: a4, 类型: 321, 位置: 44:8
+[debug] [:] Token: ), 类型: 309, 位置: 44:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 44:11
+[debug] [:] Token: write, 类型: 286, 位置: 45:2
+[debug] [:] Token: (, 类型: 308, 位置: 45:7
+[debug] [:] Token: a5, 类型: 321, 位置: 45:8
+[debug] [:] Token: ), 类型: 309, 位置: 45:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 45:11
+[debug] [:] Token: write, 类型: 286, 位置: 46:2
+[debug] [:] Token: (, 类型: 308, 位置: 46:7
+[debug] [:] Token: a6, 类型: 321, 位置: 46:8
+[debug] [:] Token: ), 类型: 309, 位置: 46:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 46:11
+[debug] [:] Token: write, 类型: 286, 位置: 47:2
+[debug] [:] Token: (, 类型: 308, 位置: 47:7
+[debug] [:] Token: a7, 类型: 321, 位置: 47:8
+[debug] [:] Token: ), 类型: 309, 位置: 47:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 47:11
+[debug] [:] Token: write, 类型: 286, 位置: 48:2
+[debug] [:] Token: (, 类型: 308, 位置: 48:7
+[debug] [:] Token: a8, 类型: 321, 位置: 48:8
+[debug] [:] Token: ), 类型: 309, 位置: 48:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 48:11
+[debug] [:] Token: write, 类型: 286, 位置: 49:2
+[debug] [:] Token: (, 类型: 308, 位置: 49:7
+[debug] [:] Token: a9, 类型: 321, 位置: 49:8
+[debug] [:] Token: ), 类型: 309, 位置: 49:10
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 49:11
+[debug] [:] Token: write, 类型: 286, 位置: 50:2
+[debug] [:] Token: (, 类型: 308, 位置: 50:7
+[debug] [:] Token: a10, 类型: 321, 位置: 50:8
+[debug] [:] Token: ), 类型: 309, 位置: 50:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 50:12
+[debug] [:] Token: write, 类型: 286, 位置: 51:2
+[debug] [:] Token: (, 类型: 308, 位置: 51:7
+[debug] [:] Token: a11, 类型: 321, 位置: 51:8
+[debug] [:] Token: ), 类型: 309, 位置: 51:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 51:12
+[debug] [:] Token: write, 类型: 286, 位置: 52:2
+[debug] [:] Token: (, 类型: 308, 位置: 52:7
+[debug] [:] Token: a12, 类型: 321, 位置: 52:8
+[debug] [:] Token: ), 类型: 309, 位置: 52:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 52:12
+[debug] [:] Token: write, 类型: 286, 位置: 53:2
+[debug] [:] Token: (, 类型: 308, 位置: 53:7
+[debug] [:] Token: a13, 类型: 321, 位置: 53:8
+[debug] [:] Token: ), 类型: 309, 位置: 53:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 53:12
+[debug] [:] Token: write, 类型: 286, 位置: 54:2
+[debug] [:] Token: (, 类型: 308, 位置: 54:7
+[debug] [:] Token: a14, 类型: 321, 位置: 54:8
+[debug] [:] Token: ), 类型: 309, 位置: 54:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 54:12
+[debug] [:] Token: write, 类型: 286, 位置: 55:2
+[debug] [:] Token: (, 类型: 308, 位置: 55:7
+[debug] [:] Token: a15, 类型: 321, 位置: 55:8
+[debug] [:] Token: ), 类型: 309, 位置: 55:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 55:12
+[debug] [:] Token: write, 类型: 286, 位置: 56:2
+[debug] [:] Token: (, 类型: 308, 位置: 56:7
+[debug] [:] Token: a16, 类型: 321, 位置: 56:8
+[debug] [:] Token: ), 类型: 309, 位置: 56:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 56:12
+[debug] [:] Token: write, 类型: 286, 位置: 57:2
+[debug] [:] Token: (, 类型: 308, 位置: 57:7
+[debug] [:] Token: a17, 类型: 321, 位置: 57:8
+[debug] [:] Token: ), 类型: 309, 位置: 57:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 57:12
+[debug] [:] Token: write, 类型: 286, 位置: 58:2
+[debug] [:] Token: (, 类型: 308, 位置: 58:7
+[debug] [:] Token: a18, 类型: 321, 位置: 58:8
+[debug] [:] Token: ), 类型: 309, 位置: 58:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 58:12
+[debug] [:] Token: write, 类型: 286, 位置: 59:2
+[debug] [:] Token: (, 类型: 308, 位置: 59:7
+[debug] [:] Token: a19, 类型: 321, 位置: 59:8
+[debug] [:] Token: ), 类型: 309, 位置: 59:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 59:12
+[debug] [:] Token: write, 类型: 286, 位置: 60:2
+[debug] [:] Token: (, 类型: 308, 位置: 60:7
+[debug] [:] Token: a20, 类型: 321, 位置: 60:8
+[debug] [:] Token: ), 类型: 309, 位置: 60:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 60:12
+[debug] [:] Token: write, 类型: 286, 位置: 61:2
+[debug] [:] Token: (, 类型: 308, 位置: 61:7
+[debug] [:] Token: a21, 类型: 321, 位置: 61:8
+[debug] [:] Token: ), 类型: 309, 位置: 61:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 61:12
+[debug] [:] Token: write, 类型: 286, 位置: 62:2
+[debug] [:] Token: (, 类型: 308, 位置: 62:7
+[debug] [:] Token: a22, 类型: 321, 位置: 62:8
+[debug] [:] Token: ), 类型: 309, 位置: 62:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 62:12
+[debug] [:] Token: write, 类型: 286, 位置: 63:2
+[debug] [:] Token: (, 类型: 308, 位置: 63:7
+[debug] [:] Token: a23, 类型: 321, 位置: 63:8
+[debug] [:] Token: ), 类型: 309, 位置: 63:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 63:12
+[debug] [:] Token: write, 类型: 286, 位置: 64:2
+[debug] [:] Token: (, 类型: 308, 位置: 64:7
+[debug] [:] Token: a24, 类型: 321, 位置: 64:8
+[debug] [:] Token: ), 类型: 309, 位置: 64:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 64:12
+[debug] [:] Token: write, 类型: 286, 位置: 65:2
+[debug] [:] Token: (, 类型: 308, 位置: 65:7
+[debug] [:] Token: a25, 类型: 321, 位置: 65:8
+[debug] [:] Token: ), 类型: 309, 位置: 65:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 65:12
+[debug] [:] Token: write, 类型: 286, 位置: 66:2
+[debug] [:] Token: (, 类型: 308, 位置: 66:7
+[debug] [:] Token: a26, 类型: 321, 位置: 66:8
+[debug] [:] Token: ), 类型: 309, 位置: 66:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 66:12
+[debug] [:] Token: write, 类型: 286, 位置: 67:2
+[debug] [:] Token: (, 类型: 308, 位置: 67:7
+[debug] [:] Token: a27, 类型: 321, 位置: 67:8
+[debug] [:] Token: ), 类型: 309, 位置: 67:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 67:12
+[debug] [:] Token: write, 类型: 286, 位置: 68:2
+[debug] [:] Token: (, 类型: 308, 位置: 68:7
+[debug] [:] Token: a28, 类型: 321, 位置: 68:8
+[debug] [:] Token: ), 类型: 309, 位置: 68:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 68:12
+[debug] [:] Token: write, 类型: 286, 位置: 69:2
+[debug] [:] Token: (, 类型: 308, 位置: 69:7
+[debug] [:] Token: a29, 类型: 321, 位置: 69:8
+[debug] [:] Token: ), 类型: 309, 位置: 69:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 69:12
+[debug] [:] Token: write, 类型: 286, 位置: 70:2
+[debug] [:] Token: (, 类型: 308, 位置: 70:7
+[debug] [:] Token: b, 类型: 321, 位置: 70:8
+[debug] [:] Token: ), 类型: 309, 位置: 70:9
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 70:10
+[debug] [:] Token: ret, 类型: 321, 位置: 71:2
+[debug] [:] Token: :=, 类型: 293, 位置: 71:6
+[debug] [:] Token: a25, 类型: 321, 位置: 71:9
+[debug] [:] Token: ;, 类型: 312, 位置: 71:12
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: write, 类型: 286, 位置: 72:2
+[debug] [:] Token: (, 类型: 308, 位置: 72:7
+[debug] [:] Token: ret, 类型: 321, 位置: 72:8
+[debug] [:] Token: ), 类型: 309, 位置: 72:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 72:12
+[debug] [:] Token: end, 类型: 260, 位置: 73:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] Token: ., 类型: 315, 位置: 73:3
+[info] [:] 词法分析完成，共识别 433 个token
+[debug] [:] 语法分析成功
+[info] [:] + Program: main
+[info] [:]   Body:
+[info] [:]   + Block
+[info] [:]     Declarations:
+[info] [:]       + Variable Declaration: int
+[info] [:]         - n
+[info] [:]         - ret
+[info] [:]       + Variable Declaration: int
+[info] [:]         - b
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a0
+[info] [:]         - a1
+[info] [:]         - a2
+[info] [:]         - a3
+[info] [:]         - a4
+[info] [:]         - a5
+[info] [:]         - a6
+[info] [:]         - a7
+[info] [:]         - a8
+[info] [:]         - a9
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a10
+[info] [:]         - a11
+[info] [:]         - a12
+[info] [:]         - a13
+[info] [:]         - a14
+[info] [:]         - a15
+[info] [:]         - a16
+[info] [:]         - a17
+[info] [:]         - a18
+[info] [:]         - a19
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a20
+[info] [:]         - a21
+[info] [:]         - a22
+[info] [:]         - a23
+[info] [:]         - a24
+[info] [:]         - a25
+[info] [:]         - a26
+[info] [:]         - a27
+[info] [:]         - a28
+[info] [:]         - a29
+[info] [:]     Body:
+[info] [:]       + Compound Statement
+[info] [:]         + Assignment: b =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: ret =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: a0 =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: a1 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a0
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a2 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a1
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a3 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a2
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a4 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a3
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a5 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a4
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a6 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a5
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a7 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a6
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a8 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a7
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a9 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a8
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a10 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a9
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a11 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a10
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a12 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a11
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a13 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a12
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a14 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a13
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a15 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a14
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a16 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a15
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a17 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a16
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a18 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a17
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a19 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a18
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a20 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a19
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a21 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a20
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a22 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a21
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a23 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a22
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a24 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a23
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a25 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a24
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a26 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a25
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a27 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a26
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a28 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a27
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Assignment: a29 =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a28
+[info] [:]             Right:
+[info] [:]               + Number: 1
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a0
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a1
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a2
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a3
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a4
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a5
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a6
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a7
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a8
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a9
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a10
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a11
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a12
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a13
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a14
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a15
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a16
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a17
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a18
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a19
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a20
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a21
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a22
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a23
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a24
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a25
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a26
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a27
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a28
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a29
+[info] [:]         + Write Statement
+[info] [:]           + Variable: b
+[info] [:]         + Assignment: ret =
+[info] [:]           + Variable: a25
+[info] [:]         + Write Statement
+[info] [:]           + Variable: ret
+[info] [:] 转换完成: '61_many_locals2.pas' -> '61_many_locals2.c'
