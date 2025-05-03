@@ -45,6 +45,12 @@ void set_parse_result(std::string* result) {
 
 // 跟踪当前处理的声明列表
 DeclVec* current_declarations = nullptr;
+
+// 保存当前函数参数的列表
+std::vector<ParameterInfo>* current_parameters = nullptr;
+
+// 在parser头部添加
+std::string current_function_name = "";
 %}
 
 
@@ -97,7 +103,7 @@ DeclVec* current_declarations = nullptr;
 %type <expr_list> expression_list
 
 %type <decl_ptr> var_declaration
-%type <decl_list> declarations var_declarations var_declaration_list
+%type <decl_list> declarations var_declarations var_declaration_list function_declarations procedure_declarations
 
 %type <cstr_val> type simple_type record_type array_type
 %type <str_list> identifier_list
@@ -173,8 +179,7 @@ declarations:
   }
   | function_declarations
   {
-    // 修复：为function_declarations添加正确的类型
-    $$ = new DeclVec(); // 返回空的声明列表
+    $$ = $1;
   }
   | declarations const_declarations
   {
@@ -204,8 +209,15 @@ declarations:
   }
   | declarations function_declarations
   {
-    // 修复：添加类型匹配
     $$ = $1;
+    // 确保两个列表都存在
+    if ($1 && current_declarations) {
+      // 将当前函数声明列表中的内容合并到$1中
+      for (const auto& funcDecl : *current_declarations) {
+        $$->push_back(funcDecl);
+      }
+      spdlog::debug("合并函数声明后，声明列表包含{}个项目", $$->size());
+    }
   }
   ;
 
@@ -236,7 +248,6 @@ const_declaration:
       
       // 将常量加入当前声明列表
       if (current_declarations == nullptr) {
-        spdlog::debug("current_declarations为空，创建新的");
         current_declarations = new DeclVec();
       }
       current_declarations->push_back(declPtr);
@@ -297,23 +308,121 @@ var_declaration:
 
 procedure_declarations:
   procedure_declaration SEMICOLON
+  {
+    // 与函数声明类似，确保current_declarations有效
+    if (current_declarations == nullptr) {
+      spdlog::error("从procedure_declaration返回后current_declarations为空");
+      current_declarations = new DeclVec();
+    }
+    spdlog::debug("过程声明处理完成，当前声明列表包含{}个项目", current_declarations->size());
+  }
   ;
 
 procedure_declaration:
   PROCEDURE IDENTIFIER formal_parameters SEMICOLON program_block
+  {
+    try {
+      // 创建过程声明
+      auto procBody = *((StmtPtr*)$5);
+      std::vector<ParameterInfo> params;
+      
+      // 使用当前参数列表
+      if (current_parameters != nullptr) {
+        params = *current_parameters;
+        delete current_parameters;
+        current_parameters = nullptr;
+      } else {
+        spdlog::debug("过程{}的参数列表为空", $2);
+      }
+      
+      // 创建过程声明节点
+      auto procDecl = std::make_shared<ProcedureDeclaration>($2, params, procBody);
+      
+      // 确保current_declarations存在
+      if (current_declarations == nullptr) {
+        spdlog::debug("创建新的声明列表用于过程{}", $2);
+        current_declarations = new DeclVec();
+      }
+      
+      // 添加到当前声明列表
+      current_declarations->push_back(procDecl);
+      spdlog::debug("添加过程{}到声明列表", $2);
+      
+      // 释放内存
+      free($2);
+      delete (StmtPtr*)$5;
+    } catch (const std::exception& e) {
+      spdlog::error("创建过程声明时出错: {}", e.what());
+    }
+  }
   ;
 
 function_declarations:
   function_declaration SEMICOLON
+  {
+    // 返回current_declarations，而不仅仅是检查它
+    if (current_declarations == nullptr) {
+      current_declarations = new DeclVec();
+    }
+    $$ = current_declarations;
+    spdlog::debug("函数声明处理完成，当前声明列表包含{}个项目", $$->size());
+  }
   ;
 
 function_declaration:
   FUNCTION IDENTIFIER formal_parameters COLON type SEMICOLON program_block
+  {
+    try {
+      // 创建函数声明
+      current_function_name = $2;
+      auto funcBody = *((StmtPtr*)$7);
+      std::vector<ParameterInfo> params;
+      
+      // 使用当前参数列表
+      if (current_parameters != nullptr) {
+        params = *current_parameters;
+        delete current_parameters;
+        current_parameters = nullptr;
+      } else {
+        spdlog::debug("函数{}的参数列表为空", $2);
+      }
+      
+      // 创建函数声明节点
+      auto funcDecl = std::make_shared<FunctionDeclaration>($2, $5, params, funcBody);
+      
+      // 确保current_declarations存在
+      if (current_declarations == nullptr) {
+        spdlog::debug("创建新的声明列表用于函数{}", $2);
+        current_declarations = new DeclVec();
+      }
+      
+      // 添加到当前声明列表
+      current_declarations->push_back(funcDecl);
+      spdlog::debug("添加函数{}到声明列表", $2);
+      
+      // 释放内存
+      free($2);
+      free($5);
+      delete (StmtPtr*)$7;
+    } catch (const std::exception& e) {
+      spdlog::error("创建函数声明时出错: {}", e.what());
+    }
+  }
   ;
 
 formal_parameters:
   /* empty */
+  {
+    // 创建一个新的参数列表
+    current_parameters = new std::vector<ParameterInfo>();
+    spdlog::debug("创建空的参数列表");
+  }
   | LPAREN parameter_list RPAREN
+  {
+    // parameter_list已经填充了current_parameters
+    spdlog::debug("参数列表处理完成，包含{}个参数", 
+                 (current_parameters ? current_parameters->size() : 0));
+  }
   ;
 
 parameter_list:
@@ -323,7 +432,39 @@ parameter_list:
 
 parameter_declaration:
   identifier_list COLON type
+  {
+    // 检查current_parameters是否存在
+    if (current_parameters == nullptr) {
+      current_parameters = new std::vector<ParameterInfo>();
+      spdlog::debug("在parameter_declaration中创建新的参数列表");
+    }
+    
+    // 添加普通参数（非引用参数）
+    for (const auto& name : *$1) {
+      current_parameters->push_back(ParameterInfo(name, $3, false));
+      spdlog::debug("添加普通参数: {} 类型: {}", name, $3);
+    }
+    
+    delete $1;
+    free($3);
+  }
   | VAR identifier_list COLON type
+  {
+    // 检查current_parameters是否存在
+    if (current_parameters == nullptr) {
+      current_parameters = new std::vector<ParameterInfo>();
+      spdlog::debug("在VAR parameter_declaration中创建新的参数列表");
+    }
+    
+    // 添加引用参数（VAR参数）
+    for (const auto& name : *$2) {
+      current_parameters->push_back(ParameterInfo(name, $4, true));
+      spdlog::debug("添加引用参数: {} 类型: {}", name, $4);
+    }
+    
+    delete $2;
+    free($4);
+  }
   ;
 
 type:
@@ -461,7 +602,16 @@ statement:
 assignment_statement:
   IDENTIFIER ASSIGN expression SEMICOLON
   {
-    $$ = new StmtPtr(std::make_shared<AssignmentStmt>($1, *((ExprPtr*)$3)));
+    // 在assignment_statement中使用
+    if ($1 == current_function_name) {
+      // 这是函数返回值赋值
+      $$ = new StmtPtr(std::make_shared<ReturnStmt>(*((ExprPtr*)$3)));
+    } else {
+      // 普通赋值
+      $$ = new StmtPtr(std::make_shared<AssignmentStmt>($1, *((ExprPtr*)$3)));
+    }
+    
+    free($1);
     delete (ExprPtr*)$3;
   }
   ;

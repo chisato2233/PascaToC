@@ -103,3 +103,6 @@ _VisitDecl_(CCodeGenVisitor, ConstDeclaration) {
         output << ";\n";
     }
 }
+
+
+#include "FunctionDeclaration.h"

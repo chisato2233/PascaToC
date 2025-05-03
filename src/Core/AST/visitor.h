@@ -32,6 +32,7 @@ public:
 class CCodeGenVisitor : public VisitImplCRTP<CCodeGenVisitor> {
 public:
     std::ostringstream output;
+    std::string current_function_name = "";
     
     CCodeGenVisitor() = default;
     explicit CCodeGenVisitor(std::ostringstream& os) : output(os.str()) {}
@@ -45,6 +46,8 @@ public:
         spdlog::error("No CCodeGenVisitor method found for node type: {}", typeid(node).name());
     }
 };
+
+
 
 
 
