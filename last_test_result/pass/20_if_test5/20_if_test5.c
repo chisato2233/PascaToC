@@ -3,6 +3,7 @@
 #include <string.h>
 
 void write_int(int x)        { printf("%d", x); }
+void write_longlong(long long x)        { printf("%lld", x); }
 void write_float(float x)    { printf("%f", x); }
 
 void write_char(char x)      { putchar(x); }
@@ -35,6 +36,7 @@ void write_double(double x) {
 
 #define write(x) _Generic((x), \
     int: write_int, \
+    long long: write_longlong, \
     float: write_float, \
     double: write_double, \
     char: write_char, \
@@ -47,6 +49,7 @@ void write_double(double x) {
 
 // 为不同类型实现read函数
 void read_int(int* x)        { scanf("%d", x); }
+void read_longlong(long long* x)        { scanf("%lld", x); }
 void read_float(float* x)    { scanf("%f", x); }
 void read_double(double* x)  { scanf("%lf", x); }
 void read_char(char* x)      { 
@@ -68,32 +71,40 @@ void read_cstr(char* s, int max_len) {
 // 注意：由于read需要传递指针，使用方式与write不同
 #define read(x) _Generic((x), \
     int*: read_int, \
+    long long*: read_longlong, \
     float*: read_float, \
     double*: read_double, \
-    char*: read_char \
+    char*: read_char, \
+    const char*: read_cstr \
 )(x)
 
 // 字符串需要特殊处理，因为需要指定最大长度
 #define read_string(str, max_len) read_cstr(str, max_len)
+// 确保模运算结果为正数
 
-int if_if_Else() {
-int a;
-int b;
+// 确保模运算结果为正数
+int mod(int a, int m) {
+  int result = a % m;
+  return result >= 0 ? result : result + m;
+}
+
+long long if_if_Else() {
+long long a;
+long long b;
 a = 5;
 b = 10;
-if ((a == 5)){
-if ((b == 10)){
+if (a == 5){
+if (b == 10){
 a = 25;}
 
 }
 else{
-a = (a + 15);}
+a = a + 15;}
 
 return a;
 }
 
-int main() 
-{
+int main() {
 write(if_if_Else());
 
 }

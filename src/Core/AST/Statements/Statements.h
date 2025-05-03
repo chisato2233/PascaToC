@@ -4,55 +4,11 @@
 #include<vector>
 #include<sstream>
 #include"ASTBase.h"
+
 #include"Declaration/FunctionDeclaration.h"
 
 
-// **赋值语句**
-class AssignmentStmt : public ASTAcceptImpl<AssignmentStmt,Statement> {
-public:
-    std::string variable;
-    std::shared_ptr<Expression> expr;
-    AssignmentStmt(const std::string& var, std::shared_ptr<Expression> expr)
-        : variable(var), expr(std::move(expr)) {
-        }
-    std::string get_name() const noexcept override {return "Assignment Statement";}
-    
-    void printAST(int indent = 0) const override {
-        std::string padding = getIndent(indent);
-        spdlog::info("{}+ Assignment: {} =", padding, variable);
-        expr->printAST(indent + 1);
-    }
-};
-
-_VisitDecl_(CCodeGenVisitor,AssignmentStmt){
-    // 设置上下文信息，表示下一个表达式是在赋值语句左侧
-
-    if(node.variable == CCodeGenVisitor::current_function_name){
-        output<<"return ";
-        node.expr->accept(*this);
-        output << ";";
-    }else{
-        bool oldValue = isLeftSideOfAssignment;
-        isLeftSideOfAssignment = true;
-            
-        // 输出变量名
-        output << node.variable << " = ";
-        
-        // 恢复上下文信息，右侧不再是赋值语句左侧
-        isLeftSideOfAssignment = false;
-        
-        // 生成右侧表达式
-        node.expr->accept(*this);
-        output << ";";
-        
-        // 恢复原始上下文
-        isLeftSideOfAssignment = oldValue;
-    }
-}
-
-
-
-
+#include "AssignStmt.h"
 class BlockStmt : public ASTAcceptImpl<BlockStmt,Statement> {
 private:
 
@@ -117,37 +73,6 @@ _VisitDecl_(CCodeGenVisitor,CompoundStmt){
         output<<"\n";
     }
 }
-
-class WriteStmt : public ASTAcceptImpl<WriteStmt,Statement> {
-public:
-    ExprVec vec;
-    std::string get_name() const noexcept override {return "Write Statement";}
-    
-    explicit WriteStmt(ExprVec expr)
-        : vec(std::move(expr)) {
-        }
-
-    void printAST(int indent = 0) const override {
-        std::string padding = getIndent(indent);
-        spdlog::info("{}+ Write Statement", padding);
-        
-        for (const auto& expr : vec) {
-            expr->printAST(indent + 1);
-        }
-    }
-};
-
-_VisitDecl_(CCodeGenVisitor,WriteStmt){
-    output<<"write(";
-    for(auto& e : node.vec){
-        e->accept(*this);
-        if(e != node.vec.back())
-            output<<",";
-    }
-    output<<");\n";
-}
-
-
 
 
 class IfStmt : public ASTAcceptImpl<IfStmt,Statement> {
@@ -433,8 +358,9 @@ _VisitDecl_(CCodeGenVisitor, ProgramAST) {
 }
 
 
-#include "ProcedureCallStmt.h"
 
 #include "ReadStmt.h"
+#include "WriteStmt.h"
 #include "ArrayAssignmentStmt.h"
 #include "EmptyStmt.h"
+#include "FunctionCallStmt.h"

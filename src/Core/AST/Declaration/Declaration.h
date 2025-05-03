@@ -16,9 +16,9 @@ class VarDeclaration : public ASTAcceptImpl<VarDeclaration,Declaration> {
 public:
     std::vector<std::string> varNames;
     std::string typeName; // 可能为 "int" 或形如 "int[10]"
-    
-    VarDeclaration(std::vector<std::string> names, std::string type)
-        : varNames(std::move(names)), typeName(std::move(type)) {
+    bool isRef = false;
+    VarDeclaration(std::vector<std::string> names, std::string type, bool ref = false)
+        : varNames(std::move(names)), typeName(std::move(type)), isRef(ref) {
     }
     
     void printAST(int indent = 0) const override {
@@ -41,7 +41,7 @@ _VisitDecl_(CCodeGenVisitor, VarDeclaration) {
         }
     } else {
         for (const auto &name : node.varNames) {
-            GlobalSymbolTable.addSymbol(std::make_shared<VariableInfo>(name, node.typeName));
+            GlobalSymbolTable.addSymbol(std::make_shared<VariableInfo>(name, node.typeName, node.isRef));
             output << node.typeName << " " << name << ";\n";
         }
     }
