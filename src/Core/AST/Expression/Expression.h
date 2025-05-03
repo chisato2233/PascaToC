@@ -1,5 +1,6 @@
 #pragma once
 #include "ASTBase.h"
+#include "SymbolTable.h"
 
 // **变量引用表达式**
 class VariableExpr : public ASTAcceptImpl<VariableExpr,Expression> {
@@ -11,6 +12,18 @@ public:
     void printAST(int indent = 0) const override {
         std::string padding = getIndent(indent);
         spdlog::info("{}+ Variable: {}", padding, name);
+    }
+
+    ExprType getType() const override {
+        auto symbol = GlobalSymbolTable.lookupSymbol(name);
+        if (!symbol) return ExprType::Unknown;
+        
+        if (symbol->type == "int") return ExprType::Integer;
+        if (symbol->type == "double" || symbol->type == "float") return ExprType::Real;
+        if (symbol->type == "char") return ExprType::String;
+        // 其他类型处理...
+        
+        return ExprType::Unknown;
     }
 };
 
@@ -78,6 +91,23 @@ public:
 
     Op op;
     std::shared_ptr<Expression> lhs, rhs;
+
+    ExprType getType() const override {
+        // 逻辑运算返回布尔值
+        if (op == And || op == Or || 
+            op == Equal || op == NotEqual || 
+            op == Less || op == LessEqual || 
+            op == Greater || op == GreaterEqual) {
+            return ExprType::Boolean;
+        }
+        
+        // 数值运算继承左操作数类型，如果左操作数是Real，结果是Real
+        if (lhs->getType() == ExprType::Real || rhs->getType() == ExprType::Real) {
+            return ExprType::Real;
+        }
+        
+        return lhs->getType();
+    }
 };
 
 _VisitDecl_(CCodeGenVisitor, BinaryExpr) {
@@ -126,6 +156,13 @@ public:
 
     Op op;
     std::shared_ptr<Expression> expr;
+
+    ExprType getType() const override {
+        if (op == Not) {
+            return ExprType::Boolean;
+        }
+        return expr->getType();
+    }
 };
 
 _VisitDecl_(CCodeGenVisitor,UnaryExpr){
@@ -152,6 +189,8 @@ public:
         std::string padding = getIndent(indent);
         spdlog::info("{}+ Number: {}", padding, value);
     }
+
+    ExprType getType() const override { return ExprType::Integer; }
 };
 
 _VisitDecl_(CCodeGenVisitor,NumberExpr){
@@ -176,6 +215,8 @@ public:
         std::string padding = getIndent(indent);
         spdlog::info("{}+ Real: {}", padding, value);
     }
+
+    ExprType getType() const override { return ExprType::Real; }
 };
 _VisitDecl_(CCodeGenVisitor,RealExpr){
     output<<node.value;
@@ -199,6 +240,8 @@ public:
         std::string padding = getIndent(indent);
         spdlog::info("{}+ Boolean: {}", padding, value ? "true" : "false");
     }
+
+    ExprType getType() const override { return ExprType::Boolean; }
 };
 
 _VisitDecl_(CCodeGenVisitor,BoolExpr){
@@ -222,6 +265,8 @@ public:
         std::string padding = getIndent(indent);
         spdlog::info("{}+ String: \"{}\"", padding, value);
     }
+
+    ExprType getType() const override { return ExprType::String; }
 };
 _VisitDecl_(CCodeGenVisitor,StringExpr){
     output<<"\""<<node.value<<"\"";
@@ -251,6 +296,21 @@ public:
                 arg->printAST(indent + 2);
             }
         }
+    }
+
+    ExprType getType() const override {
+        // auto symbol = GlobalSymbolTable.lookupSymbol(funcName);
+        // if (!symbol || symbol->symbolType != SymbolType::Function) {
+        //     return ExprType::Unknown;
+        // }
+        
+        // auto funcInfo = std::dynamic_pointer_cast<FunctionInfo>(symbol);
+        // if (!funcInfo) return ExprType::Unknown;
+        
+        // if (funcInfo->type == "int") return ExprType::Integer;
+        // if (funcInfo->type == "double") return ExprType::Real;
+        // if (funcInfo->type == "char") return ExprType::String;
+        return ExprType::Unknown;
     }
 };
 _VisitDecl_(CCodeGenVisitor,FunctionCall){

@@ -5,7 +5,6 @@
 #include"visitor.h"
 #include "spdlog/spdlog.h"
 
-
 /*
 NodeBase::accept(VisitorType& visitor) -> [Virtual Function]
 AcceptImpl<NodeType>::_acceptBridge(VisitorBase& visBase) ->
@@ -196,6 +195,25 @@ public:
      * @brief 虚析构函数
      */
     virtual ~Expression() = default;
+
+    enum class ExprType {
+        Integer,
+        Real,
+        Boolean,
+        String,
+        Unknown
+    };
+
+    virtual ExprType getType() const { return ExprType::Unknown; }
+    virtual std::string getCType() const { 
+        switch(getType()) {
+            case ExprType::Integer: return "int";
+            case ExprType::Real: return "double";
+            case ExprType::Boolean: return "int"; // C中通常用int表示布尔值
+            case ExprType::String: return "char*"; // 字符串特殊处理
+            default: return "void";
+        }
+    }
 };
 /**
  * @brief 表达式节点的智能指针类型

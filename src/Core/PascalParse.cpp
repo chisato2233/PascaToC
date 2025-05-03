@@ -3,6 +3,8 @@
 #include "parser.tab.h"  // C 模式下是 parser.h 不是 parser.hpp
 #include "AST/visitor.h"
 #include <sstream>
+#include "spdlog/spdlog.h"
+#include "Header.h"
 
 // 声明在 lexer.l 和 parser.y 中定义的函数
 extern void set_input_string(const char* input);
@@ -13,6 +15,8 @@ extern int yyparse();
 extern int yydebug;
 extern std::unique_ptr<ASTNode> root;
 
+extern const std::vector<TokenInfo>& get_token_stream();
+extern const char* get_token_name(int token_type);
 
 PascalParser::PascalParser() {
 }
@@ -26,15 +30,57 @@ bool PascalParser::parse(const std::string& input) {
     set_parse_result(&result);
     set_input_string(input.c_str());
 
-    yydebug = 0; // 启用调试输出（可选）
-    int res = yyparse();
-
+    spdlog::debug("开始解析Pascal源代码...");
+    int parse_result = yyparse();
     clear_input_string();
 
-    return res == 0;
+    if (parse_result == 0) {
+        spdlog::debug("语法分析成功");
+        return true;
+    } else {
+        spdlog::error("语法分析失败");
+        return false;
+    }
 }
 
 std::string PascalParser::getResult() const {
     return result;
+}
+
+const std::vector<TokenInfo>& PascalParser::getTokenStream() const {
+    return token_stream;
+}
+
+void PascalParser::dumpTokens() const {
+    const auto& tokens = get_token_stream();
+    spdlog::info("Token流分析结果 (共{}个):", tokens.size());
+    
+    for (size_t i = 0; i < tokens.size(); i++) {
+        const auto& token = tokens[i];
+        std::string value_str;
+        
+        switch (token.token_type) {
+            case INTEGER_CONST:
+                value_str = std::to_string(token.value.int_value);
+                break;
+            case REAL_CONST:
+                value_str = std::to_string(token.value.real_value);
+                break;
+            case STRING_CONST:
+            case IDENTIFIER:
+                value_str = token.value.str_value ? token.value.str_value : "<NULL>";
+                break;
+            default:
+                value_str = token.token_text;
+        }
+        
+        spdlog::debug("[{}] {} ({}): '{}' 位置={}:{}", 
+                    i, 
+                    get_token_name(token.token_type), 
+                    token.token_type,
+                    value_str,
+                    token.line, 
+                    token.column);
+    }
 }
 

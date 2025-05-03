@@ -1,8 +1,7 @@
 program main;
-var
-  a,b: integer;
-  const PI = 3.14;
+const
+  a = 10;
+  b = 5;
 begin
-  a := 3;
-  write(a);
+  write(b);
 end.
