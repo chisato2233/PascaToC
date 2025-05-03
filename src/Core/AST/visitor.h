@@ -32,6 +32,11 @@ public:
 class CCodeGenVisitor : public VisitImplCRTP<CCodeGenVisitor> {
 public:
     std::ostringstream output;
+    inline static std::vector<std::string> GlobalFunctions;
+    
+    // 添加上下文信息
+    bool isLeftSideOfAssignment = false; // 表示当前是否在赋值语句的左侧
+    
     std::string current_function_name = "";
     
     CCodeGenVisitor() = default;

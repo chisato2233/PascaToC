@@ -1,3 +1,102 @@
-[2025-05-02 18:16:52.076] [pascc] [info] 日志系统初始化完成
-[2025-05-02 18:16:52.076] [pascc] [error] 解析失败: error: syntax error, unexpected LBRACKET, expecting RPAREN or COMMA
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 739 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: var, 类型: 261, 位置: 2:0
+[debug] [:] Token: ret, 类型: 321, 位置: 2:4
+[debug] [:] Token: :, 类型: 313, 位置: 2:7
+[debug] [:] Token: integer, 类型: 288, 位置: 2:9
+[debug] [:] Token: ;, 类型: 312, 位置: 2:16
+[debug] [:] Token: a, 类型: 321, 位置: 3:0
+[debug] [:] Token: :, 类型: 313, 位置: 3:1
+[debug] [:] Token: array, 类型: 278, 位置: 3:3
+[debug] [:] Token: [, 类型: 310, 位置: 3:8
+[debug] [:] Token: 0, 类型: 317, 位置: 3:9
+[debug] [:] Token: .., 类型: 316, 位置: 3:10
+[debug] [:] Token: 60, 类型: 317, 位置: 3:12
+[debug] [:] Token: ,, 类型: 314, 位置: 3:14
+[debug] [:] Token: 0, 类型: 317, 位置: 3:16
+[debug] [:] Token: .., 类型: 316, 位置: 3:17
+[debug] [:] Token: 66, 类型: 317, 位置: 3:19
+[debug] [:] Token: ], 类型: 311, 位置: 3:21
+[debug] [:] Token: of, 类型: 275, 位置: 3:23
+[debug] [:] Token: integer, 类型: 288, 位置: 3:26
+[debug] [:] Token: ;, 类型: 312, 位置: 3:33
+[debug] [:] Token: b, 类型: 321, 位置: 4:0
+[debug] [:] Token: :, 类型: 313, 位置: 4:1
+[debug] [:] Token: array, 类型: 278, 位置: 4:3
+[debug] [:] Token: [, 类型: 310, 位置: 4:8
+[debug] [:] Token: 0, 类型: 317, 位置: 4:9
+[debug] [:] Token: .., 类型: 316, 位置: 4:10
+[debug] [:] Token: 52, 类型: 317, 位置: 4:12
+[debug] [:] Token: ,, 类型: 314, 位置: 4:14
+[debug] [:] Token: 0, 类型: 317, 位置: 4:16
+[debug] [:] Token: .., 类型: 316, 位置: 4:17
+[debug] [:] Token: 58, 类型: 317, 位置: 4:19
+[debug] [:] Token: ], 类型: 311, 位置: 4:21
+[debug] [:] Token: of, 类型: 275, 位置: 4:23
+[debug] [:] Token: integer, 类型: 288, 位置: 4:26
+[debug] [:] Token: ;, 类型: 312, 位置: 4:33
+[debug] [:] Token: function, 类型: 263, 位置: 6:0
+[debug] [:] Token: func, 类型: 321, 位置: 6:9
+[debug] [:] Token: (, 类型: 308, 位置: 6:13
+[debug] [:] Token: aa, 类型: 321, 位置: 6:14
+[debug] [:] Token: :, 类型: 313, 位置: 6:16
+[debug] [:] Token: integer, 类型: 288, 位置: 6:18
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: aa 类型: int
+[debug] [:] Token: ;, 类型: 312, 位置: 6:25
+[debug] [:] Token: c, 类型: 321, 位置: 6:27
+[debug] [:] Token: :, 类型: 313, 位置: 6:28
+[debug] [:] Token: integer, 类型: 288, 位置: 6:30
+[debug] [:] 添加普通参数: c 类型: int
+[debug] [:] Token: ;, 类型: 312, 位置: 6:37
+[debug] [:] Token: e, 类型: 321, 位置: 6:39
+[debug] [:] Token: ,, 类型: 314, 位置: 6:40
+[debug] [:] Token: f, 类型: 321, 位置: 6:42
+[debug] [:] Token: :, 类型: 313, 位置: 6:43
+[debug] [:] Token: integer, 类型: 288, 位置: 6:45
+[debug] [:] 添加普通参数: e 类型: int
+[debug] [:] 添加普通参数: f 类型: int
+[debug] [:] Token: ;, 类型: 312, 位置: 6:52
+[debug] [:] Token: h, 类型: 321, 位置: 6:54
+[debug] [:] Token: ,, 类型: 314, 位置: 6:55
+[debug] [:] Token: i, 类型: 321, 位置: 6:57
+[debug] [:] Token: :, 类型: 313, 位置: 6:58
+[debug] [:] Token: integer, 类型: 288, 位置: 6:60
+[debug] [:] 添加普通参数: h 类型: int
+[debug] [:] 添加普通参数: i 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 6:67
+[debug] [:] 参数列表处理完成，包含6个参数
+[debug] [:] Token: :, 类型: 313, 位置: 6:68
+[debug] [:] Token: integer, 类型: 288, 位置: 6:70
+[debug] [:] Token: ;, 类型: 312, 位置: 6:77
+[debug] [:] Token: var, 类型: 261, 位置: 7:0
+[debug] [:] Token: index, 类型: 321, 位置: 8:2
+[debug] [:] Token: :, 类型: 313, 位置: 8:7
+[debug] [:] Token: integer, 类型: 288, 位置: 8:9
+[debug] [:] Token: ;, 类型: 312, 位置: 8:16
+[debug] [:] Token: begin, 类型: 259, 位置: 9:0
+[debug] [:] Token: index, 类型: 321, 位置: 10:2
+[debug] [:] Token: :=, 类型: 293, 位置: 10:8
+[debug] [:] Token: 0, 类型: 317, 位置: 10:11
+[debug] [:] Token: ;, 类型: 312, 位置: 10:12
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: while, 类型: 267, 位置: 11:2
+[debug] [:] Token: (, 类型: 308, 位置: 11:8
+[debug] [:] Token: index, 类型: 321, 位置: 11:9
+[debug] [:] Token: <, 类型: 300, 位置: 11:15
+[debug] [:] Token: 10, 类型: 317, 位置: 11:17
+[debug] [:] Token: ), 类型: 309, 位置: 11:19
+[debug] [:] Token: do, 类型: 268, 位置: 11:21
+[debug] [:] Token: begin, 类型: 259, 位置: 12:2
+[debug] [:] Token: write, 类型: 286, 位置: 13:4
+[debug] [:] Token: (, 类型: 308, 位置: 13:9
+[debug] [:] Token: b, 类型: 321, 位置: 13:10
+[debug] [:] Token: [, 类型: 310, 位置: 13:11
+[error] [:] 语法分析失败
+[error] [:] 解析失败: error: syntax error, unexpected LBRACKET, expecting RPAREN or COMMA
 

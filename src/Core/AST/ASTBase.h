@@ -1,10 +1,12 @@
 #pragma once
 #include <string>
 #include<iostream>
+#include<fstream>
+#include<sstream>
 #include<vector>
 #include"visitor.h"
 #include "spdlog/spdlog.h"
-
+#include "environment.h"
 /*
 NodeBase::accept(VisitorType& visitor) -> [Virtual Function]
 AcceptImpl<NodeType>::_acceptBridge(VisitorBase& visBase) ->
@@ -262,9 +264,7 @@ class ProgramAST : public ASTAcceptImpl<ProgramAST>{
 public:
     std::string name;  // Pascal 主程序名称
     std::shared_ptr<Statement> body;  // 程序主体
-    std::string environment = 
-        #include "environment.h"
-    ;
+    std::string environment = ENVIRONMENT_H.data();
 
     /**
      * @brief 构造函数
@@ -272,7 +272,10 @@ public:
      * @param body 程序主体语句
      */
     ProgramAST(const std::string& name, std::shared_ptr<Statement> body)
-        : name(name), body(std::move(body)) {}
+        : name(name), body(std::move(body)) 
+    {
+        
+    }
 
     /**
      * @brief 打印AST结构

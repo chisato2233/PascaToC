@@ -1,17 +1,17 @@
 program main;
-var
-  a: integer;
-  b: integer;
-  
-function func(p: integer): integer;
+var a,b,c,d,e: integer;
+flag:boolean;
 begin
-  p := p - 1;
-  func := p;
-end;
-
-begin
-  a := 10;
-  b := func(a);
-
-  write(b);
+  read(a);
+  read(b);
+  read(c);
+  read(d);
+  read(e);
+  flag := false;
+  if ((a - b * c <> d - a / c) or (a * b / c = e + d) or (a + b + c = d + e)) then
+  begin
+    flag := true;
+  end;
+  if flag then
+    write(1);
 end.

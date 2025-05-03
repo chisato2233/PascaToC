@@ -1,0 +1,1294 @@
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 2397 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: var, 类型: 261, 位置: 2:0
+[debug] [:] Token: a0, 类型: 321, 位置: 3:0
+[debug] [:] Token: ,, 类型: 314, 位置: 3:2
+[debug] [:] Token: a1, 类型: 321, 位置: 3:3
+[debug] [:] Token: ,, 类型: 314, 位置: 3:5
+[debug] [:] Token: a2, 类型: 321, 位置: 3:6
+[debug] [:] Token: ,, 类型: 314, 位置: 3:8
+[debug] [:] Token: a3, 类型: 321, 位置: 3:9
+[debug] [:] Token: ,, 类型: 314, 位置: 3:11
+[debug] [:] Token: a4, 类型: 321, 位置: 3:12
+[debug] [:] Token: ,, 类型: 314, 位置: 3:14
+[debug] [:] Token: a5, 类型: 321, 位置: 3:15
+[debug] [:] Token: ,, 类型: 314, 位置: 3:17
+[debug] [:] Token: a6, 类型: 321, 位置: 3:18
+[debug] [:] Token: ,, 类型: 314, 位置: 3:20
+[debug] [:] Token: a7, 类型: 321, 位置: 3:21
+[debug] [:] Token: ,, 类型: 314, 位置: 3:23
+[debug] [:] Token: a8, 类型: 321, 位置: 3:24
+[debug] [:] Token: ,, 类型: 314, 位置: 3:26
+[debug] [:] Token: a9, 类型: 321, 位置: 3:27
+[debug] [:] Token: :, 类型: 313, 位置: 3:29
+[debug] [:] Token: integer, 类型: 288, 位置: 3:30
+[debug] [:] Token: ;, 类型: 312, 位置: 3:37
+[debug] [:] Token: a10, 类型: 321, 位置: 4:0
+[debug] [:] Token: ,, 类型: 314, 位置: 4:3
+[debug] [:] Token: a11, 类型: 321, 位置: 4:4
+[debug] [:] Token: ,, 类型: 314, 位置: 4:7
+[debug] [:] Token: a12, 类型: 321, 位置: 4:8
+[debug] [:] Token: ,, 类型: 314, 位置: 4:11
+[debug] [:] Token: a13, 类型: 321, 位置: 4:12
+[debug] [:] Token: ,, 类型: 314, 位置: 4:15
+[debug] [:] Token: a14, 类型: 321, 位置: 4:16
+[debug] [:] Token: ,, 类型: 314, 位置: 4:19
+[debug] [:] Token: a15, 类型: 321, 位置: 4:20
+[debug] [:] Token: ,, 类型: 314, 位置: 4:23
+[debug] [:] Token: a16, 类型: 321, 位置: 4:24
+[debug] [:] Token: ,, 类型: 314, 位置: 4:27
+[debug] [:] Token: a17, 类型: 321, 位置: 4:28
+[debug] [:] Token: ,, 类型: 314, 位置: 4:31
+[debug] [:] Token: a18, 类型: 321, 位置: 4:32
+[debug] [:] Token: ,, 类型: 314, 位置: 4:35
+[debug] [:] Token: a19, 类型: 321, 位置: 4:36
+[debug] [:] Token: :, 类型: 313, 位置: 4:39
+[debug] [:] Token: integer, 类型: 288, 位置: 4:40
+[debug] [:] Token: ;, 类型: 312, 位置: 4:47
+[debug] [:] Token: a20, 类型: 321, 位置: 5:0
+[debug] [:] Token: ,, 类型: 314, 位置: 5:3
+[debug] [:] Token: a21, 类型: 321, 位置: 5:4
+[debug] [:] Token: ,, 类型: 314, 位置: 5:7
+[debug] [:] Token: a22, 类型: 321, 位置: 5:8
+[debug] [:] Token: ,, 类型: 314, 位置: 5:11
+[debug] [:] Token: a23, 类型: 321, 位置: 5:12
+[debug] [:] Token: ,, 类型: 314, 位置: 5:15
+[debug] [:] Token: a24, 类型: 321, 位置: 5:16
+[debug] [:] Token: ,, 类型: 314, 位置: 5:19
+[debug] [:] Token: a25, 类型: 321, 位置: 5:20
+[debug] [:] Token: ,, 类型: 314, 位置: 5:23
+[debug] [:] Token: a26, 类型: 321, 位置: 5:24
+[debug] [:] Token: ,, 类型: 314, 位置: 5:27
+[debug] [:] Token: a27, 类型: 321, 位置: 5:28
+[debug] [:] Token: ,, 类型: 314, 位置: 5:31
+[debug] [:] Token: a28, 类型: 321, 位置: 5:32
+[debug] [:] Token: ,, 类型: 314, 位置: 5:35
+[debug] [:] Token: a29, 类型: 321, 位置: 5:36
+[debug] [:] Token: :, 类型: 313, 位置: 5:39
+[debug] [:] Token: integer, 类型: 288, 位置: 5:40
+[debug] [:] Token: ;, 类型: 312, 位置: 5:47
+[debug] [:] Token: a30, 类型: 321, 位置: 6:0
+[debug] [:] Token: ,, 类型: 314, 位置: 6:3
+[debug] [:] Token: a31, 类型: 321, 位置: 6:4
+[debug] [:] Token: ,, 类型: 314, 位置: 6:7
+[debug] [:] Token: a32, 类型: 321, 位置: 6:8
+[debug] [:] Token: ,, 类型: 314, 位置: 6:11
+[debug] [:] Token: a33, 类型: 321, 位置: 6:12
+[debug] [:] Token: ,, 类型: 314, 位置: 6:15
+[debug] [:] Token: a34, 类型: 321, 位置: 6:16
+[debug] [:] Token: ,, 类型: 314, 位置: 6:19
+[debug] [:] Token: a35, 类型: 321, 位置: 6:20
+[debug] [:] Token: ,, 类型: 314, 位置: 6:23
+[debug] [:] Token: a36, 类型: 321, 位置: 6:24
+[debug] [:] Token: ,, 类型: 314, 位置: 6:27
+[debug] [:] Token: a37, 类型: 321, 位置: 6:28
+[debug] [:] Token: ,, 类型: 314, 位置: 6:31
+[debug] [:] Token: a38, 类型: 321, 位置: 6:32
+[debug] [:] Token: ,, 类型: 314, 位置: 6:35
+[debug] [:] Token: a39, 类型: 321, 位置: 6:36
+[debug] [:] Token: :, 类型: 313, 位置: 6:39
+[debug] [:] Token: integer, 类型: 288, 位置: 6:40
+[debug] [:] Token: ;, 类型: 312, 位置: 6:47
+[debug] [:] Token: function, 类型: 263, 位置: 8:0
+[debug] [:] Token: testParam8, 类型: 321, 位置: 8:9
+[debug] [:] Token: (, 类型: 308, 位置: 8:19
+[debug] [:] Token: a0, 类型: 321, 位置: 8:20
+[debug] [:] Token: ,, 类型: 314, 位置: 8:22
+[debug] [:] Token: a1, 类型: 321, 位置: 8:23
+[debug] [:] Token: ,, 类型: 314, 位置: 8:25
+[debug] [:] Token: a2, 类型: 321, 位置: 8:26
+[debug] [:] Token: ,, 类型: 314, 位置: 8:28
+[debug] [:] Token: a3, 类型: 321, 位置: 8:29
+[debug] [:] Token: ,, 类型: 314, 位置: 8:31
+[debug] [:] Token: a4, 类型: 321, 位置: 8:32
+[debug] [:] Token: ,, 类型: 314, 位置: 8:34
+[debug] [:] Token: a5, 类型: 321, 位置: 8:35
+[debug] [:] Token: ,, 类型: 314, 位置: 8:37
+[debug] [:] Token: a6, 类型: 321, 位置: 8:38
+[debug] [:] Token: ,, 类型: 314, 位置: 8:40
+[debug] [:] Token: a7, 类型: 321, 位置: 8:41
+[debug] [:] Token: :, 类型: 313, 位置: 8:43
+[debug] [:] Token: integer, 类型: 288, 位置: 8:45
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: a0 类型: int
+[debug] [:] 添加普通参数: a1 类型: int
+[debug] [:] 添加普通参数: a2 类型: int
+[debug] [:] 添加普通参数: a3 类型: int
+[debug] [:] 添加普通参数: a4 类型: int
+[debug] [:] 添加普通参数: a5 类型: int
+[debug] [:] 添加普通参数: a6 类型: int
+[debug] [:] 添加普通参数: a7 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 8:52
+[debug] [:] 参数列表处理完成，包含8个参数
+[debug] [:] Token: :, 类型: 313, 位置: 8:53
+[debug] [:] Token: integer, 类型: 288, 位置: 8:55
+[debug] [:] Token: ;, 类型: 312, 位置: 8:62
+[debug] [:] Token: begin, 类型: 259, 位置: 9:0
+[debug] [:] 创建新的空声明列表 (地址: 0x564691c83230)
+[debug] [:] Token: testParam8, 类型: 321, 位置: 10:2
+[debug] [:] Token: :=, 类型: 293, 位置: 10:13
+[debug] [:] Token: a0, 类型: 321, 位置: 10:16
+[debug] [:] Token: +, 类型: 294, 位置: 10:19
+[debug] [:] Token: a1, 类型: 321, 位置: 10:21
+[debug] [:] Token: +, 类型: 294, 位置: 10:24
+[debug] [:] Token: a2, 类型: 321, 位置: 10:26
+[debug] [:] Token: +, 类型: 294, 位置: 10:29
+[debug] [:] Token: a3, 类型: 321, 位置: 10:31
+[debug] [:] Token: +, 类型: 294, 位置: 10:34
+[debug] [:] Token: a4, 类型: 321, 位置: 10:36
+[debug] [:] Token: +, 类型: 294, 位置: 10:39
+[debug] [:] Token: a5, 类型: 321, 位置: 10:41
+[debug] [:] Token: +, 类型: 294, 位置: 10:44
+[debug] [:] Token: a6, 类型: 321, 位置: 10:46
+[debug] [:] Token: +, 类型: 294, 位置: 10:49
+[debug] [:] Token: a7, 类型: 321, 位置: 10:51
+[debug] [:] Token: ;, 类型: 312, 位置: 10:53
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: end, 类型: 260, 位置: 11:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数testParam8
+[debug] [:] 添加函数testParam8到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 11:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含5个项目
+[debug] [:] Token: function, 类型: 263, 位置: 13:0
+[debug] [:] Token: testParam16, 类型: 321, 位置: 13:9
+[debug] [:] Token: (, 类型: 308, 位置: 13:20
+[debug] [:] Token: a0, 类型: 321, 位置: 13:21
+[debug] [:] Token: ,, 类型: 314, 位置: 13:23
+[debug] [:] Token: a1, 类型: 321, 位置: 13:24
+[debug] [:] Token: ,, 类型: 314, 位置: 13:26
+[debug] [:] Token: a2, 类型: 321, 位置: 13:27
+[debug] [:] Token: ,, 类型: 314, 位置: 13:29
+[debug] [:] Token: a3, 类型: 321, 位置: 13:30
+[debug] [:] Token: ,, 类型: 314, 位置: 13:32
+[debug] [:] Token: a4, 类型: 321, 位置: 13:33
+[debug] [:] Token: ,, 类型: 314, 位置: 13:35
+[debug] [:] Token: a5, 类型: 321, 位置: 13:36
+[debug] [:] Token: ,, 类型: 314, 位置: 13:38
+[debug] [:] Token: a6, 类型: 321, 位置: 13:39
+[debug] [:] Token: ,, 类型: 314, 位置: 13:41
+[debug] [:] Token: a7, 类型: 321, 位置: 13:42
+[debug] [:] Token: ,, 类型: 314, 位置: 14:16
+[debug] [:] Token: a8, 类型: 321, 位置: 14:17
+[debug] [:] Token: ,, 类型: 314, 位置: 14:19
+[debug] [:] Token: a9, 类型: 321, 位置: 14:20
+[debug] [:] Token: ,, 类型: 314, 位置: 14:22
+[debug] [:] Token: a10, 类型: 321, 位置: 14:23
+[debug] [:] Token: ,, 类型: 314, 位置: 14:26
+[debug] [:] Token: a11, 类型: 321, 位置: 14:27
+[debug] [:] Token: ,, 类型: 314, 位置: 14:30
+[debug] [:] Token: a12, 类型: 321, 位置: 14:31
+[debug] [:] Token: ,, 类型: 314, 位置: 14:34
+[debug] [:] Token: a13, 类型: 321, 位置: 14:35
+[debug] [:] Token: ,, 类型: 314, 位置: 14:38
+[debug] [:] Token: a14, 类型: 321, 位置: 14:39
+[debug] [:] Token: ,, 类型: 314, 位置: 14:42
+[debug] [:] Token: a15, 类型: 321, 位置: 14:43
+[debug] [:] Token: :, 类型: 313, 位置: 14:46
+[debug] [:] Token: integer, 类型: 288, 位置: 14:48
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: a0 类型: int
+[debug] [:] 添加普通参数: a1 类型: int
+[debug] [:] 添加普通参数: a2 类型: int
+[debug] [:] 添加普通参数: a3 类型: int
+[debug] [:] 添加普通参数: a4 类型: int
+[debug] [:] 添加普通参数: a5 类型: int
+[debug] [:] 添加普通参数: a6 类型: int
+[debug] [:] 添加普通参数: a7 类型: int
+[debug] [:] 添加普通参数: a8 类型: int
+[debug] [:] 添加普通参数: a9 类型: int
+[debug] [:] 添加普通参数: a10 类型: int
+[debug] [:] 添加普通参数: a11 类型: int
+[debug] [:] 添加普通参数: a12 类型: int
+[debug] [:] 添加普通参数: a13 类型: int
+[debug] [:] 添加普通参数: a14 类型: int
+[debug] [:] 添加普通参数: a15 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 14:55
+[debug] [:] 参数列表处理完成，包含16个参数
+[debug] [:] Token: :, 类型: 313, 位置: 14:56
+[debug] [:] Token: integer, 类型: 288, 位置: 14:57
+[debug] [:] Token: ;, 类型: 312, 位置: 14:64
+[debug] [:] Token: begin, 类型: 259, 位置: 15:0
+[debug] [:] 创建新的空声明列表 (地址: 0x564691c83060)
+[debug] [:] Token: testParam16, 类型: 321, 位置: 16:2
+[debug] [:] Token: :=, 类型: 293, 位置: 16:14
+[debug] [:] Token: a0, 类型: 321, 位置: 16:17
+[debug] [:] Token: +, 类型: 294, 位置: 16:20
+[debug] [:] Token: a1, 类型: 321, 位置: 16:22
+[debug] [:] Token: +, 类型: 294, 位置: 16:25
+[debug] [:] Token: a2, 类型: 321, 位置: 16:27
+[debug] [:] Token: -, 类型: 295, 位置: 16:30
+[debug] [:] Token: a3, 类型: 321, 位置: 16:32
+[debug] [:] Token: -, 类型: 295, 位置: 16:35
+[debug] [:] Token: a4, 类型: 321, 位置: 16:37
+[debug] [:] Token: -, 类型: 295, 位置: 16:40
+[debug] [:] Token: a5, 类型: 321, 位置: 16:42
+[debug] [:] Token: -, 类型: 295, 位置: 16:45
+[debug] [:] Token: a6, 类型: 321, 位置: 16:47
+[debug] [:] Token: -, 类型: 295, 位置: 16:50
+[debug] [:] Token: a7, 类型: 321, 位置: 16:52
+[debug] [:] Token: +, 类型: 294, 位置: 16:55
+[debug] [:] Token: a8, 类型: 321, 位置: 17:12
+[debug] [:] Token: +, 类型: 294, 位置: 17:15
+[debug] [:] Token: a9, 类型: 321, 位置: 17:17
+[debug] [:] Token: +, 类型: 294, 位置: 17:20
+[debug] [:] Token: a10, 类型: 321, 位置: 17:22
+[debug] [:] Token: +, 类型: 294, 位置: 17:26
+[debug] [:] Token: a11, 类型: 321, 位置: 17:28
+[debug] [:] Token: +, 类型: 294, 位置: 17:32
+[debug] [:] Token: a12, 类型: 321, 位置: 17:34
+[debug] [:] Token: +, 类型: 294, 位置: 17:38
+[debug] [:] Token: a13, 类型: 321, 位置: 17:40
+[debug] [:] Token: +, 类型: 294, 位置: 17:44
+[debug] [:] Token: a14, 类型: 321, 位置: 17:46
+[debug] [:] Token: +, 类型: 294, 位置: 17:50
+[debug] [:] Token: a15, 类型: 321, 位置: 17:52
+[debug] [:] Token: ;, 类型: 312, 位置: 17:55
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: end, 类型: 260, 位置: 18:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数testParam16
+[debug] [:] 添加函数testParam16到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 18:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含6个项目
+[debug] [:] Token: function, 类型: 263, 位置: 20:0
+[debug] [:] Token: testParam32, 类型: 321, 位置: 20:9
+[debug] [:] Token: (, 类型: 308, 位置: 20:20
+[debug] [:] Token: a0, 类型: 321, 位置: 20:21
+[debug] [:] Token: ,, 类型: 314, 位置: 20:23
+[debug] [:] Token: a1, 类型: 321, 位置: 20:24
+[debug] [:] Token: ,, 类型: 314, 位置: 20:26
+[debug] [:] Token: a2, 类型: 321, 位置: 20:27
+[debug] [:] Token: ,, 类型: 314, 位置: 20:29
+[debug] [:] Token: a3, 类型: 321, 位置: 20:30
+[debug] [:] Token: ,, 类型: 314, 位置: 20:32
+[debug] [:] Token: a4, 类型: 321, 位置: 20:33
+[debug] [:] Token: ,, 类型: 314, 位置: 20:35
+[debug] [:] Token: a5, 类型: 321, 位置: 20:36
+[debug] [:] Token: ,, 类型: 314, 位置: 20:38
+[debug] [:] Token: a6, 类型: 321, 位置: 20:39
+[debug] [:] Token: ,, 类型: 314, 位置: 20:41
+[debug] [:] Token: a7, 类型: 321, 位置: 20:42
+[debug] [:] Token: ,, 类型: 314, 位置: 21:16
+[debug] [:] Token: a8, 类型: 321, 位置: 21:17
+[debug] [:] Token: ,, 类型: 314, 位置: 21:19
+[debug] [:] Token: a9, 类型: 321, 位置: 21:20
+[debug] [:] Token: ,, 类型: 314, 位置: 21:22
+[debug] [:] Token: a10, 类型: 321, 位置: 21:23
+[debug] [:] Token: ,, 类型: 314, 位置: 21:26
+[debug] [:] Token: a11, 类型: 321, 位置: 21:27
+[debug] [:] Token: ,, 类型: 314, 位置: 21:30
+[debug] [:] Token: a12, 类型: 321, 位置: 21:31
+[debug] [:] Token: ,, 类型: 314, 位置: 21:34
+[debug] [:] Token: a13, 类型: 321, 位置: 21:35
+[debug] [:] Token: ,, 类型: 314, 位置: 21:38
+[debug] [:] Token: a14, 类型: 321, 位置: 21:39
+[debug] [:] Token: ,, 类型: 314, 位置: 21:42
+[debug] [:] Token: a15, 类型: 321, 位置: 21:43
+[debug] [:] Token: ,, 类型: 314, 位置: 21:46
+[debug] [:] Token: a16, 类型: 321, 位置: 22:16
+[debug] [:] Token: ,, 类型: 314, 位置: 22:19
+[debug] [:] Token: a17, 类型: 321, 位置: 22:20
+[debug] [:] Token: ,, 类型: 314, 位置: 22:23
+[debug] [:] Token: a18, 类型: 321, 位置: 22:24
+[debug] [:] Token: ,, 类型: 314, 位置: 22:27
+[debug] [:] Token: a19, 类型: 321, 位置: 22:28
+[debug] [:] Token: ,, 类型: 314, 位置: 22:31
+[debug] [:] Token: a20, 类型: 321, 位置: 22:32
+[debug] [:] Token: ,, 类型: 314, 位置: 22:35
+[debug] [:] Token: a21, 类型: 321, 位置: 22:36
+[debug] [:] Token: ,, 类型: 314, 位置: 22:39
+[debug] [:] Token: a22, 类型: 321, 位置: 22:40
+[debug] [:] Token: ,, 类型: 314, 位置: 22:43
+[debug] [:] Token: a23, 类型: 321, 位置: 22:44
+[debug] [:] Token: ,, 类型: 314, 位置: 22:47
+[debug] [:] Token: a24, 类型: 321, 位置: 23:16
+[debug] [:] Token: ,, 类型: 314, 位置: 23:19
+[debug] [:] Token: a25, 类型: 321, 位置: 23:20
+[debug] [:] Token: ,, 类型: 314, 位置: 23:23
+[debug] [:] Token: a26, 类型: 321, 位置: 23:24
+[debug] [:] Token: ,, 类型: 314, 位置: 23:27
+[debug] [:] Token: a27, 类型: 321, 位置: 23:28
+[debug] [:] Token: ,, 类型: 314, 位置: 23:31
+[debug] [:] Token: a28, 类型: 321, 位置: 23:32
+[debug] [:] Token: ,, 类型: 314, 位置: 23:35
+[debug] [:] Token: a29, 类型: 321, 位置: 23:36
+[debug] [:] Token: ,, 类型: 314, 位置: 23:39
+[debug] [:] Token: a30, 类型: 321, 位置: 23:40
+[debug] [:] Token: ,, 类型: 314, 位置: 23:43
+[debug] [:] Token: a31, 类型: 321, 位置: 23:44
+[debug] [:] Token: :, 类型: 313, 位置: 23:47
+[debug] [:] Token: integer, 类型: 288, 位置: 23:49
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: a0 类型: int
+[debug] [:] 添加普通参数: a1 类型: int
+[debug] [:] 添加普通参数: a2 类型: int
+[debug] [:] 添加普通参数: a3 类型: int
+[debug] [:] 添加普通参数: a4 类型: int
+[debug] [:] 添加普通参数: a5 类型: int
+[debug] [:] 添加普通参数: a6 类型: int
+[debug] [:] 添加普通参数: a7 类型: int
+[debug] [:] 添加普通参数: a8 类型: int
+[debug] [:] 添加普通参数: a9 类型: int
+[debug] [:] 添加普通参数: a10 类型: int
+[debug] [:] 添加普通参数: a11 类型: int
+[debug] [:] 添加普通参数: a12 类型: int
+[debug] [:] 添加普通参数: a13 类型: int
+[debug] [:] 添加普通参数: a14 类型: int
+[debug] [:] 添加普通参数: a15 类型: int
+[debug] [:] 添加普通参数: a16 类型: int
+[debug] [:] 添加普通参数: a17 类型: int
+[debug] [:] 添加普通参数: a18 类型: int
+[debug] [:] 添加普通参数: a19 类型: int
+[debug] [:] 添加普通参数: a20 类型: int
+[debug] [:] 添加普通参数: a21 类型: int
+[debug] [:] 添加普通参数: a22 类型: int
+[debug] [:] 添加普通参数: a23 类型: int
+[debug] [:] 添加普通参数: a24 类型: int
+[debug] [:] 添加普通参数: a25 类型: int
+[debug] [:] 添加普通参数: a26 类型: int
+[debug] [:] 添加普通参数: a27 类型: int
+[debug] [:] 添加普通参数: a28 类型: int
+[debug] [:] 添加普通参数: a29 类型: int
+[debug] [:] 添加普通参数: a30 类型: int
+[debug] [:] 添加普通参数: a31 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 23:56
+[debug] [:] 参数列表处理完成，包含32个参数
+[debug] [:] Token: :, 类型: 313, 位置: 23:57
+[debug] [:] Token: integer, 类型: 288, 位置: 23:58
+[debug] [:] Token: ;, 类型: 312, 位置: 23:65
+[debug] [:] Token: begin, 类型: 259, 位置: 24:0
+[debug] [:] 创建新的空声明列表 (地址: 0x564691c8c5f0)
+[debug] [:] Token: testParam32, 类型: 321, 位置: 25:2
+[debug] [:] Token: :=, 类型: 293, 位置: 25:14
+[debug] [:] Token: a0, 类型: 321, 位置: 25:17
+[debug] [:] Token: +, 类型: 294, 位置: 25:20
+[debug] [:] Token: a1, 类型: 321, 位置: 25:22
+[debug] [:] Token: +, 类型: 294, 位置: 25:25
+[debug] [:] Token: a2, 类型: 321, 位置: 25:27
+[debug] [:] Token: +, 类型: 294, 位置: 25:30
+[debug] [:] Token: a3, 类型: 321, 位置: 25:32
+[debug] [:] Token: +, 类型: 294, 位置: 25:35
+[debug] [:] Token: a4, 类型: 321, 位置: 25:37
+[debug] [:] Token: +, 类型: 294, 位置: 25:40
+[debug] [:] Token: a5, 类型: 321, 位置: 25:42
+[debug] [:] Token: +, 类型: 294, 位置: 25:45
+[debug] [:] Token: a6, 类型: 321, 位置: 25:47
+[debug] [:] Token: +, 类型: 294, 位置: 25:50
+[debug] [:] Token: a7, 类型: 321, 位置: 25:52
+[debug] [:] Token: +, 类型: 294, 位置: 25:55
+[debug] [:] Token: a8, 类型: 321, 位置: 26:12
+[debug] [:] Token: +, 类型: 294, 位置: 26:15
+[debug] [:] Token: a9, 类型: 321, 位置: 26:17
+[debug] [:] Token: +, 类型: 294, 位置: 26:20
+[debug] [:] Token: a10, 类型: 321, 位置: 26:22
+[debug] [:] Token: +, 类型: 294, 位置: 26:26
+[debug] [:] Token: a11, 类型: 321, 位置: 26:28
+[debug] [:] Token: +, 类型: 294, 位置: 26:32
+[debug] [:] Token: a12, 类型: 321, 位置: 26:34
+[debug] [:] Token: +, 类型: 294, 位置: 26:38
+[debug] [:] Token: a13, 类型: 321, 位置: 26:40
+[debug] [:] Token: +, 类型: 294, 位置: 26:44
+[debug] [:] Token: a14, 类型: 321, 位置: 26:46
+[debug] [:] Token: +, 类型: 294, 位置: 26:50
+[debug] [:] Token: a15, 类型: 321, 位置: 26:52
+[debug] [:] Token: +, 类型: 294, 位置: 26:56
+[debug] [:] Token: a16, 类型: 321, 位置: 27:12
+[debug] [:] Token: +, 类型: 294, 位置: 27:16
+[debug] [:] Token: a17, 类型: 321, 位置: 27:18
+[debug] [:] Token: -, 类型: 295, 位置: 27:22
+[debug] [:] Token: a18, 类型: 321, 位置: 27:24
+[debug] [:] Token: -, 类型: 295, 位置: 27:28
+[debug] [:] Token: a19, 类型: 321, 位置: 27:30
+[debug] [:] Token: -, 类型: 295, 位置: 27:34
+[debug] [:] Token: a20, 类型: 321, 位置: 27:36
+[debug] [:] Token: -, 类型: 295, 位置: 27:40
+[debug] [:] Token: a21, 类型: 321, 位置: 27:42
+[debug] [:] Token: -, 类型: 295, 位置: 27:46
+[debug] [:] Token: a22, 类型: 321, 位置: 27:48
+[debug] [:] Token: +, 类型: 294, 位置: 27:52
+[debug] [:] Token: a23, 类型: 321, 位置: 27:54
+[debug] [:] Token: +, 类型: 294, 位置: 27:58
+[debug] [:] Token: a24, 类型: 321, 位置: 28:12
+[debug] [:] Token: +, 类型: 294, 位置: 28:16
+[debug] [:] Token: a25, 类型: 321, 位置: 28:18
+[debug] [:] Token: +, 类型: 294, 位置: 28:22
+[debug] [:] Token: a26, 类型: 321, 位置: 28:24
+[debug] [:] Token: +, 类型: 294, 位置: 28:28
+[debug] [:] Token: a27, 类型: 321, 位置: 28:30
+[debug] [:] Token: +, 类型: 294, 位置: 28:34
+[debug] [:] Token: a28, 类型: 321, 位置: 28:36
+[debug] [:] Token: +, 类型: 294, 位置: 28:40
+[debug] [:] Token: a29, 类型: 321, 位置: 28:42
+[debug] [:] Token: +, 类型: 294, 位置: 28:46
+[debug] [:] Token: a30, 类型: 321, 位置: 28:48
+[debug] [:] Token: +, 类型: 294, 位置: 28:52
+[debug] [:] Token: a31, 类型: 321, 位置: 28:54
+[debug] [:] Token: ;, 类型: 312, 位置: 28:57
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: end, 类型: 260, 位置: 29:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数testParam32
+[debug] [:] 添加函数testParam32到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 29:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含7个项目
+[debug] [:] Token: begin, 类型: 259, 位置: 31:0
+[debug] [:] Token: a0, 类型: 321, 位置: 32:8
+[debug] [:] Token: :=, 类型: 293, 位置: 32:11
+[debug] [:] Token: 0, 类型: 317, 位置: 32:14
+[debug] [:] Token: ;, 类型: 312, 位置: 32:15
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: a1, 类型: 321, 位置: 33:8
+[debug] [:] Token: :=, 类型: 293, 位置: 33:11
+[debug] [:] Token: 1, 类型: 317, 位置: 33:14
+[debug] [:] Token: ;, 类型: 312, 位置: 33:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a2, 类型: 321, 位置: 34:8
+[debug] [:] Token: :=, 类型: 293, 位置: 34:11
+[debug] [:] Token: 2, 类型: 317, 位置: 34:14
+[debug] [:] Token: ;, 类型: 312, 位置: 34:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a3, 类型: 321, 位置: 35:8
+[debug] [:] Token: :=, 类型: 293, 位置: 35:11
+[debug] [:] Token: 3, 类型: 317, 位置: 35:14
+[debug] [:] Token: ;, 类型: 312, 位置: 35:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a4, 类型: 321, 位置: 36:8
+[debug] [:] Token: :=, 类型: 293, 位置: 36:11
+[debug] [:] Token: 4, 类型: 317, 位置: 36:14
+[debug] [:] Token: ;, 类型: 312, 位置: 36:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a5, 类型: 321, 位置: 37:8
+[debug] [:] Token: :=, 类型: 293, 位置: 37:11
+[debug] [:] Token: 5, 类型: 317, 位置: 37:14
+[debug] [:] Token: ;, 类型: 312, 位置: 37:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a6, 类型: 321, 位置: 38:8
+[debug] [:] Token: :=, 类型: 293, 位置: 38:11
+[debug] [:] Token: 6, 类型: 317, 位置: 38:14
+[debug] [:] Token: ;, 类型: 312, 位置: 38:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a7, 类型: 321, 位置: 39:8
+[debug] [:] Token: :=, 类型: 293, 位置: 39:11
+[debug] [:] Token: 7, 类型: 317, 位置: 39:14
+[debug] [:] Token: ;, 类型: 312, 位置: 39:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a8, 类型: 321, 位置: 40:8
+[debug] [:] Token: :=, 类型: 293, 位置: 40:11
+[debug] [:] Token: 8, 类型: 317, 位置: 40:14
+[debug] [:] Token: ;, 类型: 312, 位置: 40:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a9, 类型: 321, 位置: 41:8
+[debug] [:] Token: :=, 类型: 293, 位置: 41:11
+[debug] [:] Token: 9, 类型: 317, 位置: 41:14
+[debug] [:] Token: ;, 类型: 312, 位置: 41:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a10, 类型: 321, 位置: 42:8
+[debug] [:] Token: :=, 类型: 293, 位置: 42:12
+[debug] [:] Token: 0, 类型: 317, 位置: 42:15
+[debug] [:] Token: ;, 类型: 312, 位置: 42:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a11, 类型: 321, 位置: 43:8
+[debug] [:] Token: :=, 类型: 293, 位置: 43:12
+[debug] [:] Token: 1, 类型: 317, 位置: 43:15
+[debug] [:] Token: ;, 类型: 312, 位置: 43:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a12, 类型: 321, 位置: 44:8
+[debug] [:] Token: :=, 类型: 293, 位置: 44:12
+[debug] [:] Token: 2, 类型: 317, 位置: 44:15
+[debug] [:] Token: ;, 类型: 312, 位置: 44:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a13, 类型: 321, 位置: 45:8
+[debug] [:] Token: :=, 类型: 293, 位置: 45:12
+[debug] [:] Token: 3, 类型: 317, 位置: 45:15
+[debug] [:] Token: ;, 类型: 312, 位置: 45:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a14, 类型: 321, 位置: 46:8
+[debug] [:] Token: :=, 类型: 293, 位置: 46:12
+[debug] [:] Token: 4, 类型: 317, 位置: 46:15
+[debug] [:] Token: ;, 类型: 312, 位置: 46:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a15, 类型: 321, 位置: 47:8
+[debug] [:] Token: :=, 类型: 293, 位置: 47:12
+[debug] [:] Token: 5, 类型: 317, 位置: 47:15
+[debug] [:] Token: ;, 类型: 312, 位置: 47:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a16, 类型: 321, 位置: 48:8
+[debug] [:] Token: :=, 类型: 293, 位置: 48:12
+[debug] [:] Token: 6, 类型: 317, 位置: 48:15
+[debug] [:] Token: ;, 类型: 312, 位置: 48:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a17, 类型: 321, 位置: 49:8
+[debug] [:] Token: :=, 类型: 293, 位置: 49:12
+[debug] [:] Token: 7, 类型: 317, 位置: 49:15
+[debug] [:] Token: ;, 类型: 312, 位置: 49:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a18, 类型: 321, 位置: 50:8
+[debug] [:] Token: :=, 类型: 293, 位置: 50:12
+[debug] [:] Token: 8, 类型: 317, 位置: 50:15
+[debug] [:] Token: ;, 类型: 312, 位置: 50:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a19, 类型: 321, 位置: 51:8
+[debug] [:] Token: :=, 类型: 293, 位置: 51:12
+[debug] [:] Token: 9, 类型: 317, 位置: 51:15
+[debug] [:] Token: ;, 类型: 312, 位置: 51:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a20, 类型: 321, 位置: 52:8
+[debug] [:] Token: :=, 类型: 293, 位置: 52:12
+[debug] [:] Token: 0, 类型: 317, 位置: 52:15
+[debug] [:] Token: ;, 类型: 312, 位置: 52:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a21, 类型: 321, 位置: 53:8
+[debug] [:] Token: :=, 类型: 293, 位置: 53:12
+[debug] [:] Token: 1, 类型: 317, 位置: 53:15
+[debug] [:] Token: ;, 类型: 312, 位置: 53:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a22, 类型: 321, 位置: 54:8
+[debug] [:] Token: :=, 类型: 293, 位置: 54:12
+[debug] [:] Token: 2, 类型: 317, 位置: 54:15
+[debug] [:] Token: ;, 类型: 312, 位置: 54:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a23, 类型: 321, 位置: 55:8
+[debug] [:] Token: :=, 类型: 293, 位置: 55:12
+[debug] [:] Token: 3, 类型: 317, 位置: 55:15
+[debug] [:] Token: ;, 类型: 312, 位置: 55:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a24, 类型: 321, 位置: 56:8
+[debug] [:] Token: :=, 类型: 293, 位置: 56:12
+[debug] [:] Token: 4, 类型: 317, 位置: 56:15
+[debug] [:] Token: ;, 类型: 312, 位置: 56:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a25, 类型: 321, 位置: 57:8
+[debug] [:] Token: :=, 类型: 293, 位置: 57:12
+[debug] [:] Token: 5, 类型: 317, 位置: 57:15
+[debug] [:] Token: ;, 类型: 312, 位置: 57:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a26, 类型: 321, 位置: 58:8
+[debug] [:] Token: :=, 类型: 293, 位置: 58:12
+[debug] [:] Token: 6, 类型: 317, 位置: 58:15
+[debug] [:] Token: ;, 类型: 312, 位置: 58:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a27, 类型: 321, 位置: 59:8
+[debug] [:] Token: :=, 类型: 293, 位置: 59:12
+[debug] [:] Token: 7, 类型: 317, 位置: 59:15
+[debug] [:] Token: ;, 类型: 312, 位置: 59:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a28, 类型: 321, 位置: 60:8
+[debug] [:] Token: :=, 类型: 293, 位置: 60:12
+[debug] [:] Token: 8, 类型: 317, 位置: 60:15
+[debug] [:] Token: ;, 类型: 312, 位置: 60:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a29, 类型: 321, 位置: 61:8
+[debug] [:] Token: :=, 类型: 293, 位置: 61:12
+[debug] [:] Token: 9, 类型: 317, 位置: 61:15
+[debug] [:] Token: ;, 类型: 312, 位置: 61:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a30, 类型: 321, 位置: 62:8
+[debug] [:] Token: :=, 类型: 293, 位置: 62:12
+[debug] [:] Token: 0, 类型: 317, 位置: 62:15
+[debug] [:] Token: ;, 类型: 312, 位置: 62:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a31, 类型: 321, 位置: 63:8
+[debug] [:] Token: :=, 类型: 293, 位置: 63:12
+[debug] [:] Token: 1, 类型: 317, 位置: 63:15
+[debug] [:] Token: ;, 类型: 312, 位置: 63:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a32, 类型: 321, 位置: 65:8
+[debug] [:] Token: :=, 类型: 293, 位置: 65:12
+[debug] [:] Token: 4, 类型: 317, 位置: 65:15
+[debug] [:] Token: ;, 类型: 312, 位置: 65:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a33, 类型: 321, 位置: 66:8
+[debug] [:] Token: :=, 类型: 293, 位置: 66:12
+[debug] [:] Token: 5, 类型: 317, 位置: 66:15
+[debug] [:] Token: ;, 类型: 312, 位置: 66:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a34, 类型: 321, 位置: 67:8
+[debug] [:] Token: :=, 类型: 293, 位置: 67:12
+[debug] [:] Token: 6, 类型: 317, 位置: 67:15
+[debug] [:] Token: ;, 类型: 312, 位置: 67:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a35, 类型: 321, 位置: 68:8
+[debug] [:] Token: :=, 类型: 293, 位置: 68:12
+[debug] [:] Token: 7, 类型: 317, 位置: 68:15
+[debug] [:] Token: ;, 类型: 312, 位置: 68:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a36, 类型: 321, 位置: 69:8
+[debug] [:] Token: :=, 类型: 293, 位置: 69:12
+[debug] [:] Token: 8, 类型: 317, 位置: 69:15
+[debug] [:] Token: ;, 类型: 312, 位置: 69:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a37, 类型: 321, 位置: 70:8
+[debug] [:] Token: :=, 类型: 293, 位置: 70:12
+[debug] [:] Token: 9, 类型: 317, 位置: 70:15
+[debug] [:] Token: ;, 类型: 312, 位置: 70:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a38, 类型: 321, 位置: 71:8
+[debug] [:] Token: :=, 类型: 293, 位置: 71:12
+[debug] [:] Token: 0, 类型: 317, 位置: 71:15
+[debug] [:] Token: ;, 类型: 312, 位置: 71:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a39, 类型: 321, 位置: 72:8
+[debug] [:] Token: :=, 类型: 293, 位置: 72:12
+[debug] [:] Token: 1, 类型: 317, 位置: 72:15
+[debug] [:] Token: ;, 类型: 312, 位置: 72:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a0, 类型: 321, 位置: 73:8
+[debug] [:] Token: :=, 类型: 293, 位置: 73:11
+[debug] [:] Token: testParam8, 类型: 321, 位置: 73:14
+[debug] [:] Token: (, 类型: 308, 位置: 73:24
+[debug] [:] Token: a0, 类型: 321, 位置: 73:25
+[debug] [:] Token: ,, 类型: 314, 位置: 73:27
+[debug] [:] Token: a1, 类型: 321, 位置: 73:29
+[debug] [:] Token: ,, 类型: 314, 位置: 73:31
+[debug] [:] Token: a2, 类型: 321, 位置: 73:33
+[debug] [:] Token: ,, 类型: 314, 位置: 73:35
+[debug] [:] Token: a3, 类型: 321, 位置: 73:37
+[debug] [:] Token: ,, 类型: 314, 位置: 73:39
+[debug] [:] Token: a4, 类型: 321, 位置: 73:41
+[debug] [:] Token: ,, 类型: 314, 位置: 73:43
+[debug] [:] Token: a5, 类型: 321, 位置: 73:45
+[debug] [:] Token: ,, 类型: 314, 位置: 73:47
+[debug] [:] Token: a6, 类型: 321, 位置: 73:49
+[debug] [:] Token: ,, 类型: 314, 位置: 73:51
+[debug] [:] Token: a7, 类型: 321, 位置: 73:53
+[debug] [:] Token: ), 类型: 309, 位置: 73:55
+[debug] [:] Token: ;, 类型: 312, 位置: 73:56
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: write, 类型: 286, 位置: 74:8
+[debug] [:] Token: (, 类型: 308, 位置: 74:13
+[debug] [:] Token: a0, 类型: 321, 位置: 74:14
+[debug] [:] Token: ), 类型: 309, 位置: 74:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 74:17
+[debug] [:] Token: a0, 类型: 321, 位置: 75:8
+[debug] [:] Token: :=, 类型: 293, 位置: 75:11
+[debug] [:] Token: testParam16, 类型: 321, 位置: 75:14
+[debug] [:] Token: (, 类型: 308, 位置: 75:25
+[debug] [:] Token: a32, 类型: 321, 位置: 75:26
+[debug] [:] Token: ,, 类型: 314, 位置: 75:29
+[debug] [:] Token: a33, 类型: 321, 位置: 75:31
+[debug] [:] Token: ,, 类型: 314, 位置: 75:34
+[debug] [:] Token: a34, 类型: 321, 位置: 75:36
+[debug] [:] Token: ,, 类型: 314, 位置: 75:39
+[debug] [:] Token: a35, 类型: 321, 位置: 75:41
+[debug] [:] Token: ,, 类型: 314, 位置: 75:44
+[debug] [:] Token: a36, 类型: 321, 位置: 76:25
+[debug] [:] Token: ,, 类型: 314, 位置: 76:28
+[debug] [:] Token: a37, 类型: 321, 位置: 76:30
+[debug] [:] Token: ,, 类型: 314, 位置: 76:33
+[debug] [:] Token: a38, 类型: 321, 位置: 76:35
+[debug] [:] Token: ,, 类型: 314, 位置: 76:38
+[debug] [:] Token: a39, 类型: 321, 位置: 76:40
+[debug] [:] Token: ,, 类型: 314, 位置: 76:43
+[debug] [:] Token: a8, 类型: 321, 位置: 77:25
+[debug] [:] Token: ,, 类型: 314, 位置: 77:27
+[debug] [:] Token: a9, 类型: 321, 位置: 77:29
+[debug] [:] Token: ,, 类型: 314, 位置: 77:31
+[debug] [:] Token: a10, 类型: 321, 位置: 77:33
+[debug] [:] Token: ,, 类型: 314, 位置: 77:36
+[debug] [:] Token: a11, 类型: 321, 位置: 77:38
+[debug] [:] Token: ,, 类型: 314, 位置: 77:41
+[debug] [:] Token: a12, 类型: 321, 位置: 78:25
+[debug] [:] Token: ,, 类型: 314, 位置: 78:28
+[debug] [:] Token: a13, 类型: 321, 位置: 78:30
+[debug] [:] Token: ,, 类型: 314, 位置: 78:33
+[debug] [:] Token: a14, 类型: 321, 位置: 78:35
+[debug] [:] Token: ,, 类型: 314, 位置: 78:38
+[debug] [:] Token: a15, 类型: 321, 位置: 78:40
+[debug] [:] Token: ), 类型: 309, 位置: 78:43
+[debug] [:] Token: ;, 类型: 312, 位置: 78:44
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: write, 类型: 286, 位置: 79:8
+[debug] [:] Token: (, 类型: 308, 位置: 79:13
+[debug] [:] Token: a0, 类型: 321, 位置: 79:14
+[debug] [:] Token: ), 类型: 309, 位置: 79:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 79:17
+[debug] [:] Token: a0, 类型: 321, 位置: 80:8
+[debug] [:] Token: :=, 类型: 293, 位置: 80:11
+[debug] [:] Token: testParam32, 类型: 321, 位置: 80:14
+[debug] [:] Token: (, 类型: 308, 位置: 80:25
+[debug] [:] Token: a0, 类型: 321, 位置: 80:26
+[debug] [:] Token: ,, 类型: 314, 位置: 80:28
+[debug] [:] Token: a1, 类型: 321, 位置: 80:30
+[debug] [:] Token: ,, 类型: 314, 位置: 80:32
+[debug] [:] Token: a2, 类型: 321, 位置: 80:34
+[debug] [:] Token: ,, 类型: 314, 位置: 80:36
+[debug] [:] Token: a3, 类型: 321, 位置: 80:38
+[debug] [:] Token: ,, 类型: 314, 位置: 80:40
+[debug] [:] Token: a4, 类型: 321, 位置: 81:25
+[debug] [:] Token: ,, 类型: 314, 位置: 81:27
+[debug] [:] Token: a5, 类型: 321, 位置: 81:29
+[debug] [:] Token: ,, 类型: 314, 位置: 81:31
+[debug] [:] Token: a6, 类型: 321, 位置: 81:33
+[debug] [:] Token: ,, 类型: 314, 位置: 81:35
+[debug] [:] Token: a7, 类型: 321, 位置: 81:37
+[debug] [:] Token: ,, 类型: 314, 位置: 81:39
+[debug] [:] Token: a8, 类型: 321, 位置: 82:25
+[debug] [:] Token: ,, 类型: 314, 位置: 82:27
+[debug] [:] Token: a9, 类型: 321, 位置: 82:29
+[debug] [:] Token: ,, 类型: 314, 位置: 82:31
+[debug] [:] Token: a10, 类型: 321, 位置: 82:33
+[debug] [:] Token: ,, 类型: 314, 位置: 82:36
+[debug] [:] Token: a11, 类型: 321, 位置: 82:38
+[debug] [:] Token: ,, 类型: 314, 位置: 82:41
+[debug] [:] Token: a12, 类型: 321, 位置: 83:25
+[debug] [:] Token: ,, 类型: 314, 位置: 83:28
+[debug] [:] Token: a13, 类型: 321, 位置: 83:30
+[debug] [:] Token: ,, 类型: 314, 位置: 83:33
+[debug] [:] Token: a14, 类型: 321, 位置: 83:35
+[debug] [:] Token: ,, 类型: 314, 位置: 83:38
+[debug] [:] Token: a15, 类型: 321, 位置: 83:40
+[debug] [:] Token: ,, 类型: 314, 位置: 83:43
+[debug] [:] Token: a16, 类型: 321, 位置: 84:25
+[debug] [:] Token: ,, 类型: 314, 位置: 84:28
+[debug] [:] Token: a17, 类型: 321, 位置: 84:30
+[debug] [:] Token: ,, 类型: 314, 位置: 84:33
+[debug] [:] Token: a18, 类型: 321, 位置: 84:35
+[debug] [:] Token: ,, 类型: 314, 位置: 84:38
+[debug] [:] Token: a19, 类型: 321, 位置: 84:40
+[debug] [:] Token: ,, 类型: 314, 位置: 84:43
+[debug] [:] Token: a20, 类型: 321, 位置: 85:25
+[debug] [:] Token: ,, 类型: 314, 位置: 85:28
+[debug] [:] Token: a21, 类型: 321, 位置: 85:30
+[debug] [:] Token: ,, 类型: 314, 位置: 85:33
+[debug] [:] Token: a22, 类型: 321, 位置: 85:35
+[debug] [:] Token: ,, 类型: 314, 位置: 85:38
+[debug] [:] Token: a23, 类型: 321, 位置: 85:40
+[debug] [:] Token: ,, 类型: 314, 位置: 85:43
+[debug] [:] Token: a24, 类型: 321, 位置: 86:25
+[debug] [:] Token: ,, 类型: 314, 位置: 86:28
+[debug] [:] Token: a25, 类型: 321, 位置: 86:30
+[debug] [:] Token: ,, 类型: 314, 位置: 86:33
+[debug] [:] Token: a26, 类型: 321, 位置: 86:35
+[debug] [:] Token: ,, 类型: 314, 位置: 86:38
+[debug] [:] Token: a27, 类型: 321, 位置: 86:40
+[debug] [:] Token: ,, 类型: 314, 位置: 86:43
+[debug] [:] Token: a28, 类型: 321, 位置: 87:25
+[debug] [:] Token: ,, 类型: 314, 位置: 87:28
+[debug] [:] Token: a29, 类型: 321, 位置: 87:30
+[debug] [:] Token: ,, 类型: 314, 位置: 87:33
+[debug] [:] Token: a30, 类型: 321, 位置: 87:35
+[debug] [:] Token: ,, 类型: 314, 位置: 87:38
+[debug] [:] Token: a31, 类型: 321, 位置: 87:40
+[debug] [:] Token: ), 类型: 309, 位置: 87:43
+[debug] [:] Token: ;, 类型: 312, 位置: 87:44
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: write, 类型: 286, 位置: 88:8
+[debug] [:] Token: (, 类型: 308, 位置: 88:13
+[debug] [:] Token: a0, 类型: 321, 位置: 88:14
+[debug] [:] Token: ), 类型: 309, 位置: 88:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 88:17
+[debug] [:] Token: end, 类型: 260, 位置: 89:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] Token: ., 类型: 315, 位置: 89:3
+[info] [:] 词法分析完成，共识别 660 个token
+[debug] [:] 语法分析成功
+[info] [:] + Program: main
+[info] [:]   Body:
+[info] [:]   + Block
+[info] [:]     Declarations:
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a0
+[info] [:]         - a1
+[info] [:]         - a2
+[info] [:]         - a3
+[info] [:]         - a4
+[info] [:]         - a5
+[info] [:]         - a6
+[info] [:]         - a7
+[info] [:]         - a8
+[info] [:]         - a9
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a10
+[info] [:]         - a11
+[info] [:]         - a12
+[info] [:]         - a13
+[info] [:]         - a14
+[info] [:]         - a15
+[info] [:]         - a16
+[info] [:]         - a17
+[info] [:]         - a18
+[info] [:]         - a19
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a20
+[info] [:]         - a21
+[info] [:]         - a22
+[info] [:]         - a23
+[info] [:]         - a24
+[info] [:]         - a25
+[info] [:]         - a26
+[info] [:]         - a27
+[info] [:]         - a28
+[info] [:]         - a29
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a30
+[info] [:]         - a31
+[info] [:]         - a32
+[info] [:]         - a33
+[info] [:]         - a34
+[info] [:]         - a35
+[info] [:]         - a36
+[info] [:]         - a37
+[info] [:]         - a38
+[info] [:]         - a39
+[info] [:]       + Function Declaration: testParam8 -> int
+[info] [:]         Parameters:
+[info] [:]           - a0: int
+[info] [:]           - a1: int
+[info] [:]           - a2: int
+[info] [:]           - a3: int
+[info] [:]           - a4: int
+[info] [:]           - a5: int
+[info] [:]           - a6: int
+[info] [:]           - a7: int
+[info] [:]         Body:
+[info] [:]           + Block
+[info] [:]             Body:
+[info] [:]               + Compound Statement
+[info] [:]                 + Assignment: testParam8 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Binary Op: +
+[info] [:]                             Left:
+[info] [:]                               + Binary Op: +
+[info] [:]                                 Left:
+[info] [:]                                   + Binary Op: +
+[info] [:]                                     Left:
+[info] [:]                                       + Binary Op: +
+[info] [:]                                         Left:
+[info] [:]                                           + Binary Op: +
+[info] [:]                                             Left:
+[info] [:]                                               + Variable: a0
+[info] [:]                                             Right:
+[info] [:]                                               + Variable: a1
+[info] [:]                                         Right:
+[info] [:]                                           + Variable: a2
+[info] [:]                                     Right:
+[info] [:]                                       + Variable: a3
+[info] [:]                                 Right:
+[info] [:]                                   + Variable: a4
+[info] [:]                             Right:
+[info] [:]                               + Variable: a5
+[info] [:]                         Right:
+[info] [:]                           + Variable: a6
+[info] [:]                     Right:
+[info] [:]                       + Variable: a7
+[info] [:]       + Function Declaration: testParam16 -> int
+[info] [:]         Parameters:
+[info] [:]           - a0: int
+[info] [:]           - a1: int
+[info] [:]           - a2: int
+[info] [:]           - a3: int
+[info] [:]           - a4: int
+[info] [:]           - a5: int
+[info] [:]           - a6: int
+[info] [:]           - a7: int
+[info] [:]           - a8: int
+[info] [:]           - a9: int
+[info] [:]           - a10: int
+[info] [:]           - a11: int
+[info] [:]           - a12: int
+[info] [:]           - a13: int
+[info] [:]           - a14: int
+[info] [:]           - a15: int
+[info] [:]         Body:
+[info] [:]           + Block
+[info] [:]             Body:
+[info] [:]               + Compound Statement
+[info] [:]                 + Assignment: testParam16 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Binary Op: +
+[info] [:]                             Left:
+[info] [:]                               + Binary Op: +
+[info] [:]                                 Left:
+[info] [:]                                   + Binary Op: +
+[info] [:]                                     Left:
+[info] [:]                                       + Binary Op: +
+[info] [:]                                         Left:
+[info] [:]                                           + Binary Op: +
+[info] [:]                                             Left:
+[info] [:]                                               + Binary Op: +
+[info] [:]                                                 Left:
+[info] [:]                                                   + Binary Op: -
+[info] [:]                                                     Left:
+[info] [:]                                                       + Binary Op: -
+[info] [:]                                                         Left:
+[info] [:]                                                           + Binary Op: -
+[info] [:]                                                             Left:
+[info] [:]                                                               + Binary Op: -
+[info] [:]                                                                 Left:
+[info] [:]                                                                   + Binary Op: -
+[info] [:]                                                                     Left:
+[info] [:]                                                                       + Binary Op: +
+[info] [:]                                                                         Left:
+[info] [:]                                                                           + Binary Op: +
+[info] [:]                                                                             Left:
+[info] [:]                                                                               + Variable: a0
+[info] [:]                                                                             Right:
+[info] [:]                                                                               + Variable: a1
+[info] [:]                                                                         Right:
+[info] [:]                                                                           + Variable: a2
+[info] [:]                                                                     Right:
+[info] [:]                                                                       + Variable: a3
+[info] [:]                                                                 Right:
+[info] [:]                                                                   + Variable: a4
+[info] [:]                                                             Right:
+[info] [:]                                                               + Variable: a5
+[info] [:]                                                         Right:
+[info] [:]                                                           + Variable: a6
+[info] [:]                                                     Right:
+[info] [:]                                                       + Variable: a7
+[info] [:]                                                 Right:
+[info] [:]                                                   + Variable: a8
+[info] [:]                                             Right:
+[info] [:]                                               + Variable: a9
+[info] [:]                                         Right:
+[info] [:]                                           + Variable: a10
+[info] [:]                                     Right:
+[info] [:]                                       + Variable: a11
+[info] [:]                                 Right:
+[info] [:]                                   + Variable: a12
+[info] [:]                             Right:
+[info] [:]                               + Variable: a13
+[info] [:]                         Right:
+[info] [:]                           + Variable: a14
+[info] [:]                     Right:
+[info] [:]                       + Variable: a15
+[info] [:]       + Function Declaration: testParam32 -> int
+[info] [:]         Parameters:
+[info] [:]           - a0: int
+[info] [:]           - a1: int
+[info] [:]           - a2: int
+[info] [:]           - a3: int
+[info] [:]           - a4: int
+[info] [:]           - a5: int
+[info] [:]           - a6: int
+[info] [:]           - a7: int
+[info] [:]           - a8: int
+[info] [:]           - a9: int
+[info] [:]           - a10: int
+[info] [:]           - a11: int
+[info] [:]           - a12: int
+[info] [:]           - a13: int
+[info] [:]           - a14: int
+[info] [:]           - a15: int
+[info] [:]           - a16: int
+[info] [:]           - a17: int
+[info] [:]           - a18: int
+[info] [:]           - a19: int
+[info] [:]           - a20: int
+[info] [:]           - a21: int
+[info] [:]           - a22: int
+[info] [:]           - a23: int
+[info] [:]           - a24: int
+[info] [:]           - a25: int
+[info] [:]           - a26: int
+[info] [:]           - a27: int
+[info] [:]           - a28: int
+[info] [:]           - a29: int
+[info] [:]           - a30: int
+[info] [:]           - a31: int
+[info] [:]         Body:
+[info] [:]           + Block
+[info] [:]             Body:
+[info] [:]               + Compound Statement
+[info] [:]                 + Assignment: testParam32 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Binary Op: +
+[info] [:]                             Left:
+[info] [:]                               + Binary Op: +
+[info] [:]                                 Left:
+[info] [:]                                   + Binary Op: +
+[info] [:]                                     Left:
+[info] [:]                                       + Binary Op: +
+[info] [:]                                         Left:
+[info] [:]                                           + Binary Op: +
+[info] [:]                                             Left:
+[info] [:]                                               + Binary Op: +
+[info] [:]                                                 Left:
+[info] [:]                                                   + Binary Op: +
+[info] [:]                                                     Left:
+[info] [:]                                                       + Binary Op: -
+[info] [:]                                                         Left:
+[info] [:]                                                           + Binary Op: -
+[info] [:]                                                             Left:
+[info] [:]                                                               + Binary Op: -
+[info] [:]                                                                 Left:
+[info] [:]                                                                   + Binary Op: -
+[info] [:]                                                                     Left:
+[info] [:]                                                                       + Binary Op: -
+[info] [:]                                                                         Left:
+[info] [:]                                                                           + Binary Op: +
+[info] [:]                                                                             Left:
+[info] [:]                                                                               + Binary Op: +
+[info] [:]                                                                                 Left:
+[info] [:]                                                                                   + Binary Op: +
+[info] [:]                                                                                     Left:
+[info] [:]                                                                                       + Binary Op: +
+[info] [:]                                                                                         Left:
+[info] [:]                                                                                           + Binary Op: +
+[info] [:]                                                                                             Left:
+[info] [:]                                                                                               + Binary Op: +
+[info] [:]                                                                                                 Left:
+[info] [:]                                                                                                   + Binary Op: +
+[info] [:]                                                                                                     Left:
+[info] [:]                                                                                                       + Binary Op: +
+[info] [:]                                                                                                         Left:
+[info] [:]                                                                                                           + Binary Op: +
+[info] [:]                                                                                                             Left:
+[info] [:]                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                 Left:
+[info] [:]                                                                                                                   + Binary Op: +
+[info] [:]                                                                                                                     Left:
+[info] [:]                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                         Left:
+[info] [:]                                                                                                                           + Binary Op: +
+[info] [:]                                                                                                                             Left:
+[info] [:]                                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                                 Left:
+[info] [:]                                                                                                                                   + Binary Op: +
+[info] [:]                                                                                                                                     Left:
+[info] [:]                                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                                         Left:
+[info] [:]                                                                                                                                           + Binary Op: +
+[info] [:]                                                                                                                                             Left:
+[info] [:]                                                                                                                                               + Variable: a0
+[info] [:]                                                                                                                                             Right:
+[info] [:]                                                                                                                                               + Variable: a1
+[info] [:]                                                                                                                                         Right:
+[info] [:]                                                                                                                                           + Variable: a2
+[info] [:]                                                                                                                                     Right:
+[info] [:]                                                                                                                                       + Variable: a3
+[info] [:]                                                                                                                                 Right:
+[info] [:]                                                                                                                                   + Variable: a4
+[info] [:]                                                                                                                             Right:
+[info] [:]                                                                                                                               + Variable: a5
+[info] [:]                                                                                                                         Right:
+[info] [:]                                                                                                                           + Variable: a6
+[info] [:]                                                                                                                     Right:
+[info] [:]                                                                                                                       + Variable: a7
+[info] [:]                                                                                                                 Right:
+[info] [:]                                                                                                                   + Variable: a8
+[info] [:]                                                                                                             Right:
+[info] [:]                                                                                                               + Variable: a9
+[info] [:]                                                                                                         Right:
+[info] [:]                                                                                                           + Variable: a10
+[info] [:]                                                                                                     Right:
+[info] [:]                                                                                                       + Variable: a11
+[info] [:]                                                                                                 Right:
+[info] [:]                                                                                                   + Variable: a12
+[info] [:]                                                                                             Right:
+[info] [:]                                                                                               + Variable: a13
+[info] [:]                                                                                         Right:
+[info] [:]                                                                                           + Variable: a14
+[info] [:]                                                                                     Right:
+[info] [:]                                                                                       + Variable: a15
+[info] [:]                                                                                 Right:
+[info] [:]                                                                                   + Variable: a16
+[info] [:]                                                                             Right:
+[info] [:]                                                                               + Variable: a17
+[info] [:]                                                                         Right:
+[info] [:]                                                                           + Variable: a18
+[info] [:]                                                                     Right:
+[info] [:]                                                                       + Variable: a19
+[info] [:]                                                                 Right:
+[info] [:]                                                                   + Variable: a20
+[info] [:]                                                             Right:
+[info] [:]                                                               + Variable: a21
+[info] [:]                                                         Right:
+[info] [:]                                                           + Variable: a22
+[info] [:]                                                     Right:
+[info] [:]                                                       + Variable: a23
+[info] [:]                                                 Right:
+[info] [:]                                                   + Variable: a24
+[info] [:]                                             Right:
+[info] [:]                                               + Variable: a25
+[info] [:]                                         Right:
+[info] [:]                                           + Variable: a26
+[info] [:]                                     Right:
+[info] [:]                                       + Variable: a27
+[info] [:]                                 Right:
+[info] [:]                                   + Variable: a28
+[info] [:]                             Right:
+[info] [:]                               + Variable: a29
+[info] [:]                         Right:
+[info] [:]                           + Variable: a30
+[info] [:]                     Right:
+[info] [:]                       + Variable: a31
+[info] [:]     Body:
+[info] [:]       + Compound Statement
+[info] [:]         + Assignment: a0 =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: a1 =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: a2 =
+[info] [:]           + Number: 2
+[info] [:]         + Assignment: a3 =
+[info] [:]           + Number: 3
+[info] [:]         + Assignment: a4 =
+[info] [:]           + Number: 4
+[info] [:]         + Assignment: a5 =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: a6 =
+[info] [:]           + Number: 6
+[info] [:]         + Assignment: a7 =
+[info] [:]           + Number: 7
+[info] [:]         + Assignment: a8 =
+[info] [:]           + Number: 8
+[info] [:]         + Assignment: a9 =
+[info] [:]           + Number: 9
+[info] [:]         + Assignment: a10 =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: a11 =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: a12 =
+[info] [:]           + Number: 2
+[info] [:]         + Assignment: a13 =
+[info] [:]           + Number: 3
+[info] [:]         + Assignment: a14 =
+[info] [:]           + Number: 4
+[info] [:]         + Assignment: a15 =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: a16 =
+[info] [:]           + Number: 6
+[info] [:]         + Assignment: a17 =
+[info] [:]           + Number: 7
+[info] [:]         + Assignment: a18 =
+[info] [:]           + Number: 8
+[info] [:]         + Assignment: a19 =
+[info] [:]           + Number: 9
+[info] [:]         + Assignment: a20 =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: a21 =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: a22 =
+[info] [:]           + Number: 2
+[info] [:]         + Assignment: a23 =
+[info] [:]           + Number: 3
+[info] [:]         + Assignment: a24 =
+[info] [:]           + Number: 4
+[info] [:]         + Assignment: a25 =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: a26 =
+[info] [:]           + Number: 6
+[info] [:]         + Assignment: a27 =
+[info] [:]           + Number: 7
+[info] [:]         + Assignment: a28 =
+[info] [:]           + Number: 8
+[info] [:]         + Assignment: a29 =
+[info] [:]           + Number: 9
+[info] [:]         + Assignment: a30 =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: a31 =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: a32 =
+[info] [:]           + Number: 4
+[info] [:]         + Assignment: a33 =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: a34 =
+[info] [:]           + Number: 6
+[info] [:]         + Assignment: a35 =
+[info] [:]           + Number: 7
+[info] [:]         + Assignment: a36 =
+[info] [:]           + Number: 8
+[info] [:]         + Assignment: a37 =
+[info] [:]           + Number: 9
+[info] [:]         + Assignment: a38 =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: a39 =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: a0 =
+[info] [:]           + Function Call: testParam8
+[info] [:]             Arguments:
+[info] [:]               + Variable: a0
+[info] [:]               + Variable: a1
+[info] [:]               + Variable: a2
+[info] [:]               + Variable: a3
+[info] [:]               + Variable: a4
+[info] [:]               + Variable: a5
+[info] [:]               + Variable: a6
+[info] [:]               + Variable: a7
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a0
+[info] [:]         + Assignment: a0 =
+[info] [:]           + Function Call: testParam16
+[info] [:]             Arguments:
+[info] [:]               + Variable: a32
+[info] [:]               + Variable: a33
+[info] [:]               + Variable: a34
+[info] [:]               + Variable: a35
+[info] [:]               + Variable: a36
+[info] [:]               + Variable: a37
+[info] [:]               + Variable: a38
+[info] [:]               + Variable: a39
+[info] [:]               + Variable: a8
+[info] [:]               + Variable: a9
+[info] [:]               + Variable: a10
+[info] [:]               + Variable: a11
+[info] [:]               + Variable: a12
+[info] [:]               + Variable: a13
+[info] [:]               + Variable: a14
+[info] [:]               + Variable: a15
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a0
+[info] [:]         + Assignment: a0 =
+[info] [:]           + Function Call: testParam32
+[info] [:]             Arguments:
+[info] [:]               + Variable: a0
+[info] [:]               + Variable: a1
+[info] [:]               + Variable: a2
+[info] [:]               + Variable: a3
+[info] [:]               + Variable: a4
+[info] [:]               + Variable: a5
+[info] [:]               + Variable: a6
+[info] [:]               + Variable: a7
+[info] [:]               + Variable: a8
+[info] [:]               + Variable: a9
+[info] [:]               + Variable: a10
+[info] [:]               + Variable: a11
+[info] [:]               + Variable: a12
+[info] [:]               + Variable: a13
+[info] [:]               + Variable: a14
+[info] [:]               + Variable: a15
+[info] [:]               + Variable: a16
+[info] [:]               + Variable: a17
+[info] [:]               + Variable: a18
+[info] [:]               + Variable: a19
+[info] [:]               + Variable: a20
+[info] [:]               + Variable: a21
+[info] [:]               + Variable: a22
+[info] [:]               + Variable: a23
+[info] [:]               + Variable: a24
+[info] [:]               + Variable: a25
+[info] [:]               + Variable: a26
+[info] [:]               + Variable: a27
+[info] [:]               + Variable: a28
+[info] [:]               + Variable: a29
+[info] [:]               + Variable: a30
+[info] [:]               + Variable: a31
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a0
+[info] [:] 转换完成: '59_many_globals.pas' -> '59_many_globals.c'

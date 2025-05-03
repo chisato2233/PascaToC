@@ -1,0 +1,137 @@
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 239 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: function, 类型: 263, 位置: 3:0
+[debug] [:] Token: if_if_Else, 类型: 321, 位置: 3:9
+[debug] [:] Token: :, 类型: 313, 位置: 3:19
+[debug] [:] 创建空的参数列表
+[debug] [:] Token: integer, 类型: 288, 位置: 3:21
+[debug] [:] Token: ;, 类型: 312, 位置: 3:28
+[debug] [:] Token: var, 类型: 261, 位置: 4:0
+[debug] [:] Token: a, 类型: 321, 位置: 4:4
+[debug] [:] Token: ,, 类型: 314, 位置: 4:5
+[debug] [:] Token: b, 类型: 321, 位置: 4:6
+[debug] [:] Token: :, 类型: 313, 位置: 4:7
+[debug] [:] Token: integer, 类型: 288, 位置: 4:9
+[debug] [:] Token: ;, 类型: 312, 位置: 4:16
+[debug] [:] Token: begin, 类型: 259, 位置: 5:0
+[debug] [:] Token: a, 类型: 321, 位置: 6:2
+[debug] [:] Token: :=, 类型: 293, 位置: 6:4
+[debug] [:] Token: 5, 类型: 317, 位置: 6:7
+[debug] [:] Token: ;, 类型: 312, 位置: 6:8
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: b, 类型: 321, 位置: 7:2
+[debug] [:] Token: :=, 类型: 293, 位置: 7:4
+[debug] [:] Token: 10, 类型: 317, 位置: 7:7
+[debug] [:] Token: ;, 类型: 312, 位置: 7:9
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: if, 类型: 264, 位置: 8:2
+[debug] [:] Token: (, 类型: 308, 位置: 8:5
+[debug] [:] Token: a, 类型: 321, 位置: 8:6
+[debug] [:] Token: =, 类型: 298, 位置: 8:8
+[debug] [:] Token: 5, 类型: 317, 位置: 8:10
+[debug] [:] Token: ), 类型: 309, 位置: 8:11
+[debug] [:] Token: then, 类型: 265, 位置: 8:13
+[debug] [:] Token: begin, 类型: 259, 位置: 9:2
+[debug] [:] Token: if, 类型: 264, 位置: 10:4
+[debug] [:] Token: (, 类型: 308, 位置: 10:7
+[debug] [:] Token: b, 类型: 321, 位置: 10:8
+[debug] [:] Token: =, 类型: 298, 位置: 10:10
+[debug] [:] Token: 10, 类型: 317, 位置: 10:12
+[debug] [:] Token: ), 类型: 309, 位置: 10:14
+[debug] [:] Token: then, 类型: 265, 位置: 10:16
+[debug] [:] Token: a, 类型: 321, 位置: 11:6
+[debug] [:] Token: :=, 类型: 293, 位置: 11:8
+[debug] [:] Token: 25, 类型: 317, 位置: 11:11
+[debug] [:] Token: ;, 类型: 312, 位置: 11:13
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: end, 类型: 260, 位置: 12:2
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] Token: else, 类型: 266, 位置: 13:2
+[debug] [:] Token: a, 类型: 321, 位置: 14:4
+[debug] [:] Token: :=, 类型: 293, 位置: 14:6
+[debug] [:] Token: a, 类型: 321, 位置: 14:9
+[debug] [:] Token: +, 类型: 294, 位置: 14:11
+[debug] [:] Token: 15, 类型: 317, 位置: 14:13
+[debug] [:] Token: ;, 类型: 312, 位置: 14:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: if_if_Else, 类型: 321, 位置: 15:2
+[debug] [:] Token: :=, 类型: 293, 位置: 15:13
+[debug] [:] Token: a, 类型: 321, 位置: 15:16
+[debug] [:] Token: ;, 类型: 312, 位置: 15:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: end, 类型: 260, 位置: 16:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数if_if_Else
+[debug] [:] 添加函数if_if_Else到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 16:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] Token: begin, 类型: 259, 位置: 18:0
+[debug] [:] Token: write, 类型: 286, 位置: 19:2
+[debug] [:] Token: (, 类型: 308, 位置: 19:7
+[debug] [:] Token: if_if_Else, 类型: 321, 位置: 19:8
+[debug] [:] Token: ), 类型: 309, 位置: 19:18
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: ;, 类型: 312, 位置: 19:19
+[debug] [:] Token: end, 类型: 260, 位置: 20:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] Token: ., 类型: 315, 位置: 20:3
+[info] [:] 词法分析完成，共识别 65 个token
+[debug] [:] 语法分析成功
+[info] [:] + Program: main
+[info] [:]   Body:
+[info] [:]   + Block
+[info] [:]     Declarations:
+[info] [:]       + Function Declaration: if_if_Else -> int
+[info] [:]         Body:
+[info] [:]           + Block
+[info] [:]             Declarations:
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - a
+[info] [:]                 - b
+[info] [:]             Body:
+[info] [:]               + Compound Statement
+[info] [:]                 + Assignment: a =
+[info] [:]                   + Number: 5
+[info] [:]                 + Assignment: b =
+[info] [:]                   + Number: 10
+[info] [:]                 + If Statement
+[info] [:]                   Condition:
+[info] [:]                     + Binary Op: ==
+[info] [:]                       Left:
+[info] [:]                         + Variable: a
+[info] [:]                       Right:
+[info] [:]                         + Number: 5
+[info] [:]                   Then:
+[info] [:]                     + Compound Statement
+[info] [:]                       + If Statement
+[info] [:]                         Condition:
+[info] [:]                           + Binary Op: ==
+[info] [:]                             Left:
+[info] [:]                               + Variable: b
+[info] [:]                             Right:
+[info] [:]                               + Number: 10
+[info] [:]                         Then:
+[info] [:]                           + Assignment: a =
+[info] [:]                             + Number: 25
+[info] [:]                   Else:
+[info] [:]                     + Assignment: a =
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Variable: a
+[info] [:]                         Right:
+[info] [:]                           + Number: 15
+[info] [:]                 + Assignment: if_if_Else =
+[info] [:]                   + Variable: a
+[info] [:]     Body:
+[info] [:]       + Compound Statement
+[info] [:]         + Write Statement
+[info] [:]           + Variable: if_if_Else
+[info] [:] 转换完成: '20_if_test5.pas' -> '20_if_test5.c'

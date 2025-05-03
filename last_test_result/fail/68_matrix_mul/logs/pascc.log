@@ -1,3 +1,77 @@
-[2025-05-02 18:16:52.551] [pascc] [info] 日志系统初始化完成
-[2025-05-02 18:16:52.551] [pascc] [error] 解析失败: error: syntax error, unexpected LBRACKET
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 857 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: MatrixMultiplication, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:28
+[debug] [:] Token: var, 类型: 261, 位置: 3:0
+[debug] [:] Token: M, 类型: 321, 位置: 4:2
+[debug] [:] Token: ,, 类型: 314, 位置: 4:3
+[debug] [:] Token: N, 类型: 321, 位置: 4:5
+[debug] [:] Token: ,, 类型: 314, 位置: 4:6
+[debug] [:] Token: L, 类型: 321, 位置: 4:8
+[debug] [:] Token: :, 类型: 313, 位置: 4:9
+[debug] [:] Token: integer, 类型: 288, 位置: 4:11
+[debug] [:] Token: ;, 类型: 312, 位置: 4:18
+[debug] [:] Token: i, 类型: 321, 位置: 5:0
+[debug] [:] Token: ,, 类型: 314, 位置: 5:1
+[debug] [:] Token: x, 类型: 321, 位置: 5:3
+[debug] [:] Token: :, 类型: 313, 位置: 5:4
+[debug] [:] Token: integer, 类型: 288, 位置: 5:6
+[debug] [:] Token: ;, 类型: 312, 位置: 5:13
+[debug] [:] Token: a0, 类型: 321, 位置: 6:2
+[debug] [:] Token: ,, 类型: 314, 位置: 6:4
+[debug] [:] Token: a1, 类型: 321, 位置: 6:6
+[debug] [:] Token: ,, 类型: 314, 位置: 6:8
+[debug] [:] Token: a2, 类型: 321, 位置: 6:10
+[debug] [:] Token: ,, 类型: 314, 位置: 6:12
+[debug] [:] Token: b0, 类型: 321, 位置: 6:14
+[debug] [:] Token: ,, 类型: 314, 位置: 6:16
+[debug] [:] Token: b1, 类型: 321, 位置: 6:18
+[debug] [:] Token: ,, 类型: 314, 位置: 6:20
+[debug] [:] Token: b2, 类型: 321, 位置: 6:22
+[debug] [:] Token: ,, 类型: 314, 位置: 6:24
+[debug] [:] Token: c0, 类型: 321, 位置: 6:26
+[debug] [:] Token: ,, 类型: 314, 位置: 6:28
+[debug] [:] Token: c1, 类型: 321, 位置: 6:30
+[debug] [:] Token: ,, 类型: 314, 位置: 6:32
+[debug] [:] Token: c2, 类型: 321, 位置: 6:34
+[debug] [:] Token: :, 类型: 313, 位置: 6:36
+[debug] [:] Token: array, 类型: 278, 位置: 6:38
+[debug] [:] Token: [, 类型: 310, 位置: 6:43
+[debug] [:] Token: 0, 类型: 317, 位置: 6:44
+[debug] [:] Token: .., 类型: 316, 位置: 6:45
+[debug] [:] Token: 2, 类型: 317, 位置: 6:47
+[debug] [:] Token: ], 类型: 311, 位置: 6:48
+[debug] [:] Token: of, 类型: 275, 位置: 6:50
+[debug] [:] Token: integer, 类型: 288, 位置: 6:53
+[debug] [:] Token: ;, 类型: 312, 位置: 6:60
+[debug] [:] Token: function, 类型: 263, 位置: 9:0
+[debug] [:] Token: MultiplyMatrices, 类型: 321, 位置: 9:9
+[debug] [:] Token: :, 类型: 313, 位置: 9:25
+[debug] [:] 创建空的参数列表
+[debug] [:] Token: integer, 类型: 288, 位置: 9:27
+[debug] [:] Token: ;, 类型: 312, 位置: 9:34
+[debug] [:] Token: var, 类型: 261, 位置: 10:0
+[debug] [:] Token: i, 类型: 321, 位置: 11:2
+[debug] [:] Token: :, 类型: 313, 位置: 11:3
+[debug] [:] Token: integer, 类型: 288, 位置: 11:5
+[debug] [:] Token: ;, 类型: 312, 位置: 11:12
+[debug] [:] Token: begin, 类型: 259, 位置: 12:0
+[debug] [:] Token: for, 类型: 269, 位置: 13:2
+[debug] [:] Token: i, 类型: 321, 位置: 13:6
+[debug] [:] Token: :=, 类型: 293, 位置: 13:8
+[debug] [:] Token: 0, 类型: 317, 位置: 13:11
+[debug] [:] Token: to, 类型: 270, 位置: 13:13
+[debug] [:] Token: M, 类型: 321, 位置: 13:16
+[debug] [:] Token: -, 类型: 295, 位置: 13:18
+[debug] [:] Token: 1, 类型: 317, 位置: 13:20
+[debug] [:] Token: do, 类型: 268, 位置: 13:22
+[debug] [:] Token: begin, 类型: 259, 位置: 14:2
+[debug] [:] Token: c0, 类型: 321, 位置: 15:4
+[debug] [:] Token: [, 类型: 310, 位置: 15:6
+[debug] [:] 添加第一条语句到语句列表
+[error] [:] 语法分析失败
+[error] [:] 解析失败: error: syntax error, unexpected LBRACKET, expecting END_TOKEN or SEMICOLON
 

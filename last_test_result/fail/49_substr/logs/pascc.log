@@ -1,3 +1,106 @@
-[2025-05-02 18:16:51.936] [pascc] [info] 日志系统初始化完成
-[2025-05-02 18:16:51.936] [pascc] [error] 解析失败: error: syntax error, unexpected ELSE, expecting SEMICOLON
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 1382 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: substr, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:14
+[debug] [:] Token: var, 类型: 261, 位置: 2:0
+[debug] [:] Token: A, 类型: 321, 位置: 3:0
+[debug] [:] Token: :, 类型: 313, 位置: 3:1
+[debug] [:] Token: array, 类型: 278, 位置: 3:3
+[debug] [:] Token: [, 类型: 310, 位置: 3:9
+[debug] [:] Token: 0, 类型: 317, 位置: 3:10
+[debug] [:] Token: .., 类型: 316, 位置: 3:11
+[debug] [:] Token: 14, 类型: 317, 位置: 3:13
+[debug] [:] Token: ], 类型: 311, 位置: 3:15
+[debug] [:] Token: of, 类型: 275, 位置: 3:17
+[debug] [:] Token: integer, 类型: 288, 位置: 3:20
+[debug] [:] Token: ;, 类型: 312, 位置: 3:27
+[debug] [:] Token: B, 类型: 321, 位置: 4:0
+[debug] [:] Token: :, 类型: 313, 位置: 4:1
+[debug] [:] Token: array, 类型: 278, 位置: 4:3
+[debug] [:] Token: [, 类型: 310, 位置: 4:9
+[debug] [:] Token: 0, 类型: 317, 位置: 4:10
+[debug] [:] Token: .., 类型: 316, 位置: 4:11
+[debug] [:] Token: 12, 类型: 317, 位置: 4:13
+[debug] [:] Token: ], 类型: 311, 位置: 4:15
+[debug] [:] Token: of, 类型: 275, 位置: 4:17
+[debug] [:] Token: integer, 类型: 288, 位置: 4:20
+[debug] [:] Token: ;, 类型: 312, 位置: 4:27
+[debug] [:] Token: function, 类型: 263, 位置: 6:0
+[debug] [:] Token: MAX, 类型: 321, 位置: 6:9
+[debug] [:] Token: (, 类型: 308, 位置: 6:12
+[debug] [:] Token: a, 类型: 321, 位置: 6:13
+[debug] [:] Token: ,, 类型: 314, 位置: 6:14
+[debug] [:] Token: b, 类型: 321, 位置: 6:16
+[debug] [:] Token: :, 类型: 313, 位置: 6:17
+[debug] [:] Token: integer, 类型: 288, 位置: 6:19
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: a 类型: int
+[debug] [:] 添加普通参数: b 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 6:26
+[debug] [:] 参数列表处理完成，包含2个参数
+[debug] [:] Token: :, 类型: 313, 位置: 6:27
+[debug] [:] Token: integer, 类型: 288, 位置: 6:29
+[debug] [:] Token: ;, 类型: 312, 位置: 6:36
+[debug] [:] Token: begin, 类型: 259, 位置: 7:0
+[debug] [:] 创建新的空声明列表 (地址: 0x55dca9e79740)
+[debug] [:] Token: if, 类型: 264, 位置: 8:2
+[debug] [:] Token: a, 类型: 321, 位置: 8:5
+[debug] [:] Token: >=, 类型: 303, 位置: 8:7
+[debug] [:] Token: b, 类型: 321, 位置: 8:10
+[debug] [:] Token: then, 类型: 265, 位置: 8:12
+[debug] [:] Token: MAX, 类型: 321, 位置: 9:4
+[debug] [:] Token: :=, 类型: 293, 位置: 9:8
+[debug] [:] Token: a, 类型: 321, 位置: 9:11
+[debug] [:] Token: else, 类型: 266, 位置: 10:2
+[debug] [:] Token: MAX, 类型: 321, 位置: 11:4
+[debug] [:] Token: :=, 类型: 293, 位置: 11:8
+[debug] [:] Token: b, 类型: 321, 位置: 11:11
+[debug] [:] Token: ;, 类型: 312, 位置: 11:12
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: end, 类型: 260, 位置: 12:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数MAX
+[debug] [:] 添加函数MAX到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 12:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含3个项目
+[debug] [:] Token: function, 类型: 263, 位置: 14:0
+[debug] [:] Token: max_sum_nonadjacent, 类型: 321, 位置: 14:9
+[debug] [:] Token: (, 类型: 308, 位置: 14:28
+[debug] [:] Token: n, 类型: 321, 位置: 14:29
+[debug] [:] Token: :, 类型: 313, 位置: 14:30
+[debug] [:] Token: integer, 类型: 288, 位置: 14:32
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: n 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 14:39
+[debug] [:] 参数列表处理完成，包含1个参数
+[debug] [:] Token: :, 类型: 313, 位置: 14:40
+[debug] [:] Token: integer, 类型: 288, 位置: 14:42
+[debug] [:] Token: ;, 类型: 312, 位置: 14:49
+[debug] [:] Token: var, 类型: 261, 位置: 15:0
+[debug] [:] Token: i, 类型: 321, 位置: 16:0
+[debug] [:] Token: :, 类型: 313, 位置: 16:1
+[debug] [:] Token: integer, 类型: 288, 位置: 16:3
+[debug] [:] Token: ;, 类型: 312, 位置: 16:10
+[debug] [:] Token: temp, 类型: 321, 位置: 17:0
+[debug] [:] Token: :, 类型: 313, 位置: 17:4
+[debug] [:] Token: array, 类型: 278, 位置: 17:6
+[debug] [:] Token: [, 类型: 310, 位置: 17:12
+[debug] [:] Token: 0, 类型: 317, 位置: 17:13
+[debug] [:] Token: .., 类型: 316, 位置: 17:14
+[debug] [:] Token: 15, 类型: 317, 位置: 17:16
+[debug] [:] Token: ], 类型: 311, 位置: 17:18
+[debug] [:] Token: of, 类型: 275, 位置: 17:20
+[debug] [:] Token: integer, 类型: 288, 位置: 17:23
+[debug] [:] Token: ;, 类型: 312, 位置: 17:30
+[debug] [:] Token: begin, 类型: 259, 位置: 18:0
+[debug] [:] Token: temp, 类型: 321, 位置: 19:2
+[debug] [:] Token: [, 类型: 310, 位置: 19:6
+[debug] [:] 添加第一条语句到语句列表
+[error] [:] 语法分析失败
+[error] [:] 解析失败: error: syntax error, unexpected LBRACKET, expecting END_TOKEN or SEMICOLON
 

@@ -1,3 +1,103 @@
-[2025-05-02 18:16:51.886] [pascc] [info] 日志系统初始化完成
-[2025-05-02 18:16:51.886] [pascc] [error] 解析失败: error: syntax error, unexpected PLUS
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 4730 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: const, 类型: 276, 位置: 2:0
+[debug] [:] Token: DOG, 类型: 321, 位置: 2:6
+[debug] [:] Token: =, 类型: 298, 位置: 2:10
+[debug] [:] Token: 'd, 类型: 320, 位置: 2:12
+[debug] [:] Token: ;, 类型: 312, 位置: 2:15
+[debug] [:] 添加常量 DOG 到声明列表
+[debug] [:] Token: CAT, 类型: 321, 位置: 2:17
+[debug] [:] Token: =, 类型: 298, 位置: 2:21
+[debug] [:] Token: 'c, 类型: 320, 位置: 2:23
+[debug] [:] Token: ;, 类型: 312, 位置: 2:26
+[debug] [:] 添加常量 CAT 到声明列表
+[debug] [:] Token: var, 类型: 261, 位置: 3:0
+[debug] [:] const声明区块处理完成，当前有2个声明
+[debug] [:] 从const声明获取声明列表 (地址: 0x559f27ea8920)，包含2个项目
+[debug] [:] Token: N, 类型: 321, 位置: 3:4
+[debug] [:] Token: ,, 类型: 314, 位置: 3:5
+[debug] [:] Token: k, 类型: 321, 位置: 3:7
+[debug] [:] Token: ,, 类型: 314, 位置: 3:8
+[debug] [:] Token: i, 类型: 321, 位置: 3:10
+[debug] [:] Token: ,, 类型: 314, 位置: 3:11
+[debug] [:] Token: j, 类型: 321, 位置: 3:13
+[debug] [:] Token: :, 类型: 313, 位置: 3:14
+[debug] [:] Token: integer, 类型: 288, 位置: 3:16
+[debug] [:] Token: ;, 类型: 312, 位置: 3:23
+[debug] [:] Token: a, 类型: 321, 位置: 4:0
+[debug] [:] Token: :, 类型: 313, 位置: 4:1
+[debug] [:] Token: array, 类型: 278, 位置: 4:3
+[debug] [:] Token: [, 类型: 310, 位置: 4:8
+[debug] [:] Token: 0, 类型: 317, 位置: 4:9
+[debug] [:] Token: .., 类型: 316, 位置: 4:10
+[debug] [:] Token: 4, 类型: 317, 位置: 4:12
+[debug] [:] Token: ,, 类型: 314, 位置: 4:13
+[debug] [:] Token: 0, 类型: 317, 位置: 4:15
+[debug] [:] Token: .., 类型: 316, 位置: 4:16
+[debug] [:] Token: 4, 类型: 317, 位置: 4:18
+[debug] [:] Token: ], 类型: 311, 位置: 4:19
+[debug] [:] Token: of, 类型: 275, 位置: 4:21
+[debug] [:] Token: integer, 类型: 288, 位置: 4:24
+[debug] [:] Token: ;, 类型: 312, 位置: 4:31
+[debug] [:] Token: function, 类型: 263, 位置: 6:0
+[debug] [:] Token: relu_reg, 类型: 321, 位置: 6:9
+[debug] [:] Token: (, 类型: 308, 位置: 6:17
+[debug] [:] Token: n, 类型: 321, 位置: 6:18
+[debug] [:] Token: :, 类型: 313, 位置: 6:19
+[debug] [:] Token: integer, 类型: 288, 位置: 6:21
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: n 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 6:28
+[debug] [:] 参数列表处理完成，包含1个参数
+[debug] [:] Token: :, 类型: 313, 位置: 6:29
+[debug] [:] Token: integer, 类型: 288, 位置: 6:31
+[debug] [:] Token: ;, 类型: 312, 位置: 6:38
+[debug] [:] Token: begin, 类型: 259, 位置: 7:0
+[debug] [:] 创建新的空声明列表 (地址: 0x559f27ea8980)
+[debug] [:] Token: if, 类型: 264, 位置: 8:4
+[debug] [:] Token: n, 类型: 321, 位置: 8:7
+[debug] [:] Token: >, 类型: 302, 位置: 8:9
+[debug] [:] Token: 127, 类型: 317, 位置: 8:11
+[debug] [:] Token: then, 类型: 265, 位置: 8:15
+[debug] [:] Token: relu_reg, 类型: 321, 位置: 9:8
+[debug] [:] Token: :=, 类型: 293, 位置: 9:17
+[debug] [:] Token: 127, 类型: 317, 位置: 9:20
+[debug] [:] Token: ;, 类型: 312, 位置: 9:23
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: if, 类型: 264, 位置: 10:4
+[debug] [:] Token: n, 类型: 321, 位置: 10:7
+[debug] [:] Token: <, 类型: 300, 位置: 10:9
+[debug] [:] Token: 0, 类型: 317, 位置: 10:11
+[debug] [:] Token: then, 类型: 265, 位置: 10:13
+[debug] [:] Token: relu_reg, 类型: 321, 位置: 11:8
+[debug] [:] Token: :=, 类型: 293, 位置: 11:17
+[debug] [:] Token: 0, 类型: 317, 位置: 11:20
+[debug] [:] Token: ;, 类型: 312, 位置: 11:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: end, 类型: 260, 位置: 12:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数relu_reg
+[debug] [:] 添加函数relu_reg到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 12:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含5个项目
+[debug] [:] Token: function, 类型: 263, 位置: 14:0
+[debug] [:] Token: model, 类型: 321, 位置: 14:9
+[debug] [:] Token: :, 类型: 313, 位置: 14:14
+[debug] [:] 创建空的参数列表
+[debug] [:] Token: integer, 类型: 288, 位置: 14:16
+[debug] [:] Token: ;, 类型: 312, 位置: 14:23
+[debug] [:] Token: begin, 类型: 259, 位置: 15:0
+[debug] [:] 创建新的空声明列表 (地址: 0x559f27ea42e0)
+[debug] [:] Token: if, 类型: 264, 位置: 16:4
+[debug] [:] Token: (, 类型: 308, 位置: 16:7
+[debug] [:] Token: +, 类型: 294, 位置: 16:8
+[error] [:] 语法分析失败
+[error] [:] 解析失败: error: syntax error, unexpected PLUS
 

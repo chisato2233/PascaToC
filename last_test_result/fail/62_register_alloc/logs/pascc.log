@@ -1,133 +1,2352 @@
-[2025-05-02 18:16:52.367] [pascc] [info] 日志系统初始化完成
-[2025-05-02 18:16:52.368] [pascc] [info] + Program: main
-[2025-05-02 18:16:52.368] [pascc] [info]   Body:
-[2025-05-02 18:16:52.368] [pascc] [info]   + Block
-[2025-05-02 18:16:52.368] [pascc] [info]     Declarations:
-[2025-05-02 18:16:52.368] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.368] [pascc] [info]         - a0
-[2025-05-02 18:16:52.368] [pascc] [info]         - a1
-[2025-05-02 18:16:52.368] [pascc] [info]         - a2
-[2025-05-02 18:16:52.368] [pascc] [info]         - a3
-[2025-05-02 18:16:52.368] [pascc] [info]         - a4
-[2025-05-02 18:16:52.368] [pascc] [info]         - a5
-[2025-05-02 18:16:52.368] [pascc] [info]         - a6
-[2025-05-02 18:16:52.368] [pascc] [info]         - a7
-[2025-05-02 18:16:52.368] [pascc] [info]         - a8
-[2025-05-02 18:16:52.368] [pascc] [info]         - a9
-[2025-05-02 18:16:52.368] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.368] [pascc] [info]         - a10
-[2025-05-02 18:16:52.368] [pascc] [info]         - a11
-[2025-05-02 18:16:52.368] [pascc] [info]         - a12
-[2025-05-02 18:16:52.368] [pascc] [info]         - a13
-[2025-05-02 18:16:52.368] [pascc] [info]         - a14
-[2025-05-02 18:16:52.368] [pascc] [info]         - a15
-[2025-05-02 18:16:52.368] [pascc] [info]         - a16
-[2025-05-02 18:16:52.368] [pascc] [info]         - a17
-[2025-05-02 18:16:52.368] [pascc] [info]         - a18
-[2025-05-02 18:16:52.368] [pascc] [info]         - a19
-[2025-05-02 18:16:52.368] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.368] [pascc] [info]         - a20
-[2025-05-02 18:16:52.368] [pascc] [info]         - a21
-[2025-05-02 18:16:52.368] [pascc] [info]         - a22
-[2025-05-02 18:16:52.368] [pascc] [info]         - a23
-[2025-05-02 18:16:52.368] [pascc] [info]         - a24
-[2025-05-02 18:16:52.368] [pascc] [info]         - a25
-[2025-05-02 18:16:52.368] [pascc] [info]         - a26
-[2025-05-02 18:16:52.368] [pascc] [info]         - a27
-[2025-05-02 18:16:52.368] [pascc] [info]         - a28
-[2025-05-02 18:16:52.368] [pascc] [info]         - a29
-[2025-05-02 18:16:52.368] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.368] [pascc] [info]         - a30
-[2025-05-02 18:16:52.368] [pascc] [info]         - a31
-[2025-05-02 18:16:52.368] [pascc] [info]         - a32
-[2025-05-02 18:16:52.368] [pascc] [info]       + Variable Declaration: int
-[2025-05-02 18:16:52.368] [pascc] [info]         - a
-[2025-05-02 18:16:52.368] [pascc] [info]         - b
-[2025-05-02 18:16:52.368] [pascc] [info]     Body:
-[2025-05-02 18:16:52.368] [pascc] [info]       + Compound Statement
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a0 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 0
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a1 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 1
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a2 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 2
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a3 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 3
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a4 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 4
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a5 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 5
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a6 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 6
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a7 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 7
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a8 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 8
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a9 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 9
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a10 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 10
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a11 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 11
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a12 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 12
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a13 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 13
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a14 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 14
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a15 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 15
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a16 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 16
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a17 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 1
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a18 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 2
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a19 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 3
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a20 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 4
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a21 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 5
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a22 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 6
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a23 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 7
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a24 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 8
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a25 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 9
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a26 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 10
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a27 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 11
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a28 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 12
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a29 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 13
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a30 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 14
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a31 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 15
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a32 =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 16
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Number: 1
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: b =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Binary Op: +
-[2025-05-02 18:16:52.368] [pascc] [info]             Left:
-[2025-05-02 18:16:52.368] [pascc] [info]               + Variable: a
-[2025-05-02 18:16:52.368] [pascc] [info]             Right:
-[2025-05-02 18:16:52.368] [pascc] [info]               + Binary Op: *
-[2025-05-02 18:16:52.368] [pascc] [info]                 Left:
-[2025-05-02 18:16:52.368] [pascc] [info]                   + Number: 2
-[2025-05-02 18:16:52.368] [pascc] [info]                 Right:
-[2025-05-02 18:16:52.368] [pascc] [info]                   + Number: 9
-[2025-05-02 18:16:52.368] [pascc] [info]         + Assignment: a =
-[2025-05-02 18:16:52.368] [pascc] [info]           + Function Call: func
-[2025-05-02 18:16:52.368] [pascc] [info]             Arguments:
-[2025-05-02 18:16:52.368] [pascc] [info]               + Variable: a
-[2025-05-02 18:16:52.368] [pascc] [info]               + Variable: b
-[2025-05-02 18:16:52.368] [pascc] [info]         + Write Statement
-[2025-05-02 18:16:52.368] [pascc] [info]           + Variable: a
-[2025-05-02 18:16:52.368] [pascc] [info] 转换完成: '62_register_alloc.pas' -> '62_register_alloc.c'
+[info] [:] 日志系统初始化完成
+[debug] [:] 读取 Pascal 源代码
+[debug] [:] 开始词法分析，输入长度: 3184 字节
+[debug] [:] 开始解析Pascal源代码...
+[debug] [:] Token: program, 类型: 258, 位置: 1:0
+[debug] [:] Token: main, 类型: 321, 位置: 1:8
+[debug] [:] Token: ;, 类型: 312, 位置: 1:12
+[debug] [:] Token: var, 类型: 261, 位置: 2:0
+[debug] [:] Token: a0, 类型: 321, 位置: 3:0
+[debug] [:] Token: ,, 类型: 314, 位置: 3:2
+[debug] [:] Token: a1, 类型: 321, 位置: 3:3
+[debug] [:] Token: ,, 类型: 314, 位置: 3:5
+[debug] [:] Token: a2, 类型: 321, 位置: 3:6
+[debug] [:] Token: ,, 类型: 314, 位置: 3:8
+[debug] [:] Token: a3, 类型: 321, 位置: 3:9
+[debug] [:] Token: ,, 类型: 314, 位置: 3:11
+[debug] [:] Token: a4, 类型: 321, 位置: 3:12
+[debug] [:] Token: ,, 类型: 314, 位置: 3:14
+[debug] [:] Token: a5, 类型: 321, 位置: 3:15
+[debug] [:] Token: ,, 类型: 314, 位置: 3:17
+[debug] [:] Token: a6, 类型: 321, 位置: 3:18
+[debug] [:] Token: ,, 类型: 314, 位置: 3:20
+[debug] [:] Token: a7, 类型: 321, 位置: 3:21
+[debug] [:] Token: ,, 类型: 314, 位置: 3:23
+[debug] [:] Token: a8, 类型: 321, 位置: 3:24
+[debug] [:] Token: ,, 类型: 314, 位置: 3:26
+[debug] [:] Token: a9, 类型: 321, 位置: 3:27
+[debug] [:] Token: :, 类型: 313, 位置: 3:29
+[debug] [:] Token: integer, 类型: 288, 位置: 3:30
+[debug] [:] Token: ;, 类型: 312, 位置: 3:37
+[debug] [:] Token: a10, 类型: 321, 位置: 4:0
+[debug] [:] Token: ,, 类型: 314, 位置: 4:3
+[debug] [:] Token: a11, 类型: 321, 位置: 4:4
+[debug] [:] Token: ,, 类型: 314, 位置: 4:7
+[debug] [:] Token: a12, 类型: 321, 位置: 4:8
+[debug] [:] Token: ,, 类型: 314, 位置: 4:11
+[debug] [:] Token: a13, 类型: 321, 位置: 4:12
+[debug] [:] Token: ,, 类型: 314, 位置: 4:15
+[debug] [:] Token: a14, 类型: 321, 位置: 4:16
+[debug] [:] Token: ,, 类型: 314, 位置: 4:19
+[debug] [:] Token: a15, 类型: 321, 位置: 4:20
+[debug] [:] Token: ,, 类型: 314, 位置: 4:23
+[debug] [:] Token: a16, 类型: 321, 位置: 4:24
+[debug] [:] Token: ,, 类型: 314, 位置: 4:27
+[debug] [:] Token: a17, 类型: 321, 位置: 4:28
+[debug] [:] Token: ,, 类型: 314, 位置: 4:31
+[debug] [:] Token: a18, 类型: 321, 位置: 4:32
+[debug] [:] Token: ,, 类型: 314, 位置: 4:35
+[debug] [:] Token: a19, 类型: 321, 位置: 4:36
+[debug] [:] Token: :, 类型: 313, 位置: 4:39
+[debug] [:] Token: integer, 类型: 288, 位置: 4:40
+[debug] [:] Token: ;, 类型: 312, 位置: 4:47
+[debug] [:] Token: a20, 类型: 321, 位置: 5:0
+[debug] [:] Token: ,, 类型: 314, 位置: 5:3
+[debug] [:] Token: a21, 类型: 321, 位置: 5:4
+[debug] [:] Token: ,, 类型: 314, 位置: 5:7
+[debug] [:] Token: a22, 类型: 321, 位置: 5:8
+[debug] [:] Token: ,, 类型: 314, 位置: 5:11
+[debug] [:] Token: a23, 类型: 321, 位置: 5:12
+[debug] [:] Token: ,, 类型: 314, 位置: 5:15
+[debug] [:] Token: a24, 类型: 321, 位置: 5:16
+[debug] [:] Token: ,, 类型: 314, 位置: 5:19
+[debug] [:] Token: a25, 类型: 321, 位置: 5:20
+[debug] [:] Token: ,, 类型: 314, 位置: 5:23
+[debug] [:] Token: a26, 类型: 321, 位置: 5:24
+[debug] [:] Token: ,, 类型: 314, 位置: 5:27
+[debug] [:] Token: a27, 类型: 321, 位置: 5:28
+[debug] [:] Token: ,, 类型: 314, 位置: 5:31
+[debug] [:] Token: a28, 类型: 321, 位置: 5:32
+[debug] [:] Token: ,, 类型: 314, 位置: 5:35
+[debug] [:] Token: a29, 类型: 321, 位置: 5:36
+[debug] [:] Token: :, 类型: 313, 位置: 5:39
+[debug] [:] Token: integer, 类型: 288, 位置: 5:40
+[debug] [:] Token: ;, 类型: 312, 位置: 5:47
+[debug] [:] Token: a30, 类型: 321, 位置: 6:0
+[debug] [:] Token: ,, 类型: 314, 位置: 6:3
+[debug] [:] Token: a31, 类型: 321, 位置: 6:4
+[debug] [:] Token: ,, 类型: 314, 位置: 6:7
+[debug] [:] Token: a32, 类型: 321, 位置: 6:8
+[debug] [:] Token: :, 类型: 313, 位置: 6:11
+[debug] [:] Token: integer, 类型: 288, 位置: 6:12
+[debug] [:] Token: ;, 类型: 312, 位置: 6:19
+[debug] [:] Token: a, 类型: 321, 位置: 7:0
+[debug] [:] Token: ,, 类型: 314, 位置: 7:1
+[debug] [:] Token: b, 类型: 321, 位置: 7:2
+[debug] [:] Token: :, 类型: 313, 位置: 7:3
+[debug] [:] Token: integer, 类型: 288, 位置: 7:4
+[debug] [:] Token: ;, 类型: 312, 位置: 7:11
+[debug] [:] Token: function, 类型: 263, 位置: 10:0
+[debug] [:] Token: func, 类型: 321, 位置: 10:9
+[debug] [:] Token: (, 类型: 308, 位置: 10:13
+[debug] [:] Token: a, 类型: 321, 位置: 10:14
+[debug] [:] Token: ,, 类型: 314, 位置: 10:15
+[debug] [:] Token: b, 类型: 321, 位置: 10:16
+[debug] [:] Token: :, 类型: 313, 位置: 10:17
+[debug] [:] Token: integer, 类型: 288, 位置: 10:18
+[debug] [:] 在parameter_declaration中创建新的参数列表
+[debug] [:] 添加普通参数: a 类型: int
+[debug] [:] 添加普通参数: b 类型: int
+[debug] [:] Token: ), 类型: 309, 位置: 10:25
+[debug] [:] 参数列表处理完成，包含2个参数
+[debug] [:] Token: :, 类型: 313, 位置: 10:26
+[debug] [:] Token: integer, 类型: 288, 位置: 10:27
+[debug] [:] Token: ;, 类型: 312, 位置: 10:34
+[debug] [:] Token: var, 类型: 261, 位置: 11:0
+[debug] [:] Token: i, 类型: 321, 位置: 12:2
+[debug] [:] Token: :, 类型: 313, 位置: 12:3
+[debug] [:] Token: integer, 类型: 288, 位置: 12:4
+[debug] [:] Token: ;, 类型: 312, 位置: 12:11
+[debug] [:] Token: c1, 类型: 321, 位置: 13:2
+[debug] [:] Token: ,, 类型: 314, 位置: 13:4
+[debug] [:] Token: c2, 类型: 321, 位置: 13:5
+[debug] [:] Token: ,, 类型: 314, 位置: 13:7
+[debug] [:] Token: c3, 类型: 321, 位置: 13:8
+[debug] [:] Token: ,, 类型: 314, 位置: 13:10
+[debug] [:] Token: c4, 类型: 321, 位置: 13:11
+[debug] [:] Token: :, 类型: 313, 位置: 13:13
+[debug] [:] Token: integer, 类型: 288, 位置: 13:14
+[debug] [:] Token: ;, 类型: 312, 位置: 13:21
+[debug] [:] Token: d1, 类型: 321, 位置: 14:2
+[debug] [:] Token: ,, 类型: 314, 位置: 14:4
+[debug] [:] Token: d2, 类型: 321, 位置: 14:5
+[debug] [:] Token: ,, 类型: 314, 位置: 14:7
+[debug] [:] Token: d3, 类型: 321, 位置: 14:8
+[debug] [:] Token: ,, 类型: 314, 位置: 14:10
+[debug] [:] Token: d4, 类型: 321, 位置: 14:11
+[debug] [:] Token: :, 类型: 313, 位置: 14:13
+[debug] [:] Token: integer, 类型: 288, 位置: 14:14
+[debug] [:] Token: ;, 类型: 312, 位置: 14:21
+[debug] [:] Token: e1, 类型: 321, 位置: 15:2
+[debug] [:] Token: ,, 类型: 314, 位置: 15:4
+[debug] [:] Token: e2, 类型: 321, 位置: 15:5
+[debug] [:] Token: ,, 类型: 314, 位置: 15:7
+[debug] [:] Token: e3, 类型: 321, 位置: 15:8
+[debug] [:] Token: ,, 类型: 314, 位置: 15:10
+[debug] [:] Token: e4, 类型: 321, 位置: 15:11
+[debug] [:] Token: :, 类型: 313, 位置: 15:13
+[debug] [:] Token: integer, 类型: 288, 位置: 15:14
+[debug] [:] Token: ;, 类型: 312, 位置: 15:21
+[debug] [:] Token: f1, 类型: 321, 位置: 16:2
+[debug] [:] Token: ,, 类型: 314, 位置: 16:4
+[debug] [:] Token: f2, 类型: 321, 位置: 16:5
+[debug] [:] Token: ,, 类型: 314, 位置: 16:7
+[debug] [:] Token: f3, 类型: 321, 位置: 16:8
+[debug] [:] Token: ,, 类型: 314, 位置: 16:10
+[debug] [:] Token: f4, 类型: 321, 位置: 16:11
+[debug] [:] Token: :, 类型: 313, 位置: 16:13
+[debug] [:] Token: integer, 类型: 288, 位置: 16:14
+[debug] [:] Token: ;, 类型: 312, 位置: 16:21
+[debug] [:] Token: g1, 类型: 321, 位置: 17:2
+[debug] [:] Token: ,, 类型: 314, 位置: 17:4
+[debug] [:] Token: g2, 类型: 321, 位置: 17:5
+[debug] [:] Token: ,, 类型: 314, 位置: 17:7
+[debug] [:] Token: g3, 类型: 321, 位置: 17:8
+[debug] [:] Token: ,, 类型: 314, 位置: 17:10
+[debug] [:] Token: g4, 类型: 321, 位置: 17:11
+[debug] [:] Token: :, 类型: 313, 位置: 17:13
+[debug] [:] Token: integer, 类型: 288, 位置: 17:14
+[debug] [:] Token: ;, 类型: 312, 位置: 17:21
+[debug] [:] Token: h1, 类型: 321, 位置: 18:2
+[debug] [:] Token: ,, 类型: 314, 位置: 18:4
+[debug] [:] Token: h2, 类型: 321, 位置: 18:5
+[debug] [:] Token: ,, 类型: 314, 位置: 18:7
+[debug] [:] Token: h3, 类型: 321, 位置: 18:8
+[debug] [:] Token: ,, 类型: 314, 位置: 18:10
+[debug] [:] Token: h4, 类型: 321, 位置: 18:11
+[debug] [:] Token: :, 类型: 313, 位置: 18:13
+[debug] [:] Token: integer, 类型: 288, 位置: 18:14
+[debug] [:] Token: ;, 类型: 312, 位置: 18:21
+[debug] [:] Token: i1, 类型: 321, 位置: 19:2
+[debug] [:] Token: ,, 类型: 314, 位置: 19:4
+[debug] [:] Token: i2, 类型: 321, 位置: 19:5
+[debug] [:] Token: ,, 类型: 314, 位置: 19:7
+[debug] [:] Token: i3, 类型: 321, 位置: 19:8
+[debug] [:] Token: ,, 类型: 314, 位置: 19:10
+[debug] [:] Token: i4, 类型: 321, 位置: 19:11
+[debug] [:] Token: :, 类型: 313, 位置: 19:13
+[debug] [:] Token: integer, 类型: 288, 位置: 19:14
+[debug] [:] Token: ;, 类型: 312, 位置: 19:21
+[debug] [:] Token: j1, 类型: 321, 位置: 20:2
+[debug] [:] Token: ,, 类型: 314, 位置: 20:4
+[debug] [:] Token: j2, 类型: 321, 位置: 20:5
+[debug] [:] Token: ,, 类型: 314, 位置: 20:7
+[debug] [:] Token: j3, 类型: 321, 位置: 20:8
+[debug] [:] Token: ,, 类型: 314, 位置: 20:10
+[debug] [:] Token: j4, 类型: 321, 位置: 20:11
+[debug] [:] Token: :, 类型: 313, 位置: 20:13
+[debug] [:] Token: integer, 类型: 288, 位置: 20:14
+[debug] [:] Token: ;, 类型: 312, 位置: 20:21
+[debug] [:] Token: k1, 类型: 321, 位置: 21:2
+[debug] [:] Token: ,, 类型: 314, 位置: 21:4
+[debug] [:] Token: k2, 类型: 321, 位置: 21:5
+[debug] [:] Token: ,, 类型: 314, 位置: 21:7
+[debug] [:] Token: k3, 类型: 321, 位置: 21:8
+[debug] [:] Token: ,, 类型: 314, 位置: 21:10
+[debug] [:] Token: k4, 类型: 321, 位置: 21:11
+[debug] [:] Token: :, 类型: 313, 位置: 21:13
+[debug] [:] Token: integer, 类型: 288, 位置: 21:14
+[debug] [:] Token: ;, 类型: 312, 位置: 21:21
+[debug] [:] Token: begin, 类型: 259, 位置: 22:0
+[debug] [:] Token: c1, 类型: 321, 位置: 23:4
+[debug] [:] Token: :=, 类型: 293, 位置: 23:7
+[debug] [:] Token: 1, 类型: 317, 位置: 23:10
+[debug] [:] Token: ;, 类型: 312, 位置: 23:11
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: c2, 类型: 321, 位置: 24:4
+[debug] [:] Token: :=, 类型: 293, 位置: 24:7
+[debug] [:] Token: 2, 类型: 317, 位置: 24:10
+[debug] [:] Token: ;, 类型: 312, 位置: 24:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: c3, 类型: 321, 位置: 25:4
+[debug] [:] Token: :=, 类型: 293, 位置: 25:7
+[debug] [:] Token: 3, 类型: 317, 位置: 25:10
+[debug] [:] Token: ;, 类型: 312, 位置: 25:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: c4, 类型: 321, 位置: 26:4
+[debug] [:] Token: :=, 类型: 293, 位置: 26:7
+[debug] [:] Token: 4, 类型: 317, 位置: 26:10
+[debug] [:] Token: ;, 类型: 312, 位置: 26:11
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d1, 类型: 321, 位置: 27:4
+[debug] [:] Token: :=, 类型: 293, 位置: 27:7
+[debug] [:] Token: 1, 类型: 317, 位置: 27:10
+[debug] [:] Token: +, 类型: 294, 位置: 27:12
+[debug] [:] Token: c1, 类型: 321, 位置: 27:14
+[debug] [:] Token: +, 类型: 294, 位置: 27:17
+[debug] [:] Token: a1, 类型: 321, 位置: 27:19
+[debug] [:] Token: ;, 类型: 312, 位置: 27:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d2, 类型: 321, 位置: 28:4
+[debug] [:] Token: :=, 类型: 293, 位置: 28:7
+[debug] [:] Token: 2, 类型: 317, 位置: 28:10
+[debug] [:] Token: +, 类型: 294, 位置: 28:12
+[debug] [:] Token: c2, 类型: 321, 位置: 28:14
+[debug] [:] Token: +, 类型: 294, 位置: 28:17
+[debug] [:] Token: a2, 类型: 321, 位置: 28:19
+[debug] [:] Token: ;, 类型: 312, 位置: 28:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d3, 类型: 321, 位置: 29:4
+[debug] [:] Token: :=, 类型: 293, 位置: 29:7
+[debug] [:] Token: 3, 类型: 317, 位置: 29:10
+[debug] [:] Token: +, 类型: 294, 位置: 29:12
+[debug] [:] Token: c3, 类型: 321, 位置: 29:14
+[debug] [:] Token: +, 类型: 294, 位置: 29:17
+[debug] [:] Token: a3, 类型: 321, 位置: 29:19
+[debug] [:] Token: ;, 类型: 312, 位置: 29:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d4, 类型: 321, 位置: 30:4
+[debug] [:] Token: :=, 类型: 293, 位置: 30:7
+[debug] [:] Token: 4, 类型: 317, 位置: 30:10
+[debug] [:] Token: +, 类型: 294, 位置: 30:12
+[debug] [:] Token: c4, 类型: 321, 位置: 30:14
+[debug] [:] Token: +, 类型: 294, 位置: 30:17
+[debug] [:] Token: a4, 类型: 321, 位置: 30:19
+[debug] [:] Token: ;, 类型: 312, 位置: 30:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e1, 类型: 321, 位置: 31:4
+[debug] [:] Token: :=, 类型: 293, 位置: 31:7
+[debug] [:] Token: 1, 类型: 317, 位置: 31:10
+[debug] [:] Token: +, 类型: 294, 位置: 31:12
+[debug] [:] Token: d1, 类型: 321, 位置: 31:14
+[debug] [:] Token: +, 类型: 294, 位置: 31:17
+[debug] [:] Token: a5, 类型: 321, 位置: 31:19
+[debug] [:] Token: ;, 类型: 312, 位置: 31:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e2, 类型: 321, 位置: 32:4
+[debug] [:] Token: :=, 类型: 293, 位置: 32:7
+[debug] [:] Token: 2, 类型: 317, 位置: 32:10
+[debug] [:] Token: +, 类型: 294, 位置: 32:12
+[debug] [:] Token: d2, 类型: 321, 位置: 32:14
+[debug] [:] Token: +, 类型: 294, 位置: 32:17
+[debug] [:] Token: a6, 类型: 321, 位置: 32:19
+[debug] [:] Token: ;, 类型: 312, 位置: 32:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e3, 类型: 321, 位置: 33:4
+[debug] [:] Token: :=, 类型: 293, 位置: 33:7
+[debug] [:] Token: 3, 类型: 317, 位置: 33:10
+[debug] [:] Token: +, 类型: 294, 位置: 33:12
+[debug] [:] Token: d3, 类型: 321, 位置: 33:14
+[debug] [:] Token: +, 类型: 294, 位置: 33:17
+[debug] [:] Token: a7, 类型: 321, 位置: 33:19
+[debug] [:] Token: ;, 类型: 312, 位置: 33:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e4, 类型: 321, 位置: 34:4
+[debug] [:] Token: :=, 类型: 293, 位置: 34:7
+[debug] [:] Token: 4, 类型: 317, 位置: 34:10
+[debug] [:] Token: +, 类型: 294, 位置: 34:12
+[debug] [:] Token: d4, 类型: 321, 位置: 34:14
+[debug] [:] Token: +, 类型: 294, 位置: 34:17
+[debug] [:] Token: a8, 类型: 321, 位置: 34:19
+[debug] [:] Token: ;, 类型: 312, 位置: 34:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: f1, 类型: 321, 位置: 35:4
+[debug] [:] Token: :=, 类型: 293, 位置: 35:7
+[debug] [:] Token: 1, 类型: 317, 位置: 35:10
+[debug] [:] Token: +, 类型: 294, 位置: 35:12
+[debug] [:] Token: e1, 类型: 321, 位置: 35:14
+[debug] [:] Token: +, 类型: 294, 位置: 35:17
+[debug] [:] Token: a9, 类型: 321, 位置: 35:19
+[debug] [:] Token: ;, 类型: 312, 位置: 35:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: f2, 类型: 321, 位置: 36:4
+[debug] [:] Token: :=, 类型: 293, 位置: 36:7
+[debug] [:] Token: 2, 类型: 317, 位置: 36:10
+[debug] [:] Token: +, 类型: 294, 位置: 36:12
+[debug] [:] Token: e2, 类型: 321, 位置: 36:14
+[debug] [:] Token: +, 类型: 294, 位置: 36:17
+[debug] [:] Token: a10, 类型: 321, 位置: 36:19
+[debug] [:] Token: ;, 类型: 312, 位置: 36:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: f3, 类型: 321, 位置: 37:4
+[debug] [:] Token: :=, 类型: 293, 位置: 37:7
+[debug] [:] Token: 3, 类型: 317, 位置: 37:10
+[debug] [:] Token: +, 类型: 294, 位置: 37:12
+[debug] [:] Token: e3, 类型: 321, 位置: 37:14
+[debug] [:] Token: +, 类型: 294, 位置: 37:17
+[debug] [:] Token: a11, 类型: 321, 位置: 37:19
+[debug] [:] Token: ;, 类型: 312, 位置: 37:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: f4, 类型: 321, 位置: 38:4
+[debug] [:] Token: :=, 类型: 293, 位置: 38:7
+[debug] [:] Token: 4, 类型: 317, 位置: 38:10
+[debug] [:] Token: +, 类型: 294, 位置: 38:12
+[debug] [:] Token: e4, 类型: 321, 位置: 38:14
+[debug] [:] Token: +, 类型: 294, 位置: 38:17
+[debug] [:] Token: a12, 类型: 321, 位置: 38:19
+[debug] [:] Token: ;, 类型: 312, 位置: 38:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: g1, 类型: 321, 位置: 39:4
+[debug] [:] Token: :=, 类型: 293, 位置: 39:7
+[debug] [:] Token: 1, 类型: 317, 位置: 39:10
+[debug] [:] Token: +, 类型: 294, 位置: 39:12
+[debug] [:] Token: f1, 类型: 321, 位置: 39:14
+[debug] [:] Token: +, 类型: 294, 位置: 39:17
+[debug] [:] Token: a13, 类型: 321, 位置: 39:19
+[debug] [:] Token: ;, 类型: 312, 位置: 39:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: g2, 类型: 321, 位置: 40:4
+[debug] [:] Token: :=, 类型: 293, 位置: 40:7
+[debug] [:] Token: 2, 类型: 317, 位置: 40:10
+[debug] [:] Token: +, 类型: 294, 位置: 40:12
+[debug] [:] Token: f2, 类型: 321, 位置: 40:14
+[debug] [:] Token: +, 类型: 294, 位置: 40:17
+[debug] [:] Token: a14, 类型: 321, 位置: 40:19
+[debug] [:] Token: ;, 类型: 312, 位置: 40:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: g3, 类型: 321, 位置: 41:4
+[debug] [:] Token: :=, 类型: 293, 位置: 41:7
+[debug] [:] Token: 3, 类型: 317, 位置: 41:10
+[debug] [:] Token: +, 类型: 294, 位置: 41:12
+[debug] [:] Token: f3, 类型: 321, 位置: 41:14
+[debug] [:] Token: +, 类型: 294, 位置: 41:17
+[debug] [:] Token: a15, 类型: 321, 位置: 41:19
+[debug] [:] Token: ;, 类型: 312, 位置: 41:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: g4, 类型: 321, 位置: 42:4
+[debug] [:] Token: :=, 类型: 293, 位置: 42:7
+[debug] [:] Token: 4, 类型: 317, 位置: 42:10
+[debug] [:] Token: +, 类型: 294, 位置: 42:12
+[debug] [:] Token: f4, 类型: 321, 位置: 42:14
+[debug] [:] Token: +, 类型: 294, 位置: 42:17
+[debug] [:] Token: a16, 类型: 321, 位置: 42:19
+[debug] [:] Token: ;, 类型: 312, 位置: 42:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: h1, 类型: 321, 位置: 43:4
+[debug] [:] Token: :=, 类型: 293, 位置: 43:7
+[debug] [:] Token: 1, 类型: 317, 位置: 43:10
+[debug] [:] Token: +, 类型: 294, 位置: 43:12
+[debug] [:] Token: g1, 类型: 321, 位置: 43:14
+[debug] [:] Token: +, 类型: 294, 位置: 43:17
+[debug] [:] Token: a17, 类型: 321, 位置: 43:19
+[debug] [:] Token: ;, 类型: 312, 位置: 43:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: h2, 类型: 321, 位置: 44:4
+[debug] [:] Token: :=, 类型: 293, 位置: 44:7
+[debug] [:] Token: 2, 类型: 317, 位置: 44:10
+[debug] [:] Token: +, 类型: 294, 位置: 44:12
+[debug] [:] Token: g2, 类型: 321, 位置: 44:14
+[debug] [:] Token: +, 类型: 294, 位置: 44:17
+[debug] [:] Token: a18, 类型: 321, 位置: 44:19
+[debug] [:] Token: ;, 类型: 312, 位置: 44:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: h3, 类型: 321, 位置: 45:4
+[debug] [:] Token: :=, 类型: 293, 位置: 45:7
+[debug] [:] Token: 3, 类型: 317, 位置: 45:10
+[debug] [:] Token: +, 类型: 294, 位置: 45:12
+[debug] [:] Token: g3, 类型: 321, 位置: 45:14
+[debug] [:] Token: +, 类型: 294, 位置: 45:17
+[debug] [:] Token: a19, 类型: 321, 位置: 45:19
+[debug] [:] Token: ;, 类型: 312, 位置: 45:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: h4, 类型: 321, 位置: 46:4
+[debug] [:] Token: :=, 类型: 293, 位置: 46:7
+[debug] [:] Token: 4, 类型: 317, 位置: 46:10
+[debug] [:] Token: +, 类型: 294, 位置: 46:12
+[debug] [:] Token: g4, 类型: 321, 位置: 46:14
+[debug] [:] Token: +, 类型: 294, 位置: 46:17
+[debug] [:] Token: a20, 类型: 321, 位置: 46:19
+[debug] [:] Token: ;, 类型: 312, 位置: 46:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i1, 类型: 321, 位置: 47:4
+[debug] [:] Token: :=, 类型: 293, 位置: 47:7
+[debug] [:] Token: 1, 类型: 317, 位置: 47:10
+[debug] [:] Token: +, 类型: 294, 位置: 47:12
+[debug] [:] Token: h1, 类型: 321, 位置: 47:14
+[debug] [:] Token: +, 类型: 294, 位置: 47:17
+[debug] [:] Token: a21, 类型: 321, 位置: 47:19
+[debug] [:] Token: ;, 类型: 312, 位置: 47:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i2, 类型: 321, 位置: 48:4
+[debug] [:] Token: :=, 类型: 293, 位置: 48:7
+[debug] [:] Token: 2, 类型: 317, 位置: 48:10
+[debug] [:] Token: +, 类型: 294, 位置: 48:12
+[debug] [:] Token: h2, 类型: 321, 位置: 48:14
+[debug] [:] Token: +, 类型: 294, 位置: 48:17
+[debug] [:] Token: a22, 类型: 321, 位置: 48:19
+[debug] [:] Token: ;, 类型: 312, 位置: 48:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i3, 类型: 321, 位置: 49:4
+[debug] [:] Token: :=, 类型: 293, 位置: 49:7
+[debug] [:] Token: 3, 类型: 317, 位置: 49:10
+[debug] [:] Token: +, 类型: 294, 位置: 49:12
+[debug] [:] Token: h3, 类型: 321, 位置: 49:14
+[debug] [:] Token: +, 类型: 294, 位置: 49:17
+[debug] [:] Token: a23, 类型: 321, 位置: 49:19
+[debug] [:] Token: ;, 类型: 312, 位置: 49:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i4, 类型: 321, 位置: 50:4
+[debug] [:] Token: :=, 类型: 293, 位置: 50:7
+[debug] [:] Token: 4, 类型: 317, 位置: 50:10
+[debug] [:] Token: +, 类型: 294, 位置: 50:12
+[debug] [:] Token: h4, 类型: 321, 位置: 50:14
+[debug] [:] Token: +, 类型: 294, 位置: 50:17
+[debug] [:] Token: a24, 类型: 321, 位置: 50:19
+[debug] [:] Token: ;, 类型: 312, 位置: 50:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: j1, 类型: 321, 位置: 51:4
+[debug] [:] Token: :=, 类型: 293, 位置: 51:7
+[debug] [:] Token: 1, 类型: 317, 位置: 51:10
+[debug] [:] Token: +, 类型: 294, 位置: 51:12
+[debug] [:] Token: i1, 类型: 321, 位置: 51:14
+[debug] [:] Token: +, 类型: 294, 位置: 51:17
+[debug] [:] Token: a25, 类型: 321, 位置: 51:19
+[debug] [:] Token: ;, 类型: 312, 位置: 51:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: j2, 类型: 321, 位置: 52:4
+[debug] [:] Token: :=, 类型: 293, 位置: 52:7
+[debug] [:] Token: 2, 类型: 317, 位置: 52:10
+[debug] [:] Token: +, 类型: 294, 位置: 52:12
+[debug] [:] Token: i2, 类型: 321, 位置: 52:14
+[debug] [:] Token: +, 类型: 294, 位置: 52:17
+[debug] [:] Token: a26, 类型: 321, 位置: 52:19
+[debug] [:] Token: ;, 类型: 312, 位置: 52:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: j3, 类型: 321, 位置: 53:4
+[debug] [:] Token: :=, 类型: 293, 位置: 53:7
+[debug] [:] Token: 3, 类型: 317, 位置: 53:10
+[debug] [:] Token: +, 类型: 294, 位置: 53:12
+[debug] [:] Token: i3, 类型: 321, 位置: 53:14
+[debug] [:] Token: +, 类型: 294, 位置: 53:17
+[debug] [:] Token: a27, 类型: 321, 位置: 53:19
+[debug] [:] Token: ;, 类型: 312, 位置: 53:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: j4, 类型: 321, 位置: 54:4
+[debug] [:] Token: :=, 类型: 293, 位置: 54:7
+[debug] [:] Token: 4, 类型: 317, 位置: 54:10
+[debug] [:] Token: +, 类型: 294, 位置: 54:12
+[debug] [:] Token: i4, 类型: 321, 位置: 54:14
+[debug] [:] Token: +, 类型: 294, 位置: 54:17
+[debug] [:] Token: a28, 类型: 321, 位置: 54:19
+[debug] [:] Token: ;, 类型: 312, 位置: 54:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: k1, 类型: 321, 位置: 55:4
+[debug] [:] Token: :=, 类型: 293, 位置: 55:7
+[debug] [:] Token: 1, 类型: 317, 位置: 55:10
+[debug] [:] Token: +, 类型: 294, 位置: 55:12
+[debug] [:] Token: j1, 类型: 321, 位置: 55:14
+[debug] [:] Token: +, 类型: 294, 位置: 55:17
+[debug] [:] Token: a29, 类型: 321, 位置: 55:19
+[debug] [:] Token: ;, 类型: 312, 位置: 55:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: k2, 类型: 321, 位置: 56:4
+[debug] [:] Token: :=, 类型: 293, 位置: 56:7
+[debug] [:] Token: 2, 类型: 317, 位置: 56:10
+[debug] [:] Token: +, 类型: 294, 位置: 56:12
+[debug] [:] Token: j2, 类型: 321, 位置: 56:14
+[debug] [:] Token: +, 类型: 294, 位置: 56:17
+[debug] [:] Token: a30, 类型: 321, 位置: 56:19
+[debug] [:] Token: ;, 类型: 312, 位置: 56:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: k3, 类型: 321, 位置: 57:4
+[debug] [:] Token: :=, 类型: 293, 位置: 57:7
+[debug] [:] Token: 3, 类型: 317, 位置: 57:10
+[debug] [:] Token: +, 类型: 294, 位置: 57:12
+[debug] [:] Token: j3, 类型: 321, 位置: 57:14
+[debug] [:] Token: +, 类型: 294, 位置: 57:17
+[debug] [:] Token: a31, 类型: 321, 位置: 57:19
+[debug] [:] Token: ;, 类型: 312, 位置: 57:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: k4, 类型: 321, 位置: 58:4
+[debug] [:] Token: :=, 类型: 293, 位置: 58:7
+[debug] [:] Token: 4, 类型: 317, 位置: 58:10
+[debug] [:] Token: +, 类型: 294, 位置: 58:12
+[debug] [:] Token: j4, 类型: 321, 位置: 58:14
+[debug] [:] Token: +, 类型: 294, 位置: 58:17
+[debug] [:] Token: a32, 类型: 321, 位置: 58:19
+[debug] [:] Token: ;, 类型: 312, 位置: 58:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i, 类型: 321, 位置: 60:4
+[debug] [:] Token: :=, 类型: 293, 位置: 60:6
+[debug] [:] Token: a, 类型: 321, 位置: 60:9
+[debug] [:] Token: -, 类型: 295, 位置: 60:11
+[debug] [:] Token: b, 类型: 321, 位置: 60:13
+[debug] [:] Token: +, 类型: 294, 位置: 60:15
+[debug] [:] Token: 10, 类型: 317, 位置: 60:17
+[debug] [:] Token: ;, 类型: 312, 位置: 60:19
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: k1, 类型: 321, 位置: 61:4
+[debug] [:] Token: :=, 类型: 293, 位置: 61:7
+[debug] [:] Token: 1, 类型: 317, 位置: 61:10
+[debug] [:] Token: +, 类型: 294, 位置: 61:12
+[debug] [:] Token: j1, 类型: 321, 位置: 61:14
+[debug] [:] Token: +, 类型: 294, 位置: 61:17
+[debug] [:] Token: a29, 类型: 321, 位置: 61:19
+[debug] [:] Token: ;, 类型: 312, 位置: 61:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: k2, 类型: 321, 位置: 62:4
+[debug] [:] Token: :=, 类型: 293, 位置: 62:7
+[debug] [:] Token: 2, 类型: 317, 位置: 62:10
+[debug] [:] Token: +, 类型: 294, 位置: 62:12
+[debug] [:] Token: j2, 类型: 321, 位置: 62:14
+[debug] [:] Token: +, 类型: 294, 位置: 62:17
+[debug] [:] Token: a30, 类型: 321, 位置: 62:19
+[debug] [:] Token: ;, 类型: 312, 位置: 62:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: k3, 类型: 321, 位置: 63:4
+[debug] [:] Token: :=, 类型: 293, 位置: 63:7
+[debug] [:] Token: 3, 类型: 317, 位置: 63:10
+[debug] [:] Token: +, 类型: 294, 位置: 63:12
+[debug] [:] Token: j3, 类型: 321, 位置: 63:14
+[debug] [:] Token: +, 类型: 294, 位置: 63:17
+[debug] [:] Token: a31, 类型: 321, 位置: 63:19
+[debug] [:] Token: ;, 类型: 312, 位置: 63:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: k4, 类型: 321, 位置: 64:4
+[debug] [:] Token: :=, 类型: 293, 位置: 64:7
+[debug] [:] Token: 4, 类型: 317, 位置: 64:10
+[debug] [:] Token: +, 类型: 294, 位置: 64:12
+[debug] [:] Token: j4, 类型: 321, 位置: 64:14
+[debug] [:] Token: +, 类型: 294, 位置: 64:17
+[debug] [:] Token: a32, 类型: 321, 位置: 64:19
+[debug] [:] Token: ;, 类型: 312, 位置: 64:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: j1, 类型: 321, 位置: 65:4
+[debug] [:] Token: :=, 类型: 293, 位置: 65:7
+[debug] [:] Token: 1, 类型: 317, 位置: 65:10
+[debug] [:] Token: +, 类型: 294, 位置: 65:12
+[debug] [:] Token: i1, 类型: 321, 位置: 65:14
+[debug] [:] Token: +, 类型: 294, 位置: 65:17
+[debug] [:] Token: a25, 类型: 321, 位置: 65:19
+[debug] [:] Token: ;, 类型: 312, 位置: 65:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: j2, 类型: 321, 位置: 66:4
+[debug] [:] Token: :=, 类型: 293, 位置: 66:7
+[debug] [:] Token: 2, 类型: 317, 位置: 66:10
+[debug] [:] Token: +, 类型: 294, 位置: 66:12
+[debug] [:] Token: i2, 类型: 321, 位置: 66:14
+[debug] [:] Token: +, 类型: 294, 位置: 66:17
+[debug] [:] Token: a26, 类型: 321, 位置: 66:19
+[debug] [:] Token: ;, 类型: 312, 位置: 66:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: j3, 类型: 321, 位置: 67:4
+[debug] [:] Token: :=, 类型: 293, 位置: 67:7
+[debug] [:] Token: 3, 类型: 317, 位置: 67:10
+[debug] [:] Token: +, 类型: 294, 位置: 67:12
+[debug] [:] Token: i3, 类型: 321, 位置: 67:14
+[debug] [:] Token: +, 类型: 294, 位置: 67:17
+[debug] [:] Token: a27, 类型: 321, 位置: 67:19
+[debug] [:] Token: ;, 类型: 312, 位置: 67:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: j4, 类型: 321, 位置: 68:4
+[debug] [:] Token: :=, 类型: 293, 位置: 68:7
+[debug] [:] Token: 4, 类型: 317, 位置: 68:10
+[debug] [:] Token: +, 类型: 294, 位置: 68:12
+[debug] [:] Token: i4, 类型: 321, 位置: 68:14
+[debug] [:] Token: +, 类型: 294, 位置: 68:17
+[debug] [:] Token: a28, 类型: 321, 位置: 68:19
+[debug] [:] Token: ;, 类型: 312, 位置: 68:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i1, 类型: 321, 位置: 69:4
+[debug] [:] Token: :=, 类型: 293, 位置: 69:7
+[debug] [:] Token: 1, 类型: 317, 位置: 69:10
+[debug] [:] Token: +, 类型: 294, 位置: 69:12
+[debug] [:] Token: h1, 类型: 321, 位置: 69:14
+[debug] [:] Token: +, 类型: 294, 位置: 69:17
+[debug] [:] Token: a21, 类型: 321, 位置: 69:19
+[debug] [:] Token: ;, 类型: 312, 位置: 69:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i2, 类型: 321, 位置: 70:4
+[debug] [:] Token: :=, 类型: 293, 位置: 70:7
+[debug] [:] Token: 2, 类型: 317, 位置: 70:10
+[debug] [:] Token: +, 类型: 294, 位置: 70:12
+[debug] [:] Token: h2, 类型: 321, 位置: 70:14
+[debug] [:] Token: +, 类型: 294, 位置: 70:17
+[debug] [:] Token: a22, 类型: 321, 位置: 70:19
+[debug] [:] Token: ;, 类型: 312, 位置: 70:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i3, 类型: 321, 位置: 71:4
+[debug] [:] Token: :=, 类型: 293, 位置: 71:7
+[debug] [:] Token: 3, 类型: 317, 位置: 71:10
+[debug] [:] Token: +, 类型: 294, 位置: 71:12
+[debug] [:] Token: h3, 类型: 321, 位置: 71:14
+[debug] [:] Token: +, 类型: 294, 位置: 71:17
+[debug] [:] Token: a23, 类型: 321, 位置: 71:19
+[debug] [:] Token: ;, 类型: 312, 位置: 71:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: i4, 类型: 321, 位置: 72:4
+[debug] [:] Token: :=, 类型: 293, 位置: 72:7
+[debug] [:] Token: 4, 类型: 317, 位置: 72:10
+[debug] [:] Token: +, 类型: 294, 位置: 72:12
+[debug] [:] Token: h4, 类型: 321, 位置: 72:14
+[debug] [:] Token: +, 类型: 294, 位置: 72:17
+[debug] [:] Token: a24, 类型: 321, 位置: 72:19
+[debug] [:] Token: ;, 类型: 312, 位置: 72:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: h1, 类型: 321, 位置: 73:4
+[debug] [:] Token: :=, 类型: 293, 位置: 73:7
+[debug] [:] Token: 1, 类型: 317, 位置: 73:10
+[debug] [:] Token: +, 类型: 294, 位置: 73:12
+[debug] [:] Token: g1, 类型: 321, 位置: 73:14
+[debug] [:] Token: +, 类型: 294, 位置: 73:17
+[debug] [:] Token: a17, 类型: 321, 位置: 73:19
+[debug] [:] Token: ;, 类型: 312, 位置: 73:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: h2, 类型: 321, 位置: 74:4
+[debug] [:] Token: :=, 类型: 293, 位置: 74:7
+[debug] [:] Token: 2, 类型: 317, 位置: 74:10
+[debug] [:] Token: +, 类型: 294, 位置: 74:12
+[debug] [:] Token: g2, 类型: 321, 位置: 74:14
+[debug] [:] Token: +, 类型: 294, 位置: 74:17
+[debug] [:] Token: a18, 类型: 321, 位置: 74:19
+[debug] [:] Token: ;, 类型: 312, 位置: 74:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: h3, 类型: 321, 位置: 75:4
+[debug] [:] Token: :=, 类型: 293, 位置: 75:7
+[debug] [:] Token: 3, 类型: 317, 位置: 75:10
+[debug] [:] Token: +, 类型: 294, 位置: 75:12
+[debug] [:] Token: g3, 类型: 321, 位置: 75:14
+[debug] [:] Token: +, 类型: 294, 位置: 75:17
+[debug] [:] Token: a19, 类型: 321, 位置: 75:19
+[debug] [:] Token: ;, 类型: 312, 位置: 75:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: h4, 类型: 321, 位置: 76:4
+[debug] [:] Token: :=, 类型: 293, 位置: 76:7
+[debug] [:] Token: 4, 类型: 317, 位置: 76:10
+[debug] [:] Token: +, 类型: 294, 位置: 76:12
+[debug] [:] Token: g4, 类型: 321, 位置: 76:14
+[debug] [:] Token: +, 类型: 294, 位置: 76:17
+[debug] [:] Token: a20, 类型: 321, 位置: 76:19
+[debug] [:] Token: ;, 类型: 312, 位置: 76:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: g1, 类型: 321, 位置: 77:4
+[debug] [:] Token: :=, 类型: 293, 位置: 77:7
+[debug] [:] Token: 1, 类型: 317, 位置: 77:10
+[debug] [:] Token: +, 类型: 294, 位置: 77:12
+[debug] [:] Token: f1, 类型: 321, 位置: 77:14
+[debug] [:] Token: +, 类型: 294, 位置: 77:17
+[debug] [:] Token: a13, 类型: 321, 位置: 77:19
+[debug] [:] Token: ;, 类型: 312, 位置: 77:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: g2, 类型: 321, 位置: 78:4
+[debug] [:] Token: :=, 类型: 293, 位置: 78:7
+[debug] [:] Token: 2, 类型: 317, 位置: 78:10
+[debug] [:] Token: +, 类型: 294, 位置: 78:12
+[debug] [:] Token: f2, 类型: 321, 位置: 78:14
+[debug] [:] Token: +, 类型: 294, 位置: 78:17
+[debug] [:] Token: a14, 类型: 321, 位置: 78:19
+[debug] [:] Token: ;, 类型: 312, 位置: 78:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: g3, 类型: 321, 位置: 79:4
+[debug] [:] Token: :=, 类型: 293, 位置: 79:7
+[debug] [:] Token: 3, 类型: 317, 位置: 79:10
+[debug] [:] Token: +, 类型: 294, 位置: 79:12
+[debug] [:] Token: f3, 类型: 321, 位置: 79:14
+[debug] [:] Token: +, 类型: 294, 位置: 79:17
+[debug] [:] Token: a15, 类型: 321, 位置: 79:19
+[debug] [:] Token: ;, 类型: 312, 位置: 79:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: g4, 类型: 321, 位置: 80:4
+[debug] [:] Token: :=, 类型: 293, 位置: 80:7
+[debug] [:] Token: 4, 类型: 317, 位置: 80:10
+[debug] [:] Token: +, 类型: 294, 位置: 80:12
+[debug] [:] Token: f4, 类型: 321, 位置: 80:14
+[debug] [:] Token: +, 类型: 294, 位置: 80:17
+[debug] [:] Token: a16, 类型: 321, 位置: 80:19
+[debug] [:] Token: ;, 类型: 312, 位置: 80:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: f1, 类型: 321, 位置: 81:4
+[debug] [:] Token: :=, 类型: 293, 位置: 81:7
+[debug] [:] Token: 1, 类型: 317, 位置: 81:10
+[debug] [:] Token: +, 类型: 294, 位置: 81:12
+[debug] [:] Token: e1, 类型: 321, 位置: 81:14
+[debug] [:] Token: +, 类型: 294, 位置: 81:17
+[debug] [:] Token: a9, 类型: 321, 位置: 81:19
+[debug] [:] Token: ;, 类型: 312, 位置: 81:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: f2, 类型: 321, 位置: 82:4
+[debug] [:] Token: :=, 类型: 293, 位置: 82:7
+[debug] [:] Token: 2, 类型: 317, 位置: 82:10
+[debug] [:] Token: +, 类型: 294, 位置: 82:12
+[debug] [:] Token: e2, 类型: 321, 位置: 82:14
+[debug] [:] Token: +, 类型: 294, 位置: 82:17
+[debug] [:] Token: a10, 类型: 321, 位置: 82:19
+[debug] [:] Token: ;, 类型: 312, 位置: 82:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: f3, 类型: 321, 位置: 83:4
+[debug] [:] Token: :=, 类型: 293, 位置: 83:7
+[debug] [:] Token: 3, 类型: 317, 位置: 83:10
+[debug] [:] Token: +, 类型: 294, 位置: 83:12
+[debug] [:] Token: e3, 类型: 321, 位置: 83:14
+[debug] [:] Token: +, 类型: 294, 位置: 83:17
+[debug] [:] Token: a11, 类型: 321, 位置: 83:19
+[debug] [:] Token: ;, 类型: 312, 位置: 83:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: f4, 类型: 321, 位置: 84:4
+[debug] [:] Token: :=, 类型: 293, 位置: 84:7
+[debug] [:] Token: 4, 类型: 317, 位置: 84:10
+[debug] [:] Token: +, 类型: 294, 位置: 84:12
+[debug] [:] Token: e4, 类型: 321, 位置: 84:14
+[debug] [:] Token: +, 类型: 294, 位置: 84:17
+[debug] [:] Token: a12, 类型: 321, 位置: 84:19
+[debug] [:] Token: ;, 类型: 312, 位置: 84:22
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e1, 类型: 321, 位置: 85:4
+[debug] [:] Token: :=, 类型: 293, 位置: 85:7
+[debug] [:] Token: 1, 类型: 317, 位置: 85:10
+[debug] [:] Token: +, 类型: 294, 位置: 85:12
+[debug] [:] Token: d1, 类型: 321, 位置: 85:14
+[debug] [:] Token: +, 类型: 294, 位置: 85:17
+[debug] [:] Token: a5, 类型: 321, 位置: 85:19
+[debug] [:] Token: ;, 类型: 312, 位置: 85:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e2, 类型: 321, 位置: 86:4
+[debug] [:] Token: :=, 类型: 293, 位置: 86:7
+[debug] [:] Token: 2, 类型: 317, 位置: 86:10
+[debug] [:] Token: +, 类型: 294, 位置: 86:12
+[debug] [:] Token: d2, 类型: 321, 位置: 86:14
+[debug] [:] Token: +, 类型: 294, 位置: 86:17
+[debug] [:] Token: a6, 类型: 321, 位置: 86:19
+[debug] [:] Token: ;, 类型: 312, 位置: 86:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e3, 类型: 321, 位置: 87:4
+[debug] [:] Token: :=, 类型: 293, 位置: 87:7
+[debug] [:] Token: 3, 类型: 317, 位置: 87:10
+[debug] [:] Token: +, 类型: 294, 位置: 87:12
+[debug] [:] Token: d3, 类型: 321, 位置: 87:14
+[debug] [:] Token: +, 类型: 294, 位置: 87:17
+[debug] [:] Token: a7, 类型: 321, 位置: 87:19
+[debug] [:] Token: ;, 类型: 312, 位置: 87:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: e4, 类型: 321, 位置: 88:4
+[debug] [:] Token: :=, 类型: 293, 位置: 88:7
+[debug] [:] Token: 4, 类型: 317, 位置: 88:10
+[debug] [:] Token: +, 类型: 294, 位置: 88:12
+[debug] [:] Token: d4, 类型: 321, 位置: 88:14
+[debug] [:] Token: +, 类型: 294, 位置: 88:17
+[debug] [:] Token: a8, 类型: 321, 位置: 88:19
+[debug] [:] Token: ;, 类型: 312, 位置: 88:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d1, 类型: 321, 位置: 89:4
+[debug] [:] Token: :=, 类型: 293, 位置: 89:7
+[debug] [:] Token: 1, 类型: 317, 位置: 89:10
+[debug] [:] Token: +, 类型: 294, 位置: 89:12
+[debug] [:] Token: c1, 类型: 321, 位置: 89:14
+[debug] [:] Token: +, 类型: 294, 位置: 89:17
+[debug] [:] Token: a1, 类型: 321, 位置: 89:19
+[debug] [:] Token: ;, 类型: 312, 位置: 89:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d2, 类型: 321, 位置: 90:4
+[debug] [:] Token: :=, 类型: 293, 位置: 90:7
+[debug] [:] Token: 2, 类型: 317, 位置: 90:10
+[debug] [:] Token: +, 类型: 294, 位置: 90:12
+[debug] [:] Token: c2, 类型: 321, 位置: 90:14
+[debug] [:] Token: +, 类型: 294, 位置: 90:17
+[debug] [:] Token: a2, 类型: 321, 位置: 90:19
+[debug] [:] Token: ;, 类型: 312, 位置: 90:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d3, 类型: 321, 位置: 91:4
+[debug] [:] Token: :=, 类型: 293, 位置: 91:7
+[debug] [:] Token: 3, 类型: 317, 位置: 91:10
+[debug] [:] Token: +, 类型: 294, 位置: 91:12
+[debug] [:] Token: c3, 类型: 321, 位置: 91:14
+[debug] [:] Token: +, 类型: 294, 位置: 91:17
+[debug] [:] Token: a3, 类型: 321, 位置: 91:19
+[debug] [:] Token: ;, 类型: 312, 位置: 91:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d4, 类型: 321, 位置: 92:4
+[debug] [:] Token: :=, 类型: 293, 位置: 92:7
+[debug] [:] Token: 4, 类型: 317, 位置: 92:10
+[debug] [:] Token: +, 类型: 294, 位置: 92:12
+[debug] [:] Token: c4, 类型: 321, 位置: 92:14
+[debug] [:] Token: +, 类型: 294, 位置: 92:17
+[debug] [:] Token: a4, 类型: 321, 位置: 92:19
+[debug] [:] Token: ;, 类型: 312, 位置: 92:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d1, 类型: 321, 位置: 93:4
+[debug] [:] Token: :=, 类型: 293, 位置: 93:7
+[debug] [:] Token: 1, 类型: 317, 位置: 93:10
+[debug] [:] Token: +, 类型: 294, 位置: 93:12
+[debug] [:] Token: c1, 类型: 321, 位置: 93:14
+[debug] [:] Token: +, 类型: 294, 位置: 93:17
+[debug] [:] Token: a1, 类型: 321, 位置: 93:19
+[debug] [:] Token: ;, 类型: 312, 位置: 93:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d2, 类型: 321, 位置: 94:4
+[debug] [:] Token: :=, 类型: 293, 位置: 94:7
+[debug] [:] Token: 2, 类型: 317, 位置: 94:10
+[debug] [:] Token: +, 类型: 294, 位置: 94:12
+[debug] [:] Token: c2, 类型: 321, 位置: 94:14
+[debug] [:] Token: +, 类型: 294, 位置: 94:17
+[debug] [:] Token: a2, 类型: 321, 位置: 94:19
+[debug] [:] Token: ;, 类型: 312, 位置: 94:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d3, 类型: 321, 位置: 95:4
+[debug] [:] Token: :=, 类型: 293, 位置: 95:7
+[debug] [:] Token: 3, 类型: 317, 位置: 95:10
+[debug] [:] Token: +, 类型: 294, 位置: 95:12
+[debug] [:] Token: c3, 类型: 321, 位置: 95:14
+[debug] [:] Token: +, 类型: 294, 位置: 95:17
+[debug] [:] Token: a3, 类型: 321, 位置: 95:19
+[debug] [:] Token: ;, 类型: 312, 位置: 95:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: d4, 类型: 321, 位置: 96:4
+[debug] [:] Token: :=, 类型: 293, 位置: 96:7
+[debug] [:] Token: 4, 类型: 317, 位置: 96:10
+[debug] [:] Token: +, 类型: 294, 位置: 96:12
+[debug] [:] Token: c4, 类型: 321, 位置: 96:14
+[debug] [:] Token: +, 类型: 294, 位置: 96:17
+[debug] [:] Token: a4, 类型: 321, 位置: 96:19
+[debug] [:] Token: ;, 类型: 312, 位置: 96:21
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: func, 类型: 321, 位置: 97:4
+[debug] [:] Token: :=, 类型: 293, 位置: 97:9
+[debug] [:] Token: i, 类型: 321, 位置: 97:12
+[debug] [:] Token: +, 类型: 294, 位置: 97:14
+[debug] [:] Token: c1, 类型: 321, 位置: 97:16
+[debug] [:] Token: +, 类型: 294, 位置: 97:19
+[debug] [:] Token: c2, 类型: 321, 位置: 97:21
+[debug] [:] Token: +, 类型: 294, 位置: 97:24
+[debug] [:] Token: c3, 类型: 321, 位置: 97:26
+[debug] [:] Token: +, 类型: 294, 位置: 97:29
+[debug] [:] Token: c4, 类型: 321, 位置: 97:31
+[debug] [:] Token: -, 类型: 295, 位置: 97:34
+[debug] [:] Token: d1, 类型: 321, 位置: 97:36
+[debug] [:] Token: -, 类型: 295, 位置: 97:39
+[debug] [:] Token: d2, 类型: 321, 位置: 97:41
+[debug] [:] Token: -, 类型: 295, 位置: 97:44
+[debug] [:] Token: d3, 类型: 321, 位置: 97:46
+[debug] [:] Token: -, 类型: 295, 位置: 97:49
+[debug] [:] Token: d4, 类型: 321, 位置: 97:51
+[debug] [:] Token: +, 类型: 294, 位置: 97:54
+[debug] [:] Token: e1, 类型: 321, 位置: 97:56
+[debug] [:] Token: +, 类型: 294, 位置: 97:59
+[debug] [:] Token: e2, 类型: 321, 位置: 97:61
+[debug] [:] Token: +, 类型: 294, 位置: 97:64
+[debug] [:] Token: e3, 类型: 321, 位置: 97:66
+[debug] [:] Token: +, 类型: 294, 位置: 97:69
+[debug] [:] Token: e4, 类型: 321, 位置: 97:71
+[debug] [:] Token: -, 类型: 295, 位置: 97:74
+[debug] [:] Token: f1, 类型: 321, 位置: 97:76
+[debug] [:] Token: -, 类型: 295, 位置: 97:79
+[debug] [:] Token: f2, 类型: 321, 位置: 97:81
+[debug] [:] Token: -, 类型: 295, 位置: 97:84
+[debug] [:] Token: f3, 类型: 321, 位置: 97:86
+[debug] [:] Token: -, 类型: 295, 位置: 97:89
+[debug] [:] Token: f4, 类型: 321, 位置: 97:91
+[debug] [:] Token: +, 类型: 294, 位置: 97:94
+[debug] [:] Token: g1, 类型: 321, 位置: 97:96
+[debug] [:] Token: +, 类型: 294, 位置: 97:99
+[debug] [:] Token: g2, 类型: 321, 位置: 97:101
+[debug] [:] Token: +, 类型: 294, 位置: 97:104
+[debug] [:] Token: g3, 类型: 321, 位置: 97:106
+[debug] [:] Token: +, 类型: 294, 位置: 97:109
+[debug] [:] Token: g4, 类型: 321, 位置: 97:111
+[debug] [:] Token: -, 类型: 295, 位置: 97:114
+[debug] [:] Token: h1, 类型: 321, 位置: 97:116
+[debug] [:] Token: -, 类型: 295, 位置: 97:119
+[debug] [:] Token: h2, 类型: 321, 位置: 97:121
+[debug] [:] Token: -, 类型: 295, 位置: 97:124
+[debug] [:] Token: h3, 类型: 321, 位置: 97:126
+[debug] [:] Token: -, 类型: 295, 位置: 97:129
+[debug] [:] Token: h4, 类型: 321, 位置: 97:131
+[debug] [:] Token: +, 类型: 294, 位置: 97:134
+[debug] [:] Token: i1, 类型: 321, 位置: 97:136
+[debug] [:] Token: +, 类型: 294, 位置: 97:139
+[debug] [:] Token: i2, 类型: 321, 位置: 97:141
+[debug] [:] Token: +, 类型: 294, 位置: 97:144
+[debug] [:] Token: i3, 类型: 321, 位置: 97:146
+[debug] [:] Token: +, 类型: 294, 位置: 97:149
+[debug] [:] Token: i4, 类型: 321, 位置: 97:151
+[debug] [:] Token: -, 类型: 295, 位置: 97:154
+[debug] [:] Token: j1, 类型: 321, 位置: 97:156
+[debug] [:] Token: -, 类型: 295, 位置: 97:159
+[debug] [:] Token: j2, 类型: 321, 位置: 97:161
+[debug] [:] Token: -, 类型: 295, 位置: 97:164
+[debug] [:] Token: j3, 类型: 321, 位置: 97:166
+[debug] [:] Token: -, 类型: 295, 位置: 97:169
+[debug] [:] Token: j4, 类型: 321, 位置: 97:171
+[debug] [:] Token: +, 类型: 294, 位置: 97:174
+[debug] [:] Token: k1, 类型: 321, 位置: 97:176
+[debug] [:] Token: +, 类型: 294, 位置: 97:179
+[debug] [:] Token: k2, 类型: 321, 位置: 97:181
+[debug] [:] Token: +, 类型: 294, 位置: 97:184
+[debug] [:] Token: k3, 类型: 321, 位置: 97:186
+[debug] [:] Token: +, 类型: 294, 位置: 97:189
+[debug] [:] Token: k4, 类型: 321, 位置: 97:191
+[debug] [:] Token: +, 类型: 294, 位置: 97:194
+[debug] [:] Token: a1, 类型: 321, 位置: 97:196
+[debug] [:] Token: -, 类型: 295, 位置: 97:199
+[debug] [:] Token: a2, 类型: 321, 位置: 97:201
+[debug] [:] Token: +, 类型: 294, 位置: 97:204
+[debug] [:] Token: a3, 类型: 321, 位置: 97:206
+[debug] [:] Token: -, 类型: 295, 位置: 97:209
+[debug] [:] Token: a4, 类型: 321, 位置: 97:211
+[debug] [:] Token: +, 类型: 294, 位置: 97:214
+[debug] [:] Token: a5, 类型: 321, 位置: 97:216
+[debug] [:] Token: -, 类型: 295, 位置: 97:219
+[debug] [:] Token: a6, 类型: 321, 位置: 97:221
+[debug] [:] Token: +, 类型: 294, 位置: 97:224
+[debug] [:] Token: a7, 类型: 321, 位置: 97:226
+[debug] [:] Token: -, 类型: 295, 位置: 97:229
+[debug] [:] Token: a8, 类型: 321, 位置: 97:231
+[debug] [:] Token: +, 类型: 294, 位置: 97:234
+[debug] [:] Token: a9, 类型: 321, 位置: 97:236
+[debug] [:] Token: -, 类型: 295, 位置: 97:239
+[debug] [:] Token: a10, 类型: 321, 位置: 97:241
+[debug] [:] Token: +, 类型: 294, 位置: 97:245
+[debug] [:] Token: a11, 类型: 321, 位置: 97:247
+[debug] [:] Token: -, 类型: 295, 位置: 97:251
+[debug] [:] Token: a12, 类型: 321, 位置: 97:253
+[debug] [:] Token: +, 类型: 294, 位置: 97:257
+[debug] [:] Token: a13, 类型: 321, 位置: 97:259
+[debug] [:] Token: -, 类型: 295, 位置: 97:263
+[debug] [:] Token: a14, 类型: 321, 位置: 97:265
+[debug] [:] Token: +, 类型: 294, 位置: 97:269
+[debug] [:] Token: a15, 类型: 321, 位置: 97:271
+[debug] [:] Token: -, 类型: 295, 位置: 97:275
+[debug] [:] Token: a16, 类型: 321, 位置: 97:277
+[debug] [:] Token: +, 类型: 294, 位置: 97:281
+[debug] [:] Token: a17, 类型: 321, 位置: 97:283
+[debug] [:] Token: -, 类型: 295, 位置: 97:287
+[debug] [:] Token: a18, 类型: 321, 位置: 97:289
+[debug] [:] Token: +, 类型: 294, 位置: 97:293
+[debug] [:] Token: a19, 类型: 321, 位置: 97:295
+[debug] [:] Token: -, 类型: 295, 位置: 97:299
+[debug] [:] Token: a20, 类型: 321, 位置: 97:301
+[debug] [:] Token: +, 类型: 294, 位置: 97:305
+[debug] [:] Token: a21, 类型: 321, 位置: 97:307
+[debug] [:] Token: -, 类型: 295, 位置: 97:311
+[debug] [:] Token: a22, 类型: 321, 位置: 97:313
+[debug] [:] Token: +, 类型: 294, 位置: 97:317
+[debug] [:] Token: a23, 类型: 321, 位置: 97:319
+[debug] [:] Token: -, 类型: 295, 位置: 97:323
+[debug] [:] Token: a24, 类型: 321, 位置: 97:325
+[debug] [:] Token: +, 类型: 294, 位置: 97:329
+[debug] [:] Token: a25, 类型: 321, 位置: 97:331
+[debug] [:] Token: -, 类型: 295, 位置: 97:335
+[debug] [:] Token: a26, 类型: 321, 位置: 97:337
+[debug] [:] Token: +, 类型: 294, 位置: 97:341
+[debug] [:] Token: a27, 类型: 321, 位置: 97:343
+[debug] [:] Token: -, 类型: 295, 位置: 97:347
+[debug] [:] Token: a28, 类型: 321, 位置: 97:349
+[debug] [:] Token: +, 类型: 294, 位置: 97:353
+[debug] [:] Token: a29, 类型: 321, 位置: 97:355
+[debug] [:] Token: -, 类型: 295, 位置: 97:359
+[debug] [:] Token: a30, 类型: 321, 位置: 97:361
+[debug] [:] Token: +, 类型: 294, 位置: 97:365
+[debug] [:] Token: a31, 类型: 321, 位置: 97:367
+[debug] [:] Token: -, 类型: 295, 位置: 97:371
+[debug] [:] Token: a32, 类型: 321, 位置: 97:373
+[debug] [:] Token: ;, 类型: 312, 位置: 97:376
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: end, 类型: 260, 位置: 98:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] 创建新的声明列表用于函数func
+[debug] [:] 添加函数func到声明列表
+[debug] [:] Token: ;, 类型: 312, 位置: 98:3
+[debug] [:] 函数声明处理完成，当前声明列表包含1个项目
+[debug] [:] 合并函数声明后，声明列表包含6个项目
+[debug] [:] Token: begin, 类型: 259, 位置: 100:0
+[debug] [:] Token: a0, 类型: 321, 位置: 101:0
+[debug] [:] Token: :=, 类型: 293, 位置: 101:3
+[debug] [:] Token: 0, 类型: 317, 位置: 101:6
+[debug] [:] Token: ;, 类型: 312, 位置: 101:7
+[debug] [:] 添加第一条语句到语句列表
+[debug] [:] Token: a1, 类型: 321, 位置: 102:8
+[debug] [:] Token: :=, 类型: 293, 位置: 102:11
+[debug] [:] Token: 1, 类型: 317, 位置: 102:14
+[debug] [:] Token: ;, 类型: 312, 位置: 102:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a2, 类型: 321, 位置: 103:8
+[debug] [:] Token: :=, 类型: 293, 位置: 103:11
+[debug] [:] Token: 2, 类型: 317, 位置: 103:14
+[debug] [:] Token: ;, 类型: 312, 位置: 103:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a3, 类型: 321, 位置: 104:8
+[debug] [:] Token: :=, 类型: 293, 位置: 104:11
+[debug] [:] Token: 3, 类型: 317, 位置: 104:14
+[debug] [:] Token: ;, 类型: 312, 位置: 104:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a4, 类型: 321, 位置: 105:8
+[debug] [:] Token: :=, 类型: 293, 位置: 105:11
+[debug] [:] Token: 4, 类型: 317, 位置: 105:14
+[debug] [:] Token: ;, 类型: 312, 位置: 105:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a5, 类型: 321, 位置: 106:8
+[debug] [:] Token: :=, 类型: 293, 位置: 106:11
+[debug] [:] Token: 5, 类型: 317, 位置: 106:14
+[debug] [:] Token: ;, 类型: 312, 位置: 106:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a6, 类型: 321, 位置: 107:8
+[debug] [:] Token: :=, 类型: 293, 位置: 107:11
+[debug] [:] Token: 6, 类型: 317, 位置: 107:14
+[debug] [:] Token: ;, 类型: 312, 位置: 107:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a7, 类型: 321, 位置: 108:8
+[debug] [:] Token: :=, 类型: 293, 位置: 108:11
+[debug] [:] Token: 7, 类型: 317, 位置: 108:14
+[debug] [:] Token: ;, 类型: 312, 位置: 108:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a8, 类型: 321, 位置: 109:8
+[debug] [:] Token: :=, 类型: 293, 位置: 109:11
+[debug] [:] Token: 8, 类型: 317, 位置: 109:14
+[debug] [:] Token: ;, 类型: 312, 位置: 109:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a9, 类型: 321, 位置: 110:8
+[debug] [:] Token: :=, 类型: 293, 位置: 110:11
+[debug] [:] Token: 9, 类型: 317, 位置: 110:14
+[debug] [:] Token: ;, 类型: 312, 位置: 110:15
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a10, 类型: 321, 位置: 111:8
+[debug] [:] Token: :=, 类型: 293, 位置: 111:12
+[debug] [:] Token: 10, 类型: 317, 位置: 111:15
+[debug] [:] Token: ;, 类型: 312, 位置: 111:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a11, 类型: 321, 位置: 112:8
+[debug] [:] Token: :=, 类型: 293, 位置: 112:12
+[debug] [:] Token: 11, 类型: 317, 位置: 112:15
+[debug] [:] Token: ;, 类型: 312, 位置: 112:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a12, 类型: 321, 位置: 113:8
+[debug] [:] Token: :=, 类型: 293, 位置: 113:12
+[debug] [:] Token: 12, 类型: 317, 位置: 113:15
+[debug] [:] Token: ;, 类型: 312, 位置: 113:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a13, 类型: 321, 位置: 114:8
+[debug] [:] Token: :=, 类型: 293, 位置: 114:12
+[debug] [:] Token: 13, 类型: 317, 位置: 114:15
+[debug] [:] Token: ;, 类型: 312, 位置: 114:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a14, 类型: 321, 位置: 115:8
+[debug] [:] Token: :=, 类型: 293, 位置: 115:12
+[debug] [:] Token: 14, 类型: 317, 位置: 115:15
+[debug] [:] Token: ;, 类型: 312, 位置: 115:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a15, 类型: 321, 位置: 116:8
+[debug] [:] Token: :=, 类型: 293, 位置: 116:12
+[debug] [:] Token: 15, 类型: 317, 位置: 116:15
+[debug] [:] Token: ;, 类型: 312, 位置: 116:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a16, 类型: 321, 位置: 117:8
+[debug] [:] Token: :=, 类型: 293, 位置: 117:12
+[debug] [:] Token: 16, 类型: 317, 位置: 117:15
+[debug] [:] Token: ;, 类型: 312, 位置: 117:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a17, 类型: 321, 位置: 118:8
+[debug] [:] Token: :=, 类型: 293, 位置: 118:12
+[debug] [:] Token: 1, 类型: 317, 位置: 118:15
+[debug] [:] Token: ;, 类型: 312, 位置: 118:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a18, 类型: 321, 位置: 119:8
+[debug] [:] Token: :=, 类型: 293, 位置: 119:12
+[debug] [:] Token: 2, 类型: 317, 位置: 119:15
+[debug] [:] Token: ;, 类型: 312, 位置: 119:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a19, 类型: 321, 位置: 120:8
+[debug] [:] Token: :=, 类型: 293, 位置: 120:12
+[debug] [:] Token: 3, 类型: 317, 位置: 120:15
+[debug] [:] Token: ;, 类型: 312, 位置: 120:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a20, 类型: 321, 位置: 121:8
+[debug] [:] Token: :=, 类型: 293, 位置: 121:12
+[debug] [:] Token: 4, 类型: 317, 位置: 121:15
+[debug] [:] Token: ;, 类型: 312, 位置: 121:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a21, 类型: 321, 位置: 122:8
+[debug] [:] Token: :=, 类型: 293, 位置: 122:12
+[debug] [:] Token: 5, 类型: 317, 位置: 122:15
+[debug] [:] Token: ;, 类型: 312, 位置: 122:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a22, 类型: 321, 位置: 123:8
+[debug] [:] Token: :=, 类型: 293, 位置: 123:12
+[debug] [:] Token: 6, 类型: 317, 位置: 123:15
+[debug] [:] Token: ;, 类型: 312, 位置: 123:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a23, 类型: 321, 位置: 124:8
+[debug] [:] Token: :=, 类型: 293, 位置: 124:12
+[debug] [:] Token: 7, 类型: 317, 位置: 124:15
+[debug] [:] Token: ;, 类型: 312, 位置: 124:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a24, 类型: 321, 位置: 125:8
+[debug] [:] Token: :=, 类型: 293, 位置: 125:12
+[debug] [:] Token: 8, 类型: 317, 位置: 125:15
+[debug] [:] Token: ;, 类型: 312, 位置: 125:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a25, 类型: 321, 位置: 126:8
+[debug] [:] Token: :=, 类型: 293, 位置: 126:12
+[debug] [:] Token: 9, 类型: 317, 位置: 126:15
+[debug] [:] Token: ;, 类型: 312, 位置: 126:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a26, 类型: 321, 位置: 127:8
+[debug] [:] Token: :=, 类型: 293, 位置: 127:12
+[debug] [:] Token: 10, 类型: 317, 位置: 127:15
+[debug] [:] Token: ;, 类型: 312, 位置: 127:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a27, 类型: 321, 位置: 128:8
+[debug] [:] Token: :=, 类型: 293, 位置: 128:12
+[debug] [:] Token: 11, 类型: 317, 位置: 128:15
+[debug] [:] Token: ;, 类型: 312, 位置: 128:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a28, 类型: 321, 位置: 129:8
+[debug] [:] Token: :=, 类型: 293, 位置: 129:12
+[debug] [:] Token: 12, 类型: 317, 位置: 129:15
+[debug] [:] Token: ;, 类型: 312, 位置: 129:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a29, 类型: 321, 位置: 130:8
+[debug] [:] Token: :=, 类型: 293, 位置: 130:12
+[debug] [:] Token: 13, 类型: 317, 位置: 130:15
+[debug] [:] Token: ;, 类型: 312, 位置: 130:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a30, 类型: 321, 位置: 131:8
+[debug] [:] Token: :=, 类型: 293, 位置: 131:12
+[debug] [:] Token: 14, 类型: 317, 位置: 131:15
+[debug] [:] Token: ;, 类型: 312, 位置: 131:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a31, 类型: 321, 位置: 132:8
+[debug] [:] Token: :=, 类型: 293, 位置: 132:12
+[debug] [:] Token: 15, 类型: 317, 位置: 132:15
+[debug] [:] Token: ;, 类型: 312, 位置: 132:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a32, 类型: 321, 位置: 133:8
+[debug] [:] Token: :=, 类型: 293, 位置: 133:12
+[debug] [:] Token: 16, 类型: 317, 位置: 133:15
+[debug] [:] Token: ;, 类型: 312, 位置: 133:17
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a, 类型: 321, 位置: 134:2
+[debug] [:] Token: :=, 类型: 293, 位置: 134:4
+[debug] [:] Token: 1, 类型: 317, 位置: 134:7
+[debug] [:] Token: ;, 类型: 312, 位置: 134:8
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: b, 类型: 321, 位置: 135:2
+[debug] [:] Token: :=, 类型: 293, 位置: 135:4
+[debug] [:] Token: a, 类型: 321, 位置: 135:7
+[debug] [:] Token: +, 类型: 294, 位置: 135:9
+[debug] [:] Token: 2, 类型: 317, 位置: 135:11
+[debug] [:] Token: *, 类型: 296, 位置: 135:13
+[debug] [:] Token: 9, 类型: 317, 位置: 135:15
+[debug] [:] Token: ;, 类型: 312, 位置: 135:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: a, 类型: 321, 位置: 136:2
+[debug] [:] Token: :=, 类型: 293, 位置: 136:4
+[debug] [:] Token: func, 类型: 321, 位置: 136:7
+[debug] [:] Token: (, 类型: 308, 位置: 136:11
+[debug] [:] Token: a, 类型: 321, 位置: 136:12
+[debug] [:] Token: ,, 类型: 314, 位置: 136:13
+[debug] [:] Token: b, 类型: 321, 位置: 136:14
+[debug] [:] Token: ), 类型: 309, 位置: 136:15
+[debug] [:] Token: ;, 类型: 312, 位置: 136:16
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: write, 类型: 286, 位置: 137:2
+[debug] [:] Token: (, 类型: 308, 位置: 137:7
+[debug] [:] Token: a, 类型: 321, 位置: 137:8
+[debug] [:] Token: ), 类型: 309, 位置: 137:9
+[debug] [:] 向语句列表添加新语句
+[debug] [:] Token: ;, 类型: 312, 位置: 137:10
+[debug] [:] Token: end, 类型: 260, 位置: 138:0
+[debug] [:] 处理语句列表后的分号
+[debug] [:] 处理完整个复合语句
+[debug] [:] Token: ., 类型: 315, 位置: 138:3
+[info] [:] 词法分析完成，共识别 1063 个token
+[debug] [:] 语法分析成功
+[info] [:] + Program: main
+[info] [:]   Body:
+[info] [:]   + Block
+[info] [:]     Declarations:
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a0
+[info] [:]         - a1
+[info] [:]         - a2
+[info] [:]         - a3
+[info] [:]         - a4
+[info] [:]         - a5
+[info] [:]         - a6
+[info] [:]         - a7
+[info] [:]         - a8
+[info] [:]         - a9
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a10
+[info] [:]         - a11
+[info] [:]         - a12
+[info] [:]         - a13
+[info] [:]         - a14
+[info] [:]         - a15
+[info] [:]         - a16
+[info] [:]         - a17
+[info] [:]         - a18
+[info] [:]         - a19
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a20
+[info] [:]         - a21
+[info] [:]         - a22
+[info] [:]         - a23
+[info] [:]         - a24
+[info] [:]         - a25
+[info] [:]         - a26
+[info] [:]         - a27
+[info] [:]         - a28
+[info] [:]         - a29
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a30
+[info] [:]         - a31
+[info] [:]         - a32
+[info] [:]       + Variable Declaration: int
+[info] [:]         - a
+[info] [:]         - b
+[info] [:]       + Function Declaration: func -> int
+[info] [:]         Parameters:
+[info] [:]           - a: int
+[info] [:]           - b: int
+[info] [:]         Body:
+[info] [:]           + Block
+[info] [:]             Declarations:
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - i
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - c1
+[info] [:]                 - c2
+[info] [:]                 - c3
+[info] [:]                 - c4
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - d1
+[info] [:]                 - d2
+[info] [:]                 - d3
+[info] [:]                 - d4
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - e1
+[info] [:]                 - e2
+[info] [:]                 - e3
+[info] [:]                 - e4
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - f1
+[info] [:]                 - f2
+[info] [:]                 - f3
+[info] [:]                 - f4
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - g1
+[info] [:]                 - g2
+[info] [:]                 - g3
+[info] [:]                 - g4
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - h1
+[info] [:]                 - h2
+[info] [:]                 - h3
+[info] [:]                 - h4
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - i1
+[info] [:]                 - i2
+[info] [:]                 - i3
+[info] [:]                 - i4
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - j1
+[info] [:]                 - j2
+[info] [:]                 - j3
+[info] [:]                 - j4
+[info] [:]               + Variable Declaration: int
+[info] [:]                 - k1
+[info] [:]                 - k2
+[info] [:]                 - k3
+[info] [:]                 - k4
+[info] [:]             Body:
+[info] [:]               + Compound Statement
+[info] [:]                 + Assignment: c1 =
+[info] [:]                   + Number: 1
+[info] [:]                 + Assignment: c2 =
+[info] [:]                   + Number: 2
+[info] [:]                 + Assignment: c3 =
+[info] [:]                   + Number: 3
+[info] [:]                 + Assignment: c4 =
+[info] [:]                   + Number: 4
+[info] [:]                 + Assignment: d1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: c1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a1
+[info] [:]                 + Assignment: d2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: c2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a2
+[info] [:]                 + Assignment: d3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: c3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a3
+[info] [:]                 + Assignment: d4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: c4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a4
+[info] [:]                 + Assignment: e1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: d1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a5
+[info] [:]                 + Assignment: e2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: d2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a6
+[info] [:]                 + Assignment: e3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: d3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a7
+[info] [:]                 + Assignment: e4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: d4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a8
+[info] [:]                 + Assignment: f1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: e1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a9
+[info] [:]                 + Assignment: f2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: e2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a10
+[info] [:]                 + Assignment: f3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: e3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a11
+[info] [:]                 + Assignment: f4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: e4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a12
+[info] [:]                 + Assignment: g1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: f1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a13
+[info] [:]                 + Assignment: g2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: f2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a14
+[info] [:]                 + Assignment: g3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: f3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a15
+[info] [:]                 + Assignment: g4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: f4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a16
+[info] [:]                 + Assignment: h1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: g1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a17
+[info] [:]                 + Assignment: h2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: g2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a18
+[info] [:]                 + Assignment: h3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: g3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a19
+[info] [:]                 + Assignment: h4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: g4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a20
+[info] [:]                 + Assignment: i1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: h1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a21
+[info] [:]                 + Assignment: i2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: h2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a22
+[info] [:]                 + Assignment: i3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: h3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a23
+[info] [:]                 + Assignment: i4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: h4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a24
+[info] [:]                 + Assignment: j1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: i1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a25
+[info] [:]                 + Assignment: j2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: i2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a26
+[info] [:]                 + Assignment: j3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: i3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a27
+[info] [:]                 + Assignment: j4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: i4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a28
+[info] [:]                 + Assignment: k1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: j1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a29
+[info] [:]                 + Assignment: k2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: j2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a30
+[info] [:]                 + Assignment: k3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: j3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a31
+[info] [:]                 + Assignment: k4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: j4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a32
+[info] [:]                 + Assignment: i =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: -
+[info] [:]                         Left:
+[info] [:]                           + Variable: a
+[info] [:]                         Right:
+[info] [:]                           + Variable: b
+[info] [:]                     Right:
+[info] [:]                       + Number: 10
+[info] [:]                 + Assignment: k1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: j1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a29
+[info] [:]                 + Assignment: k2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: j2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a30
+[info] [:]                 + Assignment: k3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: j3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a31
+[info] [:]                 + Assignment: k4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: j4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a32
+[info] [:]                 + Assignment: j1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: i1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a25
+[info] [:]                 + Assignment: j2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: i2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a26
+[info] [:]                 + Assignment: j3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: i3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a27
+[info] [:]                 + Assignment: j4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: i4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a28
+[info] [:]                 + Assignment: i1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: h1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a21
+[info] [:]                 + Assignment: i2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: h2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a22
+[info] [:]                 + Assignment: i3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: h3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a23
+[info] [:]                 + Assignment: i4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: h4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a24
+[info] [:]                 + Assignment: h1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: g1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a17
+[info] [:]                 + Assignment: h2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: g2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a18
+[info] [:]                 + Assignment: h3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: g3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a19
+[info] [:]                 + Assignment: h4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: g4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a20
+[info] [:]                 + Assignment: g1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: f1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a13
+[info] [:]                 + Assignment: g2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: f2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a14
+[info] [:]                 + Assignment: g3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: f3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a15
+[info] [:]                 + Assignment: g4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: f4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a16
+[info] [:]                 + Assignment: f1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: e1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a9
+[info] [:]                 + Assignment: f2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: e2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a10
+[info] [:]                 + Assignment: f3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: e3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a11
+[info] [:]                 + Assignment: f4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: e4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a12
+[info] [:]                 + Assignment: e1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: d1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a5
+[info] [:]                 + Assignment: e2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: d2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a6
+[info] [:]                 + Assignment: e3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: d3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a7
+[info] [:]                 + Assignment: e4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: d4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a8
+[info] [:]                 + Assignment: d1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: c1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a1
+[info] [:]                 + Assignment: d2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: c2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a2
+[info] [:]                 + Assignment: d3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: c3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a3
+[info] [:]                 + Assignment: d4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: c4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a4
+[info] [:]                 + Assignment: d1 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 1
+[info] [:]                         Right:
+[info] [:]                           + Variable: c1
+[info] [:]                     Right:
+[info] [:]                       + Variable: a1
+[info] [:]                 + Assignment: d2 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 2
+[info] [:]                         Right:
+[info] [:]                           + Variable: c2
+[info] [:]                     Right:
+[info] [:]                       + Variable: a2
+[info] [:]                 + Assignment: d3 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 3
+[info] [:]                         Right:
+[info] [:]                           + Variable: c3
+[info] [:]                     Right:
+[info] [:]                       + Variable: a3
+[info] [:]                 + Assignment: d4 =
+[info] [:]                   + Binary Op: +
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Number: 4
+[info] [:]                         Right:
+[info] [:]                           + Variable: c4
+[info] [:]                     Right:
+[info] [:]                       + Variable: a4
+[info] [:]                 + Assignment: func =
+[info] [:]                   + Binary Op: -
+[info] [:]                     Left:
+[info] [:]                       + Binary Op: +
+[info] [:]                         Left:
+[info] [:]                           + Binary Op: -
+[info] [:]                             Left:
+[info] [:]                               + Binary Op: +
+[info] [:]                                 Left:
+[info] [:]                                   + Binary Op: -
+[info] [:]                                     Left:
+[info] [:]                                       + Binary Op: +
+[info] [:]                                         Left:
+[info] [:]                                           + Binary Op: -
+[info] [:]                                             Left:
+[info] [:]                                               + Binary Op: +
+[info] [:]                                                 Left:
+[info] [:]                                                   + Binary Op: -
+[info] [:]                                                     Left:
+[info] [:]                                                       + Binary Op: +
+[info] [:]                                                         Left:
+[info] [:]                                                           + Binary Op: -
+[info] [:]                                                             Left:
+[info] [:]                                                               + Binary Op: +
+[info] [:]                                                                 Left:
+[info] [:]                                                                   + Binary Op: -
+[info] [:]                                                                     Left:
+[info] [:]                                                                       + Binary Op: +
+[info] [:]                                                                         Left:
+[info] [:]                                                                           + Binary Op: -
+[info] [:]                                                                             Left:
+[info] [:]                                                                               + Binary Op: +
+[info] [:]                                                                                 Left:
+[info] [:]                                                                                   + Binary Op: -
+[info] [:]                                                                                     Left:
+[info] [:]                                                                                       + Binary Op: +
+[info] [:]                                                                                         Left:
+[info] [:]                                                                                           + Binary Op: -
+[info] [:]                                                                                             Left:
+[info] [:]                                                                                               + Binary Op: +
+[info] [:]                                                                                                 Left:
+[info] [:]                                                                                                   + Binary Op: -
+[info] [:]                                                                                                     Left:
+[info] [:]                                                                                                       + Binary Op: +
+[info] [:]                                                                                                         Left:
+[info] [:]                                                                                                           + Binary Op: -
+[info] [:]                                                                                                             Left:
+[info] [:]                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                 Left:
+[info] [:]                                                                                                                   + Binary Op: -
+[info] [:]                                                                                                                     Left:
+[info] [:]                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                         Left:
+[info] [:]                                                                                                                           + Binary Op: -
+[info] [:]                                                                                                                             Left:
+[info] [:]                                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                                 Left:
+[info] [:]                                                                                                                                   + Binary Op: -
+[info] [:]                                                                                                                                     Left:
+[info] [:]                                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                                         Left:
+[info] [:]                                                                                                                                           + Binary Op: -
+[info] [:]                                                                                                                                             Left:
+[info] [:]                                                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                   + Binary Op: +
+[info] [:]                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                           + Binary Op: +
+[info] [:]                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                   + Binary Op: -
+[info] [:]                                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                                       + Binary Op: -
+[info] [:]                                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                                           + Binary Op: -
+[info] [:]                                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                                               + Binary Op: -
+[info] [:]                                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                                   + Binary Op: +
+[info] [:]                                                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                                                           + Binary Op: +
+[info] [:]                                                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                                                   + Binary Op: -
+[info] [:]                                                                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                                                                       + Binary Op: -
+[info] [:]                                                                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                                                                           + Binary Op: -
+[info] [:]                                                                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                                                                               + Binary Op: -
+[info] [:]                                                                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                                                                   + Binary Op: +
+[info] [:]                                                                                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                                                                                           + Binary Op: +
+[info] [:]                                                                                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                                                                                   + Binary Op: -
+[info] [:]                                                                                                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                                                                                                       + Binary Op: -
+[info] [:]                                                                                                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                                                                                                           + Binary Op: -
+[info] [:]                                                                                                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                                                                                                               + Binary Op: -
+[info] [:]                                                                                                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                                                                                                   + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                                                                                                                           + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                                                                                                                   + Binary Op: -
+[info] [:]                                                                                                                                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                                                                                                                                       + Binary Op: -
+[info] [:]                                                                                                                                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                                                                                                                                           + Binary Op: -
+[info] [:]                                                                                                                                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                                                                                                                                               + Binary Op: -
+[info] [:]                                                                                                                                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                                                                                                                                   + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                                                                     Left:
+[info] [:]                                                                                                                                                                                                                                                                                       + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                                                                         Left:
+[info] [:]                                                                                                                                                                                                                                                                                           + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                                                                             Left:
+[info] [:]                                                                                                                                                                                                                                                                                               + Binary Op: +
+[info] [:]                                                                                                                                                                                                                                                                                                 Left:
+[info] [:]                                                                                                                                                                                                                                                                                                   + Variable: i
+[info] [:]                                                                                                                                                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                                                                                                                                                   + Variable: c1
+[info] [:]                                                                                                                                                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                                                                                                                                                               + Variable: c2
+[info] [:]                                                                                                                                                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                                                                                                                                                           + Variable: c3
+[info] [:]                                                                                                                                                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                                                                                                                                                       + Variable: c4
+[info] [:]                                                                                                                                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                                                                                                                                   + Variable: d1
+[info] [:]                                                                                                                                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                                                                                                                                               + Variable: d2
+[info] [:]                                                                                                                                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                                                                                                                                           + Variable: d3
+[info] [:]                                                                                                                                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                                                                                                                                       + Variable: d4
+[info] [:]                                                                                                                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                                                                                                                   + Variable: e1
+[info] [:]                                                                                                                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                                                                                                                               + Variable: e2
+[info] [:]                                                                                                                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                                                                                                                           + Variable: e3
+[info] [:]                                                                                                                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                                                                                                                       + Variable: e4
+[info] [:]                                                                                                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                                                                                                   + Variable: f1
+[info] [:]                                                                                                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                                                                                                               + Variable: f2
+[info] [:]                                                                                                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                                                                                                           + Variable: f3
+[info] [:]                                                                                                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                                                                                                       + Variable: f4
+[info] [:]                                                                                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                                                                                   + Variable: g1
+[info] [:]                                                                                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                                                                                               + Variable: g2
+[info] [:]                                                                                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                                                                                           + Variable: g3
+[info] [:]                                                                                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                                                                                       + Variable: g4
+[info] [:]                                                                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                                                                   + Variable: h1
+[info] [:]                                                                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                                                                               + Variable: h2
+[info] [:]                                                                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                                                                           + Variable: h3
+[info] [:]                                                                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                                                                       + Variable: h4
+[info] [:]                                                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                                                   + Variable: i1
+[info] [:]                                                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                                                               + Variable: i2
+[info] [:]                                                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                                                           + Variable: i3
+[info] [:]                                                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                                                       + Variable: i4
+[info] [:]                                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                                   + Variable: j1
+[info] [:]                                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                                               + Variable: j2
+[info] [:]                                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                                           + Variable: j3
+[info] [:]                                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                                       + Variable: j4
+[info] [:]                                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                                   + Variable: k1
+[info] [:]                                                                                                                                                             Right:
+[info] [:]                                                                                                                                                               + Variable: k2
+[info] [:]                                                                                                                                                         Right:
+[info] [:]                                                                                                                                                           + Variable: k3
+[info] [:]                                                                                                                                                     Right:
+[info] [:]                                                                                                                                                       + Variable: k4
+[info] [:]                                                                                                                                                 Right:
+[info] [:]                                                                                                                                                   + Variable: a1
+[info] [:]                                                                                                                                             Right:
+[info] [:]                                                                                                                                               + Variable: a2
+[info] [:]                                                                                                                                         Right:
+[info] [:]                                                                                                                                           + Variable: a3
+[info] [:]                                                                                                                                     Right:
+[info] [:]                                                                                                                                       + Variable: a4
+[info] [:]                                                                                                                                 Right:
+[info] [:]                                                                                                                                   + Variable: a5
+[info] [:]                                                                                                                             Right:
+[info] [:]                                                                                                                               + Variable: a6
+[info] [:]                                                                                                                         Right:
+[info] [:]                                                                                                                           + Variable: a7
+[info] [:]                                                                                                                     Right:
+[info] [:]                                                                                                                       + Variable: a8
+[info] [:]                                                                                                                 Right:
+[info] [:]                                                                                                                   + Variable: a9
+[info] [:]                                                                                                             Right:
+[info] [:]                                                                                                               + Variable: a10
+[info] [:]                                                                                                         Right:
+[info] [:]                                                                                                           + Variable: a11
+[info] [:]                                                                                                     Right:
+[info] [:]                                                                                                       + Variable: a12
+[info] [:]                                                                                                 Right:
+[info] [:]                                                                                                   + Variable: a13
+[info] [:]                                                                                             Right:
+[info] [:]                                                                                               + Variable: a14
+[info] [:]                                                                                         Right:
+[info] [:]                                                                                           + Variable: a15
+[info] [:]                                                                                     Right:
+[info] [:]                                                                                       + Variable: a16
+[info] [:]                                                                                 Right:
+[info] [:]                                                                                   + Variable: a17
+[info] [:]                                                                             Right:
+[info] [:]                                                                               + Variable: a18
+[info] [:]                                                                         Right:
+[info] [:]                                                                           + Variable: a19
+[info] [:]                                                                     Right:
+[info] [:]                                                                       + Variable: a20
+[info] [:]                                                                 Right:
+[info] [:]                                                                   + Variable: a21
+[info] [:]                                                             Right:
+[info] [:]                                                               + Variable: a22
+[info] [:]                                                         Right:
+[info] [:]                                                           + Variable: a23
+[info] [:]                                                     Right:
+[info] [:]                                                       + Variable: a24
+[info] [:]                                                 Right:
+[info] [:]                                                   + Variable: a25
+[info] [:]                                             Right:
+[info] [:]                                               + Variable: a26
+[info] [:]                                         Right:
+[info] [:]                                           + Variable: a27
+[info] [:]                                     Right:
+[info] [:]                                       + Variable: a28
+[info] [:]                                 Right:
+[info] [:]                                   + Variable: a29
+[info] [:]                             Right:
+[info] [:]                               + Variable: a30
+[info] [:]                         Right:
+[info] [:]                           + Variable: a31
+[info] [:]                     Right:
+[info] [:]                       + Variable: a32
+[info] [:]     Body:
+[info] [:]       + Compound Statement
+[info] [:]         + Assignment: a0 =
+[info] [:]           + Number: 0
+[info] [:]         + Assignment: a1 =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: a2 =
+[info] [:]           + Number: 2
+[info] [:]         + Assignment: a3 =
+[info] [:]           + Number: 3
+[info] [:]         + Assignment: a4 =
+[info] [:]           + Number: 4
+[info] [:]         + Assignment: a5 =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: a6 =
+[info] [:]           + Number: 6
+[info] [:]         + Assignment: a7 =
+[info] [:]           + Number: 7
+[info] [:]         + Assignment: a8 =
+[info] [:]           + Number: 8
+[info] [:]         + Assignment: a9 =
+[info] [:]           + Number: 9
+[info] [:]         + Assignment: a10 =
+[info] [:]           + Number: 10
+[info] [:]         + Assignment: a11 =
+[info] [:]           + Number: 11
+[info] [:]         + Assignment: a12 =
+[info] [:]           + Number: 12
+[info] [:]         + Assignment: a13 =
+[info] [:]           + Number: 13
+[info] [:]         + Assignment: a14 =
+[info] [:]           + Number: 14
+[info] [:]         + Assignment: a15 =
+[info] [:]           + Number: 15
+[info] [:]         + Assignment: a16 =
+[info] [:]           + Number: 16
+[info] [:]         + Assignment: a17 =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: a18 =
+[info] [:]           + Number: 2
+[info] [:]         + Assignment: a19 =
+[info] [:]           + Number: 3
+[info] [:]         + Assignment: a20 =
+[info] [:]           + Number: 4
+[info] [:]         + Assignment: a21 =
+[info] [:]           + Number: 5
+[info] [:]         + Assignment: a22 =
+[info] [:]           + Number: 6
+[info] [:]         + Assignment: a23 =
+[info] [:]           + Number: 7
+[info] [:]         + Assignment: a24 =
+[info] [:]           + Number: 8
+[info] [:]         + Assignment: a25 =
+[info] [:]           + Number: 9
+[info] [:]         + Assignment: a26 =
+[info] [:]           + Number: 10
+[info] [:]         + Assignment: a27 =
+[info] [:]           + Number: 11
+[info] [:]         + Assignment: a28 =
+[info] [:]           + Number: 12
+[info] [:]         + Assignment: a29 =
+[info] [:]           + Number: 13
+[info] [:]         + Assignment: a30 =
+[info] [:]           + Number: 14
+[info] [:]         + Assignment: a31 =
+[info] [:]           + Number: 15
+[info] [:]         + Assignment: a32 =
+[info] [:]           + Number: 16
+[info] [:]         + Assignment: a =
+[info] [:]           + Number: 1
+[info] [:]         + Assignment: b =
+[info] [:]           + Binary Op: +
+[info] [:]             Left:
+[info] [:]               + Variable: a
+[info] [:]             Right:
+[info] [:]               + Binary Op: *
+[info] [:]                 Left:
+[info] [:]                   + Number: 2
+[info] [:]                 Right:
+[info] [:]                   + Number: 9
+[info] [:]         + Assignment: a =
+[info] [:]           + Function Call: func
+[info] [:]             Arguments:
+[info] [:]               + Variable: a
+[info] [:]               + Variable: b
+[info] [:]         + Write Statement
+[info] [:]           + Variable: a
+[info] [:] 转换完成: '62_register_alloc.pas' -> '62_register_alloc.c'

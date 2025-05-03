@@ -25,14 +25,28 @@ public:
 };
 
 _VisitDecl_(CCodeGenVisitor,AssignmentStmt){
-    if(node.variable == current_function_name){
+    // 设置上下文信息，表示下一个表达式是在赋值语句左侧
+
+    if(node.variable == CCodeGenVisitor::current_function_name){
         output<<"return ";
         node.expr->accept(*this);
         output << ";";
     }else{
-        output<< node.variable << " = "; 
+        bool oldValue = isLeftSideOfAssignment;
+        isLeftSideOfAssignment = true;
+            
+        // 输出变量名
+        output << node.variable << " = ";
+        
+        // 恢复上下文信息，右侧不再是赋值语句左侧
+        isLeftSideOfAssignment = false;
+        
+        // 生成右侧表达式
         node.expr->accept(*this);
         output << ";";
+        
+        // 恢复原始上下文
+        isLeftSideOfAssignment = oldValue;
     }
 }
 
@@ -132,6 +146,9 @@ _VisitDecl_(CCodeGenVisitor,WriteStmt){
     }
     output<<");\n";
 }
+
+
+
 
 class IfStmt : public ASTAcceptImpl<IfStmt,Statement> {
 public:
@@ -425,3 +442,8 @@ _VisitDecl_(CCodeGenVisitor, ProgramAST) {
         output << "\n";
     }
 }
+
+
+#include "ProcedureCallStmt.h"
+
+#include "ReadStmt.h"
