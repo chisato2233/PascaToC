@@ -2,6 +2,7 @@
 #include <fstream>
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
+#include <spdlog/sinks/stdout_color_sinks.h>
 #include <memory>
 #include <string>
 #include <filesystem>
@@ -14,15 +15,26 @@ void printUsage() {
 }
 
 void initLogger() {
-    // 设置日志格式
-    spdlog::set_pattern("[%^%l%$] [%s:%#] %v");
+    // 创建多个sink
+    std::vector<spdlog::sink_ptr> sinks;
     
-    // 设置日志级别
-    spdlog::set_level(spdlog::level::debug);
+    // 添加控制台sink
+    auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+    console_sink->set_pattern("[%^%l%$] [%s:%#] %v");
+    console_sink->set_level(spdlog::level::debug);
+    sinks.push_back(console_sink);
     
-    // 创建文件日志并设置为默认日志器
+    // 添加文件sink
     auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/pascc.log", true);
-    auto logger = std::make_shared<spdlog::logger>("pascc", file_sink);
+    file_sink->set_pattern("[%^%l%$] [%s:%#] %v");
+    file_sink->set_level(spdlog::level::debug);
+    sinks.push_back(file_sink);
+    
+    // 创建多sink日志记录器
+    auto logger = std::make_shared<spdlog::logger>("pascc", sinks.begin(), sinks.end());
+    logger->set_level(spdlog::level::debug); // 设置日志记录器级别
+    
+    // 注册并设置为默认日志记录器
     spdlog::register_logger(logger);
     spdlog::set_default_logger(logger);
     
@@ -30,11 +42,11 @@ void initLogger() {
 }
 
 int main(int argc, char* argv[]) {
-    // 解析命令行参数
-    if (argc < 3) {
-        printUsage();
-        return 1;
-    }
+
+    // if (argc < 3) {
+    //     printUsage();
+    //     return 1;
+    // }
     
     std::string inputFileName;
     std::string outputFileName;
@@ -57,9 +69,8 @@ int main(int argc, char* argv[]) {
     
     // 检查必需的输入文件参数
     if (inputFileName.empty()) {
-        spdlog::error("错误: 必须指定输入文件");
-        printUsage();
-        return 1;
+        inputFileName = "./test.pas";
+        spdlog::info("使用默认输入文件: '{}'", inputFileName);
     }
     
     // 检查输入文件是否存在
@@ -71,8 +82,12 @@ int main(int argc, char* argv[]) {
     
     // 如果没有指定输出文件，则根据输入文件名生成
     if (outputFileName.empty()) {
-        std::filesystem::path inputPath(inputFileName);
-        outputFileName = inputPath.stem().string() + ".c";
+        if (inputFileName == "./test.pas") {
+            outputFileName = "./res.c";
+        } else {
+            std::filesystem::path inputPath(inputFileName);
+            outputFileName = inputPath.stem().string() + ".c";
+        }
     }
     
     std::ofstream outputFile(outputFileName);
@@ -82,10 +97,12 @@ int main(int argc, char* argv[]) {
     }
     
     // **1️⃣ 读取 Pascal 源代码**
+    spdlog::debug("读取 Pascal 源代码");
     std::ostringstream oss; 
     oss << inputFile.rdbuf();
     auto pascalCode = oss.str();
     inputFile.close();
+
 
     // **2️⃣ 调用 Pascal 解析器**
     PascalParser parser;

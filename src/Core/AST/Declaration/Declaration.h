@@ -7,106 +7,8 @@
 #include <string>
 #include <sstream>
 
-// 符号类型
-enum class SymbolType {
-    Variable,
-    Function,
-    Procedure,
-    Type,
-    Constant
-};
-
-// 符号信息基类
-class SymbolInfo {
-public:
-    SymbolType symbolType;
-    std::string name;
-    std::string type;
-    
-    SymbolInfo(SymbolType sType, std::string sName, std::string strType)
-        : symbolType(sType), name(std::move(sName)), type(std::move(strType)) {}
-    
-    virtual ~SymbolInfo() = default;
-};
-
-// 变量符号信息
-class VariableInfo : public SymbolInfo {
-public:
-    VariableInfo(std::string name, std::string type)
-        : SymbolInfo(SymbolType::Variable, std::move(name), std::move(type)) {}
-};
-
-// 函数符号信息
-class FunctionInfo : public SymbolInfo {
-public:
-    std::vector<std::pair<std::string, std::string>> parameters; // 参数名和类型
-    
-    FunctionInfo(std::string name, std::string returnType)
-        : SymbolInfo(SymbolType::Function, std::move(name), std::move(returnType)) {}
-};
-
-// 符号表类
-class SymbolTable {
-private:
-    std::stack<std::unordered_map<std::string, std::shared_ptr<SymbolInfo>>> _scopes;
-    
-public:
-    SymbolTable() {
-        // 初始化全局作用域
-        enterScope();
-    }
-    
-    // 进入新作用域
-    void enterScope() {
-        _scopes.push({});
-    }
-    
-    // 退出当前作用域
-    void exitScope() {
-        if (_scopes.size() > 1) { // 保留全局作用域
-            _scopes.pop();
-        }
-    }
-    
-    // 添加符号
-    bool addSymbol(std::shared_ptr<SymbolInfo> info) {
-        auto& currentScope = _scopes.top();
-        if (currentScope.find(info->name) != currentScope.end()) {
-            return false; // 符号已存在
-        }
-        currentScope[info->name] = info;
-        return true;
-    }
-    
-    // 查找符号（会搜索所有可见作用域）
-    std::shared_ptr<SymbolInfo> lookupSymbol(const std::string& name) {
-        std::stack<std::unordered_map<std::string, std::shared_ptr<SymbolInfo>>> tempStack = _scopes;
-        
-        while (!tempStack.empty()) {
-            auto& scope = tempStack.top();
-            auto it = scope.find(name);
-            if (it != scope.end()) {
-                return it->second;
-            }
-            tempStack.pop();
-        }
-        
-        return nullptr; // 未找到符号
-    }
-    
-    // 仅在当前作用域查找符号
-    std::shared_ptr<SymbolInfo> lookupSymbolInCurrentScope(const std::string& name) {
-        auto& currentScope = _scopes.top();
-        auto it = currentScope.find(name);
-        if (it != currentScope.end()) {
-            return it->second;
-        }
-        return nullptr;
-    }
-};
-
-// 全局符号表实例
-inline SymbolTable GlobalSymbolTable;
+#include "Expression/Expression.h"
+#include "SymbolTable.h"
 
 // 变量声明节点（支持普通变量和数组变量）
 // 如果 typeName 含有 '[' 则认为是数组类型，例如 "int[10]"
@@ -163,7 +65,41 @@ public:
 };
 
 _VisitDecl_(CCodeGenVisitor, ConstDeclaration) {
-    output << "#define " << node.constName << " ";
-    node.constValue->accept(*this);
-    output << "\n";
+    // 获取表达式的C类型
+    std::string c_type = node.constValue->getCType();
+    bool is_string = node.constValue->getType() == Expression::ExprType::String;
+    
+    // 将常量添加到符号表
+    auto constInfo = std::make_shared<ConstantInfo>(
+        node.constName,
+        c_type,
+        node.constValue
+    );
+    
+    if (GlobalSymbolTable.addSymbol(constInfo)) {
+        spdlog::debug("常量 {} 已添加到符号表，类型: {}", node.constName, c_type);
+    }
+    
+    // 生成C代码
+    if (is_string) {
+        // 字符串常量使用数组
+        output << "static const " << c_type << " " << node.constName << "[] = ";
+        node.constValue->accept(*this);
+        output << ";\n";
+    } else {
+        // 其他类型使用const变量
+        output << "const " << c_type << " " << node.constName << " = ";
+        
+        // 布尔值特殊处理
+        if (node.constValue->getType() == Expression::ExprType::Boolean) {
+            if (auto boolExpr = std::dynamic_pointer_cast<BoolExpr>(node.constValue)) {
+                output << (boolExpr->value ? "1" : "0") << ";\n";
+                return;
+            }
+        }
+        
+        // 生成值
+        node.constValue->accept(*this);
+        output << ";\n";
+    }
 }
