@@ -1,5 +1,6 @@
 %define parse.error verbose
 %define parse.trace
+%define api.location.type {SourceLocation} 
 %locations
 
 %defines
@@ -87,6 +88,7 @@ std::string current_function_name = "";
 %token PLUS_ASSIGN MINUS_ASSIGN MULTIPLY_ASSIGN DIVIDE_ASSIGN
 %token LPAREN RPAREN LBRACKET RBRACKET
 %token SEMICOLON COLON COMMA DOT DOTDOT
+
 %token <int_val> INTEGER_CONST BOOL_CONST
 %token <real_val> REAL_CONST
 %token <cstr_val> STRING_CONST IDENTIFIER
@@ -95,11 +97,11 @@ std::string current_function_name = "";
 
 %type <stmt_ptr> program_block compound_statement  statement
 %type <stmt_ptr> assignment_statement if_statement while_statement
-%type <stmt_ptr> repeat_statement for_statement case_statement write_statement read_statement procedure_statement
+%type <stmt_ptr> repeat_statement for_statement case_statement write_statement read_statement procedure_statement case_element
 %type <stmt_list> statement_list
 %type <stmt_list> case_element_list
 
-%type <expr_ptr> expression simple_expression term factor function_call
+%type <expr_ptr> expression simple_expression term factor function_call constant
 %type <expr_list> expression_list
 
 %type <decl_ptr> var_declaration
@@ -108,7 +110,6 @@ std::string current_function_name = "";
 %type <cstr_val> type simple_type record_type array_type
 %type <str_list> identifier_list
 
-%type <ptr> case_element constant 
 
 %type <int_val> index_range
 %type <range_list> index_range_list
@@ -129,6 +130,7 @@ program:
   {
     if(parse_result){ (*parse_result)+="sucess\n"; }
     root = std::make_shared<ProgramAST>($2, *((StmtPtr*)$4));
+    root->location = @$;
     delete (StmtPtr*)$4;
   }
   ;
@@ -144,6 +146,7 @@ program_block:
       }
       
       $$ = new StmtPtr(std::make_shared<BlockStmt>(*($1), *((StmtPtr*)$2)));
+      (*$$)->location = @$;;
       delete $1;
       delete (StmtPtr*)$2;
       
@@ -153,6 +156,7 @@ program_block:
       spdlog::error("创建程序块时出错: {}", e.what());
       $$ = new StmtPtr(std::make_shared<BlockStmt>(DeclVec(), 
                        std::make_shared<CompoundStmt>(StmtVec())));
+      (*$$)->location = @$;;
     }
   }
   ;
@@ -243,6 +247,7 @@ const_declarations:
     }
     spdlog::debug("const声明区块处理完成，当前有{}个声明", 
                  current_declarations->size());
+    
   }
   ;
 
@@ -268,6 +273,7 @@ const_declaration:
       // 释放解析过程中分配的内存
       free($1); // 释放IDENTIFIER
       delete (ExprPtr*)$3; // 释放表达式指针
+      
     } catch (const std::exception& e) {
       spdlog::error("处理常量声明时出错: {}", e.what());
     }
@@ -350,7 +356,7 @@ procedure_declaration:
       
       // 创建过程声明节点
       auto procDecl = std::make_shared<ProcedureDeclaration>($2, params, procBody);
-      
+      procDecl->location = @$;
       // 确保current_declarations存在
       if (current_declarations == nullptr) {
         spdlog::debug("创建新的声明列表用于过程{}", $2);
@@ -402,7 +408,7 @@ function_declaration:
       
       // 创建函数声明节点
       auto funcDecl = std::make_shared<FunctionDeclaration>($2, $5, params, funcBody);
-      
+      funcDecl->location = @$;
       // 确保current_declarations存在
       if (current_declarations == nullptr) {
         spdlog::debug("创建新的声明列表用于函数{}", $2);
@@ -560,22 +566,27 @@ constant:
   INTEGER_CONST
   {
     $$ = new ExprPtr(std::make_shared<NumberExpr>($1));
+    (*$$)->location = @$;
   }
   | REAL_CONST
   {
     $$ = new ExprPtr(std::make_shared<RealExpr>($1));
+    (*$$)->location = @$;
   }
   | STRING_CONST
   {
     $$ = new ExprPtr(std::make_shared<StringExpr>($1));
+    (*$$)->location = @$;
   }
   | BOOL_CONST
   {
     $$ = new ExprPtr(std::make_shared<BoolExpr>($1));
+    (*$$)->location = @$;
   }
   | IDENTIFIER
   {
     $$ = new ExprPtr(std::make_shared<VariableExpr>($1));
+    (*$$)->location = @$;
   }
   ;
 
@@ -584,6 +595,7 @@ compound_statement:
   {
     spdlog::debug("处理完整个复合语句");
     $$ = new StmtPtr(std::make_shared<CompoundStmt>(*(std::vector<std::shared_ptr<Statement>>*)$2));
+(*$$)->location = @$;
     delete (std::vector<std::shared_ptr<Statement>>*)$2;
   }
   ;
@@ -639,8 +651,10 @@ assignment_statement:
     // 处理没有分号的情况
     if ($1 == current_function_name) {
       $$ = new StmtPtr(std::make_shared<ReturnStmt>(*((ExprPtr*)$3)));
+  (*$$)->location = @$;
     } else {
       $$ = new StmtPtr(std::make_shared<AssignmentStmt>($1, *((ExprPtr*)$3)));
+  (*$$)->location = @$;
     }
     free($1);
     delete (ExprPtr*)$3;
@@ -651,10 +665,12 @@ assignment_statement:
     auto arrayAccess = std::dynamic_pointer_cast<ArrayAccessExpr>(*((ExprPtr*)$1));
     if (arrayAccess) {
       $$ = new StmtPtr(std::make_shared<ArrayAssignmentStmt>(arrayAccess, *((ExprPtr*)$3)));
+  (*$$)->location = @$;
     } else {
       // 创建错误语句或抛出异常
       spdlog::error("无法将表达式转换为数组访问表达式");
       $$ = new StmtPtr(std::make_shared<EmptyStmt>());
+  (*$$)->location = @$;
     }
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
@@ -665,12 +681,14 @@ if_statement:
   IF expression THEN statement
   {
     $$ = new StmtPtr(std::make_shared<IfStmt>(*((ExprPtr*)$2), *((StmtPtr*)$4), nullptr));
+(*$$)->location = @$;
     delete (ExprPtr*)$2;
     delete (StmtPtr*)$4;
   }
   | IF expression THEN statement ELSE statement
   {
     $$ = new StmtPtr(std::make_shared<IfStmt>(*((ExprPtr*)$2), *((StmtPtr*)$4), *((StmtPtr*)$6)));
+(*$$)->location = @$;
     delete (ExprPtr*)$2;
     delete (StmtPtr*)$4;
     delete (StmtPtr*)$6;
@@ -681,6 +699,7 @@ while_statement:
   WHILE expression DO statement
   {
     $$ = new StmtPtr(std::make_shared<WhileStmt>(*((ExprPtr*)$2), *((StmtPtr*)$4)));
+(*$$)->location = @$;
     delete (ExprPtr*)$2;
     delete (StmtPtr*)$4;
   }
@@ -690,6 +709,7 @@ repeat_statement:
   REPEAT statement_list UNTIL expression
   {
     $$ = new StmtPtr(std::make_shared<RepeatStmt>(*(std::vector<std::shared_ptr<Statement>>*)$2, *((ExprPtr*)$4)));
+(*$$)->location = @$;
     delete (std::vector<std::shared_ptr<Statement>>*)$2;
     delete (ExprPtr*)$4;
   }
@@ -699,6 +719,7 @@ for_statement:
   FOR IDENTIFIER ASSIGN expression direction expression DO statement
   {
     $$ = new StmtPtr(std::make_shared<ForStmt>($2, *((ExprPtr*)$4), $5, *((ExprPtr*)$6), *((StmtPtr*)$8)));
+(*$$)->location = @$;
     free($2);
     delete (ExprPtr*)$4;
     delete (ExprPtr*)$6;
@@ -715,6 +736,7 @@ case_statement:
   CASE expression OF case_element_list END_TOKEN
   {
     $$ = new StmtPtr(std::make_shared<CaseStmt>(*((ExprPtr*)$2), *(std::vector<std::shared_ptr<Statement>>*)$4));
+    (*$$)->location = @$;
     delete (ExprPtr*)$2;
     delete (std::vector<std::shared_ptr<Statement>>*)$4;
   }
@@ -739,6 +761,7 @@ case_element:
   constant COLON statement
   {
     $$ = new StmtPtr(std::make_shared<CaseElementStmt>(*((ExprPtr*)$1), *((StmtPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (StmtPtr*)$3;
   }
@@ -748,6 +771,7 @@ write_statement:
   WRITE LPAREN expression_list RPAREN
   {
     $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3)));
+(*$$)->location = @$;
     delete (ExprVec*)$3;
   }
   ;
@@ -756,6 +780,7 @@ read_statement:
   READ LPAREN expression_list RPAREN
   {
     $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<ReadStmt>(*$3)));
+(*$$)->location = @$;
     delete (ExprVec*)$3;
   }
   ;
@@ -764,12 +789,14 @@ expression_list:
   {
     $$ = new ExprVec();
     $$->push_back(*$1);
+
     delete $1;
   }
   | expression_list COMMA expression
   {
     $$ = $1;
     $$->push_back(*$3);
+
     delete $3;
   }
   ;
@@ -778,40 +805,47 @@ expression:
     simple_expression
   {
     $$ = $1;
+(*$$)->location = @$;
   }
   | simple_expression EQUAL simple_expression
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Equal, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | simple_expression NOT_EQUAL simple_expression
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::NotEqual, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | simple_expression LESS simple_expression
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Less, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | simple_expression GREATER simple_expression
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Greater, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | simple_expression LESS_EQUAL simple_expression
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::LessEqual, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | simple_expression GREATER_EQUAL simple_expression
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::GreaterEqual, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
@@ -825,6 +859,7 @@ simple_expression:
   | simple_expression PLUS term
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Plus, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
@@ -835,17 +870,20 @@ simple_expression:
   | simple_expression MINUS term
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Minus, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | MINUS term %prec NEG
   {
     $$ = new ExprPtr(std::make_shared<UnaryExpr>(UnaryExpr::Neg, *((ExprPtr*)$2)));
+(*$$)->location = @$;
     delete (ExprPtr*)$2;
   }
   | simple_expression OR term
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Or, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
@@ -855,34 +893,40 @@ term:
     factor
   {
     $$ = $1;
+(*$$)->location = @$;
   }
   | term MULTIPLY factor
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Multiply, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | term DIVIDE factor
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Divide, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | term DIV factor
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Div, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | term MOD factor
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::Mod, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
   | term AND factor
   {
     $$ = new ExprPtr(std::make_shared<BinaryExpr>(BinaryExpr::And, *((ExprPtr*)$1), *((ExprPtr*)$3)));
+(*$$)->location = @$;
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
@@ -892,56 +936,69 @@ factor:
     INTEGER_CONST
   {
     $$ = new ExprPtr(std::make_shared<NumberExpr>($1));
+(*$$)->location = @$;
   }
   | MINUS INTEGER_CONST %prec NEG
   {
     $$ = new ExprPtr(std::make_shared<NumberExpr>(-$2));
+(*$$)->location = @$;
   }
   | PLUS INTEGER_CONST %prec NEG
   {
     $$ = new ExprPtr(std::make_shared<NumberExpr>($2));
+(*$$)->location = @$;
   }
   | MINUS factor %prec NEG
   {
     $$ = new ExprPtr(std::make_shared<UnaryExpr>(UnaryExpr::Neg, *((ExprPtr*)$2)));
+(*$$)->location = @$;
     delete (ExprPtr*)$2;
   }
   | PLUS factor %prec NEG
   {
     $$ = $2; // 正号(+)不改变表达式的值
+(*$$)->location = @$;
   }
   | REAL_CONST
   {
     $$ = new ExprPtr(std::make_shared<RealExpr>($1));
+(*$$)->location = @$;
   }
   | BOOL_CONST
   {
     $$ = new ExprPtr(std::make_shared<BoolExpr>($1));
+(*$$)->location = @$;
   }
   | STRING_CONST
   {
     $$ = new ExprPtr(std::make_shared<StringExpr>($1));
+(*$$)->location = @$;
   }
   | IDENTIFIER
   {
     $$ = new ExprPtr(std::make_shared<VariableExpr>($1));
+(*$$)->location = @$;
   }
   | LPAREN expression RPAREN
   {
     $$ = $2;
+(*$$)->location = @$;
   }
   | NOT factor
   {
     $$ = new ExprPtr(std::make_shared<UnaryExpr>(UnaryExpr::Not, *((ExprPtr*)$2)));
+(*$$)->location = @$;
     delete (ExprPtr*)$2;
   }
   | function_call
   {
     $$ = $1;
+(*$$)->location = @$;
   }
   | array_expression
   {
     $$ = $1;
+(*$$)->location = @$;
   }
 ;
 
@@ -949,11 +1006,13 @@ function_call:
   IDENTIFIER LPAREN expression_list RPAREN
   {
     $$ = new ExprPtr(std::make_shared<FunctionCall>($1, *(std::vector<std::shared_ptr<Expression>>*)$3));
+(*$$)->location = @$;
     delete (std::vector<std::shared_ptr<Expression>>*)$3;
   }
   | IDENTIFIER LPAREN RPAREN  // 添加处理空参数列表的情况
   {
     $$ = new ExprPtr(std::make_shared<FunctionCall>($1, ExprVec()));
+(*$$)->location = @$;
     free($1);
   }
   ;
@@ -975,17 +1034,20 @@ procedure_statement:
   IDENTIFIER
   {
     $$ = new StmtPtr(std::make_shared<FunctionCallStmt>($1, ExprVec()));
+(*$$)->location = @$;
     free($1);
   }
   | IDENTIFIER LPAREN expression_list RPAREN
   {
     $$ = new StmtPtr(std::make_shared<FunctionCallStmt>($1, *$3));
+(*$$)->location = @$;
     free($1);
     delete $3;
   }
   | IDENTIFIER LPAREN RPAREN
   {
     $$ = new StmtPtr(std::make_shared<FunctionCallStmt>($1, ExprVec()));
+(*$$)->location = @$;
     free($1);
   }
   ;
@@ -994,6 +1056,7 @@ array_expression:
   IDENTIFIER LBRACKET expression RBRACKET
   {
     $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>($1, *((ExprPtr*)$3)));
+(*$$)->location = @$;
     free($1);
     delete (ExprPtr*)$3;
   }
@@ -1001,6 +1064,7 @@ array_expression:
   {
     // 支持多维数组访问
     $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>($1, *$3));
+(*$$)->location = @$;
     free($1);
     delete $3;
   }
@@ -1011,9 +1075,11 @@ array_expression:
     if (prevAccess) {
       // 创建新的嵌套访问
       $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>(*((ExprPtr*)$1), *((ExprPtr*)$3)));
+  (*$$)->location = @$;
     } else {
       spdlog::error("嵌套数组访问的基础不是数组");
       $$ = new ExprPtr(std::make_shared<ArrayAccessExpr>("error", *((ExprPtr*)$3)));
+  (*$$)->location = @$;
     }
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;

@@ -59,6 +59,12 @@ VisitorType::visit<NodeType>(NodeType& node)
         inline void VisitorType::visit(NodeType& node)
 
 
+struct SourceLocation {
+    int first_line;
+    int first_column;
+    int last_line;
+    int last_column;
+};
 /**
  * @brief AST节点的基类
  * 
@@ -79,6 +85,7 @@ public:
     [[deprecated("Use CCodeGenVisitor instead")]]
     virtual std::string codeGen(){return "";} // 生成 C 代码
     
+    SourceLocation location;
     /**
      * @brief 获取节点名称
      * @return 节点的名称字符串
@@ -285,7 +292,7 @@ public:
      */
     void printAST(int indent = 0) const override {
         std::string padding = getIndent(indent);
-        spdlog::info("{}+ Program: {}", padding, name);
+        spdlog::info("{}+ Program: {} [{}:{}]", padding, name, location.first_line, location.first_column);
         if (body) {
             spdlog::info("{}  Body:", padding);
             body->printAST(indent + 1);

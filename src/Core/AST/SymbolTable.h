@@ -27,68 +27,6 @@ public:
     virtual ~SymbolInfo() = default;
 };
 
-// 符号表类
-class SymbolTable {
-private:
-    std::stack<std::unordered_map<std::string, std::shared_ptr<SymbolInfo>>> _scopes;
-    
-public:
-    SymbolTable() {
-        // 初始化全局作用域
-        enterScope();
-    }
-    
-    // 进入新作用域
-    void enterScope() {
-        _scopes.push({});
-    }
-    
-    // 退出当前作用域
-    void exitScope() {
-        if (_scopes.size() > 1) { // 保留全局作用域
-            _scopes.pop();
-        }
-    }
-    
-    // 添加符号
-    bool addSymbol(std::shared_ptr<SymbolInfo> info) {
-        auto& currentScope = _scopes.top();
-        if (currentScope.find(info->name) != currentScope.end()) {
-            return false; // 符号已存在
-        }
-        currentScope[info->name] = info;
-        return true;
-    }
-    
-    // 查找符号（会搜索所有可见作用域）
-    std::shared_ptr<SymbolInfo> lookupSymbol(const std::string& name) {
-        std::stack<std::unordered_map<std::string, std::shared_ptr<SymbolInfo>>> tempStack = _scopes;
-        
-        while (!tempStack.empty()) {
-            auto& scope = tempStack.top();
-            auto it = scope.find(name);
-            if (it != scope.end()) {
-                return it->second;
-            }
-            tempStack.pop();
-        }
-        
-        return nullptr; // 未找到符号
-    }
-    
-    // 仅在当前作用域查找符号
-    std::shared_ptr<SymbolInfo> lookupSymbolInCurrentScope(const std::string& name) {
-        auto& currentScope = _scopes.top();
-        auto it = currentScope.find(name);
-        if (it != currentScope.end()) {
-            return it->second;
-        }
-        return nullptr;
-    }
-};
-
-// 全局符号表实例
-inline static SymbolTable GlobalSymbolTable;
 
 // 变量符号信息
 class VariableInfo : public SymbolInfo {
@@ -135,3 +73,66 @@ public:
         : SymbolInfo(SymbolType::Constant, std::move(name), std::move(type)),
           constExpr(std::move(expr)) {}
 };
+
+
+
+
+
+// ----------（保持您原有 SymbolInfo / VariableInfo 等定义不变）----------
+
+class SymbolTable {
+    using SymbolPtr = std::shared_ptr<SymbolInfo>;
+
+    using Scope = std::unordered_map<
+        std::string, SymbolPtr,
+        std::hash<std::string_view>,
+        std::equal_to<>>;
+
+    std::vector<Scope> _scopes;
+
+public:
+    SymbolTable() { enterScope(); }
+
+
+    void enterScope() { _scopes.emplace_back(); }
+
+    void exitScope() {
+        if (_scopes.size() > 1) _scopes.pop_back();
+    }
+
+
+    template <typename SymPtr>
+    bool addSymbol(SymPtr&& info) {
+        auto& cur = _scopes.back();
+        auto [it, inserted] =
+            cur.emplace(info->name, std::forward<SymPtr>(info));
+        return inserted;
+    }
+
+
+    SymbolPtr lookupSymbol(std::string_view name) const noexcept {
+        for (auto it = _scopes.rbegin(); it != _scopes.rend(); ++it) {
+            if (auto found = it->find(std::string(name)); found != it->end())
+                return found->second;
+        }
+        return nullptr;
+    }
+
+    SymbolPtr lookupSymbolInCurrentScope(std::string_view name) const noexcept {
+        const auto& cur = _scopes.back();
+        if (auto it = cur.find(std::string(name)); it != cur.end())
+            return it->second;
+        return nullptr;
+    }
+};
+
+
+class ScopeGuard {
+    SymbolTable& tbl;
+public:
+    explicit ScopeGuard(SymbolTable& t) : tbl(t) { tbl.enterScope(); }
+    ~ScopeGuard() { tbl.exitScope(); }
+};
+
+// 全局符号表实例
+inline static SymbolTable GlobalSymbolTable;
