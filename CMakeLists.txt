@@ -9,12 +9,14 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 添加Clang特定编译选项
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused-includes")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused-value")
 
 # 启用导出编译命令，帮助IDE提供代码补全
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# 查找spdlog库
+# spdlog库
+set(SPDLOG_USE_STATIC_LIBS ON)
+set(SPDLOG_BUILD_SHARED OFF)
 find_package(spdlog REQUIRED)
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -104,7 +106,7 @@ add_executable(pascc
 )
 
 # 链接spdlog库到pascc可执行文件
-target_link_libraries(pascc PRIVATE spdlog::spdlog)
+target_link_libraries(pascc PRIVATE spdlog::spdlog_header_only)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 6. 设置依赖顺序: 先生成 Parser / Lexer，再编译 compiler

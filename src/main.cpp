@@ -21,8 +21,8 @@ void initLogger() {
     // 添加控制台sink
     auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
     console_sink->set_pattern("[%^%l%$] [%s:%#] %v");
-    console_sink->set_level(spdlog::level::debug);
-    //sinks.push_back(console_sink);
+    console_sink->set_level(spdlog::level::warn);
+    sinks.push_back(console_sink);
     
     // 添加文件sink
     auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs/pascc.log", true);
