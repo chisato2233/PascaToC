@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
-
+#include "Statements/BlockStmt.h"
 #include "Expression/Expression.h"
 #include "SymbolTable.h"
 
@@ -84,8 +84,30 @@ _VisitDecl_(CCodeGenVisitor, FunctionDeclaration) {
     }
     
     // 生成函数体代码
+    auto function_info = std::static_pointer_cast<FunctionInfo>(
+        GlobalSymbolTable.lookupSymbol(node.funcName)
+    );
     if (node.body) {
-        node.body->accept(*this);
+        auto block_stmt = std::static_pointer_cast<BlockStmt>(node.body);
+        if(block_stmt){
+            output<<" {\n";
+            if(node.returnType!="void"){
+                output<<node.returnType<<" __fun_return_"<<node.funcName<<";\n";
+                function_info->return_expr_identity = "__fun_return_"+node.funcName;
+            }
+
+            for(auto& decl : block_stmt->declarations){
+                decl->accept(*this);
+            }
+
+            block_stmt->body->accept(*this);
+            
+            if(node.returnType!="void" && !function_info->return_expr_identity.empty()){
+                output << "return " << function_info->return_expr_identity << ";";
+            }
+
+            output << "}\n";
+        }else node.body->accept(*this);
     } else {
         output << "{\n  // Empty function body\n}\n";
     }

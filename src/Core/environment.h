@@ -10,11 +10,11 @@ constexpr std::string_view ENVIRONMENT_H = R"(
 
 void write_int(int x)        { printf("%d", x); }
 void write_longlong(long long x)        { printf("%lld", x); }
-void write_float(float x)    { printf("%f", x); }
+void write_float(float x)    { printf("%.6f", x); }
 
 void write_char(char x)      { putchar(x); }
 void write_cstr(const char* s) { printf("%s", s); }
-void write_double_short(double x) { printf("%.6f", x); }
+void write_double_short(double x) { printf("%.6lf", x); }
 void write_double_long(double x) { 
     // 使用E科学计数法，但自行处理指数部分
     char buffer[64];
@@ -90,8 +90,7 @@ void read_cstr(char* s, int max_len) {
 
 // 确保模运算结果为正数
 int mod(int a, int m) {
-  int result = a % m;
-  return result >= 0 ? result : result + m;
+    return a % m;
 }
 
 )";

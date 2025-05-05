@@ -13,6 +13,9 @@
     #include <memory>
     #include <vector>
     #include <string>
+    #define YYINITDEPTH  2048      /* 初始栈 */
+    #define YYMAXDEPTH  100000     /* 允许的最大深度 */
+
     #include "../AST/AST.h"
 }
 %{
@@ -75,6 +78,7 @@ std::string current_function_name = "";
 %token IF THEN ELSE
 %token WHILE DO FOR TO DOWNTO
 %token REPEAT UNTIL
+%token BREAK
 %token CASE OF
 %token CONST TYPE
 %token ARRAY RECORD
@@ -638,6 +642,10 @@ statement:
   | case_statement { $$ = $1; }
   | write_statement { $$ = $1; }
   | read_statement { $$ = $1; }
+  | BREAK SEMICOLON { 
+    $$ = new StmtPtr(std::make_shared<BreakStmt>()); 
+    (*$$)->location = @$;
+  }
   | /* 空语句 */ 
   {
     // 创建一个空语句节点

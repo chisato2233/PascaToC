@@ -31,7 +31,12 @@ _VisitDecl_(CCodeGenVisitor, ReadStmt) {
                 // 假设字符串缓冲区最大长度为256
                 output << "read_string(" << varExpr->name << ", 256);\n";
             } else {
-                output << "read(&" << varExpr->name << ");\n";
+                auto identity = varExpr->name;
+                if(varExpr->name == current_function_name){
+                    identity = "__fun_return_"+current_function_name;
+                }
+
+                output << "read(&" << identity << ");\n";
             }
         } else {
             // 通用处理...

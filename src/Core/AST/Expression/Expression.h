@@ -54,8 +54,8 @@ public:
 
 _VisitDecl_(CCodeGenVisitor,RealExpr){
     char buffer[64];
-    snprintf(buffer, sizeof(buffer), "%.17g", node.value);
-    output << buffer;
+    snprintf(buffer, sizeof(buffer), "%.16g", node.value);
+    output <<"(double)" "("<<buffer<<")";
 }
 
 

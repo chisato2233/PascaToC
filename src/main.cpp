@@ -10,11 +10,12 @@
 #include "AST/ASTBase.h"  // 包含 AST 基类
 
 void printUsage() {
-    std::cout << "用法: pascc -i <pascal源文件> [-o <输出文件路径>]" << std::endl;
+    std::cout << "用法: pascc -i <pascal源文件> [-o <输出文件路径>] [-d]" << std::endl;
     std::cout << "示例: pascc -i example.pas -o output.c" << std::endl;
+    std::cout << "选项: -d 启用调试日志" << std::endl;
 }
 
-void initLogger(const std::string& logFileName = "logs/pascc.log") {
+void initLogger(const std::string& logFileName = "logs/pascc.log", bool debugMode = false) {
     // 创建多个sink
     std::vector<spdlog::sink_ptr> sinks;
     
@@ -27,12 +28,12 @@ void initLogger(const std::string& logFileName = "logs/pascc.log") {
     // 添加文件sink，使用传入的logFileName
     auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(logFileName, true);
     file_sink->set_pattern("[%^%l%$] [%s:%#] %v");
-    file_sink->set_level(spdlog::level::debug);
+    file_sink->set_level(debugMode ? spdlog::level::debug : spdlog::level::warn);
     sinks.push_back(file_sink);
     
     // 创建多sink日志记录器
     auto logger = std::make_shared<spdlog::logger>("pascc", sinks.begin(), sinks.end());
-    logger->set_level(spdlog::level::debug);
+    logger->set_level(debugMode ? spdlog::level::debug : spdlog::level::warn);
     
     // 注册并设置为默认日志记录器
     spdlog::register_logger(logger);
@@ -44,6 +45,7 @@ void initLogger(const std::string& logFileName = "logs/pascc.log") {
 int main(int argc, char* argv[]) {
     std::string inputFileName;
     std::string outputFileName;
+    bool debugMode = false;
     
     // 解析参数
     for (int i = 1; i < argc; i++) {
@@ -51,8 +53,10 @@ int main(int argc, char* argv[]) {
         
         if (arg == "-i" && i + 1 < argc) {
             inputFileName = argv[++i];
-        } else if (arg == "-o" && i + 1 < argc) {
+        } else if ((arg == "-o") && i + 1 < argc) {
             outputFileName = argv[++i];
+        } else if (arg == "-d") {
+            debugMode = true;
         } else {
             // 在初始化logger之前不能使用spdlog
             std::cerr << "错误: 无效的参数 '" << arg << "'\n";
@@ -75,8 +79,8 @@ int main(int argc, char* argv[]) {
     }
     std::filesystem::create_directories(logDirPath);
     
-    // 初始化日志系统
-    initLogger(logFileName);
+    // 初始化日志系统，传入调试模式标志
+    initLogger(logFileName, debugMode);
     
     // 检查必需的输入文件参数
     if (inputFileName.empty()) {
@@ -114,16 +118,7 @@ int main(int argc, char* argv[]) {
     auto pascalCode = oss.str();
     inputFile.close();
 
-    // 转储Pascal源代码
-    std::filesystem::path pascalDumpPath = logDirPath / "pascal.pas";
-    std::ofstream pascalDump(pascalDumpPath);
-    if (pascalDump) {
-        pascalDump << pascalCode;
-        pascalDump.close();
-        spdlog::debug("Pascal源代码已转储到: {}", pascalDumpPath.string());
-    } else {
-        spdlog::warn("无法转储Pascal源代码到: {}", pascalDumpPath.string());
-    }
+
 
     // **2️⃣ 调用 Pascal 解析器**
     PascalParser parser;
@@ -144,16 +139,6 @@ int main(int argc, char* argv[]) {
             // 写入主输出文件
             outputFile << cCode->output.str() << std::endl;
             
-            // 转储C代码
-            std::filesystem::path cDumpPath = logDirPath / "output.c";
-            std::ofstream cDump(cDumpPath);
-            if (cDump) {
-                cDump << cCode->output.str() << std::endl;
-                cDump.close();
-                spdlog::debug("C代码已转储到: {}", cDumpPath.string());
-            } else {
-                spdlog::warn("无法转储C代码到: {}", cDumpPath.string());
-            }
         }
         
         spdlog::info("转换完成: '{}' -> '{}'", inputFileName, outputFileName);
