@@ -14,8 +14,8 @@ void write_float(float x)    { printf("%f", x); }
 
 void write_char(char x)      { putchar(x); }
 void write_cstr(const char* s) { printf("%s", s); }
-
-void write_double(double x) { 
+void write_double_short(double x) { printf("%.6f", x); }
+void write_double_long(double x) { 
     // 使用E科学计数法，但自行处理指数部分
     char buffer[64];
     sprintf(buffer, " %.16E", x);
@@ -44,7 +44,7 @@ void write_double(double x) {
     int: write_int, \
     long long: write_longlong, \
     float: write_float, \
-    double: write_double, \
+    double: write_double_short, \
     char: write_char, \
     char*: write_cstr, \
     const char*: write_cstr \
