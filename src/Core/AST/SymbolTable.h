@@ -22,7 +22,7 @@ public:
     std::string type;
     
     SymbolInfo(SymbolType sType, std::string sName, std::string strType)
-        : symbolType(sType), name(std::move(sName)), type(std::move(strType)) {}
+        : symbolType(sType), name(sName), type(strType) {}
     
     virtual ~SymbolInfo() = default;
 };
@@ -54,9 +54,11 @@ class FunctionInfo : public SymbolInfo {
 public:
 
     std::vector<ParameterInfo> parameters; // 修改为新的参数结构
-    
-    FunctionInfo(std::string name, std::string returnType)
-        : SymbolInfo(SymbolType::Function, std::move(name), std::move(returnType)) {}
+    std::string returnType;
+    std::string return_expr_identity;
+    FunctionInfo(std::string _name, std::string _returnType)
+        : SymbolInfo(SymbolType::Function, _name, _returnType),
+          returnType(_returnType) {}
     
     // 添加参数的便捷方法
     void addParameter(const std::string& name, const std::string& type, bool isRef = false) {

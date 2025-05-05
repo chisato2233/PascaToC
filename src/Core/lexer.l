@@ -2,12 +2,14 @@
 %option nodefault
 %option nounput
 %option noinput
+%option caseless
 
 %{
 #include "parser.tab.h"
 
 // Token记录结构体
 #include "Header.h"
+#include <ctype.h>  // 为tolower函数
 #define YY_USER_ACTION \
     yylloc.first_line = yylloc.last_line; \
     yylloc.first_column = yylloc.last_column; \
@@ -133,6 +135,7 @@ STRING      \'([^\'\\]|\\.)*\'
 "nil"           { record_token(NIL, yytext); return NIL; }
 "write"         { record_token(WRITE, yytext); return WRITE; }
 "read"          { record_token(READ, yytext); return READ; }
+"Break"         { record_token(BREAK, yytext); return BREAK; } 
 
 "integer"       { record_token(INTEGER, yytext); return INTEGER; }
 "real"          { record_token(REAL_TYPE, yytext); return REAL_TYPE; }
@@ -140,8 +143,8 @@ STRING      \'([^\'\\]|\\.)*\'
 "string"        { record_token(STRING_TYPE, yytext); return STRING_TYPE; }
 "char"          { record_token(CHAR, yytext); return CHAR; }
 
-"true"          { yylval.int_val = 1; record_token(BOOL_CONST, yytext); return BOOL_CONST; }
-"false"         { yylval.int_val = 0; record_token(BOOL_CONST, yytext); return BOOL_CONST; }
+"True"          { yylval.int_val = 1; record_token(BOOL_CONST, yytext); return BOOL_CONST; }
+"False"         { yylval.int_val = 0; record_token(BOOL_CONST, yytext); return BOOL_CONST; }
 
 ":="            { record_token(ASSIGN, yytext); return ASSIGN; }
 "+"             { record_token(PLUS, yytext); return PLUS; }
@@ -189,8 +192,14 @@ STRING      \'([^\'\\]|\\.)*\'
                 }
 
 {IDENTIFIER}    {
-                    yylval.cstr_val = strdup(yytext);
-                    record_token(IDENTIFIER, yytext);
+                    // 创建临时缓冲区
+                    char* lowercase = strdup(yytext);
+                    // 转换为小写
+                    for(int i = 0; lowercase[i]; i++) {
+                        lowercase[i] = tolower(lowercase[i]);
+                    }
+                    yylval.cstr_val = lowercase;  // 使用转换后的小写字符串
+                    record_token(IDENTIFIER, yytext);  // 记录原始文本用于调试
                     return IDENTIFIER;
                 }
 

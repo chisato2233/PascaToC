@@ -22,9 +22,24 @@ _VisitDecl_(CCodeGenVisitor,AssignmentStmt){
     // 设置上下文信息，表示下一个表达式是在赋值语句左侧
 
     if(node.variable == CCodeGenVisitor::current_function_name){
-        output<<"return ";
-        node.expr->accept(*this);
-        output << ";";
+        auto function_info = std::static_pointer_cast<FunctionInfo>(
+            GlobalSymbolTable.lookupSymbol(node.variable)
+        );
+
+        if(function_info && function_info->returnType!="void"){
+            if(function_info->return_expr_identity.empty()){
+                auto expr_type = node.expr->getCType();
+                auto identity = node.variable + "_return_expr__";
+                function_info->return_expr_identity = identity;
+                output << node.expr->getCType() << " ";
+            }
+            output<<function_info->return_expr_identity << " = ";
+            node.expr->accept(*this);
+            output << ";";
+        }else{
+            output << "return;";
+        }
+        
     }else{
         bool oldValue = isLeftSideOfAssignment;
         isLeftSideOfAssignment = true;
