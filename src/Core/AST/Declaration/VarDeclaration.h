@@ -78,7 +78,7 @@ _VisitDecl_(LlvmVisitor, VarDeclaration) {
                 baseType;                   // 否则创建普通类型
 
             llvm::Value* varAlloca = builder->CreateAlloca(allocType, nullptr, name);
-            setLLVMValueInfo(name, varAlloca, allocType, node.isRef);
+            setLLVMValueInfo(name, varAlloca, baseType, node.isRef);
             
         }
     }

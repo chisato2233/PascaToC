@@ -104,6 +104,112 @@ _VisitDecl_(CCodeGenVisitor,ForStmt){
     output<<"}\n";
 }
 
+_VisitDecl_(LlvmVisitor, ForStmt) {
+    // 1. 获取循环变量信息
+    const auto* loopVarInfo = getLLVMValueInfo(node.var);
+    if (!loopVarInfo) {
+        spdlog::error("Loop variable not found: {}", node.var);
+        return;
+    }
+    llvm::Value* loopVar = loopVarInfo->value;
+    llvm::Type* loopVarType = loopVarInfo->allocatedType;
+
+    // 2. 计算起始值并赋值给循环变量
+    node.startExpr->accept(*this);
+    llvm::Value* startValue = getLastValue();
+    if (!startValue) {
+        spdlog::error("Invalid start expression in for loop");
+        return;
+    }
+    builder->CreateStore(startValue, loopVar);
+    
+    // 3. 获取当前函数
+    llvm::Function* function = builder->GetInsertBlock()->getParent();
+    
+    // 4. 创建必要的基本块
+    llvm::BasicBlock* loopCondBlock = llvm::BasicBlock::Create(*context, "loop_cond", function);
+    llvm::BasicBlock* loopBodyBlock = llvm::BasicBlock::Create(*context, "loop_body");
+    llvm::BasicBlock* loopIncBlock = llvm::BasicBlock::Create(*context, "loop_inc");
+    llvm::BasicBlock* afterLoopBlock = llvm::BasicBlock::Create(*context, "after_loop");
+    
+    // 5. 跳转到条件检查块
+    builder->CreateBr(loopCondBlock);
+    
+    // 6. 生成条件检查代码
+    builder->SetInsertPoint(loopCondBlock);
+    
+    // 加载循环变量的当前值
+    llvm::Value* currentValue = builder->CreateLoad(loopVarType, loopVar, "current");
+    
+    // 计算结束条件
+    node.endExpr->accept(*this);
+    llvm::Value* endValue = getLastValue();
+    if (!endValue) {
+        spdlog::error("Invalid end expression in for loop");
+        return;
+    }
+    
+    // 根据是to还是downto创建比较
+    llvm::Value* condValue;
+    if (node.isTo) {
+        // to: 检查 current <= end
+        condValue = builder->CreateICmpSLE(currentValue, endValue, "loopcond");
+    } else {
+        // downto: 检查 current >= end
+        condValue = builder->CreateICmpSGE(currentValue, endValue, "loopcond");
+    }
+    
+    // 创建条件分支
+    builder->CreateCondBr(condValue, loopBodyBlock, afterLoopBlock);
+    
+    // 7. 生成循环体代码
+    loopBodyBlock->insertInto(function);
+    builder->SetInsertPoint(loopBodyBlock);
+    
+    // 执行循环体
+    node.body->accept(*this);
+    
+    // 如果循环体没有终止，跳转到增量块
+    if (!builder->GetInsertBlock()->getTerminator()) {
+        builder->CreateBr(loopIncBlock);
+    }
+    
+    // 8. 生成增量代码
+    loopIncBlock->insertInto(function);
+    builder->SetInsertPoint(loopIncBlock);
+    
+    // 加载当前值
+    currentValue = builder->CreateLoad(loopVarType, loopVar, "current_inc");
+    
+    // 根据是to还是downto增加或减少值
+    llvm::Value* nextValue;
+    if (node.isTo) {
+        // to: 增加 current + 1
+        nextValue = builder->CreateAdd(
+            currentValue, 
+            llvm::ConstantInt::get(currentValue->getType(), 1),
+            "next"
+        );
+    } else {
+        // downto: 减少 current - 1
+        nextValue = builder->CreateSub(
+            currentValue, 
+            llvm::ConstantInt::get(currentValue->getType(), 1),
+            "next"
+        );
+    }
+    
+    // 存储新值
+    builder->CreateStore(nextValue, loopVar);
+    
+    // 跳回到条件检查块
+    builder->CreateBr(loopCondBlock);
+    
+    // 9. 设置循环后的插入点
+    afterLoopBlock->insertInto(function);
+    builder->SetInsertPoint(afterLoopBlock);
+}
+
 class CaseElementStmt : public ASTAcceptImpl<CaseElementStmt,Statement> {
 
 public:
@@ -135,6 +241,10 @@ _VisitDecl_(CCodeGenVisitor,CaseElementStmt){
     output<<": ";
     node.stmt->accept(*this);
 }
+
+
+
+
 class CaseStmt : public ASTAcceptImpl<CaseStmt,Statement>  {
 
 public:

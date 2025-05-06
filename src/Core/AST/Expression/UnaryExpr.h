@@ -1,4 +1,3 @@
-
 #pragma once
 #include "ASTBase.h"
 #include "BinaryExpression.h"
@@ -68,4 +67,52 @@ _VisitDecl_(CCodeGenVisitor, UnaryExpr) {
     if (needParentheses) {
         output << ")";
     }
+}
+
+_VisitDecl_(LlvmVisitor, UnaryExpr) {
+    // 先访问操作数
+    node.expr->accept(*this);
+    llvm::Value* operand = getLastValue();
+    if (!operand) {
+        spdlog::error("Invalid operand in unary expression");
+        return;
+    }
+
+    llvm::Value* result = nullptr;
+    switch (node.op) {
+    case UnaryExpr::Not: {
+        if (operand->getType()->isIntegerTy(1)) {
+            // 布尔值的 NOT
+            result = builder->CreateNot(operand, "not");
+        } else {
+            spdlog::error("NOT operation requires boolean operand");
+            return;
+        }
+        break;
+    }
+    case UnaryExpr::Neg: {
+        if (operand->getType()->isIntegerTy()) {
+            // 整数的负号
+            result = builder->CreateNeg(operand, "neg");
+        } else if (operand->getType()->isDoubleTy()) {
+            // 浮点数的负号
+            result = builder->CreateFNeg(operand, "fneg");
+        } else {
+            spdlog::error("Negation requires numeric operand");
+            return;
+        }
+        break;
+    }
+    case UnaryExpr::Pos: {
+        // 正号不需要任何操作，直接使用操作数
+        result = operand;
+        break;
+    }
+    default:
+        spdlog::error("Unknown unary operator");
+        return;
+    }
+
+    setLastValue(result);
+    setLastValueType(operand->getType());
 } 

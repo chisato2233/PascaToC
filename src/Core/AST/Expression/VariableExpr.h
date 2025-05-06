@@ -48,3 +48,43 @@ _VisitDecl_(CCodeGenVisitor,VariableExpr){
         }
     }
 }
+
+_VisitDecl_(LlvmVisitor, VariableExpr) {
+    // 先尝试获取函数信息
+    if (auto* funcInfo = getLLVMFunctionInfo(node.name)) {
+        setLastValue(builder->CreateCall(funcInfo->function, {}));
+        setLastValueType(funcInfo->function->getReturnType());
+        return;
+    }
+
+    // 如果不是函数，则获取变量信息
+    const auto* valueInfo = getLLVMValueInfo(node.name);
+    if (!valueInfo) {
+        spdlog::error("No LLVM value found for: {}", node.name);
+        return;
+    }
+
+    // 处理变量
+    if (valueInfo->isReference) {
+        // 引用类型：先加载指针，再加载值
+        llvm::Value* ptrValue = builder->CreateLoad(
+            valueInfo->allocatedType->getPointerTo(),
+            valueInfo->value,
+            node.name + "_ptr"
+        );
+        setLastValue(builder->CreateLoad(
+            valueInfo->allocatedType,
+            ptrValue,
+            node.name + "_value"
+        ));
+        setLastValueType(valueInfo->allocatedType);
+    } else {
+        // 普通变量：直接加载值
+        setLastValue(builder->CreateLoad(
+            valueInfo->allocatedType,
+            valueInfo->value,
+            node.name + "_value"
+        ));
+        setLastValueType(valueInfo->allocatedType);
+    }
+}

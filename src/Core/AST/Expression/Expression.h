@@ -6,7 +6,8 @@
 #include "BinaryExpression.h"
 #include "UnaryExpr.h"
 
-
+#include "FunctionCall.h"
+#include "ArrayAccessExpr.h"
 class NumberExpr : public ASTAcceptImpl<NumberExpr,Expression> {
 
 public:
@@ -30,7 +31,13 @@ _VisitDecl_(CCodeGenVisitor,NumberExpr){
     output<<node.value;
 }
 
-
+_VisitDecl_(LlvmVisitor,NumberExpr){
+    setLastValue(llvm::ConstantInt::get(
+        llvm::Type::getInt32Ty(*context),
+        node.value,
+        true  // isSigned = true
+    ));
+}
 
 
 class RealExpr : public ASTAcceptImpl<RealExpr,Expression> {
@@ -56,6 +63,13 @@ _VisitDecl_(CCodeGenVisitor,RealExpr){
     char buffer[64];
     snprintf(buffer, sizeof(buffer), "%.16g", node.value);
     output <<"(double)" "("<<buffer<<")";
+}
+
+_VisitDecl_(LlvmVisitor,RealExpr){
+    setLastValue(llvm::ConstantFP::get(
+        llvm::Type::getDoubleTy(*context),
+        node.value
+    ));
 }
 
 
@@ -84,6 +98,13 @@ _VisitDecl_(CCodeGenVisitor,BoolExpr){
     output<<node.value;
 }
 
+_VisitDecl_(LlvmVisitor,BoolExpr){
+    setLastValue(llvm::ConstantInt::get(
+        llvm::Type::getInt1Ty(*context),
+        node.value ? 1 : 0
+    ));
+}
+
 
 
 class StringExpr : public ASTAcceptImpl<StringExpr,Expression> {
@@ -108,6 +129,15 @@ _VisitDecl_(CCodeGenVisitor,StringExpr){
     output<<"\""<<node.value<<"\"";
 }
 
-#include "FunctionCall.h"
-#include "ArrayAccessExpr.h"
+_VisitDecl_(LlvmVisitor,StringExpr){
+    llvm::Constant* strConstant = builder->CreateGlobalStringPtr(
+        node.value,
+        "str",  // 名称前缀
+        0,      // 地址空间
+        module.get()
+    );
+    setLastValue(strConstant);
+}
+
+
 

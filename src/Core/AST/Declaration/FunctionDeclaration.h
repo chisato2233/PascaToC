@@ -253,3 +253,7 @@ public:
 _VisitDecl_(CCodeGenVisitor, ProcedureDeclaration) {
     node.actual_decl.accept(*this);
 }
+
+_VisitDecl_(LlvmVisitor, ProcedureDeclaration) {
+    node.actual_decl.accept(*this);
+}

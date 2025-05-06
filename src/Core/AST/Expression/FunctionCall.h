@@ -130,3 +130,71 @@ _VisitDecl_(CCodeGenVisitor, FunctionCall) {
     output << ")";
 }
 
+_VisitDecl_(LlvmVisitor, FunctionCall) {
+    // 获取函数信息
+    auto* funcInfo = getLLVMFunctionInfo(node.funcName);
+    if (!funcInfo) {
+        spdlog::error("Function not found: {}", node.funcName);
+        return;
+    }
+    llvm::Function* callee = funcInfo->function;
+
+    // 检查参数数量是否匹配
+    if (callee->arg_size() != node.args.size()) {
+        spdlog::error("Argument count mismatch for function {}: expected {}, got {}",
+            node.funcName, callee->arg_size(), node.args.size());
+        return;
+    }
+
+    // 准备参数
+    std::vector<llvm::Value*> args;
+    args.reserve(node.args.size());
+
+    // 获取函数的参数列表
+    auto funcArg = callee->arg_begin();
+
+    for (size_t i = 0; i < node.args.size(); ++i, ++funcArg) {
+        // 访问参数表达式
+        node.args[i]->accept(*this);
+        llvm::Value* argValue = getLastValue();
+        if (!argValue) {
+            spdlog::error("Failed to evaluate argument {} for function {}", i, node.funcName);
+            return;
+        }
+
+        // 如果参数是引用类型，我们需要传递指针
+        if (funcArg->getType()->isPointerTy()) {
+            // 确保我们有一个可以取地址的值
+            if (!argValue->getType()->isPointerTy()) {
+                spdlog::error("Cannot pass non-reference argument to reference parameter");
+                return;
+            }
+            args.push_back(argValue);
+        } else {
+            // 对于值传递，如果类型不匹配，尝试进行隐式转换
+            if (argValue->getType() != funcArg->getType()) {
+                if (funcArg->getType()->isDoubleTy() && argValue->getType()->isIntegerTy()) {
+                    // 整数转浮点数
+                    argValue = builder->CreateSIToFP(argValue, funcArg->getType(), "int_to_double");
+                } else if (funcArg->getType()->isIntegerTy() && argValue->getType()->isDoubleTy()) {
+                    // 浮点数转整数
+                    argValue = builder->CreateFPToSI(argValue, funcArg->getType(), "double_to_int");
+                }
+            }
+            args.push_back(argValue);
+        }
+    }
+
+    // 创建函数调用
+    llvm::Value* result = builder->CreateCall(callee, args);
+
+    // 如果函数返回void，result将是nullptr
+    if (!callee->getReturnType()->isVoidTy()) {
+        setLastValue(result);
+        setLastValueType(callee->getReturnType());
+    } else {
+        setLastValue(nullptr);
+        setLastValueType(nullptr);
+    }
+}
+

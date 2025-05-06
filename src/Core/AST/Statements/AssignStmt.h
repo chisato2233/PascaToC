@@ -71,4 +71,63 @@ _VisitDecl_(CCodeGenVisitor,AssignmentStmt){
     }
 }
 
+_VisitDecl_(LlvmVisitor, AssignmentStmt) {
+    // 检查是否是为函数的返回值赋值
+    if (node.variable == currentFunction->getName().str()) {
+        // 当前函数的返回值赋值
+        llvm::AllocaInst* returnValue = currentReturnValue;
+        if (!returnValue) {
+            spdlog::error("No return value allocated for function {}", node.variable);
+            return;
+        }
+
+        // 计算右侧表达式的值
+        node.expr->accept(*this);
+        llvm::Value* exprValue = getLastValue();
+        if (!exprValue) {
+            spdlog::error("Failed to evaluate return expression");
+            return;
+        }
+
+        // 存储值到返回变量
+        builder->CreateStore(exprValue, returnValue);
+    } else {
+        // 普通变量赋值
+        // 设置上下文标志，表示是赋值语句左侧
+        bool oldValue = isLeftHandSide;
+        isLeftHandSide = true;
+
+        // 获取左侧变量信息
+        const auto* valueInfo = getLLVMValueInfo(node.variable);
+    
+        // 普通变量处理
+        llvm::Value* targetPtr = valueInfo->value;
+        llvm::Type* targetType = valueInfo->allocatedType;
+        // 处理引用类型 - 透明指针设计下的调整
+        if (valueInfo->isReference) {
+            // 如果是引用，我们需要先加载指针值
+            targetPtr = builder->CreateLoad(targetType->getPointerTo(), targetPtr, node.variable + "_ref");
+        }
+        
+        // 恢复上下文标志
+        isLeftHandSide = false;
+        
+        // 计算右侧表达式的值
+        node.expr->accept(*this);
+        llvm::Value* exprValue = getLastValue();
+        if (!exprValue) {
+            spdlog::error("Failed to evaluate expression in assignment");
+            isLeftHandSide = oldValue;
+            return;
+        }
+        
+            // 存储值到目标
+        builder->CreateStore(exprValue, targetPtr);
+        
+        
+        // 恢复原始上下文
+        isLeftHandSide = oldValue;
+    }
+}
+
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Expression.h"
+#include <llvm/IR/Value.h>
 
 // 数组访问表达式
 class ArrayAccessExpr : public ASTAcceptImpl<ArrayAccessExpr, Expression> {
@@ -83,4 +84,69 @@ _VisitDecl_(CCodeGenVisitor, ArrayAccessExpr) {
         index->accept(*this);
         output << "]";
     }
-} 
+}
+
+_VisitDecl_(LlvmVisitor, ArrayAccessExpr) {
+    //----------------------------------------------------------------------
+    // 1) 取数组起始指针 & 元素 Pascal 类型
+    //----------------------------------------------------------------------
+    llvm::Value* arrayPtr = nullptr;
+    llvm::Type* elemType = nullptr;
+
+    if (node.isNestedAccess) {               // 形如 a[i][j]
+        node.array->accept(*this);
+        arrayPtr     = getLastValue();
+        elemType  = getLastValueType();
+    } else {                                 // 顶层标识符
+        const auto* vi = getLLVMValueInfo(node.arrayName);
+        if (!vi) {
+            spdlog::error("Array not found: {}", node.arrayName);
+            return;
+        }
+        arrayPtr    = vi->value;
+        elemType = vi->allocatedType;
+    }
+
+    if (!arrayPtr) {
+        spdlog::error("Failed to get array pointer");
+        return;
+    }
+
+    std::vector<llvm::Value*> gepIdx;
+    gepIdx.push_back(llvm::ConstantInt::get(llvm::Type::getInt32Ty(*context), 0));
+
+    for (const auto& idxExpr : node.indices) {
+        idxExpr->accept(*this);
+        llvm::Value* idx = getLastValue();
+        if (!idx) {
+            spdlog::error("Failed to evaluate array index");
+            return;
+        }
+        if (!idx->getType()->isIntegerTy())
+            idx = builder->CreateFPToSI(idx,
+                     llvm::Type::getInt32Ty(*context), "idx_to_int");
+        gepIdx.push_back(idx);
+    }
+
+
+    while (llvm::isa<llvm::ArrayType>(elemType) && gepIdx.size() > 1) {
+        elemType = llvm::cast<llvm::ArrayType>(elemType)->getElementType();
+    }
+
+
+    llvm::Value* elementPtr =
+        builder->CreateInBoundsGEP(elemType, arrayPtr, gepIdx, "arr.elem.ptr");
+
+    //----------------------------------------------------------------------
+    // 5) 左值 / 右值
+    //----------------------------------------------------------------------
+    if (isLeftHandSide) {
+        setLastValue(elementPtr);
+        setLastValueType(elemType);
+    } else {
+        llvm::Value* loaded =
+            builder->CreateLoad(elemType, elementPtr, "arr.elem");
+        setLastValue(loaded);
+        setLastValueType(elemType);
+    }
+}

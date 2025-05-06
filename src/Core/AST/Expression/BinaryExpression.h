@@ -196,3 +196,136 @@ _VisitDecl_(CCodeGenVisitor, BinaryExpr) {
     }
 }
 
+_VisitDecl_(LlvmVisitor, BinaryExpr) {
+    // 先访问左右操作数
+    node.lhs->accept(*this);
+    llvm::Value* left = getLastValue();
+    node.rhs->accept(*this);
+    llvm::Value* right = getLastValue();
+
+    if (!left || !right) {
+        spdlog::error("Invalid operands in binary expression");
+        return;
+    }
+
+    llvm::Value* result = nullptr;
+    bool isFloatingPoint = left->getType()->isDoubleTy() || right->getType()->isDoubleTy();
+
+    // 如果一个操作数是浮点数，需要将另一个操作数转换为浮点数
+    if (isFloatingPoint) {
+        if (!left->getType()->isDoubleTy()) {
+            left = builder->CreateSIToFP(left, llvm::Type::getDoubleTy(*context), "cast_to_double");
+        }
+        if (!right->getType()->isDoubleTy()) {
+            right = builder->CreateSIToFP(right, llvm::Type::getDoubleTy(*context), "cast_to_double");
+        }
+    }
+
+    switch (node.op) {
+    case BinaryExpr::Plus:
+        result = isFloatingPoint ? 
+            builder->CreateFAdd(left, right, "fadd") :
+            builder->CreateAdd(left, right, "add");
+        break;
+
+    case BinaryExpr::Minus:
+        result = isFloatingPoint ? 
+            builder->CreateFSub(left, right, "fsub") :
+            builder->CreateSub(left, right, "sub");
+        break;
+
+    case BinaryExpr::Multiply:
+        result = isFloatingPoint ? 
+            builder->CreateFMul(left, right, "fmul") :
+            builder->CreateMul(left, right, "mul");
+        break;
+
+    case BinaryExpr::Divide:
+        result = isFloatingPoint ? 
+            builder->CreateFDiv(left, right, "fdiv") :
+            builder->CreateSDiv(left, right, "div");
+        break;
+
+    case BinaryExpr::Div:  // Pascal整数除法
+        if (!isFloatingPoint) {
+            result = builder->CreateSDiv(left, right, "div");
+        } else {
+            spdlog::error("DIV operator requires integer operands");
+            return;
+        }
+        break;
+
+    case BinaryExpr::Mod:
+        if (!isFloatingPoint) {
+            result = builder->CreateSRem(left, right, "mod");
+        } else {
+            spdlog::error("MOD operator requires integer operands");
+            return;
+        }
+        break;
+
+    // 比较运算
+    case BinaryExpr::Equal:
+        result = isFloatingPoint ?
+            builder->CreateFCmpOEQ(left, right, "fcmp_eq") :
+            builder->CreateICmpEQ(left, right, "icmp_eq");
+        break;
+
+    case BinaryExpr::NotEqual:
+        result = isFloatingPoint ?
+            builder->CreateFCmpONE(left, right, "fcmp_ne") :
+            builder->CreateICmpNE(left, right, "icmp_ne");
+        break;
+
+    case BinaryExpr::Less:
+        result = isFloatingPoint ?
+            builder->CreateFCmpOLT(left, right, "fcmp_lt") :
+            builder->CreateICmpSLT(left, right, "icmp_lt");
+        break;
+
+    case BinaryExpr::LessEqual:
+        result = isFloatingPoint ?
+            builder->CreateFCmpOLE(left, right, "fcmp_le") :
+            builder->CreateICmpSLE(left, right, "icmp_le");
+        break;
+
+    case BinaryExpr::Greater:
+        result = isFloatingPoint ?
+            builder->CreateFCmpOGT(left, right, "fcmp_gt") :
+            builder->CreateICmpSGT(left, right, "icmp_gt");
+        break;
+
+    case BinaryExpr::GreaterEqual:
+        result = isFloatingPoint ?
+            builder->CreateFCmpOGE(left, right, "fcmp_ge") :
+            builder->CreateICmpSGE(left, right, "icmp_ge");
+        break;
+
+    // 逻辑运算
+    case BinaryExpr::And:
+        if (left->getType()->isIntegerTy(1) && right->getType()->isIntegerTy(1)) {
+            result = builder->CreateAnd(left, right, "and");
+        } else {
+            spdlog::error("AND operator requires boolean operands");
+            return;
+        }
+        break;
+
+    case BinaryExpr::Or:
+        if (left->getType()->isIntegerTy(1) && right->getType()->isIntegerTy(1)) {
+            result = builder->CreateOr(left, right, "or");
+        } else {
+            spdlog::error("OR operator requires boolean operands");
+            return;
+        }
+        break;
+
+    default:
+        spdlog::error("Unknown binary operator");
+        return;
+    }
+
+    setLastValue(result);
+    setLastValueType(result->getType());
+}
+
