@@ -6,3 +6,4 @@
 /temp/
 output.md
 pascc
+echo "logs/pascc.log" >> .gitignore
