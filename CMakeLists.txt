@@ -95,6 +95,8 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/src/Core
     ${CMAKE_SOURCE_DIR}/src/Core/AST
+    ${CMAKE_SOURCE_DIR}/src/Core/Visitors
+    ${CMAKE_SOURCE_DIR}/src/Core/Llvm
     ${CMAKE_SOURCE_DIR}/include
 )
 
