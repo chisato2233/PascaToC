@@ -73,11 +73,9 @@ public:
 // 常量符号信息
 class ConstantInfo : public SymbolInfo {
 public:
-    ExprPtr constExpr; // 存储原始表达式
     
-    ConstantInfo(std::string name, std::string type, ExprPtr expr)
-        : SymbolInfo(SymbolType::Constant, std::move(name), std::move(type)),
-          constExpr(std::move(expr)) {}
+    ConstantInfo(std::string name, std::string type)
+        : SymbolInfo(SymbolType::Constant, std::move(name), std::move(type)) {}
 };
 
 

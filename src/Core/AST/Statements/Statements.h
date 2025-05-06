@@ -10,115 +10,15 @@
 
 #include "AssignStmt.h"
 #include "BlockStmt.h"
-
-class CompoundStmt : public ASTAcceptImpl<CompoundStmt,Statement> {
-public:
-    StmtVec statements;
-    std::string get_name() const noexcept override {return "Compound Statement";}
-    
-    explicit CompoundStmt(StmtVec stmts)
-        : statements(std::move(stmts)) {
-        }
-
-    void printAST(int indent = 0) const override {
-        std::string padding = getIndent(indent);
-        spdlog::info("{}+ Compound Statement", padding);
-        
-        for (size_t i = 0; i < statements.size(); i++) {
-            statements[i]->printAST(indent + 1);
-        }
-    }
-};
-
-_VisitDecl_(CCodeGenVisitor,CompoundStmt){
-    for(auto& stmt : node.statements){
-        stmt->accept(*this);
-        output<<"\n";
-    }
-}
-
-
-class IfStmt : public ASTAcceptImpl<IfStmt,Statement> {
-public:
-    
-    std::shared_ptr<Expression> condition;
-    std::shared_ptr<Statement> thenStmt;
-    std::shared_ptr<Statement> elseStmt; // 可能为 nullptr
-    
-    IfStmt(std::shared_ptr<Expression> cond, std::shared_ptr<Statement> thenS, std::shared_ptr<Statement> elseS = nullptr)
-        : condition(std::move(cond)), thenStmt(std::move(thenS)), elseStmt(std::move(elseS)) {
-    }
-
-    std::string get_name() const noexcept override {
-        return "If Statement";
-    }
-
-    void printAST(int indent = 0) const override {
-        std::string padding = getIndent(indent);
-        spdlog::info("{}+ If Statement", padding);
-        
-        spdlog::info("{}  Condition:", padding);
-        condition->printAST(indent + 2);
-        
-        spdlog::info("{}  Then:", padding);
-        thenStmt->printAST(indent + 2);
-        
-        if (elseStmt) {
-            spdlog::info("{}  Else:", padding);
-            elseStmt->printAST(indent + 2);
-        }
-    }
-};
-
-_VisitDecl_(CCodeGenVisitor,IfStmt) {
-    output <<"if (";
-    node.condition->accept(*this);
-    output<<"){\n";
-    
-    node.thenStmt->accept(*this);
-    output<<"}\n";
-    if(node.elseStmt){
-        output<<"else{\n";
-        node.elseStmt->accept(*this);
-        output<<"}\n";
-    }
-}
-
-class WhileStmt : public ASTAcceptImpl<WhileStmt,Statement> {
-public:
-
-    std::shared_ptr<Expression> condition;
-    std::shared_ptr<Statement> body;
-    
-    WhileStmt(std::shared_ptr<Expression> cond, std::shared_ptr<Statement> body)
-        : condition(std::move(cond)), body(std::move(body)) {
-    }
-
-    std::string get_name() const noexcept override {
-        return "While Statement";
-    }
-
-    void printAST(int indent = 0) const override {
-        std::string padding = getIndent(indent);
-        spdlog::info("{}+ While Statement", padding);
-        
-        spdlog::info("{}  Condition:", padding);
-        condition->printAST(indent + 2);
-        
-        spdlog::info("{}  Body:", padding);
-        body->printAST(indent + 2);
-    }
-};
-
-_VisitDecl_(CCodeGenVisitor, WhileStmt) {
-    output << "while (";
-    node.condition->accept(*this);  // 使用 accept 而不是 codeGen
-    output << "){\n";
-    node.body->accept(*this);
-    output << "}\n";
-}
-
-
+#include "IfStmt.h"
+#include "CompoundStmt.h"
+#include "ReadStmt.h"
+#include "WhileStmt.h"
+#include "WriteStmt.h"
+#include "ArrayAssignmentStmt.h"
+#include "EmptyStmt.h"
+#include "FunctionCallStmt.h"
+#include "BreakStmt.h"
 
 class RepeatStmt : public ASTAcceptImpl<RepeatStmt,Statement> {
 
@@ -293,7 +193,9 @@ _VisitDecl_(CCodeGenVisitor, ReturnStmt) {
 
 
 
-
+//#------------------------------------------------------------------------
+// Program AST Begin
+//#------------------------------------------------------------------------
 _VisitDecl_(CCodeGenVisitor, ProgramAST) {
     output << node.environment;
     
@@ -321,10 +223,37 @@ _VisitDecl_(CCodeGenVisitor, ProgramAST) {
 }
 
 
+_VisitDecl_(LlvmVisitor, ProgramAST) {
 
-#include "ReadStmt.h"
-#include "WriteStmt.h"
-#include "ArrayAssignmentStmt.h"
-#include "EmptyStmt.h"
-#include "FunctionCallStmt.h"
-#include "BreakStmt.h"
+    llvm::FunctionType* mainType = llvm::FunctionType::get(
+        llvm::Type::getInt32Ty(*context),  // 返回类型 int
+        false  // 不是可变参数
+    );
+
+    llvm::Function* mainFunction = llvm::Function::Create(
+        mainType,
+        llvm::Function::ExternalLinkage,
+        "main",
+        module.get()
+    );
+
+
+    llvm::BasicBlock* entryBlock = llvm::BasicBlock::Create(
+        *context,
+        "entry",
+        mainFunction
+    );
+    builder->SetInsertPoint(entryBlock);
+
+    node.body->accept(*this);
+    if (!builder->GetInsertBlock()->getTerminator()) {
+        // 返回0
+        builder->CreateRet(llvm::ConstantInt::get(
+            llvm::Type::getInt32Ty(*context), 
+            0
+        ));
+    }
+
+
+
+}

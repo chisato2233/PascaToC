@@ -21,5 +21,6 @@ public:
         else
             this->defaultVisit(n);
     }
+
 };
 

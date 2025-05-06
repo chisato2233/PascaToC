@@ -117,6 +117,124 @@ _VisitDecl_(CCodeGenVisitor, FunctionDeclaration) {
     CCodeGenVisitor::current_function_name = "";
 }
 
+_VisitDecl_(LlvmVisitor, FunctionDeclaration) {
+    // 1. 创建函数类型
+    std::vector<llvm::Type*> paramTypes;
+    for (const auto& param : node.parameters) {
+        llvm::Type* paramType = getllvmType(param.type);
+        if (param.isRef) {
+            paramType = paramType->getPointerTo(); // 引用参数使用指针类型
+        }
+        paramTypes.push_back(paramType);
+    }
+
+    // 获取返回类型
+    llvm::Type* returnType = node.returnType == "void" ? 
+        llvm::Type::getVoidTy(*context) : 
+        getllvmType(node.returnType);
+
+    // 创建函数类型
+    llvm::FunctionType* funcType = llvm::FunctionType::get(
+        returnType,
+        paramTypes,
+        false  // 不是可变参数
+    );
+
+    // 2. 创建函数
+    llvm::Function* function = llvm::Function::Create(
+        funcType,
+        llvm::Function::ExternalLinkage,
+        node.funcName,
+        module.get()
+    );
+
+    // 3. 设置参数名称
+    size_t idx = 0;
+    for (auto& arg : function->args()) {
+        arg.setName(node.parameters[idx].name);
+        idx++;
+    }
+
+    // 4. 创建基本块
+    llvm::BasicBlock* entryBlock = llvm::BasicBlock::Create(
+        *context,
+        "entry",
+        function
+    );
+    builder->SetInsertPoint(entryBlock);
+
+    // 5. 保存当前函数上下文
+    llvm::Function* previousFunction = currentFunction;
+    currentFunction = function;
+
+    // 6. 为参数创建局部变量并存储参数值
+    idx = 0;
+    for (auto& arg : function->args()) {
+        const auto& param = node.parameters[idx];
+        
+        llvm::AllocaInst* alloca = builder->CreateAlloca(
+            arg.getType(),
+            nullptr,
+            param.name + "_local"
+        );
+        
+        // 存储参数值
+        builder->CreateStore(&arg, alloca);
+        
+        // 记录局部变量信息
+        setLLVMValueInfo(param.name, alloca, arg.getType(), param.isRef);
+        
+        idx++;
+    }
+
+    // 7. 如果有返回值，创建返回值变量
+    llvm::AllocaInst* returnValue = nullptr;
+    if (node.returnType != "void") {
+        returnValue = builder->CreateAlloca(
+            returnType,
+            nullptr,
+            "return_value"
+        );
+    }
+
+    // 8. 生成函数体
+    if (node.body) {
+        // 设置返回值变量
+        this->currentReturnValue = returnValue;
+        // 访问函数体
+        node.body->accept(*this);
+    }
+
+    // 9. 确保函数正确返回
+    if (!builder->GetInsertBlock()->getTerminator()) {
+        if (node.returnType == "void") {
+            builder->CreateRetVoid();
+        } else {
+            // 加载并返回返回值
+            llvm::Value* retVal = builder->CreateLoad(
+                returnType,
+                returnValue,
+                "return_value_final"
+            );
+            builder->CreateRet(retVal);
+        }
+    }
+
+    // 10. 恢复之前的函数上下文
+    currentFunction = previousFunction;
+
+    // 11. 记录函数
+    setLLVMFunctionInfo(node.funcName, function);
+}
+
+
+
+
+
+
+
+
+
 // 过程声明节点
 class ProcedureDeclaration : public ASTAcceptImpl<ProcedureDeclaration, Declaration> {
 public:

@@ -17,3 +17,7 @@ _VisitDecl_(CCodeGenVisitor,EmptyStmt){
         output << "/* EmptyStmt */\n";
     }
 }
+
+_VisitDecl_(LlvmVisitor,EmptyStmt){
+    if(node.need_coment){};
+}

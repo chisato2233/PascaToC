@@ -6,7 +6,6 @@
 #include <memory>
 
 #include "VisitorBase.h"
-#include "Core/AST/SymbolTable.h"
 
 class LlvmVisitor : public VisitImplCRTP<LlvmVisitor> {
 private:
@@ -18,13 +17,34 @@ private:
     // 用于存储上一次访问的返回值
     llvm::Value* lastValue;
     
-    // LLVM值符号表：将符号名映射到对应的LLVM Value
-    std::unordered_map<std::string, llvm::Value*> llvmValues;
-    
-    // LLVM函数符号表：将函数名映射到对应的LLVM Function
-    std::unordered_map<std::string, llvm::Function*> llvmFunctions;
+    // 记录LLVM值的类型信息
+    struct LLVMValueInfo {
+        llvm::Value* value;          // LLVM值
+        llvm::Type* allocatedType;   // 分配的实际类型
+        bool isReference;            // 是否是引用类型
+        
 
-    // Pascal类型到LLVM类型的映射
+        LLVMValueInfo(llvm::Value* v = nullptr, llvm::Type* t = nullptr, bool ref = false) 
+            : value(v), allocatedType(t), isReference(ref) {}
+    };
+
+    struct LLVMFunctionInfo {
+        llvm::Function* function;
+
+
+        LLVMFunctionInfo(llvm::Function* f = nullptr)
+            : function(f) {}
+    };
+    
+    std::unordered_map<std::string, LLVMValueInfo> llvmValueInfos;
+    std::unordered_map<std::string, LLVMFunctionInfo> llvmFunctionInfos;
+
+
+public:
+    llvm::Function* currentFunction = nullptr;  // 当前正在处理的函数
+    llvm::AllocaInst* currentReturnValue = nullptr;  // 当前函数的返回值变量
+
+    // C类型到LLVM类型的映射
     llvm::Type* getllvmType(const std::string& cType) {
         if (cType == "long long") {
             return llvm::Type::getInt64Ty(*context);
@@ -39,7 +59,8 @@ private:
         return nullptr;
     }
 
-public:
+
+
     LlvmVisitor(const std::string& moduleName = "pascal_module") 
         : lastValue(nullptr) {
         // 初始化LLVM核心组件
@@ -57,32 +78,7 @@ public:
     llvm::Module& getModule() { return *module; }
     llvm::IRBuilder<>& getBuilder() { return *builder; }
 
-    // LLVM值管理
-    void setLLVMValue(const std::string& name, llvm::Value* value) {
-        llvmValues[name] = value;
-    }
-
-    llvm::Value* getLLVMValue(const std::string& name) {
-        auto it = llvmValues.find(name);
-        if (it != llvmValues.end()) {
-            return it->second;
-        }
-        return nullptr;
-    }
-
-    // LLVM函数管理
-    void setLLVMFunction(const std::string& name, llvm::Function* func) {
-        llvmFunctions[name] = func;
-    }
-
-    llvm::Function* getLLVMFunction(const std::string& name) {
-        auto it = llvmFunctions.find(name);
-        if (it != llvmFunctions.end()) {
-            return it->second;
-        }
-        return nullptr;
-    }
-
+    
     // 创建LLVM变量
     llvm::Value* createVariable(const std::string& name, const std::string& type, bool isGlobal = false) {
         llvm::Type* llvmType = getllvmType(type);
@@ -98,12 +94,12 @@ public:
                 llvm::Constant::getNullValue(llvmType),
                 name
             );
-            setLLVMValue(name, global);
+            setLLVMValueInfo(name, global, llvmType, false);
             return global;
         } else {
             // 创建局部变量
             llvm::Value* alloca = builder->CreateAlloca(llvmType, nullptr, name);
-            setLLVMValue(name, alloca);
+            setLLVMValueInfo(name, alloca, llvmType, false);
             return alloca;
         }
     }
@@ -114,5 +110,29 @@ public:
         llvm::raw_string_ostream os(ir);
         module->print(os, nullptr);
         return ir;
+    }
+
+    void setLLVMValueInfo(const std::string& name, llvm::Value* value, 
+                         llvm::Type* allocType, bool isRef) {
+        llvmValueInfos[name] = LLVMValueInfo(value, allocType, isRef);
+    }
+
+    const LLVMValueInfo* getLLVMValueInfo(const std::string& name) {
+        auto it = llvmValueInfos.find(name);
+        return it != llvmValueInfos.end() ? &it->second : nullptr;
+    }
+
+    void setLLVMFunctionInfo(const std::string& name, llvm::Function* function) {
+        llvmFunctionInfos[name] = LLVMFunctionInfo(function);
+    }
+
+    const LLVMFunctionInfo* getLLVMFunctionInfo(const std::string& name) {
+        auto it = llvmFunctionInfos.find(name);
+        return it != llvmFunctionInfos.end() ? &it->second : nullptr;
+    }
+
+    template<typename NodeType>
+    void visit(NodeType& node) {
+        spdlog::error("No LlvmVisitor method found for node type: {}", typeid(node).name());
     }
 };

@@ -37,3 +37,10 @@ _VisitDecl_(CCodeGenVisitor,BlockStmt){
     node.body->accept(*this);
     output<<"}\n";
 }
+
+_VisitDecl_(LlvmVisitor,BlockStmt){
+    for(auto& decl : node.declarations){
+        decl->accept(*this);
+    }
+    node.body->accept(*this);
+}
