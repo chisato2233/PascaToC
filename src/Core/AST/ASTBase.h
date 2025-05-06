@@ -101,8 +101,7 @@ public:
      * 实现访问者模式的核心方法，允许不同的访问者访问节点
      */
     template<typename Visitor> 
-    auto accept(Visitor&& visitor) ->decltype(auto) {
-        
+    auto accept(Visitor&& visitor) ->decltype(auto) {        
         return _acceptBridge(visitor);
     }
 

@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
-project(PascalToC CXX)
+project(PascalToC C CXX)
 
 # 设置使用Clang编译器
-set(CMAKE_C_COMPILER clang)
-set(CMAKE_CXX_COMPILER clang++)
+set(CMAKE_C_COMPILER /usr/sbin/clang)
+set(CMAKE_CXX_COMPILER /usr/sbin/clang++)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -14,10 +14,28 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-unused-value")
 # 启用导出编译命令，帮助IDE提供代码补全
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# ─────────────────────────────────────────────────────────────────────────────
 # spdlog库
+# ─────────────────────────────────────────────────────────────────────────────
 set(SPDLOG_USE_STATIC_LIBS ON)
 set(SPDLOG_BUILD_SHARED OFF)
 find_package(spdlog REQUIRED)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LLVM配置
+# ─────────────────────────────────────────────────────────────────────────────
+# 查找LLVM包
+find_package(LLVM REQUIRED CONFIG)
+
+# 添加LLVM头文件
+include_directories(${LLVM_INCLUDE_DIRS})
+add_definitions(${LLVM_DEFINITIONS})
+
+# 获取推荐的LLVM编译标志
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${LLVM_CXXFLAGS}")
+
+message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
+message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. 根据平台不同设置 Flex/Bison 可执行文件路径
@@ -106,7 +124,10 @@ add_executable(pascc
 )
 
 # 链接spdlog库到pascc可执行文件
-target_link_libraries(pascc PRIVATE spdlog::spdlog_header_only)
+target_link_libraries(pascc PRIVATE 
+    spdlog::spdlog_header_only
+    LLVM
+)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 6. 设置依赖顺序: 先生成 Parser / Lexer，再编译 compiler

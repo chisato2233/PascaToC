@@ -4,7 +4,11 @@
 #include <stack>
 #include <memory>
 #include <vector>
+#include<memory_resource>
+
 #include "AST/ASTBase.h"
+
+
 // 符号类型
 enum class SymbolType {
     Variable,
@@ -79,42 +83,54 @@ public:
 
 
 
+struct TransparentHash  {
+    using is_transparent = void;
+    size_t operator()(std::string_view sv)      const noexcept { return std::hash<std::string_view>{}(sv); }
+    size_t operator()(const std::string&  s)    const noexcept { return std::hash<std::string>{}(s); }
+};
+struct TransparentEq {
+    using is_transparent = void;
+    bool operator()(std::string_view a, std::string_view b) const noexcept { return a == b; }
+    bool operator()(const  std::string& a, std::string_view b) const noexcept { return a == b; }
+};
 
-// ----------（保持您原有 SymbolInfo / VariableInfo 等定义不变）----------
 
 class SymbolTable {
     using SymbolPtr = std::shared_ptr<SymbolInfo>;
 
-    using Scope = std::unordered_map<
-        std::string, SymbolPtr,
-        std::hash<std::string_view>,
-        std::equal_to<>>;
+    struct PmrScope {
+        inline static std::pmr::monotonic_buffer_resource arena{4096};
+        std::pmr::unordered_map<std::string, SymbolPtr,
+                            TransparentHash,
+                            TransparentEq> table{ &arena };
+        PmrScope() = default;
+    };
 
-    std::vector<Scope> _scopes;
+    std::vector<PmrScope> _scopes;
 
 public:
-    SymbolTable() { enterScope(); }
 
+    SymbolTable() { 
+        _scopes.reserve(10);
+        enterScope(); 
+    }
 
     void enterScope() { _scopes.emplace_back(); }
-
-    void exitScope() {
-        if (_scopes.size() > 1) _scopes.pop_back();
-    }
+    void exitScope()  { if (_scopes.size() > 1) _scopes.pop_back(); }
 
 
     template <typename SymPtr>
     bool addSymbol(SymPtr&& info) {
         auto& cur = _scopes.back();
         auto [it, inserted] =
-            cur.emplace(info->name, std::forward<SymPtr>(info));
+            cur.table.emplace(info->name, std::forward<SymPtr>(info));
         return inserted;
     }
 
 
     SymbolPtr lookupSymbol(std::string_view name) const noexcept {
         for (auto it = _scopes.rbegin(); it != _scopes.rend(); ++it) {
-            if (auto found = it->find(std::string(name)); found != it->end())
+            if (auto found = it->table.find(std::string(name)); found != it->table.end())
                 return found->second;
         }
         return nullptr;
@@ -122,7 +138,7 @@ public:
 
     SymbolPtr lookupSymbolInCurrentScope(std::string_view name) const noexcept {
         const auto& cur = _scopes.back();
-        if (auto it = cur.find(std::string(name)); it != cur.end())
+        if (auto it = cur.table.find(std::string(name)); it != cur.table.end())
             return it->second;
         return nullptr;
     }
