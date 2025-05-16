@@ -1,0 +1,17 @@
+Shape Information:
+Circle:
+  Center: (5.00,5.00)
+  Radius: 2.50
+  Area: 19.63
+
+Rectangle:
+  Top-Left: (0.00,0.00)
+  Bottom-Right: (4.00,3.00)
+  Area: 12.00
+
+Rectangle:
+  Top-Left: (10.00,10.00)
+  Bottom-Right: (15.00,12.00)
+  Area: 10.00
+
+Distance between shapes[2] and shapes[3]: 14.14

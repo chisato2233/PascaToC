@@ -53,8 +53,11 @@ DeclVec* current_declarations = nullptr;
 // 保存当前函数参数的列表
 std::vector<ParameterInfo>* current_parameters = nullptr;
 
-// 在parser头部添加
+
 std::string current_function_name = "";
+
+
+std::vector<RecordFieldInfo>* current_fields = nullptr;
 %}
 
 
@@ -85,7 +88,7 @@ std::string current_function_name = "";
 %token DIV MOD
 %token AND OR NOT
 %token NIL
-%token WRITE READ
+%token WRITE READ WRITELN
 %token INTEGER REAL_TYPE BOOLEAN STRING_TYPE CHAR
 %token ASSIGN PLUS MINUS MULTIPLY DIVIDE
 %token EQUAL NOT_EQUAL LESS LESS_EQUAL GREATER GREATER_EQUAL
@@ -295,6 +298,31 @@ type_declaration_list:
 
 type_declaration:
   IDENTIFIER EQUAL type SEMICOLON
+  {
+    if (strcmp($3, "record") == 0) {
+      // 处理记录类型声明
+      if (current_fields != nullptr) {
+        // 创建记录类型声明节点
+        auto recordTypeDecl = std::make_shared<RecordTypeDeclaration>($1, *current_fields);
+        
+        // 添加到当前声明列表
+        if (current_declarations == nullptr) {
+          current_declarations = new DeclVec();
+        }
+        current_declarations->push_back(recordTypeDecl);
+        
+        // 清理字段列表
+        delete current_fields;
+        current_fields = nullptr;
+      }
+    } else {
+      // 处理其他类型声明
+      // ...
+    }
+    
+    free($1);
+    free($3);
+  }
   ;
 
 var_declarations:
@@ -325,6 +353,7 @@ var_declaration:
   {
     $$ = new DeclPtr(std::make_shared<VarDeclaration>(*($1), $3));
     delete $1;
+    free($3);
   }
   ;
 
@@ -526,10 +555,14 @@ array_type:
   ;
 
 record_type:
-  RECORD field_list END_TOKEN
+  RECORD 
   {
-    // 修复：返回一个字符串表示记录类型
-    $$ = strdup("record"); // 简单返回record字符串表示
+    // 创建新的字段列表容器
+    current_fields = new std::vector<RecordFieldInfo>();
+  }
+  field_list END_TOKEN
+  {
+    $$ = strdup("record");
   }
   ;
 
@@ -540,6 +573,15 @@ field_list:
 
 record_section:
   identifier_list COLON type
+  {
+    // 将字段添加到当前记录类型的字段列表中
+    for (const auto& id : *$1) {
+      current_fields->emplace_back(id, $3);
+    }
+    delete $1;
+    free($3);
+  }
+  | /* 空 */
   ;
 
 range:
@@ -683,6 +725,27 @@ assignment_statement:
     delete (ExprPtr*)$1;
     delete (ExprPtr*)$3;
   }
+  | IDENTIFIER DOT IDENTIFIER ASSIGN expression
+  {
+    auto fieldExpr = std::make_shared<RecordFieldExpr>($1, $3);
+    $$ = new StmtPtr(std::make_shared<FieldAssignmentStmt>(fieldExpr, *((ExprPtr*)$5)));
+    (*$$)->location = @$;
+    free($1);
+    free($3);
+    delete (ExprPtr*)$5;
+  }
+  | factor DOT IDENTIFIER ASSIGN expression
+  {
+    // 处理嵌套字段赋值，如a.b.c := value
+    auto record = *((ExprPtr*)$1);
+    auto fieldExpr = std::make_shared<RecordFieldExpr>(record, $3);
+    $$ = new StmtPtr(std::make_shared<FieldAssignmentStmt>(fieldExpr, *((ExprPtr*)$5)));
+    (*$$)->location = @$;
+    delete (ExprPtr*)$1;
+    free($3);
+    delete (ExprPtr*)$5;
+  }
+  ;
 
 
 if_statement:
@@ -778,7 +841,13 @@ case_element:
 write_statement:
   WRITE LPAREN expression_list RPAREN
   {
-    $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3)));
+    $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3, false)));
+(*$$)->location = @$;
+    delete (ExprVec*)$3;
+  }
+  | WRITELN LPAREN expression_list RPAREN
+  {
+    $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3, true)));
 (*$$)->location = @$;
     delete (ExprVec*)$3;
   }
@@ -1007,6 +1076,21 @@ factor:
   {
     $$ = $1;
 (*$$)->location = @$;
+  }
+  | IDENTIFIER DOT IDENTIFIER
+  {
+    $$ = new ExprPtr(std::make_shared<RecordFieldExpr>($1, $3));
+    (*$$)->location = @$;
+    free($1);
+    free($3);
+  }
+  | factor DOT IDENTIFIER
+  {
+    // 支持嵌套字段访问，如a.b.c
+    $$ = new ExprPtr(std::make_shared<RecordFieldExpr>(*((ExprPtr*)$1), $3));
+    (*$$)->location = @$;
+    delete (ExprPtr*)$1;
+    free($3);
   }
 ;
 

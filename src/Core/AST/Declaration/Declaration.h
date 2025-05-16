@@ -12,3 +12,4 @@
 #include "VarDeclaration.h"
 #include "FunctionDeclaration.h"
 #include "ConstDeclaration.h"
+#include "RecordDeclaration.h"

@@ -1,13 +1,13 @@
 #!/bin/bash
 # 测试目录
-TEST_DIR="open_set"
+TEST_DIR="custom_test"
 # 统计计数
 total=0
 passed=0
 
 # 创建结果目录，使用当前时间戳
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-RESULT_DIR="result/test${TIMESTAMP}"
+RESULT_DIR="result/custom_test${TIMESTAMP}"
 PASS_DIR="$RESULT_DIR/pass"
 FAIL_DIR="$RESULT_DIR/fail"
 mkdir -p "$RESULT_DIR" "$PASS_DIR" "$FAIL_DIR"

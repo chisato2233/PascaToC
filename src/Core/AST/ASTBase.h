@@ -210,6 +210,7 @@ public:
         Boolean,
         Char,
         String,
+        Record,
         Unknown
     };
 

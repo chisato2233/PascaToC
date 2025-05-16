@@ -81,6 +81,58 @@ public:
 
 
 
+// RecordFieldInfo - 记录类型中的字段信息
+class RecordFieldInfo {
+public:
+    std::string name;
+    std::string type;
+    
+    RecordFieldInfo(std::string fieldName, std::string fieldType)
+        : name(std::move(fieldName)), type(std::move(fieldType)) {}
+};
+
+// 类型符号信息
+class TypeInfo : public SymbolInfo {
+public:
+    TypeInfo(std::string name, std::string underlyingType)
+        : SymbolInfo(SymbolType::Type, std::move(name), std::move(underlyingType)) {}
+    
+    virtual ~TypeInfo() = default;
+};
+
+// 记录类型信息
+class RecordTypeInfo : public TypeInfo {
+public:
+    std::vector<RecordFieldInfo> fields;
+    
+    RecordTypeInfo(std::string name, std::vector<RecordFieldInfo> fieldList)
+        : TypeInfo(std::move(name), "record"), fields(std::move(fieldList)) {}
+    
+    // 查找字段定义
+    const RecordFieldInfo* findField(const std::string& fieldName) const {
+        for (const auto& field : fields) {
+            if (field.name == fieldName) {
+                return &field;
+            }
+        }
+        return nullptr;
+    }
+    
+    // 获取字段索引
+    int getFieldIndex(const std::string& fieldName) const {
+        for (size_t i = 0; i < fields.size(); i++) {
+            if (fields[i].name == fieldName) {
+                return static_cast<int>(i);
+            }
+        }
+        return -1;
+    }
+};
+
+
+
+
+
 struct TransparentHash  {
     using is_transparent = void;
     size_t operator()(std::string_view sv)      const noexcept { return std::hash<std::string_view>{}(sv); }
