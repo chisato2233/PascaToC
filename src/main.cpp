@@ -136,15 +136,9 @@ int main(int argc, char* argv[]) {
             auto cCode = std::make_unique<CCodeGenVisitor>();
             root->accept(*cCode);
             
-            auto llvmIr = std::make_unique<LlvmVisitor>();
-            root->accept(*llvmIr);
 
             // 写入主输出文件
             outputFile << cCode->output.str() << std::endl;
-            
-            // 写入 LLVM IR 文件
-            std::ofstream llvmIrFile("output.ll");
-            llvmIrFile << llvmIr->getIR();
         }
         
         spdlog::info("转换完成: '{}' -> '{}'", inputFileName, outputFileName);

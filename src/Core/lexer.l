@@ -246,7 +246,6 @@ const char* get_token_name(int token_type) {
         case PROGRAM: return "PROGRAM";
         case BEGIN_TOKEN: return "BEGIN";
         case END_TOKEN: return "END";
-        // 可以继续添加其他token...
         default: return "UNKNOWN";
     }
 }
