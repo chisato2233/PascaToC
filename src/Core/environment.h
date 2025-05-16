@@ -7,6 +7,7 @@
 constexpr std::string_view ENVIRONMENT_H = R"(
 #include <stdio.h> 
 #include <string.h>
+#include <math.h>
 
 void write_int(int x)        { printf("%d", x); }
 void write_longlong(long long x)        { printf("%lld", x); }
@@ -50,9 +51,6 @@ void write_double_long(double x) {
     const char*: write_cstr \
 )(x)
 
-
-#define writeln(x) do { write(x); putchar('\n'); } while(0)
-
 // 为不同类型实现read函数
 void read_int(int* x)        { scanf("%d", x); }
 void read_longlong(long long* x)        { scanf("%lld", x); }
@@ -92,5 +90,7 @@ void read_cstr(char* s, int max_len) {
 int mod(int a, int m) {
     return a % m;
 }
+
+double sqr(double x) { return x * x; }
 
 )";

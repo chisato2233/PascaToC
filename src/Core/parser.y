@@ -442,15 +442,16 @@ function_declaration:
       // 创建函数声明节点
       auto funcDecl = std::make_shared<FunctionDeclaration>($2, $5, params, funcBody);
       funcDecl->location = @$;
-      // 确保current_declarations存在
+      
+      // 确保顶层声明列表存在
       if (current_declarations == nullptr) {
-        spdlog::debug("创建新的声明列表用于函数{}", $2);
+        spdlog::debug("创建新的声明列表用于顶层声明");
         current_declarations = new DeclVec();
       }
       
-      // 添加到当前声明列表
+      // 直接添加到顶层声明列表，而不是嵌套
       current_declarations->push_back(funcDecl);
-      spdlog::debug("添加函数{}到声明列表", $2);
+      spdlog::debug("添加函数{}到顶层声明列表", $2);
       
       // 释放内存
       free($2);
@@ -842,14 +843,19 @@ write_statement:
   WRITE LPAREN expression_list RPAREN
   {
     $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3, false)));
-(*$$)->location = @$;
+    (*$$)->location = @$;
     delete (ExprVec*)$3;
   }
   | WRITELN LPAREN expression_list RPAREN
   {
     $$ = new StmtPtr(std::dynamic_pointer_cast<Statement>(std::make_shared<WriteStmt>(*$3, true)));
-(*$$)->location = @$;
+    (*$$)->location = @$;
     delete (ExprVec*)$3;
+  }
+  | WRITELN 
+  {
+    $$ = new StmtPtr(std::make_shared<WriteStmt>(ExprVec(), true));
+    (*$$)->location = @$;
   }
   ;
 

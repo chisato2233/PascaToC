@@ -1,0 +1,20 @@
+Counter: 1, Sum: 1
+Counter: 2, Sum: 3
+Counter: 3, Sum: 6
+Counter: 4, Sum: 10
+Counter: 5, Sum: 15
+Counter: 6, Sum: 21
+Counter: 7, Sum: 28
+Counter: 8, Sum: 36
+Counter: 9, Sum: 45
+Counter: 10, Sum: 55
+Final sum: 55
+Outer loop: 1
+  Inner loop: 1
+  Inner loop: 2
+Outer loop: 2
+  Inner loop: 1
+  Inner loop: 2
+Outer loop: 3
+  Inner loop: 1
+  Inner loop: 2

@@ -87,7 +87,7 @@ for pas_file in "$TEST_DIR"/*.pas; do
         convert_status="成功"
         
         # 利用 clang 编译生成的 C 文件
-        clang "$base.c" -o "$base"
+        clang "$base.c" -o "$base" -lm
         if [ $? -ne 0 ]; then
             echo "  编译 $base.c 失败"
             compile_status="失败"

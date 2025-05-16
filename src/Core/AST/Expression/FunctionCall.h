@@ -47,84 +47,97 @@ public:
 };
 
 _VisitDecl_(CCodeGenVisitor, FunctionCall) {
-    output << node.funcName << "(";
-    
     // 获取函数信息，了解哪些参数是引用参数
     auto funcInfo = GlobalSymbolTable.lookupSymbol(node.funcName);
+    bool isStdLib = false;
+    
     if(!funcInfo){
-        spdlog::error("函数{}不存在", node.funcName);
-        return;
-    }
-    std::vector<ParameterInfo>* paramInfos = nullptr;
-    
-    if (funcInfo && (funcInfo->symbolType == SymbolType::Function || 
-                    funcInfo->symbolType == SymbolType::Procedure))
-    {
-        auto funcSymbol = std::static_pointer_cast<FunctionInfo>(funcInfo);
-        paramInfos = &funcSymbol->parameters;
+        node.printCurrentLocation(spdlog::level::warn);
+        spdlog::warn("函数{}不存在于符号表中，假设为标准库函数", node.funcName);
+        isStdLib = true;
     }
     
-    if(!paramInfos || paramInfos->size() != node.args.size()){
-        spdlog::error("函数{}的参数数量与实际参数数量不匹配", node.funcName);
-        return;
-    }
-    // 处理参数
-    for (size_t i = 0; i < node.args.size(); ++i) {
-        if (i > 0) output << ", ";
+    output << node.funcName << "(";
+    
+    // 对于标准库函数，简化参数处理
+    if (isStdLib) {
+        // 简单地生成所有参数，不考虑引用
+        for (size_t i = 0; i < node.args.size(); ++i) {
+            if (i > 0) output << ", ";
+            node.args[i]->accept(*this);
+        }
+    } else {
+        // 原有的复杂参数处理逻辑
+        std::vector<ParameterInfo>* paramInfos = nullptr;
         
-        auto& arg = node.args[i];
-        bool isParamRef = (i < paramInfos->size() && paramInfos->at(i).isRef);
-        
-        // 检查数组访问先处理
-        if (auto arrayAccessExpr = std::dynamic_pointer_cast<ArrayAccessExpr>(arg)) {
-
-            if (isParamRef) {
-                // 引用参数接收数组元素 - 取地址
-                output << "&";
-                arrayAccessExpr->accept(*this);
-            } else {
-                // 非引用参数接收数组元素 - 正常访问
-                arrayAccessExpr->accept(*this);
-            }
-            continue; // 跳过后续处理
+        if (funcInfo->symbolType == SymbolType::Function || 
+            funcInfo->symbolType == SymbolType::Procedure) {
+            auto funcSymbol = std::static_pointer_cast<FunctionInfo>(funcInfo);
+            paramInfos = &funcSymbol->parameters;
         }
         
-        // 检查变量引用类型
-        if (auto varExpr = std::dynamic_pointer_cast<VariableExpr>(arg)) {
-            std::string argName = varExpr->name;
-            auto argInfo = GlobalSymbolTable.lookupSymbol(argName);
-            bool isArgRef = false;
-            
-            if (argInfo && argInfo->symbolType == SymbolType::Variable) {
-                auto varInfo = std::static_pointer_cast<VariableInfo>(argInfo);
-                isArgRef = varInfo->isReference;
-            }
-            
-            if (isParamRef) {
-                // 引用参数
-                if (isArgRef) {
-                    // 引用参数接收引用变量 - 应该去掉默认解引用，直接传递原变量名
-                    output << argName; // 不使用accept()，避免自动添加*
-                } else {
-                    // 引用参数接收普通变量 - 取地址
-                    output << "&" << argName;
-                }
-            } else {
-                // 非引用参数
-                if (isArgRef) {
-                    // 非引用参数接收引用变量 - VariableExpr已经添加*，直接使用
-                    varExpr->accept(*this); // 默认会生成*argName
-                } else {
-                    // 普通参数接收普通变量
-                    varExpr->accept(*this);
-                }
-            }
-        } else {
-            if (isParamRef) output << "&(";
-            arg->accept(*this);
-            if (isParamRef) output << ")";
+        if(!paramInfos || paramInfos->size() != node.args.size()){
+            node.printCurrentLocation();
+            spdlog::error("函数{}的参数数量与实际参数数量不匹配", node.funcName);
+            return;
         }
         
+        // 处理参数
+        for (size_t i = 0; i < node.args.size(); ++i) {
+            if (i > 0) output << ", ";
+            
+            auto& arg = node.args[i];
+            bool isParamRef = (i < paramInfos->size() && paramInfos->at(i).isRef);
+            
+            // 检查数组访问先处理
+            if (auto arrayAccessExpr = std::dynamic_pointer_cast<ArrayAccessExpr>(arg)) {
+                if (isParamRef) {
+                    // 引用参数接收数组元素 - 取地址
+                    output << "&";
+                    arrayAccessExpr->accept(*this);
+                } else {
+                    // 非引用参数接收数组元素 - 正常访问
+                    arrayAccessExpr->accept(*this);
+                }
+                continue; // 跳过后续处理
+            }
+            
+            // 检查变量引用类型
+            if (auto varExpr = std::dynamic_pointer_cast<VariableExpr>(arg)) {
+                std::string argName = varExpr->name;
+                auto argInfo = GlobalSymbolTable.lookupSymbol(argName);
+                bool isArgRef = false;
+                
+                if (argInfo && argInfo->symbolType == SymbolType::Variable) {
+                    auto varInfo = std::static_pointer_cast<VariableInfo>(argInfo);
+                    isArgRef = varInfo->isReference;
+                }
+                
+                if (isParamRef) {
+                    // 引用参数
+                    if (isArgRef) {
+                        // 引用参数接收引用变量 - 应该去掉默认解引用，直接传递原变量名
+                        output << argName; // 不使用accept()，避免自动添加*
+                    } else {
+                        // 引用参数接收普通变量 - 取地址
+                        output << "&" << argName;
+                    }
+                } else {
+                    // 非引用参数
+                    if (isArgRef) {
+                        // 非引用参数接收引用变量 - VariableExpr已经添加*，直接使用
+                        varExpr->accept(*this); // 默认会生成*argName
+                    } else {
+                        // 普通参数接收普通变量
+                        varExpr->accept(*this);
+                    }
+                }
+            } else {
+                if (isParamRef) output << "&(";
+                arg->accept(*this);
+                if (isParamRef) output << ")";
+            }
+        }
     }
     
     output << ")";
@@ -133,19 +146,8 @@ _VisitDecl_(CCodeGenVisitor, FunctionCall) {
 _VisitDecl_(LlvmVisitor, FunctionCall) {
     // 获取函数信息
     auto* funcInfo = getLLVMFunctionInfo(node.funcName);
-    if (!funcInfo) {
-        spdlog::error("Function not found: {}", node.funcName);
-        return;
-    }
     llvm::Function* callee = funcInfo->function;
-
-    // 检查参数数量是否匹配
-    if (callee->arg_size() != node.args.size()) {
-        spdlog::error("Argument count mismatch for function {}: expected {}, got {}",
-            node.funcName, callee->arg_size(), node.args.size());
-        return;
-    }
-
+    
     // 准备参数
     std::vector<llvm::Value*> args;
     args.reserve(node.args.size());

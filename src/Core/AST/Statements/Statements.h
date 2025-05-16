@@ -238,8 +238,9 @@ public:
 _VisitDecl_(CCodeGenVisitor,CaseElementStmt){
     output<<"case ";
     node.condition->accept(*this);
-    output<<": ";
+    output<<": \n";
     node.stmt->accept(*this);
+    output<<"break;\n";
 }
 
 

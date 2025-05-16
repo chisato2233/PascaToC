@@ -91,7 +91,7 @@ public:
      * @return 节点的名称字符串
      */
     virtual std::string get_name() const noexcept {return "Default AST Node";}
-    
+
     /**
      * @brief 接受访问者的方法
      * @tparam Visitor 访问者类型
@@ -123,6 +123,10 @@ public:
      */
     std::string getIndent(int level) const {
         return std::string(level * 2, ' ');
+    }
+
+    virtual void printCurrentLocation(spdlog::level::level_enum level = spdlog::level::err) const {
+        spdlog::log(level, "在 第{}行 第{}列", location.first_line, location.first_column);
     }
 
 protected:
