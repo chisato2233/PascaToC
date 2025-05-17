@@ -15,8 +15,8 @@
     #include <string>
     #define YYINITDEPTH  2048      /* 初始栈 */
     #define YYMAXDEPTH  100000     /* 允许的最大深度 */
-
     #include "../AST/AST.h"
+    #include "../ErrorHandler.h"  // 添加错误处理器头文件
 }
 %{
 #include <iostream>
@@ -58,6 +58,8 @@ std::string current_function_name = "";
 
 
 std::vector<RecordFieldInfo>* current_fields = nullptr;
+
+int error_count = 0;  // 错误计数器
 %}
 
 
@@ -95,6 +97,7 @@ std::vector<RecordFieldInfo>* current_fields = nullptr;
 %token PLUS_ASSIGN MINUS_ASSIGN MULTIPLY_ASSIGN DIVIDE_ASSIGN
 %token LPAREN RPAREN LBRACKET RBRACKET
 %token SEMICOLON COLON COMMA DOT DOTDOT
+%token SYNC_POINT
 
 %token <int_val> INTEGER_CONST BOOL_CONST
 %token <real_val> REAL_CONST
@@ -140,6 +143,18 @@ program:
     root->location = @$;
     delete (StmtPtr*)$4;
   }
+  | PROGRAM error SEMICOLON program_block DOT
+  {
+    spdlog::error("程序名称存在错误，继续分析");
+    root = std::make_shared<ProgramAST>("program", *((StmtPtr*)$4));
+    root->location = @$;
+    delete (StmtPtr*)$4;
+  }
+  | error
+  {
+    spdlog::error("程序结构存在严重错误，无法恢复");
+    root = std::make_shared<ProgramAST>("error_program", std::make_shared<BlockStmt>(DeclVec(), std::make_shared<CompoundStmt>(StmtVec())));
+  }
   ;
 
 program_block:
@@ -165,6 +180,12 @@ program_block:
                        std::make_shared<CompoundStmt>(StmtVec())));
       (*$$)->location = @$;;
     }
+  }
+  | BEGIN_TOKEN error END_TOKEN
+  {
+    spdlog::debug("复合语句中存在语法错误，已恢复");
+    $$ = new StmtPtr(std::make_shared<CompoundStmt>(StmtVec()));
+    (*$$)->location = @$;
   }
   ;
 
@@ -355,6 +376,21 @@ var_declaration:
     delete $1;
     free($3);
   }
+  | identifier_list COLON error SEMICOLON
+  {
+    std::stringstream errMsg;
+    errMsg << "变量";
+    for (size_t i = 0; i < $1->size(); ++i) {
+        if (i > 0) errMsg << ", ";
+        errMsg << (*$1)[i];
+    }
+    errMsg << "的类型无效，使用默认类型'int'";
+    
+    spdlog::error(errMsg.str());
+    
+    $$ = new DeclPtr(std::make_shared<VarDeclaration>(*($1), "int"));
+    delete $1;
+  }
   ;
 
 procedure_declarations:
@@ -460,6 +496,35 @@ function_declaration:
     } catch (const std::exception& e) {
       spdlog::error("创建函数声明时出错: {}", e.what());
     }
+  }
+  | FUNCTION IDENTIFIER formal_parameters COLON error SEMICOLON program_block
+  {
+    spdlog::error("函数{}的返回类型存在错误，使用默认类型'int'", $2);
+    
+    // 创建带有默认返回类型的函数声明
+    current_function_name = $2;
+    auto funcBody = *((StmtPtr*)$7);
+    std::vector<ParameterInfo> params;
+    
+    // 使用当前参数列表
+    if (current_parameters != nullptr) {
+      params = *current_parameters;
+      delete current_parameters;
+      current_parameters = nullptr;
+    }
+    
+    // 创建函数声明节点，使用"int"作为默认返回类型
+    auto funcDecl = std::make_shared<FunctionDeclaration>($2, "int", params, funcBody);
+    funcDecl->location = @$;
+    
+    // 添加到当前声明列表
+    if (current_declarations == nullptr) {
+      current_declarations = new DeclVec();
+    }
+    current_declarations->push_back(funcDecl);
+    
+    free($2);
+    delete (StmtPtr*)$7;
   }
   ;
 
@@ -645,6 +710,12 @@ compound_statement:
 (*$$)->location = @$;
     delete (std::vector<std::shared_ptr<Statement>>*)$2;
   }
+  | BEGIN_TOKEN error END_TOKEN
+  {
+    spdlog::debug("复合语句中存在语法错误，已恢复");
+    $$ = new StmtPtr(std::make_shared<CompoundStmt>(StmtVec()));
+    (*$$)->location = @$;
+  }
   ;
 
 statement_list:
@@ -689,9 +760,9 @@ statement:
     $$ = new StmtPtr(std::make_shared<BreakStmt>()); 
     (*$$)->location = @$;
   }
-  | /* 空语句 */ 
+  | error SEMICOLON
   {
-    // 创建一个空语句节点
+    spdlog::debug("语句中存在语法错误，已恢复");
     $$ = new StmtPtr(std::make_shared<EmptyStmt>());
   }
   ;
@@ -1184,13 +1255,25 @@ array_expression:
   }
   ;
 
+// 同步规则
+sync_point:
+  SEMICOLON
+  | BEGIN_TOKEN
+  | END_TOKEN
+  | error SEMICOLON
+  | error BEGIN_TOKEN
+  | error END_TOKEN
+  ;
+
 %%
 
-void yyerror(const char*s){
-  std::cerr << "Syntax Error: " << s << std::endl;
-  if(parse_result){
-    (*parse_result) += "error: ";
-    (*parse_result) += s;
-    (*parse_result) += "\n";
-  }
+void yyerror(const char* s) {
+    // 使用全局错误处理函数报告错误
+    reportError(s, yylloc.first_line, yylloc.first_column);
+    // 增加错误计数
+    error_count++;
+}
+
+int get_error_count() {
+  return error_count;
 }

@@ -118,6 +118,7 @@ endif()
 # ─────────────────────────────────────────────────────────────────────────────
 add_executable(pascc
     ${CMAKE_SOURCE_DIR}/src/main.cpp
+    ${CMAKE_SOURCE_DIR}/src/Core/ErrorHandler.cpp
     ${CMAKE_SOURCE_DIR}/src/Core/PascalParse.cpp
 
     # Bison / Flex 宏生成的变量
