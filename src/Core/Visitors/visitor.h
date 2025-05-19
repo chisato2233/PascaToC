@@ -7,27 +7,27 @@
 #include "CCodeGenVisitor.h"
 #include "LlvmVisitor.h"
 
-
 using AllVisitors = std::tuple<
         CCodeGenVisitor, 
         LlvmVisitor
 >;
 
-
-template<std::size_t I = 0,
-         typename Tuple,
-         typename Node>
+template<typename Tuple, typename Node>
 inline bool dispatch_tuple(ASTVisitorBase& vb, Node& node)
 {
-    if constexpr (I < std::tuple_size_v<Tuple>) {
-        using Vis = std::tuple_element_t<I, Tuple>;
+    bool handled = false;
 
-        if (auto *real = dynamic_cast<Vis*>(&vb)) {
+    auto tryCast = [&](auto* vis) -> bool {
+        if (auto* real = dynamic_cast<std::decay_t<decltype(*vis)>*>(&vb)) {
             real->visit(node);
-            return true;
+            return handled = true;
         }
-        return dispatch_tuple<I+1, Tuple>(vb, node);
-    } else {
         return false;
-    }
+    };
+
+    std::apply([&](auto&&... dummy) {
+        ( ... || tryCast(static_cast<std::add_pointer_t<std::decay_t<decltype(dummy)>>>(nullptr)) );
+    }, Tuple{});
+
+    return handled;
 }

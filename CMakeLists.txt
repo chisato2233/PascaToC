@@ -98,12 +98,14 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src/Core/Visitors
     ${CMAKE_SOURCE_DIR}/src/Core/Llvm
     ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/3rdparty/CLI11/include
 )
 
 # 仅在 Windows 平台包含 win_flex_bison 目录
 if(WIN32)
     include_directories(
         ${CMAKE_SOURCE_DIR}/3rdparty/win_flex_bison
+
     )
 endif()
 
@@ -132,6 +134,5 @@ target_link_libraries(pascc PRIVATE
     LLVM
 )
 
-# ─────────────────────────────────────────────────────────────────────────────
-# 6. 设置依赖顺序: 先生成 Parser / Lexer，再编译 compiler
-# ─────────────────────────────────────────────────────────────────────────────
+add_subdirectory(3rdparty/CLI11)
+target_link_libraries(pascc PRIVATE CLI11::CLI11)
